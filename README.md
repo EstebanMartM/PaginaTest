@@ -1,6 +1,5 @@
-# Quiz SPA (tipo test)
+# Pagina Test
 
-Abre `index.html` en tu navegador (doble click).
 
 ## Uso
 1) Pulsa **Cargar TXT** y selecciona tu archivo de preguntas.

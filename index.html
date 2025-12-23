@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz SPA</title>
+
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- MathJax (TeX) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true,
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Tu app (solo una vez) -->
+  <script defer src="./app.js"></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">✓</div>
+      <div>
+        <div class="title">Quiz tipo test</div>
+        <div class="subtitle">20 preguntas aleatorias · penalización −1/3</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <label class="btn ghost file-btn">
+        <input id="fileInput" type="file" accept=".txt,text/plain" />
+        Cargar TXT
+      </label>
+      <button id="btnLoadLast" class="btn ghost" type="button" title="Carga la última batería guardada en este navegador">Cargar última</button>
+      <button id="btnStart" class="btn primary" type="button" disabled>Nuevo test (20)</button>
+    </div>
+
+    <!-- Modo de test -->
+    <div class="row" style="gap:10px; align-items:center; flex-wrap:wrap;">
+      <div class="field">
+        <label class="label" for="modeSelect">Modo</label>
+        <select id="modeSelect" class="select">
+          <option value="random" selected>Aleatorio (20)</option>
+          <option value="block">Bloque completo</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="label" for="blockSelect">Bloque</label>
+        <select id="blockSelect" class="select" disabled>
+          <option value="">—</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="card" id="panelQuiz">
+      <div class="card-head">
+        <div class="pill" id="pillState">Sin batería cargada</div>
+        <div class="spacer"></div>
+        <label class="toggle" title="Si está activado, al terminar empieza otro test automáticamente">
+          <input type="checkbox" id="toggleContinuous" />
+          <span>Modo continuo</span>
+        </label>
+      </div>
+
+      <div class="progress">
+        <div class="progress-bar" id="progressBar" style="width:0%"></div>
+      </div>
+
+      <div class="quiz-body" id="quizBody">
+        <div class="empty">
+          <h2>Sube tu TXT de preguntas</h2>
+          <p>El parser está preparado para el formato del archivo que me has pasado.</p>
+          <ul>
+            <li>Bloques con <strong>###Bloque</strong> (opcional)</li>
+            <li>Preguntas con <strong>Pregunta N:</strong></li>
+            <li>Opciones <strong>a)</strong>…<strong>d)</strong></li>
+            <li><strong>Solución: x</strong> y <strong>Justificación:</strong></li>
+          </ul>
+          <p class="muted">Tu batería se guarda localmente (en este navegador) para poder usar “Cargar última”.</p>
+        </div>
+      </div>
+
+      <div class="card-foot" id="quizFooter" hidden>
+        <div class="scoreline">
+          <span id="scoreInline">Puntuación: 0.00</span>
+          <span class="muted" id="countInline">0/20</span>
+        </div>
+        <div class="btnrow">
+          <button id="btnSkip" class="btn ghost" type="button">Omitir</button>
+          <button id="btnSubmit" class="btn primary" type="button" disabled>Responder</button>
+          <button id="btnNext" class="btn" type="button" hidden>Siguiente</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="side">
+      <section class="card">
+        <div class="card-head">
+          <h3>Resumen</h3>
+          <div class="spacer"></div>
+          <button id="btnResetHistory" class="btn danger ghost" type="button">Borrar historial</button>
+        </div>
+
+        <div class="summary">
+          <div class="kpi">
+            <div class="kpi-label">Última nota</div>
+            <div class="kpi-value" id="kpiLast">—</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Mejor nota</div>
+            <div class="kpi-value" id="kpiBest">—</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Media (10 últimos)</div>
+            <div class="kpi-value" id="kpiAvg">—</div>
+          </div>
+        </div>
+
+        <div class="spark-wrap" aria-hidden="true">
+          <svg id="spark" viewBox="0 0 200 40" preserveAspectRatio="none">
+            <polyline id="sparkLine" fill="none" stroke="currentColor" stroke-width="2" points=""></polyline>
+          </svg>
+        </div>
+
+        <div class="history" id="historyList"></div>
+      </section>
+
+      <!-- Panel de revisión -->
+      <section id="reviewPanel" class="review" hidden>
+        <div class="review-head">
+          <div>
+            <div id="reviewTitle" class="review-title">Revisión</div>
+            <div id="reviewMeta" class="review-meta"></div>
+          </div>
+          <button id="btnCloseReview" class="btn">Cerrar</button>
+        </div>
+
+        <div class="review-body">
+          <div id="reviewList" class="review-list"></div>
+          <div id="reviewDetail" class="review-detail">
+            <div class="muted">Selecciona una pregunta para verla aquí.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h3>Atajos</h3>
+        </div>
+        <div class="muted small">
+          <div><kbd>1</kbd>–<kbd>4</kbd> selecciona opción</div>
+          <div><kbd>Enter</kbd> responde / siguiente</div>
+          <div><kbd>Esc</kbd> omite</div>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <span class="muted">SPA local · sin servidor · tus datos se quedan en tu navegador.</span>
+  </footer>
+</body>
+</html>

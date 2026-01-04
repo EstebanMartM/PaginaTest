@@ -19,18 +19,6 @@
   const KEY_PREFS = 'quiz_prefs_v2';
   const KEY_LASTPOS = 'quiz_last_correct_pos_v1'; // id -> pos(0..3) última vez que cayó la correcta
 
-  const KEY_LIBSEL = 'quiz_library_last_v1';
-
-  // =========================
-  // Biblioteca (archivos predeterminados)
-  // =========================
-  // Añade aquí tus .txt guardados en el proyecto (rutas relativas a index.html)
-  // Ejemplo: { id:'ADI_T2', label:'ADI · Tema 2', url:'./baterias/ADI_Tema2.txt' }
-  const LIB_SOURCES = [
-    { id: 'Redes', label: 'Redes', url: './baterias/Redes.txt' },
-  ];
-
-
   // =========================
   // DOM utils
   // =========================
@@ -171,11 +159,6 @@
 
     modeSelect: $('#modeSelect'),
     blockSelect: $('#blockSelect'),
-
-    libSelect: $('#libSelect'),
-    btnLibLoad: $('#btnLibLoad'),
-    btnLibRefresh: $('#btnLibRefresh'),
-    libHint: $('#libHint'),
 
     historyList: $('#historyList'),
     btnResetHistory: $('#btnResetHistory'),
@@ -468,6 +451,14 @@
   }
 
   // =========================
+  // Mobile focus (solo test)
+  // =========================
+  function setMobileQuizFocus(on) {
+    try { document.body.classList.toggle('focus-quiz', !!on); } catch (_) {}
+  }
+
+
+  // =========================
   // History + stats
   // =========================
   function pushAttempt(attempt) {
@@ -675,6 +666,8 @@
   // =========================
   function startQuiz() {
     closeReview();
+
+    setMobileQuizFocus(true);
     if (!state.pool.length) return;
 
     let selectedQuestions = [];
@@ -880,6 +873,8 @@
   }
 
   function finishQuiz() {
+    setMobileQuizFocus(false);
+
     const total = state.quiz.questions.length;
     const { correct, wrong, blank, score, effectivePercent } = computeScore(state.quiz.answers, total);
 
@@ -1003,63 +998,6 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   }
 
   // =========================
-  // Biblioteca (carga por fetch desde rutas del proyecto)
-  // =========================
-  function findLibSource(id) {
-    return (LIB_SOURCES || []).find(s => String(s.id) === String(id));
-  }
-
-  function setLibHint(text) {
-    if (!el.libHint) return;
-    el.libHint.textContent = text || '';
-  }
-
-  function renderLibrarySelect() {
-    if (!el.libSelect) return;
-
-    const prev = localStorage.getItem(KEY_LIBSEL) || '';
-    const sources = Array.isArray(LIB_SOURCES) ? LIB_SOURCES : [];
-
-    el.libSelect.innerHTML =
-      '<option value="">—</option>' +
-      sources.map(s => `<option value="${esc(String(s.id))}">${esc(String(s.label || s.id))}</option>`).join('');
-
-    if (prev && sources.some(s => String(s.id) === String(prev))) {
-      el.libSelect.value = prev;
-    }
-
-    if (el.btnLibLoad) el.btnLibLoad.disabled = !el.libSelect.value;
-
-    if (location.protocol === 'file:') {
-      setLibHint('⚠️ Si abres con doble click (file://), el navegador no deja leer archivos del proyecto. Ábrelo con un servidor local (p.ej. Live Server / python -m http.server).');
-    } else {
-      setLibHint('Carga baterías desde rutas del proyecto (configurable en LIB_SOURCES en app.js).');
-    }
-  }
-
-  async function loadFromUrl(url, label) {
-    if (!url) return;
-    try {
-      setPill(`Cargando… ${label ? label : ''}`.trim());
-      const res = await fetch(url, { cache: 'no-store' });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const raw = await res.text();
-
-      localStorage.setItem(KEY_RAW, raw);
-      const qs = parseQuestionsFromTxt(raw);
-      setPool(qs, true);
-
-      if (el.btnLoadLast) el.btnLoadLast.disabled = false;
-      if (label) setLibHint(`✅ Cargado: ${label}`);
-    } catch (e) {
-      console.error(e);
-      setLibHint(`❌ No he podido leer: ${url}`);
-      setPill('Sin batería cargada');
-    }
-  }
-
-
-  // =========================
   // Events
   // =========================
   if (el.fileInput) {
@@ -1070,33 +1008,6 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
       el.fileInput.value = '';
     });
   }
-
-
-  // Biblioteca
-  function updateLibLoadBtn() {
-    if (!el.libSelect || !el.btnLibLoad) return;
-    el.btnLibLoad.disabled = !el.libSelect.value;
-    if (el.libSelect.value) localStorage.setItem(KEY_LIBSEL, el.libSelect.value);
-  }
-
-  if (el.libSelect) el.libSelect.addEventListener('change', updateLibLoadBtn);
-
-  if (el.btnLibLoad) {
-    el.btnLibLoad.addEventListener('click', () => {
-      const id = el.libSelect ? el.libSelect.value : '';
-      if (!id) return;
-      const src = findLibSource(id);
-      if (!src) return;
-      loadFromUrl(src.url, src.label || src.id);
-    });
-  }
-
-  if (el.btnLibRefresh) {
-    el.btnLibRefresh.addEventListener('click', () => {
-      renderLibrarySelect();
-    });
-  }
-
 
   if (el.btnLoadLast) el.btnLoadLast.addEventListener('click', loadLast);
   if (el.btnStart) el.btnStart.addEventListener('click', startQuiz);
@@ -1190,8 +1101,6 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   // Init
   // =========================
   renderHistory();
-
-  renderLibrarySelect();
 
   if (el.btnLoadLast) el.btnLoadLast.disabled = !localStorage.getItem(KEY_RAW);
 

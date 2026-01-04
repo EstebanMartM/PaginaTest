@@ -23,14 +23,18 @@
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-  <!-- Tu app (solo una vez) -->
+  <!-- Tu app -->
   <script defer src="./app.js"></script>
 </head>
 
 <body>
+  <div class="gradient-bg"></div>
+  
   <header class="topbar">
     <div class="brand">
-      <div class="logo" aria-hidden="true">✓</div>
+      <div class="logo" aria-hidden="true">
+        <span class="logo-icon">✓</span>
+      </div>
       <div>
         <div class="title">Quiz tipo test</div>
         <div class="subtitle">20 preguntas aleatorias · penalización −1/3</div>
@@ -40,10 +44,15 @@
     <div class="actions">
       <label class="btn ghost file-btn">
         <input id="fileInput" type="file" accept=".txt,text/plain" />
-        Cargar TXT
+        📁 Cargar TXT
       </label>
-      <button id="btnLoadLast" class="btn ghost" type="button" title="Carga la última batería guardada en este navegador">Cargar última</button>
-      <button id="btnStart" class="btn primary" type="button" disabled>Nuevo test (20)</button>
+      <button id="btnLoadLast" class="btn ghost" type="button" title="Carga la última batería guardada en este navegador">
+        🔄 Cargar última
+      </button>
+      <button id="btnStart" class="btn primary" type="button" disabled>
+        <span class="btn-shine"></span>
+        🚀 Nuevo test (20)
+      </button>
     </div>
 
     <!-- Modo de test -->
@@ -51,8 +60,8 @@
       <div class="field">
         <label class="label" for="modeSelect">Modo</label>
         <select id="modeSelect" class="select">
-          <option value="random" selected>Aleatorio (20)</option>
-          <option value="block">Bloque completo</option>
+          <option value="random" selected>🎲 Aleatorio (20)</option>
+          <option value="block">📚 Bloque completo</option>
         </select>
       </div>
 
@@ -66,22 +75,25 @@
   </header>
 
   <main class="layout">
-    <section class="card" id="panelQuiz">
+    <section class="card quiz-card">
       <div class="card-head">
         <div class="pill" id="pillState">Sin batería cargada</div>
         <div class="spacer"></div>
         <label class="toggle" title="Si está activado, al terminar empieza otro test automáticamente">
           <input type="checkbox" id="toggleContinuous" />
-          <span>Modo continuo</span>
+          <span>⚡ Modo continuo</span>
         </label>
       </div>
 
       <div class="progress">
-        <div class="progress-bar" id="progressBar" style="width:0%"></div>
+        <div class="progress-bar" id="progressBar" style="width:0%">
+          <div class="progress-shimmer"></div>
+        </div>
       </div>
 
       <div class="quiz-body" id="quizBody">
         <div class="empty">
+          <div class="empty-icon">📝</div>
           <h2>Sube tu TXT de preguntas</h2>
           <p>El parser está preparado para el formato del archivo que me has pasado.</p>
           <ul>
@@ -90,29 +102,37 @@
             <li>Opciones <strong>a)</strong>…<strong>d)</strong></li>
             <li><strong>Solución: x</strong> y <strong>Justificación:</strong></li>
           </ul>
-          <p class="muted">Tu batería se guarda localmente (en este navegador) para poder usar “Cargar última”.</p>
+          <p class="muted">Tu batería se guarda localmente (en este navegador) para poder usar "Cargar última".</p>
         </div>
       </div>
 
       <div class="card-foot" id="quizFooter" hidden>
         <div class="scoreline">
           <span id="scoreInline">Puntuación: 0.00</span>
-          <span class="muted" id="countInline">0/20</span>
+          <div class="score-meta">
+            <span class="muted" id="countInline">0/20</span>
+            <span class="muted" id="timerInline">⏱ 0:00</span>
+          </div>
         </div>
         <div class="btnrow">
-          <button id="btnSkip" class="btn ghost" type="button">Omitir</button>
-          <button id="btnSubmit" class="btn primary" type="button" disabled>Responder</button>
-          <button id="btnNext" class="btn" type="button" hidden>Siguiente</button>
+          <button id="btnSkip" class="btn ghost" type="button">⏭ Omitir</button>
+          <button id="btnSubmit" class="btn primary" type="button" disabled>
+            <span class="btn-shine"></span>
+            ✓ Responder
+          </button>
+          <button id="btnNext" class="btn" type="button" hidden>
+            → Siguiente
+          </button>
         </div>
       </div>
     </section>
 
     <aside class="side">
-      <section class="card">
+      <section class="card stats-card">
         <div class="card-head">
-          <h3>Resumen</h3>
+          <h3>📊 Resumen</h3>
           <div class="spacer"></div>
-          <button id="btnResetHistory" class="btn danger ghost" type="button">Borrar historial</button>
+          <button id="btnResetHistory" class="btn danger ghost" type="button">🗑 Borrar</button>
         </div>
 
         <div class="summary">
@@ -132,21 +152,54 @@
 
         <div class="spark-wrap" aria-hidden="true">
           <svg id="spark" viewBox="0 0 200 40" preserveAspectRatio="none">
-            <polyline id="sparkLine" fill="none" stroke="currentColor" stroke-width="2" points=""></polyline>
+            <defs>
+              <linearGradient id="sparkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#5eead4;stop-opacity:0.3" />
+                <stop offset="50%" style="stop-color:#6366f1;stop-opacity:0.6" />
+                <stop offset="100%" style="stop-color:#fb7185;stop-opacity:0.3" />
+              </linearGradient>
+            </defs>
+            <polyline id="sparkLine" fill="none" stroke="url(#sparkGradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points=""></polyline>
           </svg>
         </div>
 
         <div class="history" id="historyList"></div>
+      
+      <section class="card library-card">
+        <div class="card-head">
+          <h3>📚 Biblioteca</h3>
+        </div>
+
+        <div class="library-body">
+          <div class="field">
+            <label class="label" for="libSelect">Cargar batería</label>
+            <select id="libSelect" class="select">
+              <option value="">—</option>
+            </select>
+          </div>
+
+          <div class="btnrow" style="justify-content:flex-start; margin-top:10px;">
+            <button id="btnLibLoad" class="btn primary" type="button" disabled>
+              <span class="btn-shine"></span>
+              📥 Cargar
+            </button>
+            <button id="btnLibRefresh" class="btn ghost" type="button">↻ Refrescar</button>
+          </div>
+
+          <div id="libHint" class="muted small" style="margin-top:10px;"></div>
+        </div>
       </section>
+
+</section>
 
       <!-- Panel de revisión -->
       <section id="reviewPanel" class="review" hidden>
         <div class="review-head">
           <div>
-            <div id="reviewTitle" class="review-title">Revisión</div>
+            <div id="reviewTitle" class="review-title">🔍 Revisión</div>
             <div id="reviewMeta" class="review-meta"></div>
           </div>
-          <button id="btnCloseReview" class="btn">Cerrar</button>
+          <button id="btnCloseReview" class="btn ghost">✕</button>
         </div>
 
         <div class="review-body">
@@ -157,21 +210,30 @@
         </div>
       </section>
 
-      <section class="card">
+      <section class="card shortcuts-card">
         <div class="card-head">
-          <h3>Atajos</h3>
+          <h3>⌨️ Atajos</h3>
         </div>
-        <div class="muted small">
-          <div><kbd>1</kbd>–<kbd>4</kbd> selecciona opción</div>
-          <div><kbd>Enter</kbd> responde / siguiente</div>
-          <div><kbd>Esc</kbd> omite</div>
+        <div class="shortcuts-grid">
+          <div class="shortcut">
+            <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd>
+            <span>Selecciona opción</span>
+          </div>
+          <div class="shortcut">
+            <kbd>Enter</kbd>
+            <span>Responde / Siguiente</span>
+          </div>
+          <div class="shortcut">
+            <kbd>Esc</kbd>
+            <span>Omite pregunta</span>
+          </div>
         </div>
       </section>
     </aside>
   </main>
 
   <footer class="footer">
-    <span class="muted">SPA local · sin servidor · tus datos se quedan en tu navegador.</span>
+    <span class="muted">🔒 SPA local · sin servidor · tus datos se quedan en tu navegador.</span>
   </footer>
 </body>
 </html>

@@ -869,40 +869,75 @@ kbd{
 
 }
 
+
 /* =========================
-   Mobile: al empezar el test, mostrar SOLO el test
+   Fields / selects (used in topbar + Biblioteca)
+   ========================= */
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  min-width: 220px;
+}
+
+.label{
+  font-size: 12px;
+  color: var(--muted2);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.select{
+  width:100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.18);
+  color: rgba(255,255,255,0.92);
+  outline: none;
+}
+
+.select:focus{
+  border-color: rgba(94,234,212,0.55);
+  box-shadow: 0 0 0 4px rgba(94,234,212,0.10);
+}
+
+.select:disabled{
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+/* Biblioteca */
+.library-body{
+  padding: 16px 18px 18px;
+}
+
+
+/* =========================
+   Móvil: cuando empieza el test, mostrar SOLO el test
+   Se activa con: document.body.classList.add('focus-quiz')
    ========================= */
 @media (max-width: 720px){
   body.focus-quiz .topbar,
   body.focus-quiz .side,
   body.focus-quiz .footer{
-    display:none !important;
+    display: none !important;
   }
 
   body.focus-quiz .layout{
     grid-template-columns: 1fr !important;
-    padding: 0 !important;
     gap: 0 !important;
+    padding: 0 !important;
     max-width: none !important;
   }
 
   body.focus-quiz .quiz-card{
     border-radius: 0 !important;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  body.focus-quiz .card-head,
-  body.focus-quiz .progress,
-  body.focus-quiz .card-foot{
-    flex: 0 0 auto;
   }
 
   body.focus-quiz .quiz-body{
-    flex: 1 1 auto;
-    overflow: auto;
-    min-height: 0; /* necesario para que flex + overflow funcione */
-    padding: 18px 14px;
+    padding-bottom: 18px;
   }
 }

@@ -30,6 +30,7 @@
     { id: 'Redes', label: 'Redes', url: './baterias/Redes.txt' },
   ];
 
+
   // =========================
   // DOM utils
   // =========================
@@ -669,25 +670,12 @@
     `).join('');
   }
 
-
-  // =========================
-  // Mobile "solo test" mode
-  // =========================
-  function setMobileQuizFocus(on) {
-    try {
-      const isMobile = window.matchMedia && window.matchMedia('(max-width: 720px)').matches;
-      if (!isMobile) return;
-      document.body.classList.toggle('focus-quiz', !!on);
-    } catch (_) {}
-  }
-
   // =========================
   // Quiz flow
   // =========================
   function startQuiz() {
     closeReview();
     if (!state.pool.length) return;
-    setMobileQuizFocus(true);
 
     let selectedQuestions = [];
     let modeLabel = 'Aleatorio (20)';
@@ -922,7 +910,6 @@
     pushAttempt(attempt);
 
     setPill('Finalizado');
-    setMobileQuizFocus(false);
     if (el.progressBar) el.progressBar.style.width = '100%';
     if (el.quizFooter) el.quizFooter.hidden = true;
 
@@ -1067,7 +1054,6 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
     } catch (e) {
       console.error(e);
       setLibHint(`❌ No he podido leer: ${url}`);
-      alert('No he podido cargar ese archivo. Si estás en file://, usa un servidor local.');
       setPill('Sin batería cargada');
     }
   }
@@ -1203,8 +1189,6 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   // =========================
   // Init
   // =========================
-  try { document.body.classList.remove('focus-quiz'); } catch (_) {}
-
   renderHistory();
 
   renderLibrarySelect();

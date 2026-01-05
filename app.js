@@ -24,11 +24,17 @@
   // =========================
   // Biblioteca (archivos predeterminados)
   // =========================
-  // Añade aquí tus .txt guardados en el proyecto (rutas relativas a index.html)
-  // Ejemplo: { id:'ADI_T2', label:'ADI · Tema 2', url:'./baterias/ADI_Tema2.txt' }
+ 
   const LIB_SOURCES = [
     { id: 'Redes', label: 'Redes', url: './baterias/Redes.txt' },
   ];
+
+  // =========================
+  // Infinito
+  // =========================
+  const MAX_INFINITE_QUESTIONS = 2000; // límite de seguridad en una sesión infinita
+
+
 
   // =========================
   // DOM utils
@@ -143,7 +149,7 @@
     quiz: null, // { questions, idx, answers, mode, modeLabel, blockKey, blockLabel }
     locked: false,
     selected: null,
-    continuous: false,
+    infinite: false,
 
     mode: 'random', // random | block
     block: '',      // select value
@@ -163,6 +169,7 @@
     btnSubmit: $('#btnSubmit'),
     btnNext: $('#btnNext'),
     btnSkip: $('#btnSkip'),
+    btnFinish: $('#btnFinish'),
     progressBar: $('#progressBar'),
     scoreInline: $('#scoreInline'),
     countInline: $('#countInline'),
@@ -437,8 +444,14 @@
 
     if (state.mode === 'random') {
       if (el.blockSelect) el.blockSelect.disabled = true;
-      el.btnStart.disabled = state.pool.length < 20;
-      el.btnStart.textContent = 'Nuevo test (20)';
+
+      if (state.infinite) {
+        el.btnStart.disabled = state.pool.length < 1;
+        el.btnStart.textContent = 'Iniciar infinito';
+      } else {
+        el.btnStart.disabled = state.pool.length < 20;
+        el.btnStart.textContent = 'Nuevo test (20)';
+      }
       return;
     }
 
@@ -447,12 +460,29 @@
     const count = state.pool.filter(q => (q.block || '') === blockKey).length;
 
     el.btnStart.disabled = !(state.block && count >= 1);
-    el.btnStart.textContent = state.block ? `Nuevo test (Bloque · ${count})` : 'Nuevo test (Bloque)';
+
+    if (state.infinite) {
+      el.btnStart.textContent = state.block ? `Infinito (Bloque · ${count})` : 'Infinito (Bloque)';
+    } else {
+      el.btnStart.textContent = state.block ? `Nuevo test (Bloque · ${count})` : 'Nuevo test (Bloque)';
+    }
   }
 
   function setProgress() {
     if (!el.progressBar) return;
-    if (!state.quiz) { el.progressBar.style.width = '0%'; return; }
+    if (!state.quiz) {
+      el.progressBar.style.width = '0%';
+      el.progressBar.classList.remove('infinite');
+      return;
+    }
+
+    if (state.quiz.infinite) {
+      el.progressBar.style.width = '100%';
+      el.progressBar.classList.add('infinite');
+      return;
+    }
+
+    el.progressBar.classList.remove('infinite');
     const total = state.quiz.questions.length || 1;
     const done = state.quiz.answers.length;
     el.progressBar.style.width = `${clamp((done / total) * 100, 0, 100)}%`;
@@ -460,13 +490,20 @@
 
   function updateFooterInline() {
     if (!state.quiz || !el.scoreInline || !el.countInline) return;
+
+    if (state.quiz.infinite) {
+      const asked = state.quiz.answers.length || 0;
+      const { correct, wrong, blank, score, effectivePercent } = computeScore(state.quiz.answers, Math.max(1, asked));
+      el.scoreInline.textContent = `Puntuación: ${score.toFixed(2)} (✓${correct} ✗${wrong} ·${blank}) · ${effectivePercent.toFixed(1)}%`;
+      el.countInline.textContent = `${state.quiz.idx + 1}/∞`;
+      return;
+    }
+
     const total = state.quiz.questions.length;
     const { correct, wrong, blank, score } = computeScore(state.quiz.answers, total);
     el.scoreInline.textContent = `Puntuación: ${score.toFixed(2)} (✓${correct} ✗${wrong} ·${blank})`;
     el.countInline.textContent = `${Math.min(state.quiz.idx + 1, total)}/${total}`;
-  }
-
-  // =========================
+  }// =========================
   // History + stats
   // =========================
   function pushAttempt(attempt) {
@@ -684,48 +721,105 @@
   // =========================
   // Quiz flow
   // =========================
+
+  function getBasePoolForQuiz() {
+    if (state.mode === 'random') return state.pool.slice();
+    const blockKey = resolveBlockValue(state.block || '');
+    return state.pool.filter(q => (q.block || '') === blockKey);
+  }
+
+  function takeNextBaseQuestion(quiz) {
+    if (!quiz || !quiz.basePool || !quiz.basePool.length) return null;
+    if (quiz.deckPtr >= quiz.deck.length) {
+      quiz.deck = shuffleArray(quiz.basePool);
+      quiz.deckPtr = 0;
+    }
+    const q = quiz.deck[quiz.deckPtr];
+    quiz.deckPtr += 1;
+    return q;
+  }
+
   function startQuiz() {
     closeReview();
     if (!state.pool.length) return;
     setMobileQuizFocus(true);
 
-    let selectedQuestions = [];
-    let modeLabel = 'Aleatorio (20)';
+    const infinite = !!state.infinite;
+
+    let modeLabel = '';
     let blockKey = '';
     let blockLabel = '';
 
-    if (state.mode === 'random') {
-      if (state.pool.length < 20) return;
-      selectedQuestions = sample(state.pool, 20);
+    if (infinite) {
+      const basePool = getBasePoolForQuiz();
+      if (!basePool.length) return;
+
+      if (state.mode === 'block') {
+        blockKey = resolveBlockValue(state.block || '');
+        blockLabel = blockKey || '(Sin bloque)';
+        modeLabel = 'Infinito (Bloque)';
+      } else {
+        modeLabel = 'Infinito (Aleatorio)';
+      }
+
+      const quiz = {
+        questions: [],
+        idx: 0,
+        answers: [],
+        mode: state.mode,
+        modeLabel,
+        blockKey,
+        blockLabel,
+        infinite: true,
+        basePool,
+        deck: shuffleArray(basePool),
+        deckPtr: 0
+      };
+
+      const firstBase = takeNextBaseQuestion(quiz);
+      if (!firstBase) return;
+      quiz.questions.push(makeShuffledQuestionInstance(firstBase));
+      state.quiz = quiz;
     } else {
-      blockKey = resolveBlockValue(state.block || '');
-      selectedQuestions = shuffleArray(state.pool.filter(q => (q.block || '') === blockKey));
-      if (!selectedQuestions.length) return;
-      modeLabel = 'Bloque completo';
-      blockLabel = blockKey || '(Sin bloque)';
+      let selectedQuestions = [];
+
+      if (state.mode === 'random') {
+        if (state.pool.length < 20) return;
+        selectedQuestions = sample(state.pool, 20);
+        modeLabel = 'Aleatorio (20)';
+      } else {
+        blockKey = resolveBlockValue(state.block || '');
+        selectedQuestions = shuffleArray(state.pool.filter(q => (q.block || '') === blockKey));
+        if (!selectedQuestions.length) return;
+        modeLabel = 'Bloque completo';
+        blockLabel = blockKey || '(Sin bloque)';
+      }
+
+      // ✅ reordena opciones por pregunta y recalcula letra correcta
+      const instanced = selectedQuestions.map(q => makeShuffledQuestionInstance(q));
+
+      state.quiz = {
+        questions: instanced,
+        idx: 0,
+        answers: [],
+        mode: state.mode,
+        modeLabel,
+        blockKey,
+        blockLabel,
+        infinite: false
+      };
     }
-
-    // ✅ reordena opciones por pregunta y recalcula letra correcta
-    const instanced = selectedQuestions.map(q => makeShuffledQuestionInstance(q));
-
-    state.quiz = {
-      questions: instanced,
-      idx: 0,
-      answers: [],
-      mode: state.mode,
-      modeLabel,
-      blockKey,
-      blockLabel
-    };
 
     state.locked = false;
     state.selected = null;
 
     if (el.quizFooter) el.quizFooter.hidden = false;
+    if (el.btnFinish) el.btnFinish.hidden = !state.quiz.infinite;
+
     if (el.btnNext) el.btnNext.hidden = true;
     if (el.btnSubmit) { el.btnSubmit.hidden = false; el.btnSubmit.disabled = true; }
 
-    setPill(`En curso · ${instanced.length} preguntas`);
+    setPill(`En curso · ${state.quiz.infinite ? '∞' : state.quiz.questions.length} preguntas`);
     renderQuestion();
     setProgress();
     updateFooterInline();
@@ -836,8 +930,9 @@
     if (el.btnSubmit) el.btnSubmit.hidden = true;
     if (el.btnNext) {
       el.btnNext.hidden = false;
-      el.btnNext.textContent =
-        (state.quiz.idx === state.quiz.questions.length - 1) ? 'Ver resultado' : 'Siguiente';
+      el.btnNext.textContent = state.quiz.infinite
+        ? 'Siguiente'
+        : ((state.quiz.idx === state.quiz.questions.length - 1) ? 'Ver resultado' : 'Siguiente');
     }
 
     typesetMath(el.quizBody);
@@ -878,6 +973,29 @@
       return;
     }
 
+    if (state.quiz.infinite) {
+      if (state.quiz.questions.length >= MAX_INFINITE_QUESTIONS) {
+        finishQuiz('Límite alcanzado');
+        return;
+      }
+
+      const nextBase = takeNextBaseQuestion(state.quiz);
+      if (!nextBase) {
+        finishQuiz('Sin preguntas');
+        return;
+      }
+
+      state.quiz.idx += 1;
+      state.quiz.questions.push(makeShuffledQuestionInstance(nextBase));
+
+      state.locked = false;
+      state.selected = null;
+      renderQuestion();
+      setProgress();
+      updateFooterInline();
+      return;
+    }
+
     if (state.quiz.idx < state.quiz.questions.length - 1) {
       state.quiz.idx += 1;
       state.locked = false;
@@ -891,18 +1009,20 @@
     finishQuiz();
   }
 
-  function finishQuiz() {
-    const total = state.quiz.questions.length;
-    const { correct, wrong, blank, score, effectivePercent } = computeScore(state.quiz.answers, total);
+  function finishQuiz(reason) {
+    if (!state.quiz) return;
+
+    const total = state.quiz.infinite ? state.quiz.answers.length : state.quiz.questions.length;
+    const { correct, wrong, blank, score, effectivePercent } = computeScore(state.quiz.answers, Math.max(1, total));
 
     updatePerQuestionStats(state.quiz.answers);
 
     // Guardamos exactamente lo que vio el usuario (incluye optionsShown con letras ya re-etiquetadas)
-    const items = state.quiz.questions.map((q, idx) => ({
+    const items = state.quiz.questions.slice(0, state.quiz.answers.length).map((q, idx) => ({
       id: q.id,
-      optionsShown: q.options, // <-- orden mostrado en ese intento
+      optionsShown: q.options, // orden mostrado en ese intento
       selected: state.quiz.answers[idx]?.selected ?? null,
-      answer: q.answer,        // <-- correcta en ese intento (ya remapeada)
+      answer: q.answer,        // correcta en ese intento (ya remapeada)
       result: state.quiz.answers[idx]?.result ?? 'blank'
     }));
 
@@ -923,10 +1043,17 @@
 
     setPill('Finalizado');
     setMobileQuizFocus(false);
-    if (el.progressBar) el.progressBar.style.width = '100%';
+
+    if (el.progressBar) {
+      el.progressBar.style.width = '100%';
+      el.progressBar.classList.remove('infinite');
+    }
     if (el.quizFooter) el.quizFooter.hidden = true;
+    if (el.btnFinish) el.btnFinish.hidden = true;
 
     if (!el.quizBody) return;
+
+    const extra = reason ? `\n\nMotivo: ${reason}` : '';
 
     el.quizBody.innerHTML = `
       <div class="q-title">Resultado</div>
@@ -934,7 +1061,7 @@
 
       <div class="btnrow" style="margin-top:14px">
         <button id="btnRestart" class="btn primary" type="button">
-          ${state.mode === 'random' ? 'Nuevo test (20)' : 'Nuevo test (Bloque)'}
+          ${state.infinite ? 'Volver a infinito' : (state.mode === 'random' ? 'Nuevo test (20)' : 'Nuevo test (Bloque)')}
         </button>
       </div>
     `;
@@ -943,7 +1070,7 @@
 Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel}` : ''}
 \n\nCorrectas: ${correct} · Incorrectas: ${wrong} · Omitidas: ${blank}
 \nPuntuación neta: ${score.toFixed(2)} / ${total} (fallo = −1/3)
-\nPorcentaje: ${effectivePercent.toFixed(2)}%
+\nPorcentaje: ${effectivePercent.toFixed(2)}%${extra}
 \n\nTip: haz clic en un intento del historial para revisarlo.
     `.trim();
 
@@ -952,18 +1079,7 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
 
     const btn = $('#btnRestart', el.quizBody);
     if (btn) btn.addEventListener('click', startQuiz);
-
-    if (state.continuous) {
-      document.addEventListener('keydown', function once(e) {
-        if (e.key === 'Enter') {
-          document.removeEventListener('keydown', once);
-          startQuiz();
-        }
-      });
-    }
-  }
-
-  // =========================
+  }// =========================
   // Battery load
   // =========================
   function setPool(questions, saved = false) {
@@ -1117,18 +1233,27 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   if (el.btnSubmit) el.btnSubmit.addEventListener('click', submitAnswer);
   if (el.btnSkip) el.btnSkip.addEventListener('click', skipQuestion);
   if (el.btnNext) el.btnNext.addEventListener('click', nextQuestion);
+  if (el.btnFinish) {
+    el.btnFinish.addEventListener('click', () => {
+      if (!state.quiz) return;
+      if (!state.locked) submitAnswer();
+      finishQuiz('Parado por el usuario');
+    });
+  }
 
   if (el.toggleContinuous) {
     el.toggleContinuous.addEventListener('change', () => {
-      state.continuous = !!el.toggleContinuous.checked;
-      savePrefs({ mode: state.mode, block: state.block, continuous: state.continuous });
+      state.infinite = !!el.toggleContinuous.checked;
+      savePrefs({ mode: state.mode, block: state.block, infinite: state.infinite });
+      updateStartAvailability();
     });
   }
 
   if (el.modeSelect) {
     el.modeSelect.addEventListener('change', () => {
       state.mode = (el.modeSelect.value === 'block') ? 'block' : 'random';
-      savePrefs({ mode: state.mode, block: state.block, continuous: state.continuous });
+      savePrefs({ mode: state.mode, block: state.block, infinite: state.infinite });
+      updateStartAvailability();
       updateStartAvailability();
     });
   }
@@ -1136,7 +1261,8 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   if (el.blockSelect) {
     el.blockSelect.addEventListener('change', () => {
       state.block = el.blockSelect.value;
-      savePrefs({ mode: state.mode, block: state.block, continuous: state.continuous });
+      savePrefs({ mode: state.mode, block: state.block, infinite: state.infinite });
+      updateStartAvailability();
       updateStartAvailability();
     });
   }
@@ -1214,11 +1340,11 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   const prefs = loadPrefs();
   state.mode = (prefs.mode === 'block') ? 'block' : 'random';
   state.block = prefs.block || '';
-  state.continuous = !!prefs.continuous;
+  state.infinite = !!prefs.infinite || !!prefs.continuous;
 
   if (el.modeSelect) el.modeSelect.value = state.mode;
   if (el.blockSelect) el.blockSelect.value = state.block;
-  if (el.toggleContinuous) el.toggleContinuous.checked = state.continuous;
+  if (el.toggleContinuous) el.toggleContinuous.checked = state.infinite;
 
   updateStartAvailability();
 })();

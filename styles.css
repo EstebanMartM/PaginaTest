@@ -941,3 +941,7 @@ kbd{
     padding-bottom: 18px;
   }
 }
+
+
+/* Infinito: barra siempre llena */
+.progress-bar.infinite{width:100% !important;}

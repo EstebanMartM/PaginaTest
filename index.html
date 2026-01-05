@@ -79,9 +79,9 @@
       <div class="card-head">
         <div class="pill" id="pillState">Sin batería cargada</div>
         <div class="spacer"></div>
-        <label class="toggle" title="Si está activado, al terminar empieza otro test automáticamente">
+        <label class="toggle" title="Si está activado, el test no termina: sigue sacando preguntas hasta que lo pares">
           <input type="checkbox" id="toggleContinuous" />
-          <span>⚡ Modo continuo</span>
+          <span>♾️ Modo infinito</span>
         </label>
       </div>
 
@@ -115,6 +115,7 @@
           </div>
         </div>
         <div class="btnrow">
+          <button id="btnFinish" class="btn ghost" type="button" hidden>⏹ Terminar</button>
           <button id="btnSkip" class="btn ghost" type="button">⏭ Omitir</button>
           <button id="btnSubmit" class="btn primary" type="button" disabled>
             <span class="btn-shine"></span>
@@ -164,7 +165,9 @@
         </div>
 
         <div class="history" id="historyList"></div>
-      
+      </section>
+
+
       <section class="card library-card">
         <div class="card-head">
           <h3>📚 Biblioteca</h3>
@@ -189,8 +192,6 @@
           <div id="libHint" class="muted small" style="margin-top:10px;"></div>
         </div>
       </section>
-
-</section>
 
       <!-- Panel de revisión -->
       <section id="reviewPanel" class="review" hidden>

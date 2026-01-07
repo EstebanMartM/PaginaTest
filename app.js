@@ -18,6 +18,7 @@
   const KEY_QSTATS = 'quiz_question_stats_v2';
   const KEY_PREFS = 'quiz_prefs_v2';
   const KEY_LASTPOS = 'quiz_last_correct_pos_v1'; // id -> pos(0..3) última vez que cayó la correcta
+  const KEY_SOURCE = 'quiz_last_source_v1';
 
   const KEY_LIBSEL = 'quiz_library_last_v1';
 
@@ -28,6 +29,11 @@
   const LIB_SOURCES = [
     { id: 'Redes', label: 'Redes', url: './baterias/Redes.txt' },
   ];
+
+  const EXAM_SOURCE_ID = 'Redes';
+  const EXAM_SOURCE_FILE = 'Redes.txt';
+  const EXAM_QUESTIONS = 35;
+  const EXAM_DURATION_MS = 70 * 60 * 1000;
 
   // =========================
   // Infinito
@@ -150,8 +156,11 @@
     locked: false,
     selected: null,
     infinite: false,
+    examUnlocked: false,
+    currentSource: '',
+    timerId: null,
 
-    mode: 'random', // random | block
+    mode: 'random', // random | block | exam
     block: '',      // select value
     review: { open: false, attemptIndex: null }
   };
@@ -173,6 +182,7 @@
     progressBar: $('#progressBar'),
     scoreInline: $('#scoreInline'),
     countInline: $('#countInline'),
+    timerInline: $('#timerInline'),
     toggleContinuous: $('#toggleContinuous'),
 
     modeSelect: $('#modeSelect'),
@@ -197,6 +207,99 @@
     reviewDetail: $('#reviewDetail'),
     btnCloseReview: $('#btnCloseReview'),
   };
+
+  // =========================
+  // Exam + timer helpers
+  // =========================
+  const normalizeSource = (value) => String(value ?? '').trim().toLowerCase();
+
+  function isExamSource(value) {
+    const normalized = normalizeSource(value);
+    return normalized === normalizeSource(EXAM_SOURCE_ID) ||
+      normalized === normalizeSource(EXAM_SOURCE_FILE);
+  }
+
+  function updateExamOption() {
+    if (!el.modeSelect) return;
+    const option = el.modeSelect.querySelector('option[value="exam"]');
+    if (!option) return;
+    option.disabled = !state.examUnlocked;
+    option.textContent = state.examUnlocked
+      ? `Examen (${EXAM_QUESTIONS} · 1h10)`
+      : `Examen (${EXAM_QUESTIONS} · 1h10) - bloqueado`;
+  }
+
+  function ensureModeAllowed() {
+    updateExamOption();
+    if (!state.examUnlocked && state.mode === 'exam') {
+      state.mode = 'random';
+      if (el.modeSelect) el.modeSelect.value = state.mode;
+      savePrefs({ mode: state.mode, block: state.block, infinite: state.infinite });
+    }
+  }
+
+  function setSourceMeta(value) {
+    state.currentSource = String(value || '').trim();
+    if (state.currentSource) localStorage.setItem(KEY_SOURCE, state.currentSource);
+    else localStorage.removeItem(KEY_SOURCE);
+    state.examUnlocked = isExamSource(state.currentSource);
+    ensureModeAllowed();
+  }
+
+  function formatCountdown(ms) {
+    const totalSeconds = Math.max(0, Math.ceil(ms / 1000));
+    const seconds = totalSeconds % 60;
+    const totalMinutes = Math.floor(totalSeconds / 60);
+    const minutes = totalMinutes % 60;
+    const hours = Math.floor(totalMinutes / 60);
+    if (hours > 0) {
+      return `${hours}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+    return `${minutes}:${String(seconds).padStart(2, '0')}`;
+  }
+
+  function setTimerText(text) {
+    if (el.timerInline) el.timerInline.textContent = text;
+  }
+
+  function setTimerIdle() {
+    setTimerText('Tiempo 0:00');
+  }
+
+  function setTimerInfinity() {
+    setTimerText('Tiempo sin límite');
+  }
+
+  function clearQuizTimer() {
+    if (state.timerId) {
+      clearInterval(state.timerId);
+      state.timerId = null;
+    }
+  }
+
+  function startQuizTimer(durationMs) {
+    clearQuizTimer();
+    if (!durationMs) {
+      setTimerIdle();
+      return;
+    }
+
+    const endAt = Date.now() + durationMs;
+
+    const tick = () => {
+      const remaining = endAt - Date.now();
+      if (remaining <= 0) {
+        setTimerText('Tiempo 0:00');
+        clearQuizTimer();
+        if (state.quiz) finishQuiz('Tiempo agotado');
+        return;
+      }
+      setTimerText(`Tiempo ${formatCountdown(remaining)}`);
+    };
+
+    tick();
+    state.timerId = setInterval(tick, 1000);
+  }
 
   // =========================
   // Parser (TXT)
@@ -442,6 +545,29 @@
   function updateStartAvailability() {
     if (!el.btnStart) return;
 
+    ensureModeAllowed();
+
+    const isExam = state.mode === 'exam';
+    const prevInfinite = state.infinite;
+    if (el.toggleContinuous) {
+      if (isExam && state.infinite) {
+        state.infinite = false;
+        el.toggleContinuous.checked = false;
+      }
+      el.toggleContinuous.disabled = isExam;
+    }
+    if (prevInfinite !== state.infinite) {
+      savePrefs({ mode: state.mode, block: state.block, infinite: state.infinite });
+    }
+
+    if (isExam) {
+      if (el.blockSelect) el.blockSelect.disabled = true;
+      const canStart = state.examUnlocked && state.pool.length >= EXAM_QUESTIONS;
+      el.btnStart.disabled = !canStart;
+      el.btnStart.textContent = `Nuevo examen (${EXAM_QUESTIONS} · 1h10)`;
+      return;
+    }
+
     if (state.mode === 'random') {
       if (el.blockSelect) el.blockSelect.disabled = true;
 
@@ -494,14 +620,14 @@
     if (state.quiz.infinite) {
       const asked = state.quiz.answers.length || 0;
       const { correct, wrong, blank, score, effectivePercent } = computeScore(state.quiz.answers, Math.max(1, asked));
-      el.scoreInline.textContent = `Puntuación: ${score.toFixed(2)} (✓${correct} ✗${wrong} ·${blank}) · ${effectivePercent.toFixed(1)}%`;
-      el.countInline.textContent = `${state.quiz.idx + 1}/∞`;
+      el.scoreInline.textContent = `Puntuación: ${score.toFixed(2)} (Aciertos ${correct} · Fallos ${wrong} · Blancas ${blank}) · ${effectivePercent.toFixed(1)}%`;
+      el.countInline.textContent = `${state.quiz.idx + 1}/infinito`;
       return;
     }
 
     const total = state.quiz.questions.length;
     const { correct, wrong, blank, score } = computeScore(state.quiz.answers, total);
-    el.scoreInline.textContent = `Puntuación: ${score.toFixed(2)} (✓${correct} ✗${wrong} ·${blank})`;
+    el.scoreInline.textContent = `Puntuación: ${score.toFixed(2)} (Aciertos ${correct} · Fallos ${wrong} · Blancas ${blank})`;
     el.countInline.textContent = `${Math.min(state.quiz.idx + 1, total)}/${total}`;
   }// =========================
   // History + stats
@@ -550,7 +676,7 @@
     if (el.reviewMeta) {
       el.reviewMeta.textContent =
         `${attempt.mode === 'block' ? `Bloque: ${attempt.blockLabel || attempt.block} · ` : ''}` +
-        `✓${attempt.correct} ✗${attempt.wrong} ·${attempt.blank} · ${attempt.effectivePercent.toFixed(2)}%`;
+        `Aciertos ${attempt.correct} · Fallos ${attempt.wrong} · Blancas ${attempt.blank} · ${attempt.effectivePercent.toFixed(2)}%`;
     }
 
     const items = attempt.items || [];
@@ -560,8 +686,8 @@
         it.result === 'wrong' ? 'bad' : 'blank';
 
       const badgeText =
-        it.result === 'correct' ? '✓' :
-        it.result === 'wrong' ? '✗' : '—';
+        it.result === 'correct' ? 'A' :
+        it.result === 'wrong' ? 'F' : 'B';
 
       const baseQ = state.poolById.get(String(it.id));
       const label = baseQ ? `Pregunta ${baseQ.number}` : `Pregunta ${it.id}`;
@@ -698,7 +824,7 @@
           </div>
           <div class="hist-sub">
             ${h.mode === 'block' ? `Bloque: ${esc(h.blockLabel || h.block)} · ` : ''}
-            ✓${h.correct} ✗${h.wrong} ·${h.blank} · score ${Number(h.score).toFixed(2)}
+            Aciertos ${h.correct} · Fallos ${h.wrong} · Blancas ${h.blank} · puntuación ${Number(h.score).toFixed(2)}
             · <span class="muted">click para revisar</span>
           </div>
         </div>
@@ -723,7 +849,7 @@
   // =========================
 
   function getBasePoolForQuiz() {
-    if (state.mode === 'random') return state.pool.slice();
+    if (state.mode === 'random' || state.mode === 'exam') return state.pool.slice();
     const blockKey = resolveBlockValue(state.block || '');
     return state.pool.filter(q => (q.block || '') === blockKey);
   }
@@ -744,11 +870,13 @@
     if (!state.pool.length) return;
     setMobileQuizFocus(true);
 
-    const infinite = !!state.infinite;
+    clearQuizTimer();
+    const infinite = !!state.infinite && state.mode !== 'exam';
 
     let modeLabel = '';
     let blockKey = '';
     let blockLabel = '';
+    let durationMs = 0;
 
     if (infinite) {
       const basePool = getBasePoolForQuiz();
@@ -771,6 +899,7 @@
         blockKey,
         blockLabel,
         infinite: true,
+        durationMs,
         basePool,
         deck: shuffleArray(basePool),
         deckPtr: 0
@@ -787,6 +916,11 @@
         if (state.pool.length < 20) return;
         selectedQuestions = sample(state.pool, 20);
         modeLabel = 'Aleatorio (20)';
+      } else if (state.mode === 'exam') {
+        if (!state.examUnlocked || state.pool.length < EXAM_QUESTIONS) return;
+        selectedQuestions = sample(state.pool, EXAM_QUESTIONS);
+        modeLabel = `Examen (${EXAM_QUESTIONS} · 1h10)`;
+        durationMs = EXAM_DURATION_MS;
       } else {
         blockKey = resolveBlockValue(state.block || '');
         selectedQuestions = shuffleArray(state.pool.filter(q => (q.block || '') === blockKey));
@@ -795,7 +929,7 @@
         blockLabel = blockKey || '(Sin bloque)';
       }
 
-      // ✅ reordena opciones por pregunta y recalcula letra correcta
+      // Reordena opciones por pregunta y recalcula letra correcta
       const instanced = selectedQuestions.map(q => makeShuffledQuestionInstance(q));
 
       state.quiz = {
@@ -806,7 +940,8 @@
         modeLabel,
         blockKey,
         blockLabel,
-        infinite: false
+        infinite: false,
+        durationMs
       };
     }
 
@@ -819,7 +954,15 @@
     if (el.btnNext) el.btnNext.hidden = true;
     if (el.btnSubmit) { el.btnSubmit.hidden = false; el.btnSubmit.disabled = true; }
 
-    setPill(`En curso · ${state.quiz.infinite ? '∞' : state.quiz.questions.length} preguntas`);
+    if (state.quiz.infinite) {
+      setTimerInfinity();
+    } else if (state.quiz.durationMs) {
+      startQuizTimer(state.quiz.durationMs);
+    } else {
+      setTimerIdle();
+    }
+
+    setPill(`En curso · ${state.quiz.infinite ? 'modo infinito' : `${state.quiz.questions.length} preguntas`}`);
     renderQuestion();
     setProgress();
     updateFooterInline();
@@ -915,10 +1058,10 @@
     if (meta) {
       meta.insertAdjacentHTML('beforeend',
         result === 'correct'
-          ? `<span class="tag ok">✓ Correcta</span>`
+          ? `<span class="tag ok">Correcta</span>`
           : (result === 'wrong'
-              ? `<span class="tag bad">✗ Incorrecta</span>`
-              : `<span class="tag">· Omitida</span>`)
+              ? `<span class="tag bad">Incorrecta</span>`
+              : `<span class="tag">Omitida</span>`)
       );
     }
 
@@ -1012,6 +1155,9 @@
   function finishQuiz(reason) {
     if (!state.quiz) return;
 
+    clearQuizTimer();
+    setTimerIdle();
+
     const total = state.quiz.infinite ? state.quiz.answers.length : state.quiz.questions.length;
     const { correct, wrong, blank, score, effectivePercent } = computeScore(state.quiz.answers, Math.max(1, total));
 
@@ -1061,7 +1207,13 @@
 
       <div class="btnrow" style="margin-top:14px">
         <button id="btnRestart" class="btn primary" type="button">
-          ${state.infinite ? 'Volver a infinito' : (state.mode === 'random' ? 'Nuevo test (20)' : 'Nuevo test (Bloque)')}
+          ${state.infinite
+            ? 'Volver a infinito'
+            : (state.mode === 'random'
+                ? 'Nuevo test (20)'
+                : (state.mode === 'exam'
+                    ? `Nuevo examen (${EXAM_QUESTIONS} · 1h10)`
+                    : 'Nuevo test (Bloque)'))}
         </button>
       </div>
     `;
@@ -1117,6 +1269,7 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
       const raw = String(reader.result || '');
       localStorage.setItem(KEY_RAW, raw);
       const qs = parseQuestionsFromTxt(raw);
+      setSourceMeta(file?.name || '');
       setPool(qs, true);
       if (el.btnLoadLast) el.btnLoadLast.disabled = false;
     };
@@ -1127,6 +1280,8 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   function loadLast() {
     const raw = localStorage.getItem(KEY_RAW);
     if (!raw) return alert('No hay batería guardada en este navegador.');
+    const source = localStorage.getItem(KEY_SOURCE) || '';
+    setSourceMeta(source);
     const qs = parseQuestionsFromTxt(raw);
     setPool(qs, false);
   }
@@ -1160,13 +1315,13 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
     if (el.btnLibLoad) el.btnLibLoad.disabled = !el.libSelect.value;
 
     if (location.protocol === 'file:') {
-      setLibHint('⚠️ Si abres con doble click (file://), el navegador no deja leer archivos del proyecto. Ábrelo con un servidor local (p.ej. Live Server / python -m http.server).');
+      setLibHint('Aviso: si abres con doble clic (file://), el navegador no deja leer archivos del proyecto. Abre con un servidor local (p.ej. Live Server / python -m http.server).');
     } else {
       setLibHint('Carga baterías desde rutas del proyecto (configurable en LIB_SOURCES en app.js).');
     }
   }
 
-  async function loadFromUrl(url, label) {
+  async function loadFromUrl(url, label, sourceId) {
     if (!url) return;
     try {
       setPill(`Cargando… ${label ? label : ''}`.trim());
@@ -1176,13 +1331,14 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
 
       localStorage.setItem(KEY_RAW, raw);
       const qs = parseQuestionsFromTxt(raw);
+      setSourceMeta(sourceId || label || '');
       setPool(qs, true);
 
       if (el.btnLoadLast) el.btnLoadLast.disabled = false;
-      if (label) setLibHint(`✅ Cargado: ${label}`);
+      if (label) setLibHint(`Cargado: ${label}`);
     } catch (e) {
       console.error(e);
-      setLibHint(`❌ No he podido leer: ${url}`);
+      setLibHint(`No he podido leer: ${url}`);
       alert('No he podido cargar ese archivo. Si estás en file://, usa un servidor local.');
       setPill('Sin batería cargada');
     }
@@ -1217,7 +1373,7 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
       if (!id) return;
       const src = findLibSource(id);
       if (!src) return;
-      loadFromUrl(src.url, src.label || src.id);
+      loadFromUrl(src.url, src.label || src.id, src.id);
     });
   }
 
@@ -1251,7 +1407,13 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
 
   if (el.modeSelect) {
     el.modeSelect.addEventListener('change', () => {
-      state.mode = (el.modeSelect.value === 'block') ? 'block' : 'random';
+      if (el.modeSelect.value === 'block') state.mode = 'block';
+      else if (el.modeSelect.value === 'exam') state.mode = 'exam';
+      else state.mode = 'random';
+      if (state.mode === 'exam') {
+        state.infinite = false;
+        if (el.toggleContinuous) el.toggleContinuous.checked = false;
+      }
       savePrefs({ mode: state.mode, block: state.block, infinite: state.infinite });
       updateStartAvailability();
       updateStartAvailability();
@@ -1338,7 +1500,9 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   if (el.btnLoadLast) el.btnLoadLast.disabled = !localStorage.getItem(KEY_RAW);
 
   const prefs = loadPrefs();
-  state.mode = (prefs.mode === 'block') ? 'block' : 'random';
+  if (prefs.mode === 'block') state.mode = 'block';
+  else if (prefs.mode === 'exam') state.mode = 'exam';
+  else state.mode = 'random';
   state.block = prefs.block || '';
   state.infinite = !!prefs.infinite || !!prefs.continuous;
 

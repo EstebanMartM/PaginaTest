@@ -6,6 +6,9 @@
   <title>Quiz SPA</title>
 
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- MathJax (TeX) -->
   <script>
@@ -33,7 +36,7 @@
   <header class="topbar">
     <div class="brand">
       <div class="logo" aria-hidden="true">
-        <span class="logo-icon">✓</span>
+        <span class="logo-icon">Q</span>
       </div>
       <div>
         <div class="title">Quiz tipo test</div>
@@ -44,14 +47,14 @@
     <div class="actions">
       <label class="btn ghost file-btn">
         <input id="fileInput" type="file" accept=".txt,text/plain" />
-        📁 Cargar TXT
+        Cargar TXT
       </label>
       <button id="btnLoadLast" class="btn ghost" type="button" title="Carga la última batería guardada en este navegador">
-        🔄 Cargar última
+        Cargar última
       </button>
       <button id="btnStart" class="btn primary" type="button" disabled>
         <span class="btn-shine"></span>
-        🚀 Nuevo test (20)
+        Nuevo test (20)
       </button>
     </div>
 
@@ -60,8 +63,9 @@
       <div class="field">
         <label class="label" for="modeSelect">Modo</label>
         <select id="modeSelect" class="select">
-          <option value="random" selected>🎲 Aleatorio (20)</option>
-          <option value="block">📚 Bloque completo</option>
+          <option value="random" selected>Aleatorio (20)</option>
+          <option value="exam" disabled>Examen (35 · 1h10)</option>
+          <option value="block">Bloque completo</option>
         </select>
       </div>
 
@@ -81,7 +85,7 @@
         <div class="spacer"></div>
         <label class="toggle" title="Si está activado, el test no termina: sigue sacando preguntas hasta que lo pares">
           <input type="checkbox" id="toggleContinuous" />
-          <span>♾️ Modo infinito</span>
+          <span>Modo infinito</span>
         </label>
       </div>
 
@@ -93,7 +97,7 @@
 
       <div class="quiz-body" id="quizBody">
         <div class="empty">
-          <div class="empty-icon">📝</div>
+          <div class="empty-icon">TXT</div>
           <h2>Sube tu TXT de preguntas</h2>
           <p>El parser está preparado para el formato del archivo que me has pasado.</p>
           <ul>
@@ -110,19 +114,19 @@
         <div class="scoreline">
           <span id="scoreInline">Puntuación: 0.00</span>
           <div class="score-meta">
-            <span class="muted" id="countInline">0/20</span>
-            <span class="muted" id="timerInline">⏱ 0:00</span>
-          </div>
+          <span class="muted" id="countInline">0/20</span>
+          <span class="muted" id="timerInline">Tiempo 0:00</span>
         </div>
+      </div>
         <div class="btnrow">
-          <button id="btnFinish" class="btn ghost" type="button" hidden>⏹ Terminar</button>
-          <button id="btnSkip" class="btn ghost" type="button">⏭ Omitir</button>
+          <button id="btnFinish" class="btn ghost" type="button" hidden>Terminar</button>
+          <button id="btnSkip" class="btn ghost" type="button">Omitir</button>
           <button id="btnSubmit" class="btn primary" type="button" disabled>
             <span class="btn-shine"></span>
-            ✓ Responder
+            Responder
           </button>
           <button id="btnNext" class="btn" type="button" hidden>
-            → Siguiente
+            Siguiente
           </button>
         </div>
       </div>
@@ -131,9 +135,9 @@
     <aside class="side">
       <section class="card stats-card">
         <div class="card-head">
-          <h3>📊 Resumen</h3>
+          <h3>Resumen</h3>
           <div class="spacer"></div>
-          <button id="btnResetHistory" class="btn danger ghost" type="button">🗑 Borrar</button>
+          <button id="btnResetHistory" class="btn danger ghost" type="button">Borrar</button>
         </div>
 
         <div class="summary">
@@ -170,7 +174,7 @@
 
       <section class="card library-card">
         <div class="card-head">
-          <h3>📚 Biblioteca</h3>
+          <h3>Biblioteca</h3>
         </div>
 
         <div class="library-body">
@@ -184,9 +188,9 @@
           <div class="btnrow" style="justify-content:flex-start; margin-top:10px;">
             <button id="btnLibLoad" class="btn primary" type="button" disabled>
               <span class="btn-shine"></span>
-              📥 Cargar
+              Cargar
             </button>
-            <button id="btnLibRefresh" class="btn ghost" type="button">↻ Refrescar</button>
+            <button id="btnLibRefresh" class="btn ghost" type="button">Refrescar</button>
           </div>
 
           <div id="libHint" class="muted small" style="margin-top:10px;"></div>
@@ -197,10 +201,10 @@
       <section id="reviewPanel" class="review" hidden>
         <div class="review-head">
           <div>
-            <div id="reviewTitle" class="review-title">🔍 Revisión</div>
+            <div id="reviewTitle" class="review-title">Revisión</div>
             <div id="reviewMeta" class="review-meta"></div>
           </div>
-          <button id="btnCloseReview" class="btn ghost">✕</button>
+          <button id="btnCloseReview" class="btn ghost">Cerrar</button>
         </div>
 
         <div class="review-body">
@@ -213,7 +217,7 @@
 
       <section class="card shortcuts-card">
         <div class="card-head">
-          <h3>⌨️ Atajos</h3>
+          <h3>Atajos</h3>
         </div>
         <div class="shortcuts-grid">
           <div class="shortcut">
@@ -234,7 +238,7 @@
   </main>
 
   <footer class="footer">
-    <span class="muted">🔒 SPA local · sin servidor · tus datos se quedan en tu navegador.</span>
+    <span class="muted">SPA local · sin servidor · tus datos se quedan en tu navegador.</span>
   </footer>
 </body>
 </html>

@@ -1,6 +1,6 @@
 /* Modern glassmorphism design with animations */
 :root{
-  --bg: #0a0e17;
+  --bg: #0b0f1a;
   --card: rgba(255,255,255,0.08);
   --card2: rgba(255,255,255,0.05);
   --border: rgba(255,255,255,0.15);
@@ -15,8 +15,8 @@
   --shadow-lg: 0 25px 60px -15px rgba(0,0,0,0.55), 0 15px 30px -10px rgba(0,0,0,0.35);
   --radius: 20px;
   --radius2: 16px;
-  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --sans: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sans: 'Space Grotesk', sans-serif;
 }
 
 *{ box-sizing:border-box; margin: 0; padding: 0; }
@@ -28,6 +28,9 @@ body{
   background: var(--bg);
   position: relative;
   overflow-x: hidden;
+  letter-spacing: -0.01em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Animated gradient background */
@@ -40,6 +43,18 @@ body{
     radial-gradient(1200px 800px at 90% 15%, rgba(99,102,241,0.18), transparent 60%),
     radial-gradient(1000px 650px at 50% 95%, rgba(251,113,133,0.12), transparent 60%);
   animation: gradientShift 15s ease-in-out infinite;
+}
+
+.gradient-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(transparent 0 96%, rgba(255,255,255,0.03) 100%),
+    linear-gradient(90deg, transparent 0 96%, rgba(255,255,255,0.03) 100%);
+  background-size: 90px 90px;
+  opacity: 0.18;
+  pointer-events: none;
 }
 
 @keyframes gradientShift {
@@ -109,6 +124,7 @@ a{ color:inherit; text-decoration: none; }
 .logo-icon{
   font-weight: 900;
   font-size: 24px;
+  font-family: var(--mono);
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -288,8 +304,20 @@ a{ color:inherit; text-decoration: none; }
 }
 
 .empty-icon {
-  font-size: 64px;
-  margin-bottom: 16px;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.92);
+  background: linear-gradient(135deg, rgba(94,234,212,0.22), rgba(99,102,241,0.2));
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.08);
   animation: float 3s ease-in-out infinite;
 }
 
@@ -338,13 +366,17 @@ a{ color:inherit; text-decoration: none; }
 kbd{
   font-family: var(--mono);
   font-size: 12px;
-  font-weight: 600;
-  padding: 4px 8px;
-  border-radius: 6px;
-  border: 1px solid rgba(255,255,255,0.2);
-  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
-  display: inline-block;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25), inset 0 -2px 0 rgba(0,0,0,0.25);
+  display: inline-grid;
+  place-items: center;
+  min-width: 28px;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Question elements */
@@ -452,10 +484,17 @@ kbd{
 
 .choice .letter{ 
   font-family: var(--mono);
-  color: var(--muted);
-  width: 22px;
+  color: rgba(255,255,255,0.82);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(0,0,0,0.25);
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
+  text-transform: uppercase;
 }
 
 .choice .c-text {
@@ -511,7 +550,18 @@ kbd{
 }
 
 .justif h4::before {
-  content: '💡';
+  content: 'i';
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.86);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
 }
 
 .justif p{ 
@@ -545,12 +595,26 @@ kbd{
   gap:4px;
   font-size: 13px;
   font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
 .score-meta {
   display: flex;
   gap: 12px;
   font-size: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.score-meta span {
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  font-family: var(--mono);
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
 }
 
 /* Buttons with shine effect */
@@ -677,6 +741,9 @@ kbd{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
 }
 
 /* Sparkline */
@@ -740,6 +807,8 @@ kbd{
   font-size: 14px;
   font-weight: 700;
   color: rgba(255,255,255,0.85);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
 }
 
 .hist-sub{ 
@@ -860,13 +929,30 @@ kbd{
   border: 1px solid rgba(255,255,255,.12);
   min-width: 32px;
   text-align: center;
+  font-family: var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
 }
 
 .badge.ok {
   background: rgba(80,200,120,.15);
   border-color: rgba(80,200,120,.3);
-  color: rgba(80,200);
+  color: rgba(80,200,120,0.95);
 
+}
+
+.badge.bad {
+  background: rgba(251,113,133,.15);
+  border-color: rgba(251,113,133,.3);
+  color: rgba(251,113,133,0.95);
+}
+
+.badge.blank {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.2);
+  color: rgba(255,255,255,0.85);
 }
 
 

@@ -171,6 +171,7 @@
   const el = {
     fileInput: $('#fileInput'),
     btnLoadLast: $('#btnLoadLast'),
+    btnMenuHome: $('#btnMenuHome'),
     btnStart: $('#btnStart'),
     pillState: $('#pillState'),
     quizBody: $('#quizBody'),
@@ -206,6 +207,7 @@
     reviewList: $('#reviewList'),
     reviewDetail: $('#reviewDetail'),
     btnCloseReview: $('#btnCloseReview'),
+    btnReviewHome: $('#btnReviewHome'),
   };
 
   // =========================
@@ -659,6 +661,7 @@
     state.review.open = false;
     state.review.attemptIndex = null;
     if (el.reviewPanel) el.reviewPanel.hidden = true;
+    try { document.body.classList.remove('review-open'); } catch (_) {}
   }
 
   function openReview(attemptIndex) {
@@ -672,6 +675,7 @@
     state.review.attemptIndex = attemptIndex;
 
     el.reviewPanel.hidden = false;
+    try { document.body.classList.add('review-open'); } catch (_) {}
     if (el.reviewTitle) el.reviewTitle.textContent = `Revisión · ${fmtDate(attempt.ts)}`;
     if (el.reviewMeta) {
       el.reviewMeta.textContent =
@@ -1081,11 +1085,12 @@
     typesetMath(el.quizBody);
   }
 
-  function submitAnswer() {
+  function submitAnswer({ allowBlank = false } = {}) {
     if (!state.quiz || state.locked) return;
 
     const q = state.quiz.questions[state.quiz.idx];
     const selected = state.selected;
+    if (!selected && !allowBlank) return;
 
     const result = (!selected) ? 'blank' : (selected === q.answer ? 'correct' : 'wrong');
 
@@ -1104,15 +1109,15 @@
   function skipQuestion() {
     if (!state.quiz) return;
     if (state.locked) { nextQuestion(); return; }
-    state.selected = null;
-    submitAnswer();
+    submitAnswer({ allowBlank: true });
   }
 
   function nextQuestion() {
     if (!state.quiz) return;
 
     if (!state.locked) {
-      submitAnswer(); // si no respondió, cuenta como omitida
+      if (!state.selected) return;
+      submitAnswer();
       return;
     }
 
@@ -1385,6 +1390,12 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
 
 
   if (el.btnLoadLast) el.btnLoadLast.addEventListener('click', loadLast);
+  if (el.btnMenuHome) {
+    el.btnMenuHome.addEventListener('click', () => {
+      closeReview();
+      try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (_) { window.scrollTo(0, 0); }
+    });
+  }
   if (el.btnStart) el.btnStart.addEventListener('click', startQuiz);
   if (el.btnSubmit) el.btnSubmit.addEventListener('click', submitAnswer);
   if (el.btnSkip) el.btnSkip.addEventListener('click', skipQuestion);
@@ -1392,7 +1403,7 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   if (el.btnFinish) {
     el.btnFinish.addEventListener('click', () => {
       if (!state.quiz) return;
-      if (!state.locked) submitAnswer();
+      if (!state.locked) submitAnswer({ allowBlank: true });
       finishQuiz('Parado por el usuario');
     });
   }
@@ -1458,6 +1469,12 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   }
 
   if (el.btnCloseReview) el.btnCloseReview.addEventListener('click', closeReview);
+  if (el.btnReviewHome) {
+    el.btnReviewHome.addEventListener('click', () => {
+      closeReview();
+      try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (_) { window.scrollTo(0, 0); }
+    });
+  }
 
   // Atajos teclado
   document.addEventListener('keydown', (e) => {

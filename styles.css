@@ -902,6 +902,13 @@ body.review-open{
   gap: 8px;
 }
 
+.review-home{
+  display: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+}
+
 .review-body {
   display: grid;
   grid-template-columns: minmax(240px, 360px) minmax(0, 1fr);
@@ -918,6 +925,9 @@ body.review-open{
   }
   .review-head{
     padding: 18px 20px;
+  }
+  .review-home{
+    display: grid;
   }
 }
 

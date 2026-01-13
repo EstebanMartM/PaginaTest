@@ -19,6 +19,7 @@
   const KEY_PREFS = 'quiz_prefs_v2';
   const KEY_LASTPOS = 'quiz_last_correct_pos_v1'; // id -> pos(0..3) última vez que cayó la correcta
   const KEY_SOURCE = 'quiz_last_source_v1';
+  const KEY_MARKED = 'quiz_marked_v1';
 
   const KEY_LIBSEL = 'quiz_library_last_v1';
 
@@ -39,6 +40,8 @@
   // Infinito
   // =========================
   const MAX_INFINITE_QUESTIONS = 2000; // límite de seguridad en una sesión infinita
+
+  const PREV_REF_RE = /\bejercicio\s+anterior\b/i;
 
 
 
@@ -144,6 +147,9 @@
   function loadLastPos() { return loadJSON(KEY_LASTPOS, {}); }
   function saveLastPos(map) { saveJSON(KEY_LASTPOS, map); }
 
+  function loadMarked() { return loadJSON(KEY_MARKED, []); }
+  function saveMarked(list) { saveJSON(KEY_MARKED, list); }
+
   // =========================
   // State
   // =========================
@@ -160,9 +166,12 @@
     currentSource: '',
     timerId: null,
 
-    mode: 'random', // random | block | exam
+    mode: 'random', // random | block | exam | single
     block: '',      // select value
-    review: { open: false, attemptIndex: null }
+    questionNumber: '',
+    review: { open: false, attemptIndex: null },
+    markedSet: new Set(),
+    marked: { open: false, ids: [], selectedIndex: null }
   };
 
   // =========================
@@ -188,6 +197,7 @@
 
     modeSelect: $('#modeSelect'),
     blockSelect: $('#blockSelect'),
+    questionInput: $('#questionInput'),
 
     libSelect: $('#libSelect'),
     btnLibLoad: $('#btnLibLoad'),
@@ -208,6 +218,15 @@
     reviewDetail: $('#reviewDetail'),
     btnCloseReview: $('#btnCloseReview'),
     btnReviewHome: $('#btnReviewHome'),
+
+    markedCount: $('#markedCount'),
+    btnMarkedOpen: $('#btnMarkedOpen'),
+    markedPanel: $('#markedPanel'),
+    markedTitle: $('#markedTitle'),
+    markedMeta: $('#markedMeta'),
+    markedList: $('#markedList'),
+    markedDetail: $('#markedDetail'),
+    btnMarkedHome: $('#btnMarkedHome'),
   };
 
   // =========================
@@ -236,7 +255,12 @@
     if (!state.examUnlocked && state.mode === 'exam') {
       state.mode = 'random';
       if (el.modeSelect) el.modeSelect.value = state.mode;
-      savePrefs({ mode: state.mode, block: state.block, infinite: state.infinite });
+      savePrefs({
+        mode: state.mode,
+        block: state.block,
+        infinite: state.infinite,
+        questionNumber: state.questionNumber
+      });
     }
   }
 
@@ -301,6 +325,97 @@
 
     tick();
     state.timerId = setInterval(tick, 1000);
+  }
+
+  // =========================
+  // Reference helpers
+  // =========================
+  function getPreviousReferenceId(baseQ) {
+    if (!baseQ) return null;
+    const haystack = [
+      baseQ.text || '',
+      ...(baseQ.options || []).map(o => o.text || '')
+    ].join('\n');
+    if (!PREV_REF_RE.test(String(haystack))) return null;
+    const prevNumber = Number(baseQ.number) - 1;
+    if (!Number.isFinite(prevNumber) || prevNumber < 1) return null;
+    return String(prevNumber);
+  }
+
+  function renderPreviousReference(baseQ) {
+    if (!el.quizBody) return;
+    const wrap = $('#qRef', el.quizBody);
+    const panel = $('#qRefPanel', el.quizBody);
+    if (!wrap || !panel) return;
+
+    const prevId = getPreviousReferenceId(baseQ);
+    if (!prevId) {
+      wrap.hidden = true;
+      panel.hidden = true;
+      return;
+    }
+
+    const prevQ = state.poolById.get(String(prevId));
+    const idEl = $('#qRefId', el.quizBody);
+    if (idEl) idEl.textContent = prevId;
+
+    const btn = $('#qRefBtn', el.quizBody);
+    const closeBtn = $('#qRefClose', el.quizBody);
+    const titleEl = $('#qRefTitle', el.quizBody);
+    const textEl = $('#qRefText', el.quizBody);
+    const choicesEl = $('#qRefChoices', el.quizBody);
+
+    wrap.hidden = false;
+    panel.hidden = true;
+
+    if (!prevQ) {
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Enunciado no disponible';
+        btn.setAttribute('title', 'No encuentro la pregunta anterior en esta batería.');
+      }
+      return;
+    }
+
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = `Ver pregunta ${prevId}`;
+      btn.removeAttribute('title');
+    }
+
+    if (titleEl) titleEl.textContent = `Ejercicio anterior · Pregunta ${prevId}`;
+    if (textEl) setMathText(textEl, prevQ.text);
+
+    if (choicesEl) {
+      choicesEl.innerHTML = prevQ.options.map(o => `
+        <div class="choice ref-choice">
+          <div class="letter">${esc(o.letter)})</div>
+          <div class="c-text" data-letter="${esc(o.letter)}"></div>
+        </div>
+      `).join('');
+
+      $$('.c-text', choicesEl).forEach(node => {
+        const letter = node.getAttribute('data-letter');
+        const opt = prevQ.options.find(x => x.letter === letter);
+        setMathText(node, opt?.text ?? '');
+      });
+    }
+
+    const openPanel = () => {
+      panel.hidden = false;
+      try { document.body.classList.add('ref-open'); } catch (_) {}
+      typesetMath(panel);
+    };
+    const closePanel = () => {
+      panel.hidden = true;
+      try { document.body.classList.remove('ref-open'); } catch (_) {}
+    };
+
+    if (btn) btn.onclick = (e) => { e.preventDefault(); openPanel(); };
+    if (closeBtn) closeBtn.onclick = (e) => { e.preventDefault(); closePanel(); };
+    panel.onclick = (e) => {
+      if (e.target === panel) closePanel();
+    };
   }
 
   // =========================
@@ -544,34 +659,59 @@
   // =========================
   function setPill(text) { if (el.pillState) el.pillState.textContent = text; }
 
+  function getManualQuestionNumber() {
+    const raw = (el.questionInput ? el.questionInput.value : state.questionNumber) || '';
+    const num = parseInt(String(raw).trim(), 10);
+    if (!Number.isFinite(num) || num < 1) return null;
+    return num;
+  }
+
   function updateStartAvailability() {
     if (!el.btnStart) return;
 
     ensureModeAllowed();
 
     const isExam = state.mode === 'exam';
+    const isSingle = state.mode === 'single';
     const prevInfinite = state.infinite;
     if (el.toggleContinuous) {
-      if (isExam && state.infinite) {
+      if ((isExam || isSingle) && state.infinite) {
         state.infinite = false;
         el.toggleContinuous.checked = false;
       }
-      el.toggleContinuous.disabled = isExam;
+      el.toggleContinuous.disabled = isExam || isSingle;
     }
     if (prevInfinite !== state.infinite) {
-      savePrefs({ mode: state.mode, block: state.block, infinite: state.infinite });
+      savePrefs({
+        mode: state.mode,
+        block: state.block,
+        infinite: state.infinite,
+        questionNumber: state.questionNumber
+      });
     }
 
     if (isExam) {
       if (el.blockSelect) el.blockSelect.disabled = true;
+      if (el.questionInput) el.questionInput.disabled = true;
       const canStart = state.examUnlocked && state.pool.length >= EXAM_QUESTIONS;
       el.btnStart.disabled = !canStart;
       el.btnStart.textContent = `Nuevo examen (${EXAM_QUESTIONS} · 1h10)`;
       return;
     }
 
+    if (isSingle) {
+      if (el.blockSelect) el.blockSelect.disabled = true;
+      if (el.questionInput) el.questionInput.disabled = false;
+      const num = getManualQuestionNumber();
+      const exists = num && state.poolById.has(String(num));
+      el.btnStart.disabled = !exists;
+      el.btnStart.textContent = num ? `Ver pregunta ${num}` : 'Ver pregunta';
+      return;
+    }
+
     if (state.mode === 'random') {
       if (el.blockSelect) el.blockSelect.disabled = true;
+      if (el.questionInput) el.questionInput.disabled = true;
 
       if (state.infinite) {
         el.btnStart.disabled = state.pool.length < 1;
@@ -584,6 +724,7 @@
     }
 
     if (el.blockSelect) el.blockSelect.disabled = false;
+    if (el.questionInput) el.questionInput.disabled = true;
     const blockKey = resolveBlockValue(state.block || '');
     const count = state.pool.filter(q => (q.block || '') === blockKey).length;
 
@@ -670,6 +811,8 @@
     const hist = loadHistory();
     const attempt = hist[attemptIndex];
     if (!attempt) return;
+
+    closeMarkedPanel();
 
     state.review.open = true;
     state.review.attemptIndex = attemptIndex;
@@ -784,6 +927,182 @@
   }
 
   // =========================
+  // Marked questions
+  // =========================
+  function getMarkedIdsSorted() {
+    return Array.from(state.markedSet)
+      .map(id => String(id))
+      .sort((a, b) => Number(a) - Number(b));
+  }
+
+  function renderMarkedCount() {
+    if (el.markedCount) el.markedCount.textContent = String(state.markedSet.size);
+    if (el.btnMarkedOpen) el.btnMarkedOpen.disabled = state.markedSet.size === 0;
+  }
+
+  function pruneMarkedToPool() {
+    const filtered = new Set(
+      Array.from(state.markedSet).filter(id => state.poolById.has(String(id)))
+    );
+    if (filtered.size !== state.markedSet.size) {
+      state.markedSet = filtered;
+      saveMarked(Array.from(state.markedSet));
+    }
+    renderMarkedCount();
+    if (state.marked.open) renderMarkedList();
+  }
+
+  function updateMarkButton(baseQ) {
+    if (!el.quizBody || !baseQ) return;
+    const btn = $('#btnToggleMark', el.quizBody);
+    if (!btn) return;
+    const marked = state.markedSet.has(String(baseQ.id));
+    btn.textContent = marked ? 'Marcada' : 'Marcar';
+    btn.classList.toggle('marked', marked);
+    btn.setAttribute('aria-pressed', marked ? 'true' : 'false');
+  }
+
+  function toggleMarkById(id) {
+    const key = String(id);
+    if (state.markedSet.has(key)) state.markedSet.delete(key);
+    else state.markedSet.add(key);
+    saveMarked(Array.from(state.markedSet));
+    renderMarkedCount();
+
+    if (state.marked.open) {
+      const activeId = state.marked.ids[state.marked.selectedIndex];
+      renderMarkedList();
+      if (activeId && state.markedSet.has(activeId)) {
+        const newIdx = state.marked.ids.indexOf(activeId);
+        if (newIdx >= 0) renderMarkedDetail(newIdx);
+      } else if (state.marked.ids.length) {
+        renderMarkedDetail(0);
+      } else if (el.markedDetail) {
+        el.markedDetail.innerHTML = `<div class="muted">Selecciona una pregunta para verla aquí.</div>`;
+      }
+    }
+  }
+
+  function renderMarkedList() {
+    if (!el.markedList || !el.markedDetail) return;
+    const ids = getMarkedIdsSorted();
+    state.marked.ids = ids;
+    if (el.markedMeta) el.markedMeta.textContent = `Total: ${ids.length}`;
+
+    if (!ids.length) {
+      el.markedList.innerHTML = `<div class="muted small" style="padding: 10px 6px 0;">No hay preguntas marcadas.</div>`;
+      el.markedDetail.innerHTML = `<div class="muted">Selecciona una pregunta para verla aquí.</div>`;
+      return;
+    }
+
+    el.markedList.innerHTML = ids.map((qid, idx) => {
+      const baseQ = state.poolById.get(String(qid));
+      const label = baseQ ? `Pregunta ${baseQ.number}` : `Pregunta ${qid}`;
+      return `
+        <div class="review-item" data-idx="${idx}">
+          <div>${esc(label)}</div>
+          <span class="badge marked">M</span>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function renderMarkedDetail(markedIdx) {
+    if (!el.markedDetail || !el.markedList) return;
+    const id = state.marked.ids[markedIdx];
+    if (!id) return;
+    state.marked.selectedIndex = markedIdx;
+
+    const baseQ = state.poolById.get(String(id));
+    if (!baseQ) {
+      el.markedDetail.innerHTML = `
+        <div class="muted">No encuentro esta pregunta en la batería actual.</div>
+        <div class="muted small" style="margin-top:6px;">Carga el mismo TXT con el que la marcaste.</div>
+      `;
+      return;
+    }
+
+    el.markedDetail.innerHTML = `
+      <div class="mini">${esc(baseQ.block || '(Sin bloque)')} · Pregunta ${esc(baseQ.number)} · <strong>Marcada</strong></div>
+
+      <div class="q-title" style="margin-top:6px;">Enunciado</div>
+      <div class="q-text" id="mkQText"></div>
+
+      <div class="ansrow">
+        <span class="pill">Correcta: <strong>${esc(baseQ.answer ?? '—')}</strong></span>
+      </div>
+
+      <div class="q-title" style="margin-top:12px;">Opciones</div>
+      <div class="choices" id="mkChoices"></div>
+
+      <div class="justif" style="margin-top:12px">
+        <h4>Justificación</h4>
+        <p id="mkJustif"></p>
+      </div>
+
+      <div class="btnrow" style="margin-top:12px; justify-content:flex-start;">
+        <button id="btnUnmark" class="btn ghost" type="button">Quitar marca</button>
+      </div>
+    `;
+
+    setMathText($('#mkQText', el.markedDetail), baseQ.text);
+
+    const mkChoices = $('#mkChoices', el.markedDetail);
+    mkChoices.innerHTML = baseQ.options.map(o => {
+      const isCorrect = o.letter === baseQ.answer;
+      const cls = `choice ${isCorrect ? 'correct' : ''}`.trim();
+      return `
+      <div class="${cls}">
+        <div class="letter">${esc(o.letter)})</div>
+        <div class="c-text" data-letter="${esc(o.letter)}"></div>
+      </div>
+      `;
+    }).join('');
+
+    $$('.c-text', mkChoices).forEach(node => {
+      const letter = node.getAttribute('data-letter');
+      const opt = baseQ.options.find(x => x.letter === letter);
+      setMathText(node, opt?.text ?? '');
+    });
+
+    setMathText($('#mkJustif', el.markedDetail), baseQ.justification || '—');
+
+    const btnUnmark = $('#btnUnmark', el.markedDetail);
+    if (btnUnmark) {
+      btnUnmark.addEventListener('click', () => {
+        toggleMarkById(id);
+        if (state.quiz && state.quiz.questions[state.quiz.idx]?.id === String(id)) {
+          updateMarkButton(state.quiz.questions[state.quiz.idx]);
+        }
+      });
+    }
+
+    $$('.review-item', el.markedList).forEach(x => x.classList.remove('active'));
+    const active = $(`.review-item[data-idx="${markedIdx}"]`, el.markedList);
+    if (active) active.classList.add('active');
+
+    typesetMath(el.markedDetail);
+  }
+
+  function openMarkedPanel() {
+    if (!el.markedPanel || !el.markedList || !el.markedDetail) return;
+    closeReview();
+    state.marked.open = true;
+    state.marked.selectedIndex = null;
+    el.markedPanel.hidden = false;
+    try { document.body.classList.add('marked-open'); } catch (_) {}
+    if (el.markedTitle) el.markedTitle.textContent = 'Marcadas';
+    renderMarkedList();
+  }
+
+  function closeMarkedPanel() {
+    state.marked.open = false;
+    state.marked.selectedIndex = null;
+    if (el.markedPanel) el.markedPanel.hidden = true;
+    try { document.body.classList.remove('marked-open'); } catch (_) {}
+  }
+
+  // =========================
   // History UI
   // =========================
   function renderHistory() {
@@ -853,7 +1172,9 @@
   // =========================
 
   function getBasePoolForQuiz() {
-    if (state.mode === 'random' || state.mode === 'exam') return state.pool.slice();
+    if (state.mode === 'random' || state.mode === 'exam' || state.mode === 'single') {
+      return state.pool.slice();
+    }
     const blockKey = resolveBlockValue(state.block || '');
     return state.pool.filter(q => (q.block || '') === blockKey);
   }
@@ -871,11 +1192,12 @@
 
   function startQuiz() {
     closeReview();
+    closeMarkedPanel();
     if (!state.pool.length) return;
     setMobileQuizFocus(true);
 
     clearQuizTimer();
-    const infinite = !!state.infinite && state.mode !== 'exam';
+    const infinite = !!state.infinite && state.mode !== 'exam' && state.mode !== 'single';
 
     let modeLabel = '';
     let blockKey = '';
@@ -925,6 +1247,12 @@
         selectedQuestions = sample(state.pool, EXAM_QUESTIONS);
         modeLabel = `Examen (${EXAM_QUESTIONS} · 1h10)`;
         durationMs = EXAM_DURATION_MS;
+      } else if (state.mode === 'single') {
+        const num = getManualQuestionNumber();
+        const picked = num ? state.poolById.get(String(num)) : null;
+        if (!picked) return;
+        selectedQuestions = [picked];
+        modeLabel = `Pregunta ${num}`;
       } else {
         blockKey = resolveBlockValue(state.block || '');
         selectedQuestions = shuffleArray(state.pool.filter(q => (q.block || '') === blockKey));
@@ -981,10 +1309,30 @@
       <div class="q-meta">
         <span class="tag">${esc(q.block || '(Sin bloque)')}</span>
         <span class="tag">Pregunta ${esc(q.number)}</span>
+        <button class="tag tag-action" type="button" id="btnToggleMark" aria-pressed="false">Marcar</button>
       </div>
 
       <div class="q-title">Elige la respuesta correcta</div>
       <div class="q-text" id="qText"></div>
+
+      <div class="q-ref" id="qRef" hidden>
+        <div class="q-ref-text">
+          <span class="tag">Referencia</span>
+          <span>Ejercicio anterior · ID <strong id="qRefId"></strong></span>
+        </div>
+        <button class="btn ghost q-ref-link" type="button" id="qRefBtn">Ver enunciado</button>
+      </div>
+
+      <div class="q-ref-panel" id="qRefPanel" hidden role="dialog" aria-modal="true" aria-labelledby="qRefTitle">
+        <div class="q-ref-card" role="document">
+          <div class="q-ref-head">
+            <div class="q-ref-title" id="qRefTitle">Ejercicio anterior</div>
+            <button class="btn ghost q-ref-close" type="button" id="qRefClose">Cerrar</button>
+          </div>
+          <div class="q-text" id="qRefText"></div>
+          <div class="ref-choices" id="qRefChoices"></div>
+        </div>
+      </div>
 
       <div class="choices" role="radiogroup" aria-label="Opciones">
         ${q.options.map(o => `
@@ -1010,6 +1358,17 @@
     });
 
     setMathText($('#justifText', el.quizBody), q.justification || '—');
+
+    renderPreviousReference(q);
+
+    const markBtn = $('#btnToggleMark', el.quizBody);
+    if (markBtn) {
+      updateMarkButton(q);
+      markBtn.addEventListener('click', () => {
+        toggleMarkById(q.id);
+        updateMarkButton(q);
+      });
+    }
 
     // selección: change en input
     $$('.choice input', el.quizBody).forEach((input) => {
@@ -1218,7 +1577,9 @@
                 ? 'Nuevo test (20)'
                 : (state.mode === 'exam'
                     ? `Nuevo examen (${EXAM_QUESTIONS} · 1h10)`
-                    : 'Nuevo test (Bloque)'))}
+                    : (state.mode === 'single'
+                        ? 'Ver otra pregunta'
+                        : 'Nuevo test (Bloque)')))}
         </button>
       </div>
     `;
@@ -1242,6 +1603,7 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   function setPool(questions, saved = false) {
     state.pool = questions;
     rebuildPoolIndexAndBlocks();
+    pruneMarkedToPool();
 
     setPill(`Batería cargada · ${state.pool.length} preguntas`);
     updateStartAvailability();
@@ -1393,6 +1755,7 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   if (el.btnMenuHome) {
     el.btnMenuHome.addEventListener('click', () => {
       closeReview();
+      closeMarkedPanel();
       try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (_) { window.scrollTo(0, 0); }
     });
   }
@@ -1411,7 +1774,12 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   if (el.toggleContinuous) {
     el.toggleContinuous.addEventListener('change', () => {
       state.infinite = !!el.toggleContinuous.checked;
-      savePrefs({ mode: state.mode, block: state.block, infinite: state.infinite });
+      savePrefs({
+        mode: state.mode,
+        block: state.block,
+        infinite: state.infinite,
+        questionNumber: state.questionNumber
+      });
       updateStartAvailability();
     });
   }
@@ -1420,12 +1788,18 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
     el.modeSelect.addEventListener('change', () => {
       if (el.modeSelect.value === 'block') state.mode = 'block';
       else if (el.modeSelect.value === 'exam') state.mode = 'exam';
+      else if (el.modeSelect.value === 'single') state.mode = 'single';
       else state.mode = 'random';
-      if (state.mode === 'exam') {
+      if (state.mode === 'exam' || state.mode === 'single') {
         state.infinite = false;
         if (el.toggleContinuous) el.toggleContinuous.checked = false;
       }
-      savePrefs({ mode: state.mode, block: state.block, infinite: state.infinite });
+      savePrefs({
+        mode: state.mode,
+        block: state.block,
+        infinite: state.infinite,
+        questionNumber: state.questionNumber
+      });
       updateStartAvailability();
       updateStartAvailability();
     });
@@ -1434,8 +1808,26 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   if (el.blockSelect) {
     el.blockSelect.addEventListener('change', () => {
       state.block = el.blockSelect.value;
-      savePrefs({ mode: state.mode, block: state.block, infinite: state.infinite });
+      savePrefs({
+        mode: state.mode,
+        block: state.block,
+        infinite: state.infinite,
+        questionNumber: state.questionNumber
+      });
       updateStartAvailability();
+      updateStartAvailability();
+    });
+  }
+
+  if (el.questionInput) {
+    el.questionInput.addEventListener('input', () => {
+      state.questionNumber = el.questionInput.value;
+      savePrefs({
+        mode: state.mode,
+        block: state.block,
+        infinite: state.infinite,
+        questionNumber: state.questionNumber
+      });
       updateStartAvailability();
     });
   }
@@ -1447,6 +1839,22 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
       localStorage.removeItem(KEY_QSTATS);
       closeReview();
       renderHistory();
+    });
+  }
+
+  if (el.btnMarkedOpen) el.btnMarkedOpen.addEventListener('click', openMarkedPanel);
+  if (el.markedList) {
+    el.markedList.addEventListener('click', (e) => {
+      const item = e.target.closest('.review-item');
+      if (!item) return;
+      const idx = parseInt(item.getAttribute('data-idx'), 10);
+      if (Number.isFinite(idx)) renderMarkedDetail(idx);
+    });
+  }
+  if (el.btnMarkedHome) {
+    el.btnMarkedHome.addEventListener('click', () => {
+      closeMarkedPanel();
+      try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (_) { window.scrollTo(0, 0); }
     });
   }
 
@@ -1514,18 +1922,24 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
 
   renderLibrarySelect();
 
+  state.markedSet = new Set(loadMarked().map((id) => String(id)));
+  renderMarkedCount();
+
   if (el.btnLoadLast) el.btnLoadLast.disabled = !localStorage.getItem(KEY_RAW);
 
   const prefs = loadPrefs();
   if (prefs.mode === 'block') state.mode = 'block';
   else if (prefs.mode === 'exam') state.mode = 'exam';
+  else if (prefs.mode === 'single') state.mode = 'single';
   else state.mode = 'random';
   state.block = prefs.block || '';
   state.infinite = !!prefs.infinite || !!prefs.continuous;
+  state.questionNumber = (prefs.questionNumber != null) ? String(prefs.questionNumber) : '';
 
   if (el.modeSelect) el.modeSelect.value = state.mode;
   if (el.blockSelect) el.blockSelect.value = state.block;
   if (el.toggleContinuous) el.toggleContinuous.checked = state.infinite;
+  if (el.questionInput) el.questionInput.value = state.questionNumber;
 
   updateStartAvailability();
 })();

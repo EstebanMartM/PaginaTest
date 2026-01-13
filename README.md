@@ -4,7 +4,7 @@
 ## Uso
 1) Pulsa **Cargar TXT** y selecciona tu archivo de preguntas.
 2) Pulsa **Nuevo test (20)**.
-3) Responde: 1-4 para seleccionar, Enter para responder/siguiente, Esc para omitir.
+3) Responde: 1-4 para seleccionar, Enter para responder/siguiente, Esc para omitir (en blanco o con selección).
 
 ## Puntuación
 - Correcta: +1

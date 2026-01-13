@@ -266,6 +266,13 @@ a{ color:inherit; text-decoration: none; }
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+.ansrow{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin: 10px 0 2px;
+}
+
 .toggle{
   display:flex;
   gap:8px;
@@ -429,6 +436,19 @@ kbd{
   backdrop-filter: blur(10px);
 }
 
+.tag-action{
+  border-color: rgba(94,234,212,0.35);
+  background: rgba(94,234,212,0.12);
+  color: rgba(255,255,255,0.95);
+  cursor: pointer;
+}
+
+.tag-action.marked{
+  border-color: rgba(94,234,212,0.6);
+  background: rgba(94,234,212,0.2);
+  box-shadow: 0 0 12px rgba(94,234,212,0.2);
+}
+
 .tag.ok{ 
   border-color: rgba(80,200,120,0.4);
   background: rgba(80,200,120,0.15);
@@ -459,6 +479,104 @@ kbd{
   line-height: 1.6;
   margin: 0 0 18px;
   font-size: 16px;
+}
+
+/* Previous exercise reference */
+.q-ref{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding: 12px 14px;
+  margin: 6px 0 16px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(255,255,255,0.16);
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(99,102,241,0.08));
+  backdrop-filter: blur(10px);
+}
+
+.q-ref-text{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size: 13px;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+
+.q-ref-text strong{
+  color: rgba(255,255,255,0.92);
+  font-family: var(--mono);
+  font-weight: 700;
+}
+
+.q-ref-link{
+  padding: 8px 12px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+.q-ref-panel{
+  position: fixed;
+  inset: 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 18px;
+  background: rgba(8,10,15,0.75);
+  z-index: 220;
+}
+
+.q-ref-panel[hidden]{ display:none; }
+
+.q-ref-card{
+  width: min(720px, 92vw);
+  max-height: 85vh;
+  overflow: auto;
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(18px);
+}
+
+.q-ref-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom: 10px;
+}
+
+.q-ref-title{
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.ref-choices{
+  display:grid;
+  gap:10px;
+  margin-top: 12px;
+}
+
+.choice.ref-choice{
+  cursor: default;
+}
+
+.choice.ref-choice::before{
+  display:none;
+}
+
+.choice.ref-choice:hover{
+  transform: none;
+  border-color: rgba(255,255,255,0.14);
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  box-shadow: none;
+}
+
+body.ref-open{
+  overflow: hidden;
 }
 
 /* Choices with better styling */
@@ -853,6 +971,10 @@ body.review-open{
   overflow: hidden;
 }
 
+body.marked-open{
+  overflow: hidden;
+}
+
 .review {
   position: fixed;
   inset: 0;
@@ -1033,6 +1155,12 @@ body.review-open{
   color: rgba(255,255,255,0.85);
 }
 
+.badge.marked {
+  background: rgba(94,234,212,.15);
+  border-color: rgba(94,234,212,.35);
+  color: rgba(94,234,212,0.95);
+}
+
 
 /* =========================
    Fields / selects (used in topbar + Biblioteca)
@@ -1062,12 +1190,39 @@ body.review-open{
   outline: none;
 }
 
+.input{
+  width:100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.18);
+  color: rgba(255,255,255,0.92);
+  outline: none;
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+.input::placeholder{
+  color: var(--muted2);
+}
+
 .select:focus{
   border-color: rgba(94,234,212,0.55);
   box-shadow: 0 0 0 4px rgba(94,234,212,0.10);
 }
 
+.input:focus{
+  border-color: rgba(94,234,212,0.55);
+  box-shadow: 0 0 0 4px rgba(94,234,212,0.10);
+}
+
 .select:disabled{
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.input:disabled{
   opacity: .5;
   cursor: not-allowed;
 }
@@ -1103,6 +1258,20 @@ body.review-open{
 
   body.focus-quiz .quiz-body{
     padding-bottom: 18px;
+  }
+
+  .q-ref{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .q-ref-link{
+    width: 100%;
+    text-align: center;
+  }
+
+  .q-ref-card{
+    width: 100%;
   }
 }
 

@@ -77,6 +77,7 @@
           <option value="random" selected>Aleatorio (20)</option>
           <option value="exam" disabled>Examen (35 · 1h10)</option>
           <option value="block">Bloque completo</option>
+          <option value="single">Pregunta concreta</option>
         </select>
       </div>
 
@@ -85,6 +86,11 @@
         <select id="blockSelect" class="select" disabled>
           <option value="">—</option>
         </select>
+      </div>
+
+      <div class="field">
+        <label class="label" for="questionInput">Pregunta</label>
+        <input id="questionInput" class="input" type="number" min="1" step="1" inputmode="numeric" placeholder="Ej. 502" disabled />
       </div>
     </div>
   </header>
@@ -207,6 +213,20 @@
         </div>
       </section>
 
+      <section class="card marked-card">
+        <div class="card-head">
+          <h3>Marcadas</h3>
+          <div class="spacer"></div>
+          <span class="badge blank" id="markedCount">0</span>
+        </div>
+        <div class="library-body">
+          <p class="muted small">Guarda preguntas para repasarlas luego.</p>
+          <div class="btnrow" style="justify-content:flex-start; margin-top:10px;">
+            <button id="btnMarkedOpen" class="btn ghost" type="button" disabled>Ver marcadas</button>
+          </div>
+        </div>
+      </section>
+
       <!-- Panel de revisión -->
       <section id="reviewPanel" class="review" hidden>
         <div class="review-head">
@@ -224,6 +244,28 @@
         <div class="review-body">
           <div id="reviewList" class="review-list"></div>
           <div id="reviewDetail" class="review-detail">
+            <div class="muted">Selecciona una pregunta para verla aquí.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel de marcadas -->
+      <section id="markedPanel" class="review" hidden>
+        <div class="review-head">
+          <div>
+            <div id="markedTitle" class="review-title">Marcadas</div>
+            <div id="markedMeta" class="review-meta"></div>
+          </div>
+          <div class="review-actions">
+            <button id="btnMarkedHome" class="logo review-home" type="button" aria-label="Volver al inicio">
+              <span class="logo-icon" aria-hidden="true">Q</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="review-body">
+          <div id="markedList" class="review-list"></div>
+          <div id="markedDetail" class="review-detail">
             <div class="muted">Selecciona una pregunta para verla aquí.</div>
           </div>
         </div>

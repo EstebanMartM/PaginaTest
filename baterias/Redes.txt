@@ -3634,14 +3634,6 @@ d) Ninguna de las anteriores es cierta.
 Solución: c 
 Justificación: La línea T1 norteamericana opera a 1.544 Mbps, lo cual es efectivamente inferior a los 2.048 Mbps de la línea E1 europea.
 
-Pregunta 453: La velocidad máxima de transmisión en un canal de comunicación con frecuencia máxima 20000Hz y frecuencia mínima 12000Hz, y un ruido de línea debido a calentamiento térmico de 20dB:
-a) ≈ 19765bps.
-b) ≈ 29962bps.
-c) ≈ 53265bps.
-d) ≈ 62500bps.
-Solución: c 
-Justificación: Aplicando Shannon: $B = 8000\text{ Hz}$. $S/N = 100$. $C = 8000 \times \log_2(101) \approx 8000 \times 6.658 = 53265\text{ bps}$.
-
 Pregunta 454: ¿Por qué causa una señal NO puede transmitirse por un medio físico?
 a) Porque la señal está compuesta por más armónicos que los que contiene el medio físico.
 b) Porque el ancho de banda de la señal es infinito.
@@ -4129,14 +4121,6 @@ c) UTP-5e.
 d) UTP-7.
 Solución: c 
 Justificación: El cable Categoría 5e (Enhanced) fue diseñado específicamente para soportar velocidades de 1000 Mbps reduciendo las interferencias de extremo cercano (NEXT), siendo la opción más común y rentable.
-
-Pregunta 515: Indicar cual de las siguientes afirmaciones relativas al principio de funcionamiento de las fibras ópticas es cierta:
-a) El ancho de banda que presenta un determinado medio de transmisión depende de la velocidad a la que se transmitan datos por él.
-b) Los armónicos de mayor orden representan habitualmente señales senoidales de mayor amplitud.
-c) La distorsión de retardo se produce cuando la velocidad de propagación tiende a ser mayor cerca de la frecuencia central y disminuir al acercarse a los extremos fi y fs.
-d) Habitualmente la ganancia de los medios de transmisión reales es 1 entre fi y fs.
-Solución: c 
-Justificación: La velocidad de fase de una onda en un medio material depende de su frecuencia. Esto hace que diferentes componentes de la señal lleguen en tiempos distintos, dispersando y deformando el paquete de información.
 
 Pregunta 516: Considérese que sobre un medio de comunicación se aplica un filtro pasa banda con frecuencia inicial de corte de 100 Hz y frecuencia superior 4500 Hz. Sabiendo que el nivel de ruido para todo el ancho de banda comprendido entre ambas frecuencias es de 30 dB. ¿A qué velocidad máxima aproximada podrá realizarse la transmisión de datos?
 a) 39868.

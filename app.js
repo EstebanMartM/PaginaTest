@@ -157,6 +157,7 @@
     pool: [],
     poolById: new Map(),
     blocks: [],
+    exams: [],
 
     quiz: null, // { questions, idx, answers, mode, modeLabel, blockKey, blockLabel }
     locked: false,
@@ -166,8 +167,9 @@
     currentSource: '',
     timerId: null,
 
-    mode: 'random', // random | block | exam | single
+    mode: 'random', // random | block | exam | examlist | single
     block: '',      // select value
+    exam: '',       // select value
     questionNumber: '',
     review: { open: false, attemptIndex: null },
     markedSet: new Set(),
@@ -197,7 +199,12 @@
 
     modeSelect: $('#modeSelect'),
     blockSelect: $('#blockSelect'),
+    examSelect: $('#examSelect'),
     questionInput: $('#questionInput'),
+    modeHint: $('#modeHint'),
+    blockHint: $('#blockHint'),
+    examHint: $('#examHint'),
+    questionHint: $('#questionHint'),
 
     libSelect: $('#libSelect'),
     btnLibLoad: $('#btnLibLoad'),
@@ -250,14 +257,37 @@
       : `Examen (${EXAM_QUESTIONS} · 1h10) - bloqueado`;
   }
 
+  function updateExamListOption() {
+    if (!el.modeSelect) return;
+    const option = el.modeSelect.querySelector('option[value="examlist"]');
+    if (!option) return;
+    const available = (state.exams || []).length > 0;
+    option.disabled = !available;
+    option.textContent = available ? 'Examen (elige)' : 'Examen (sin datos)';
+  }
+
   function ensureModeAllowed() {
     updateExamOption();
+    updateExamListOption();
     if (!state.examUnlocked && state.mode === 'exam') {
       state.mode = 'random';
       if (el.modeSelect) el.modeSelect.value = state.mode;
       savePrefs({
         mode: state.mode,
         block: state.block,
+        exam: state.exam,
+        infinite: state.infinite,
+        questionNumber: state.questionNumber
+      });
+    }
+
+    if ((state.exams || []).length === 0 && state.mode === 'examlist') {
+      state.mode = 'random';
+      if (el.modeSelect) el.modeSelect.value = state.mode;
+      savePrefs({
+        mode: state.mode,
+        block: state.block,
+        exam: state.exam,
         infinite: state.infinite,
         questionNumber: state.questionNumber
       });
@@ -425,11 +455,14 @@
     // separa bloque y pregunta si van pegados en misma línea
     const normalized = String(raw ?? '')
       .replace(/\r\n?/g, '\n')
-      .replace(/(###\s*Bloque[^\n]*?)(\s*Pregunta\s*\d+\s*:)/gi, '$1\n$2');
+      .replace(/\u00A0/g, ' ')
+      .replace(/(###\s*Bloque[^\n]*?)(\s*Pregunta\s*\d+\s*:)/gi, '$1\n$2')
+      .replace(/(###\s*Examen[^\n]*?)(\s*Pregunta\s*\d+\s*:)/gi, '$1\n$2');
 
     const lines = normalized.split('\n');
 
     let block = '';
+    let exam = '';
     let i = 0;
     const questions = [];
 
@@ -438,13 +471,14 @@
     const qRe     = /^\s*Pregunta\s*(\d+)\s*:\s*(.*)\s*$/i;     // Pregunta9: o Pregunta 9:
     const solRe   = /^\s*Soluci[oó]n\s*:\s*([a-d])\s*$/i;
     const blockRe = /^\s*###\s*Bloque\s*(.*)\s*$/i;
+    const examRe  = /^\s*###\s*Examen\b\s*(.*)\s*$/i;
     const justRe  = /^\s*Justificaci[oó]n\s*:\s*(.*)\s*$/i;
 
     function consumeUntilNextQuestion(startIdx) {
       const out = [];
       for (let k = startIdx; k < lines.length; k++) {
         const L = lines[k];
-        if (qRe.test(L) || blockRe.test(L)) break;
+        if (qRe.test(L) || blockRe.test(L) || examRe.test(L)) break;
         out.push(L);
       }
       return out.join('\n').trim();
@@ -453,8 +487,17 @@
     while (i < lines.length) {
       const line = lines[i];
 
+      const em = line.match(examRe);
+      if (em) {
+        const rawLabel = (em[1] || '').trim().replace(/\s+/g, ' ');
+        exam = rawLabel || 'Sin título';
+        block = '';
+        i++;
+        continue;
+      }
+
       const bm = line.match(blockRe);
-      if (bm) { block = (bm[1] || '').trim() || 'Bloque'; i++; continue; }
+      if (bm) { block = (bm[1] || '').trim() || 'Bloque'; exam = ''; i++; continue; }
 
       const qm = line.match(qRe);
       if (qm) {
@@ -528,7 +571,8 @@
           questions.push({
             id: String(number),
             number,
-            block: (block || '').trim(),
+            block: (exam ? '' : (block || '').trim()),
+            exam: (exam || '').trim(),
             text: text.trim(),
             options,
             answer,
@@ -548,6 +592,42 @@
   // =========================
   // Blocks + pool index
   // =========================
+  function buildExamMapFromRaw(raw) {
+    if (!raw) return new Map();
+    const normalized = String(raw)
+      .replace(/\r\n?/g, '\n')
+      .replace(/\u00A0/g, ' ')
+      .replace(/(###\s*Bloque[^\n]*?)(\s*Pregunta\s*\d+\s*:)/gi, '$1\n$2')
+      .replace(/(###\s*Examen[^\n]*?)(\s*Pregunta\s*\d+\s*:)/gi, '$1\n$2');
+
+    const lines = normalized.split('\n');
+    const examRe = /^\s*###\s*Examen\b\s*(.*)\s*$/i;
+    const blockRe = /^\s*###\s*Bloque\b\s*(.*)\s*$/i;
+    const headingRe = /^\s*###\s*/;
+    const qRe = /^\s*Pregunta\s*(\d+)\s*:/i;
+
+    let exam = '';
+    const map = new Map();
+
+    for (const line of lines) {
+      const em = line.match(examRe);
+      if (em) {
+        const rawLabel = (em[1] || '').trim().replace(/\s+/g, ' ');
+        exam = rawLabel || 'Sin título';
+        continue;
+      }
+      if (blockRe.test(line) || headingRe.test(line)) {
+        exam = '';
+        continue;
+      }
+      const qm = line.match(qRe);
+      if (qm && exam) {
+        map.set(String(qm[1]), exam);
+      }
+    }
+    return map;
+  }
+
   function rebuildPoolIndexAndBlocks() {
     state.poolById = new Map(state.pool.map(q => [String(q.id), q]));
 
@@ -570,6 +650,34 @@
           return `<option value="${esc(value)}">${esc(b.label)} (${b.count})</option>`;
         }).join('');
       if (prev) el.blockSelect.value = prev;
+    }
+  }
+
+  function rebuildExamIndex() {
+    const counts = new Map(); // key -> count
+    for (const q of state.pool) {
+      const key = (q.exam || '').trim();
+      if (!key) continue;
+      counts.set(key, (counts.get(key) || 0) + 1);
+    }
+
+    state.exams = Array.from(counts.entries())
+      .map(([key, count]) => ({ key, label: key || '(Sin examen)', count }))
+      .sort((a, b) => a.label.localeCompare(b.label, 'es', { sensitivity: 'base' }));
+
+    if (el.examSelect) {
+      const prev = state.exam;
+      el.examSelect.innerHTML =
+        `<option value="">—</option>` +
+        state.exams.map(e => {
+          return `<option value="${esc(e.key)}">${esc(e.label)} (${e.count})</option>`;
+        }).join('');
+      if (prev && state.exams.some(e => String(e.key) === String(prev))) {
+        el.examSelect.value = prev;
+      } else {
+        el.examSelect.value = '';
+      }
+      state.exam = el.examSelect.value;
     }
   }
 
@@ -670,21 +778,24 @@
     if (!el.btnStart) return;
 
     ensureModeAllowed();
+    updateExamListOption();
 
     const isExam = state.mode === 'exam';
+    const isExamList = state.mode === 'examlist';
     const isSingle = state.mode === 'single';
     const prevInfinite = state.infinite;
     if (el.toggleContinuous) {
-      if ((isExam || isSingle) && state.infinite) {
+      if ((isExam || isExamList || isSingle) && state.infinite) {
         state.infinite = false;
         el.toggleContinuous.checked = false;
       }
-      el.toggleContinuous.disabled = isExam || isSingle;
+      el.toggleContinuous.disabled = isExam || isExamList || isSingle;
     }
     if (prevInfinite !== state.infinite) {
       savePrefs({
         mode: state.mode,
         block: state.block,
+        exam: state.exam,
         infinite: state.infinite,
         questionNumber: state.questionNumber
       });
@@ -692,25 +803,44 @@
 
     if (isExam) {
       if (el.blockSelect) el.blockSelect.disabled = true;
+      if (el.examSelect) el.examSelect.disabled = true;
       if (el.questionInput) el.questionInput.disabled = true;
       const canStart = state.examUnlocked && state.pool.length >= EXAM_QUESTIONS;
       el.btnStart.disabled = !canStart;
       el.btnStart.textContent = `Nuevo examen (${EXAM_QUESTIONS} · 1h10)`;
+      updateFieldHints();
+      return;
+    }
+
+    if (isExamList) {
+      if (el.blockSelect) el.blockSelect.disabled = true;
+      if (el.examSelect) el.examSelect.disabled = false;
+      if (el.questionInput) el.questionInput.disabled = true;
+      const examKey = state.exam || '';
+      const count = examKey
+        ? state.pool.filter(q => (q.exam || '') === examKey).length
+        : 0;
+      el.btnStart.disabled = !(examKey && count >= 1);
+      el.btnStart.textContent = examKey ? `Examen · ${count} preguntas` : 'Examen';
+      updateFieldHints();
       return;
     }
 
     if (isSingle) {
       if (el.blockSelect) el.blockSelect.disabled = true;
+      if (el.examSelect) el.examSelect.disabled = true;
       if (el.questionInput) el.questionInput.disabled = false;
       const num = getManualQuestionNumber();
       const exists = num && state.poolById.has(String(num));
       el.btnStart.disabled = !exists;
       el.btnStart.textContent = num ? `Ver pregunta ${num}` : 'Ver pregunta';
+      updateFieldHints();
       return;
     }
 
     if (state.mode === 'random') {
       if (el.blockSelect) el.blockSelect.disabled = true;
+      if (el.examSelect) el.examSelect.disabled = true;
       if (el.questionInput) el.questionInput.disabled = true;
 
       if (state.infinite) {
@@ -720,10 +850,12 @@
         el.btnStart.disabled = state.pool.length < 20;
         el.btnStart.textContent = 'Nuevo test (20)';
       }
+      updateFieldHints();
       return;
     }
 
     if (el.blockSelect) el.blockSelect.disabled = false;
+    if (el.examSelect) el.examSelect.disabled = true;
     if (el.questionInput) el.questionInput.disabled = true;
     const blockKey = resolveBlockValue(state.block || '');
     const count = state.pool.filter(q => (q.block || '') === blockKey).length;
@@ -734,6 +866,62 @@
       el.btnStart.textContent = state.block ? `Infinito (Bloque · ${count})` : 'Infinito (Bloque)';
     } else {
       el.btnStart.textContent = state.block ? `Nuevo test (Bloque · ${count})` : 'Nuevo test (Bloque)';
+    }
+    updateFieldHints();
+  }
+
+  function updateFieldHints() {
+    const blockKey = resolveBlockValue(state.block || '');
+    const blockCount = blockKey
+      ? state.pool.filter(q => (q.block || '') === blockKey).length
+      : 0;
+    const examKey = state.exam || '';
+    const examCount = examKey
+      ? state.pool.filter(q => (q.exam || '') === examKey).length
+      : 0;
+    const qNum = getManualQuestionNumber();
+    const qExists = qNum && state.poolById.has(String(qNum));
+
+    if (el.modeHint) {
+      if (state.mode === 'random') {
+        el.modeHint.textContent = state.infinite
+          ? 'Sigue sacando preguntas sin límite.'
+          : '20 preguntas aleatorias de la batería.';
+      } else if (state.mode === 'block') {
+        el.modeHint.textContent = 'Selecciona un bloque para practicarlo completo.';
+      } else if (state.mode === 'exam') {
+        el.modeHint.textContent = 'Examen cronometrado (solo batería oficial).';
+      } else if (state.mode === 'examlist') {
+        el.modeHint.textContent = examKey
+          ? `${examCount} preguntas en el examen seleccionado.`
+          : 'Elige un examen de la lista.';
+      } else {
+        el.modeHint.textContent = 'Escribe el número exacto de la pregunta.';
+      }
+    }
+
+    if (el.blockHint) {
+      el.blockHint.textContent = blockKey
+        ? `${blockCount} preguntas en este bloque.`
+        : (state.mode === 'block' ? 'Elige un bloque.' : '—');
+    }
+
+    if (el.examHint) {
+      el.examHint.textContent = examKey
+        ? `${examCount} preguntas en este examen.`
+        : (state.mode === 'examlist' ? 'Elige un examen.' : '—');
+    }
+
+    if (el.questionHint) {
+      if (qNum == null) {
+        el.questionHint.textContent = state.mode === 'single'
+          ? 'Escribe un ID válido.'
+          : '—';
+      } else {
+        el.questionHint.textContent = qExists
+          ? 'Pregunta disponible en la batería.'
+          : 'No existe en la batería actual.';
+      }
     }
   }
 
@@ -823,6 +1011,7 @@
     if (el.reviewMeta) {
       el.reviewMeta.textContent =
         `${attempt.mode === 'block' ? `Bloque: ${attempt.blockLabel || attempt.block} · ` : ''}` +
+        `${attempt.mode === 'examlist' ? `Examen: ${attempt.examLabel || attempt.exam} · ` : ''}` +
         `Aciertos ${attempt.correct} · Fallos ${attempt.wrong} · Blancas ${attempt.blank} · ${attempt.effectivePercent.toFixed(2)}%`;
     }
 
@@ -876,8 +1065,12 @@
     // Si el intento guardó el orden mostrado, úsalo
     const shownOptions = (it.optionsShown && it.optionsShown.length) ? it.optionsShown : baseQ.options;
 
+    const scopeLabel = baseQ.exam
+      ? `Examen ${baseQ.exam}`
+      : (baseQ.block || '(Sin bloque)');
+
     el.reviewDetail.innerHTML = `
-      <div class="mini">${esc(baseQ.block || '(Sin bloque)')} · Pregunta ${esc(baseQ.number)} · <strong>${esc(resultLabel)}</strong></div>
+      <div class="mini">${esc(scopeLabel)} · Pregunta ${esc(baseQ.number)} · <strong>${esc(resultLabel)}</strong></div>
 
       <div class="q-title" style="margin-top:6px;">Enunciado</div>
       <div class="q-text" id="rvQText"></div>
@@ -1022,8 +1215,12 @@
       return;
     }
 
+    const scopeLabel = baseQ.exam
+      ? `Examen ${baseQ.exam}`
+      : (baseQ.block || '(Sin bloque)');
+
     el.markedDetail.innerHTML = `
-      <div class="mini">${esc(baseQ.block || '(Sin bloque)')} · Pregunta ${esc(baseQ.number)} · <strong>Marcada</strong></div>
+      <div class="mini">${esc(scopeLabel)} · Pregunta ${esc(baseQ.number)} · <strong>Marcada</strong></div>
 
       <div class="q-title" style="margin-top:6px;">Enunciado</div>
       <div class="q-text" id="mkQText"></div>
@@ -1147,6 +1344,7 @@
           </div>
           <div class="hist-sub">
             ${h.mode === 'block' ? `Bloque: ${esc(h.blockLabel || h.block)} · ` : ''}
+            ${h.mode === 'examlist' ? `Examen: ${esc(h.examLabel || h.exam)} · ` : ''}
             Aciertos ${h.correct} · Fallos ${h.wrong} · Blancas ${h.blank} · puntuación ${Number(h.score).toFixed(2)}
             · <span class="muted">click para revisar</span>
           </div>
@@ -1175,6 +1373,10 @@
     if (state.mode === 'random' || state.mode === 'exam' || state.mode === 'single') {
       return state.pool.slice();
     }
+    if (state.mode === 'examlist') {
+      const examKey = state.exam || '';
+      return state.pool.filter(q => (q.exam || '') === examKey);
+    }
     const blockKey = resolveBlockValue(state.block || '');
     return state.pool.filter(q => (q.block || '') === blockKey);
   }
@@ -1197,11 +1399,16 @@
     setMobileQuizFocus(true);
 
     clearQuizTimer();
-    const infinite = !!state.infinite && state.mode !== 'exam' && state.mode !== 'single';
+    const infinite = !!state.infinite &&
+      state.mode !== 'exam' &&
+      state.mode !== 'examlist' &&
+      state.mode !== 'single';
 
     let modeLabel = '';
     let blockKey = '';
     let blockLabel = '';
+    let examKey = '';
+    let examLabel = '';
     let durationMs = 0;
 
     if (infinite) {
@@ -1224,6 +1431,8 @@
         modeLabel,
         blockKey,
         blockLabel,
+        examKey,
+        examLabel,
         infinite: true,
         durationMs,
         basePool,
@@ -1247,6 +1456,12 @@
         selectedQuestions = sample(state.pool, EXAM_QUESTIONS);
         modeLabel = `Examen (${EXAM_QUESTIONS} · 1h10)`;
         durationMs = EXAM_DURATION_MS;
+      } else if (state.mode === 'examlist') {
+        examKey = state.exam || '';
+        examLabel = examKey || '(Sin examen)';
+        selectedQuestions = shuffleArray(state.pool.filter(q => (q.exam || '') === examKey));
+        if (!selectedQuestions.length) return;
+        modeLabel = `Examen · ${examLabel}`;
       } else if (state.mode === 'single') {
         const num = getManualQuestionNumber();
         const picked = num ? state.poolById.get(String(num)) : null;
@@ -1272,6 +1487,8 @@
         modeLabel,
         blockKey,
         blockLabel,
+        examKey,
+        examLabel,
         infinite: false,
         durationMs
       };
@@ -1307,7 +1524,9 @@
 
     el.quizBody.innerHTML = `
       <div class="q-meta">
-        <span class="tag">${esc(q.block || '(Sin bloque)')}</span>
+        ${q.exam
+          ? `<span class="tag">Examen · ${esc(q.exam)}</span>`
+          : `<span class="tag">${esc(q.block || '(Sin bloque)')}</span>`}
         <span class="tag">Pregunta ${esc(q.number)}</span>
         <button class="tag tag-action" type="button" id="btnToggleMark" aria-pressed="false">Marcar</button>
       </div>
@@ -1542,6 +1761,8 @@
       modeLabel: state.quiz.modeLabel,
       block: state.quiz.blockKey || '',
       blockLabel: state.quiz.blockLabel || '',
+      exam: state.quiz.examKey || '',
+      examLabel: state.quiz.examLabel || '',
       total,
       correct, wrong, blank,
       score: Number(score.toFixed(3)),
@@ -1577,15 +1798,17 @@
                 ? 'Nuevo test (20)'
                 : (state.mode === 'exam'
                     ? `Nuevo examen (${EXAM_QUESTIONS} · 1h10)`
-                    : (state.mode === 'single'
-                        ? 'Ver otra pregunta'
-                        : 'Nuevo test (Bloque)')))}
+                    : (state.mode === 'examlist'
+                        ? 'Repetir examen'
+                        : (state.mode === 'single'
+                            ? 'Ver otra pregunta'
+                            : 'Nuevo test (Bloque)'))))}
         </button>
       </div>
     `;
 
     const res = `
-Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel}` : ''}
+Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel}` : ''}${attempt.mode === 'examlist' ? ` · ${attempt.examLabel}` : ''}
 \n\nCorrectas: ${correct} · Incorrectas: ${wrong} · Omitidas: ${blank}
 \nPuntuación neta: ${score.toFixed(2)} / ${total} (fallo = −1/3)
 \nPorcentaje: ${effectivePercent.toFixed(2)}%${extra}
@@ -1597,12 +1820,30 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
 
     const btn = $('#btnRestart', el.quizBody);
     if (btn) btn.addEventListener('click', startQuiz);
+
+    // Avoid duplicate finishes from lingering key handlers after showing results.
+    state.quiz = null;
+    state.locked = true;
+    state.selected = null;
   }// =========================
   // Battery load
   // =========================
   function setPool(questions, saved = false) {
     state.pool = questions;
+    const raw = localStorage.getItem(KEY_RAW) || '';
+    const examMap = buildExamMapFromRaw(raw);
+    if (examMap.size) {
+      for (const q of state.pool) {
+        const exam = examMap.get(String(q.id));
+        if (exam && !q.exam) {
+          q.exam = exam;
+          q.block = '';
+        }
+      }
+    }
     rebuildPoolIndexAndBlocks();
+    rebuildExamIndex();
+    updateExamListOption();
     pruneMarkedToPool();
 
     setPill(`Batería cargada · ${state.pool.length} preguntas`);
@@ -1777,6 +2018,7 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
       savePrefs({
         mode: state.mode,
         block: state.block,
+        exam: state.exam,
         infinite: state.infinite,
         questionNumber: state.questionNumber
       });
@@ -1788,15 +2030,17 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
     el.modeSelect.addEventListener('change', () => {
       if (el.modeSelect.value === 'block') state.mode = 'block';
       else if (el.modeSelect.value === 'exam') state.mode = 'exam';
+      else if (el.modeSelect.value === 'examlist') state.mode = 'examlist';
       else if (el.modeSelect.value === 'single') state.mode = 'single';
       else state.mode = 'random';
-      if (state.mode === 'exam' || state.mode === 'single') {
+      if (state.mode === 'exam' || state.mode === 'examlist' || state.mode === 'single') {
         state.infinite = false;
         if (el.toggleContinuous) el.toggleContinuous.checked = false;
       }
       savePrefs({
         mode: state.mode,
         block: state.block,
+        exam: state.exam,
         infinite: state.infinite,
         questionNumber: state.questionNumber
       });
@@ -1811,10 +2055,25 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
       savePrefs({
         mode: state.mode,
         block: state.block,
+        exam: state.exam,
         infinite: state.infinite,
         questionNumber: state.questionNumber
       });
       updateStartAvailability();
+      updateStartAvailability();
+    });
+  }
+
+  if (el.examSelect) {
+    el.examSelect.addEventListener('change', () => {
+      state.exam = el.examSelect.value;
+      savePrefs({
+        mode: state.mode,
+        block: state.block,
+        exam: state.exam,
+        infinite: state.infinite,
+        questionNumber: state.questionNumber
+      });
       updateStartAvailability();
     });
   }
@@ -1825,6 +2084,7 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
       savePrefs({
         mode: state.mode,
         block: state.block,
+        exam: state.exam,
         infinite: state.infinite,
         questionNumber: state.questionNumber
       });
@@ -1930,14 +2190,17 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   const prefs = loadPrefs();
   if (prefs.mode === 'block') state.mode = 'block';
   else if (prefs.mode === 'exam') state.mode = 'exam';
+  else if (prefs.mode === 'examlist') state.mode = 'examlist';
   else if (prefs.mode === 'single') state.mode = 'single';
   else state.mode = 'random';
   state.block = prefs.block || '';
+  state.exam = prefs.exam || '';
   state.infinite = !!prefs.infinite || !!prefs.continuous;
   state.questionNumber = (prefs.questionNumber != null) ? String(prefs.questionNumber) : '';
 
   if (el.modeSelect) el.modeSelect.value = state.mode;
   if (el.blockSelect) el.blockSelect.value = state.block;
+  if (el.examSelect) el.examSelect.value = state.exam;
   if (el.toggleContinuous) el.toggleContinuous.checked = state.infinite;
   if (el.questionInput) el.questionInput.value = state.questionNumber;
 

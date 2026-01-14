@@ -308,13 +308,14 @@
     if (!el.heatmapGrid) return;
     
     const activity = loadActivity();
-    const today = new Date();
+    const currentYear = new Date().getFullYear();
     const cells = [];
     
-    // Generate 371 days (53 weeks)
-    for (let i = 370; i >= 0; i--) {
-      const date = new Date(today);
-      date.setDate(date.getDate() - i);
+    // Generate all days of current year (Jan 1 to Dec 31)
+    const startDate = new Date(currentYear, 0, 1); // Jan 1
+    const endDate = new Date(currentYear, 11, 31); // Dec 31
+    
+    for (let date = new Date(startDate); date <= endDate; date.setDate(date.getDate() + 1)) {
       const key = getDateKey(date);
       const count = activity[key] || 0;
       
@@ -330,15 +331,10 @@
     
     el.heatmapGrid.innerHTML = cells.join('');
     
-    // Render months
+    // Render months (Jan to Dec)
     if (el.heatmapMonths) {
       const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
-      const currentMonth = today.getMonth();
-      const orderedMonths = [];
-      for (let i = 11; i >= 0; i--) {
-        orderedMonths.push(months[(currentMonth - i + 12) % 12]);
-      }
-      el.heatmapMonths.innerHTML = orderedMonths.map(m => `<span>${m}</span>`).join('');
+      el.heatmapMonths.innerHTML = months.map(m => `<span>${m}</span>`).join('');
     }
     
     // Update streak badge
@@ -1904,10 +1900,13 @@
 
     if (el.btnSubmit) el.btnSubmit.hidden = true;
     if (el.btnNext) {
-      el.btnNext.hidden = false;
-      el.btnNext.textContent = state.quiz.infinite
-        ? 'Siguiente'
-        : ((state.quiz.idx === state.quiz.questions.length - 1) ? 'Ver resultado' : 'Siguiente');
+      // Hide button if end of quiz (users should click Terminar)
+      if (!state.quiz.infinite && state.quiz.idx === state.quiz.questions.length - 1) {
+        el.btnNext.hidden = true;
+      } else {
+        el.btnNext.hidden = false;
+        el.btnNext.textContent = 'Siguiente';
+      }
     }
 
     typesetMath(el.quizBody);
@@ -2053,6 +2052,9 @@
       <div class="q-text" id="resText"></div>
 
       <div class="btnrow" style="margin-top:14px">
+        <button id="btnViewReview" class="btn ghost" type="button">
+          Ver resultado
+        </button>
         <button id="btnRestart" class="btn primary" type="button">
           ${state.infinite
             ? 'Volver a infinito'
@@ -2074,7 +2076,6 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
 \n\nCorrectas: ${correct} · Incorrectas: ${wrong} · Omitidas: ${blank}
 \nPuntuación neta: ${score.toFixed(2)} / ${total} (fallo = −1/3)
 \nPorcentaje: ${effectivePercent.toFixed(2)}%${extra}
-\n\nTip: haz clic en un intento del historial para revisarlo.
     `.trim();
 
     setMathText($('#resText', el.quizBody), res);
@@ -2082,6 +2083,9 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
 
     const btn = $('#btnRestart', el.quizBody);
     if (btn) btn.addEventListener('click', startQuiz);
+    
+    const btnReview = $('#btnViewReview', el.quizBody);
+    if (btnReview) btnReview.addEventListener('click', () => openReview(0));
 
     // Avoid duplicate finishes from lingering key handlers after showing results.
     state.quiz = null;

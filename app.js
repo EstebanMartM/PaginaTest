@@ -20,6 +20,8 @@
   const KEY_LASTPOS = 'quiz_last_correct_pos_v1'; // id -> pos(0..3) última vez que cayó la correcta
   const KEY_SOURCE = 'quiz_last_source_v1';
   const KEY_MARKED = 'quiz_marked_v1';
+  const KEY_SRS = 'quiz_srs_v1'; // SRS data per question
+  const KEY_ACTIVITY = 'quiz_activity_v1'; // Activity heatmap data
 
   const KEY_LIBSEL = 'quiz_library_last_v1';
 
@@ -151,6 +153,203 @@
   function saveMarked(list) { saveJSON(KEY_MARKED, list); }
 
   // =========================
+  // SRS (Spaced Repetition System) - SM-2 Algorithm
+  // =========================
+  function loadSRS() { return loadJSON(KEY_SRS, {}); }
+  function saveSRS(data) { saveJSON(KEY_SRS, data); }
+
+  function initSRSCard() {
+    return {
+      interval: 1,        // days until next review
+      easeFactor: 2.5,    // ease factor
+      repetitions: 0,     // consecutive correct answers
+      nextReview: 0,      // timestamp when due
+      lastSeen: 0         // timestamp when last answered
+    };
+  }
+
+  function getSRSCard(questionId) {
+    const srs = loadSRS();
+    const id = String(questionId);
+    if (!srs[id]) {
+      srs[id] = initSRSCard();
+      saveSRS(srs);
+    }
+    return srs[id];
+  }
+
+  // SM-2 update: quality 0-5 (0=complete fail, 3=correct with difficulty, 5=perfect)
+  function updateSRSCard(questionId, quality) {
+    const srs = loadSRS();
+    const id = String(questionId);
+    const card = srs[id] || initSRSCard();
+
+    if (quality < 3) {
+      // Failed: reset repetitions, short interval
+      card.repetitions = 0;
+      card.interval = 1;
+    } else {
+      // Passed
+      if (card.repetitions === 0) {
+        card.interval = 1;
+      } else if (card.repetitions === 1) {
+        card.interval = 6;
+      } else {
+        card.interval = Math.round(card.interval * card.easeFactor);
+      }
+      card.repetitions += 1;
+    }
+
+    // Update ease factor (never below 1.3)
+    card.easeFactor = Math.max(1.3, card.easeFactor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02)));
+    
+    // Set next review date and record last seen
+    card.nextReview = Date.now() + card.interval * 24 * 60 * 60 * 1000;
+    card.lastSeen = Date.now();
+    
+    srs[id] = card;
+    saveSRS(srs);
+    
+    console.log(`[SRS] Updated card ${id}: interval=${card.interval}d, EF=${card.easeFactor.toFixed(2)}, reps=${card.repetitions}`);
+  }
+
+  function getSRSQuality(result) {
+    // Map quiz result to SM-2 quality
+    if (result === 'correct') return 4;  // correct response
+    if (result === 'wrong') return 1;    // incorrect
+    return 2; // blank/skipped
+  }
+
+  // =========================
+  // Seeded Random (for Seed Challenge)
+  // =========================
+  function hashSeed(str) {
+    // Simple hash function to convert string to number
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      const chr = str.charCodeAt(i);
+      hash = ((hash << 5) - hash) + chr;
+      hash |= 0;
+    }
+    return Math.abs(hash);
+  }
+
+  function createSeededRandom(seed) {
+    // Mulberry32 PRNG
+    let state = hashSeed(String(seed));
+    return function() {
+      state |= 0;
+      state = state + 0x6D2B79F5 | 0;
+      let t = Math.imul(state ^ state >>> 15, 1 | state);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+
+  function seededShuffle(arr, seed) {
+    const rng = createSeededRandom(seed);
+    const result = arr.slice();
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = Math.floor(rng() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+    return result;
+  }
+
+  function generateSeedCode() {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    let code = '';
+    for (let i = 0; i < 4; i++) {
+      code += chars[Math.floor(Math.random() * chars.length)];
+    }
+    code += '-';
+    for (let i = 0; i < 4; i++) {
+      code += chars[Math.floor(Math.random() * chars.length)];
+    }
+    return code;
+  }
+
+  // =========================
+  // Activity Heatmap
+  // =========================
+  function loadActivity() { return loadJSON(KEY_ACTIVITY, {}); }
+  function saveActivity(data) { saveJSON(KEY_ACTIVITY, data); }
+
+  function getDateKey(date = new Date()) {
+    return date.toISOString().split('T')[0]; // YYYY-MM-DD
+  }
+
+  function recordActivity() {
+    const activity = loadActivity();
+    const today = getDateKey();
+    activity[today] = (activity[today] || 0) + 1;
+    saveActivity(activity);
+  }
+
+  function calculateStreak() {
+    const activity = loadActivity();
+    let streak = 0;
+    const today = new Date();
+    
+    for (let i = 0; i < 365; i++) {
+      const date = new Date(today);
+      date.setDate(date.getDate() - i);
+      const key = getDateKey(date);
+      if (activity[key]) {
+        streak++;
+      } else if (i > 0) {
+        break; // Streak broken
+      }
+    }
+    return streak;
+  }
+
+  function renderHeatmap() {
+    if (!el.heatmapGrid) return;
+    
+    const activity = loadActivity();
+    const today = new Date();
+    const cells = [];
+    
+    // Generate 371 days (53 weeks)
+    for (let i = 370; i >= 0; i--) {
+      const date = new Date(today);
+      date.setDate(date.getDate() - i);
+      const key = getDateKey(date);
+      const count = activity[key] || 0;
+      
+      let level = 0;
+      if (count >= 10) level = 4;
+      else if (count >= 5) level = 3;
+      else if (count >= 2) level = 2;
+      else if (count >= 1) level = 1;
+      
+      const dateStr = date.toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+      cells.push(`<div class="heatmap-cell level-${level}" title="${dateStr}: ${count} tests"></div>`);
+    }
+    
+    el.heatmapGrid.innerHTML = cells.join('');
+    
+    // Render months
+    if (el.heatmapMonths) {
+      const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+      const currentMonth = today.getMonth();
+      const orderedMonths = [];
+      for (let i = 11; i >= 0; i--) {
+        orderedMonths.push(months[(currentMonth - i + 12) % 12]);
+      }
+      el.heatmapMonths.innerHTML = orderedMonths.map(m => `<span>${m}</span>`).join('');
+    }
+    
+    // Update streak badge
+    if (el.streakBadge) {
+      const streak = calculateStreak();
+      el.streakBadge.textContent = `🔥 ${streak}`;
+      el.streakBadge.title = `Racha: ${streak} día${streak !== 1 ? 's' : ''}`;
+    }
+  }
+
+  // =========================
   // State
   // =========================
   const state = {
@@ -234,6 +433,16 @@
     markedList: $('#markedList'),
     markedDetail: $('#markedDetail'),
     btnMarkedHome: $('#btnMarkedHome'),
+    dropOverlay: $('#dropOverlay'),
+    toggleZen: $('#toggleZen'),
+    btnZenHome: $('#btnZenHome'),
+    srsCountField: $('#srsCountField'),
+    srsCountInput: $('#srsCountInput'),
+    seedInput: $('#seedInput'),
+    btnSeedGen: $('#btnSeedGen'),
+    heatmapGrid: $('#heatmapGrid'),
+    heatmapMonths: $('#heatmapMonths'),
+    streakBadge: $('#streakBadge'),
   };
 
   // =========================
@@ -780,6 +989,11 @@
     ensureModeAllowed();
     updateExamListOption();
 
+    // Show/hide SRS count field based on mode
+    if (el.srsCountField) {
+      el.srsCountField.style.display = state.mode === 'srs' ? '' : 'none';
+    }
+
     const isExam = state.mode === 'exam';
     const isExamList = state.mode === 'examlist';
     const isSingle = state.mode === 'single';
@@ -838,6 +1052,21 @@
       return;
     }
 
+    if (state.mode === 'srs') {
+      if (el.blockSelect) el.blockSelect.disabled = true;
+      if (el.examSelect) el.examSelect.disabled = true;
+      if (el.questionInput) el.questionInput.disabled = true;
+      if (el.toggleContinuous) el.toggleContinuous.disabled = true;
+
+      const dueCount = getDueQuestions().length;
+      const srsMax = el.srsCountInput ? parseInt(el.srsCountInput.value, 10) || 20 : 20;
+      const willDo = Math.min(dueCount, srsMax);
+      el.btnStart.disabled = dueCount < 1;
+      el.btnStart.textContent = dueCount > 0 ? `Repaso SRS (${willDo} de ${dueCount})` : 'SRS (nada pendiente)';
+      updateFieldHints();
+      return;
+    }
+
     if (state.mode === 'random') {
       if (el.blockSelect) el.blockSelect.disabled = true;
       if (el.examSelect) el.examSelect.disabled = true;
@@ -887,6 +1116,11 @@
         el.modeHint.textContent = state.infinite
           ? 'Sigue sacando preguntas sin límite.'
           : '20 preguntas aleatorias de la batería.';
+      } else if (state.mode === 'srs') {
+        const dueCount = getDueQuestions().length;
+        el.modeHint.textContent = dueCount > 0
+          ? `Repaso inteligente: ${dueCount} preguntas pendientes.`
+          : 'Todas las preguntas están al día. ¡Vuelve mañana!';
       } else if (state.mode === 'block') {
         el.modeHint.textContent = 'Selecciona un bloque para practicarlo completo.';
       } else if (state.mode === 'exam') {
@@ -1449,8 +1683,24 @@
 
       if (state.mode === 'random') {
         if (state.pool.length < 20) return;
-        selectedQuestions = sample(state.pool, 20);
-        modeLabel = 'Aleatorio (20)';
+        
+        // Check for seed challenge
+        const seed = el.seedInput ? el.seedInput.value.trim().toUpperCase() : '';
+        if (seed && seed.length >= 4) {
+          // Use seeded shuffle for reproducible order
+          const shuffled = seededShuffle(state.pool, seed);
+          selectedQuestions = shuffled.slice(0, 20);
+          modeLabel = `Seed: ${seed}`;
+        } else {
+          selectedQuestions = sample(state.pool, 20);
+          modeLabel = 'Aleatorio (20)';
+        }
+      } else if (state.mode === 'srs') {
+        const due = getDueQuestions();
+        if (!due.length) return;
+        const srsMax = el.srsCountInput ? parseInt(el.srsCountInput.value, 10) || 20 : 20;
+        selectedQuestions = due.slice(0, Math.min(srsMax, 100));
+        modeLabel = `Repaso SRS (${selectedQuestions.length})`;
       } else if (state.mode === 'exam') {
         if (!state.examUnlocked || state.pool.length < EXAM_QUESTIONS) return;
         selectedQuestions = sample(state.pool, EXAM_QUESTIONS);
@@ -1679,6 +1929,14 @@
       result
     });
 
+    // SRS update
+    if (state.quiz.mode === 'srs') {
+      updateSRSCard(q.id, getSRSQuality(result));
+    }
+
+    // Haptic feedback (mobile)
+    hapticFeedback(result);
+
     lockAndReveal(result, selected);
     setProgress();
     updateFooterInline();
@@ -1745,6 +2003,10 @@
     const { correct, wrong, blank, score, effectivePercent } = computeScore(state.quiz.answers, Math.max(1, total));
 
     updatePerQuestionStats(state.quiz.answers);
+    
+    // Record activity for heatmap
+    recordActivity();
+    renderHeatmap();
 
     // Guardamos exactamente lo que vio el usuario (incluye optionsShown con letras ya re-etiquetadas)
     const items = state.quiz.questions.slice(0, state.quiz.answers.length).map((q, idx) => ({
@@ -2032,8 +2294,9 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
       else if (el.modeSelect.value === 'exam') state.mode = 'exam';
       else if (el.modeSelect.value === 'examlist') state.mode = 'examlist';
       else if (el.modeSelect.value === 'single') state.mode = 'single';
+      else if (el.modeSelect.value === 'srs') state.mode = 'srs';
       else state.mode = 'random';
-      if (state.mode === 'exam' || state.mode === 'examlist' || state.mode === 'single') {
+      if (state.mode === 'exam' || state.mode === 'examlist' || state.mode === 'single' || state.mode === 'srs') {
         state.infinite = false;
         if (el.toggleContinuous) el.toggleContinuous.checked = false;
       }
@@ -2174,11 +2437,183 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   });
 
   // =========================
+  // SRS getDueQuestions (needs state.pool)
+  // =========================
+  function getDueQuestions() {
+    const srs = loadSRS();
+    const now = Date.now();
+    const due = [];
+    
+    if (!state.pool || !state.pool.length) return due;
+    
+    for (const q of state.pool) {
+      const id = String(q.id);
+      const card = srs[id];
+      // Include if: never seen OR due for review
+      if (!card || !card.nextReview || card.nextReview <= now) {
+        due.push(q);
+      }
+    }
+    
+    // Sort logic: Review (Overdue) > New
+    due.sort((a, b) => {
+      const cardA = srs[String(a.id)];
+      const cardB = srs[String(b.id)];
+      // If no card or no nextReview -> New -> effective due = Infinity (do last)
+      const dueA = (cardA && cardA.nextReview) ? cardA.nextReview : Number.MAX_SAFE_INTEGER;
+      const dueB = (cardB && cardB.nextReview) ? cardB.nextReview : Number.MAX_SAFE_INTEGER;
+      return dueA - dueB;
+    });
+    
+    return due;
+  }
+
+  // =========================
+  // Drag & Drop + Paste
+  // =========================
+  let dragCounter = 0;
+
+  function showDropOverlay() {
+    if (el.dropOverlay) el.dropOverlay.hidden = false;
+  }
+
+  function hideDropOverlay() {
+    if (el.dropOverlay) el.dropOverlay.hidden = true;
+  }
+
+  function handleFileLoad(text, sourceName) {
+    if (!text || !text.trim()) return;
+    
+    const questions = parseQuestionsFromTxt(text);
+    if (!questions.length) {
+      alert('No se encontraron preguntas válidas en el contenido.');
+      return;
+    }
+    
+    // Save and load like normal file input
+    localStorage.setItem(KEY_RAW, text);
+    state.pool = questions;
+    rebuildPoolIndexAndBlocks();
+    rebuildExamIndex();
+    pruneMarkedToPool();
+    setSourceMeta(sourceName || 'drop-paste');
+    setPill(`${questions.length} preguntas cargadas`);
+    updateStartAvailability();
+    if (el.btnLoadLast) el.btnLoadLast.disabled = false;
+  }
+
+  // Drag events
+  document.addEventListener('dragenter', (e) => {
+    e.preventDefault();
+    dragCounter++;
+    if (dragCounter === 1) showDropOverlay();
+  });
+
+  document.addEventListener('dragleave', (e) => {
+    e.preventDefault();
+    dragCounter--;
+    if (dragCounter <= 0) {
+      dragCounter = 0;
+      hideDropOverlay();
+    }
+  });
+
+  document.addEventListener('dragover', (e) => {
+    e.preventDefault();
+  });
+
+  document.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dragCounter = 0;
+    hideDropOverlay();
+    
+    const files = e.dataTransfer?.files;
+    if (!files || !files.length) return;
+    
+    const file = files[0];
+    if (!file.name.endsWith('.txt') && !file.type.includes('text')) {
+      alert('Por favor, arrastra un archivo .txt');
+      return;
+    }
+    
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      handleFileLoad(evt.target.result, file.name);
+    };
+    reader.readAsText(file);
+  });
+
+  // Paste handler (Ctrl+V)
+  document.addEventListener('paste', (e) => {
+    // Don't interfere with text inputs
+    if (e.target && ['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+    
+    const text = e.clipboardData?.getData('text/plain');
+    if (!text || !text.trim()) return;
+    
+    // Check if it looks like question content
+    if (text.includes('Pregunta') && (text.includes('a)') || text.includes('a.'))) {
+      e.preventDefault();
+      handleFileLoad(text, 'clipboard');
+    }
+  });
+
+  // =========================
+  // Zen Mode
+  // =========================
+  function setZenMode(on) {
+    document.body.classList.toggle('zen-mode', !!on);
+    if (el.toggleZen) el.toggleZen.checked = !!on;
+  }
+
+  if (el.toggleZen) {
+    el.toggleZen.addEventListener('change', () => {
+      setZenMode(el.toggleZen.checked);
+    });
+  }
+
+  // Zen home button - exits zen mode
+  if (el.btnZenHome) {
+    el.btnZenHome.addEventListener('click', () => {
+      setZenMode(false);
+    });
+  }
+
+  // SRS count input change updates button text
+  if (el.srsCountInput) {
+    el.srsCountInput.addEventListener('input', () => {
+      updateStartAvailability();
+    });
+  }
+
+  // Seed Challenge button
+  if (el.btnSeedGen) {
+    el.btnSeedGen.addEventListener('click', () => {
+      const code = generateSeedCode();
+      if (el.seedInput) el.seedInput.value = code;
+    });
+  }
+
+  // Haptic feedback helper
+  function hapticFeedback(type) {
+    if (!navigator.vibrate) return;
+    try {
+      if (type === 'correct') {
+        navigator.vibrate(50);
+      } else if (type === 'wrong') {
+        navigator.vibrate([50, 50, 50]);
+      }
+    } catch (_) {}
+  }
+
+  // =========================
   // Init
   // =========================
   try { document.body.classList.remove('focus-quiz'); } catch (_) {}
 
   renderHistory();
+
+  renderHeatmap();
 
   renderLibrarySelect();
 
@@ -2192,6 +2627,7 @@ Modo: ${attempt.modeLabel}${attempt.mode === 'block' ? ` · ${attempt.blockLabel
   else if (prefs.mode === 'exam') state.mode = 'exam';
   else if (prefs.mode === 'examlist') state.mode = 'examlist';
   else if (prefs.mode === 'single') state.mode = 'single';
+  else if (prefs.mode === 'srs') state.mode = 'srs';
   else state.mode = 'random';
   state.block = prefs.block || '';
   state.exam = prefs.exam || '';

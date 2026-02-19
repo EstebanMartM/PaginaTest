@@ -1,0 +1,959 @@
+Pregunta 1: Señala la afirmación más rigurosa sobre la definición de robot:
+a) La presencia de sensores y actuadores es condición suficiente para hablar de robot.
+b) Todo sistema automático es un robot.
+c) Pueden existir robots autónomos sin representación explícita del entorno.
+d) Todo sistema con representación interna es un robot.
+Solución: c
+Justificación: Un robot puede operar de forma reactiva sin representación simbólica explícita; sensores y actuadores no son condición suficiente por sí solos.
+
+Pregunta 2: Señala la afirmación más rigurosa sobre el origen del término “robot”:
+a) Surge en la Revolución Industrial.
+b) Fue acuñado por Isaac Asimov.
+c) Procede de una obra literaria de Karel Capek.
+d) Fue creado en laboratorios de cibernética.
+Solución: c
+Justificación: El término “robot” aparece en la obra RUR de Karel Capek en 1921.
+
+Pregunta 3: ¿Cuál de las siguientes afirmaciones es correcta sobre la robótica como disciplina?
+a) Nace exclusivamente de la inteligencia artificial.
+b) Surge de la teoría de control, la cibernética y la IA.
+c) Es una rama de la mecánica clásica.
+d) Aparece en los años 90 con SLAM.
+Solución: b
+Justificación: La robótica se nutre históricamente de teoría de control, cibernética e inteligencia artificial.
+
+Pregunta 4: La teoría de control se basa fundamentalmente en:
+a) Programación simbólica.
+b) Realimentación y comparación con un estado deseado.
+c) Eliminación total del error.
+d) Modelos puramente cualitativos.
+Solución: b
+Justificación: El control automático utiliza realimentación para minimizar la diferencia entre estado actual y deseado.
+
+Pregunta 5: La cibernética estudia principalmente:
+a) Solo máquinas industriales.
+b) Robots humanoides.
+c) Principios comunes de control y comunicación en sistemas biológicos y artificiales.
+d) Motores eléctricos.
+Solución: c
+Justificación: La cibernética analiza control, comunicación e información en sistemas naturales y artificiales.
+
+Pregunta 6: La diferencia conceptual clave entre la tortuga de Walter y Shakey es que:
+a) Walter usaba planificación simbólica avanzada.
+b) Shakey integraba percepción, planificación y ejecución.
+c) Shakey era puramente reactivo.
+d) Walter tenía representación interna compleja.
+Solución: b
+Justificación: Shakey combinaba percepción, razonamiento y acción, a diferencia del enfoque reactivo de Walter.
+
+Pregunta 7: El brazo PUMA representa:
+a) Un robot de exploración espacial.
+b) Un robot probabilístico móvil.
+c) La consolidación industrial en entornos estructurados.
+d) Un robot autónomo con SLAM.
+Solución: c
+Justificación: PUMA automatizó tareas repetitivas en fábricas en entornos controlados.
+
+Pregunta 8: En los robots industriales clásicos, afirmar que el entorno era estructurado implica que:
+a) El robot construía mapas dinámicos.
+b) Parte de la inteligencia estaba externalizada en el entorno.
+c) Eran autónomos en entornos inciertos.
+d) No necesitaban control.
+Solución: b
+Justificación: El entorno facilitaba el comportamiento del robot (líneas, guías, organización física).
+
+Pregunta 9: La revolución probabilística en robótica surge porque:
+a) Los sensores digitales eliminan el error.
+b) El mundo es completamente determinista.
+c) El estado del robot y entorno es incierto.
+d) La planificación deja de ser necesaria.
+Solución: c
+Justificación: La incertidumbre en sensores y entorno exige modelos probabilísticos.
+
+Pregunta 10: SLAM permite:
+a) Planificar sin percepción.
+b) Localizarse sin mapa y construirlo simultáneamente.
+c) Eliminar el ruido sensorial.
+d) Sustituir el control de movimiento.
+Solución: b
+Justificación: SLAM realiza localización y construcción de mapa simultáneamente.
+
+Pregunta 11: En un robot móvil autónomo, la planificación global requiere:
+a) Solo sensores internos.
+b) Teleoperación constante.
+c) Estimación del estado y representación del entorno.
+d) Ausencia de incertidumbre.
+Solución: c
+Justificación: La planificación necesita conocer posición estimada y modelo del entorno.
+
+Pregunta 12: La planificación de trayectorias busca:
+a) Mover el robot sin restricciones.
+b) Encontrar una trayectoria minimizando alguna variable.
+c) Sustituir la percepción.
+d) Evitar completamente el uso de mapas.
+Solución: b
+Justificación: Planificar implica optimizar bajo restricciones y evitar colisiones.
+
+Pregunta 13: Un robot móvil se caracteriza por:
+a) Carecer de percepción.
+b) Movilidad relativa a su entorno.
+c) Ser exclusivamente terrestre.
+d) No tener autonomía.
+Solución: b
+Justificación: Puede desplazarse en su entorno (aire, tierra, agua) con cierto nivel de autonomía.
+
+Pregunta 14: Spirit y Opportunity pueden considerarse:
+a) Sistemas puramente teleoperados en tiempo real.
+b) Robots industriales.
+c) Robots móviles con autonomía parcial.
+d) Sistemas sin planificación.
+Solución: c
+Justificación: Tenían teleoperación combinada con autonomía progresiva.
+
+Pregunta 15: Un robot de servicio se define como:
+a) Robot exclusivamente doméstico.
+b) Robot que no realiza manufactura.
+c) Robot humanoide.
+d) Robot industrial ligero.
+Solución: b
+Justificación: Se excluyen operaciones de manufactura en su definición.
+
+Pregunta 16: La adopción de filtros de Kalman permite:
+a) Eliminar incertidumbre.
+b) Estimar estados bajo ruido.
+c) Sustituir sensores.
+d) Evitar planificación.
+Solución: b
+Justificación: Permiten estimar variables no directamente observables en presencia de ruido.
+
+Pregunta 17: La localización consiste en:
+a) Construir mapas únicamente.
+b) Determinar la posición del robot en un entorno.
+c) Ejecutar trayectorias.
+d) Controlar motores.
+Solución: b
+Justificación: La localización estima la posición y orientación del robot.
+
+Pregunta 18: La percepción en robótica implica:
+a) Solo capturar datos.
+b) Interpretar datos sensoriales.
+c) Actuar directamente.
+d) Sustituir el control.
+Solución: b
+Justificación: Percepción implica extracción de información significativa.
+
+Pregunta 19: En control jerárquico, el nivel bajo:
+a) Realiza planificación estratégica.
+b) Ejecuta órdenes generadas por niveles superiores.
+c) Construye mapas globales.
+d) Aprende nuevas tareas.
+Solución: b
+Justificación: El control de bajo nivel ejecuta comandos motores.
+
+Pregunta 20: Roomba representa:
+a) Un robot industrial.
+b) Un robot de servicio personal con autonomía limitada.
+c) Un sistema puramente reactivo sin sensores.
+d) Un robot humanoide.
+Solución: b
+Justificación: Es un robot doméstico que mapea y ejecuta limpieza autónoma.
+
+Pregunta 21: Señala la afirmación más rigurosa sobre los robots móviles industriales de los años 60:
+a) Operaban en entornos completamente no estructurados.
+b) Se guiaban mediante infraestructuras como cables o líneas en el suelo.
+c) Utilizaban SLAM avanzado.
+d) Eran completamente autónomos.
+Solución: b
+Justificación: Los primeros vehículos autónomos industriales seguían cables o líneas, lo que implica entorno estructurado.
+
+Pregunta 22: La autonomía en un robot implica necesariamente:
+a) Ausencia total de intervención humana.
+b) Capacidad de actuar sin sensores.
+c) Capacidad de tomar decisiones en función del estado estimado.
+d) Planificación simbólica compleja.
+Solución: c
+Justificación: La autonomía implica decidir y actuar según la información disponible del entorno y del propio estado.
+
+Pregunta 23: La diferencia entre planificación global y local radica en que:
+a) La global no necesita mapa.
+b) La local opera sin sensores.
+c) La global utiliza una representación amplia del entorno.
+d) La local sustituye al control.
+Solución: c
+Justificación: La planificación global requiere un modelo amplio del entorno para generar trayectorias óptimas.
+
+Pregunta 24: En un robot móvil, la odometría permite:
+a) Construir mapas globales perfectos.
+b) Medir directamente obstáculos.
+c) Estimar el desplazamiento relativo.
+d) Sustituir la percepción externa.
+Solución: c
+Justificación: La odometría estima movimiento relativo, aunque acumula error.
+
+Pregunta 25: La introducción de sensores con ruido implica que:
+a) El modelo determinista es suficiente.
+b) Es necesario modelar incertidumbre.
+c) La percepción deja de ser útil.
+d) El control desaparece.
+Solución: b
+Justificación: El ruido obliga a utilizar modelos probabilísticos para estimar estados.
+
+Pregunta 26: Un robot de campo se caracteriza por:
+a) Operar exclusivamente en fábricas.
+b) Aplicaciones como exploración espacial o militar.
+c) Ser necesariamente doméstico.
+d) No tener autonomía.
+Solución: b
+Justificación: Robots de campo incluyen aplicaciones militares y exploración espacial.
+
+Pregunta 27: Turtlebot 4 es relevante porque:
+a) Es un robot industrial pesado.
+b) Permite implementar algoritmos reales de SLAM y navegación.
+c) Carece de sensores avanzados.
+d) No utiliza middleware.
+Solución: b
+Justificación: Es una plataforma de investigación y docencia para problemas reales de robótica móvil.
+
+Pregunta 28: El middleware ROS 2 en robots móviles:
+a) Sustituye los sensores.
+b) Permite comunicación y modularidad en el sistema.
+c) Elimina la necesidad de planificación.
+d) Solo funciona en robots industriales.
+Solución: b
+Justificación: ROS 2 facilita integración y comunicación entre módulos de percepción, planificación y control.
+
+Pregunta 29: En el esquema general de control en robots móviles, la percepción:
+a) Ejecuta directamente los motores.
+b) Construye representación del entorno a partir de datos.
+c) Sustituye la planificación.
+d) Es equivalente al control.
+Solución: b
+Justificación: La percepción transforma datos sensoriales en información estructurada.
+
+Pregunta 30: La ejecución de trayectoria pertenece al nivel de:
+a) Planificación estratégica.
+b) Control del movimiento.
+c) Representación semántica.
+d) Ética robótica.
+Solución: b
+Justificación: La ejecución corresponde al control que convierte trayectorias en órdenes a actuadores.
+
+Pregunta 31: Los modelos VLA integran principalmente:
+a) Solo visión.
+b) Solo lenguaje.
+c) Visión, lenguaje y acción.
+d) Control clásico.
+Solución: c
+Justificación: Vision-Language-Action combina percepción visual, comprensión lingüística y ejecución física.
+
+Pregunta 32: La Embodied AI implica:
+a) IA sin cuerpo físico.
+b) IA integrada en sistemas físicos interactuando con el entorno.
+c) Sustituir robots por simulaciones.
+d) Eliminar la percepción.
+Solución: b
+Justificación: Embodied AI se refiere a IA integrada en sistemas físicos con interacción real.
+
+Pregunta 33: El razonamiento semántico en robots permite:
+a) Ejecutar motores directamente.
+b) Identificar objetos y su función.
+c) Eliminar incertidumbre.
+d) Sustituir sensores.
+Solución: b
+Justificación: Permite interpretar el significado y función de elementos del entorno.
+
+Pregunta 34: El aprendizaje por refuerzo en robótica se basa en:
+a) Programación fija.
+b) Prueba y error optimizando recompensas.
+c) Eliminación del entorno.
+d) Control determinista.
+Solución: b
+Justificación: RL aprende políticas mediante interacción y maximización de recompensa.
+
+Pregunta 35: Un dilema ético en robótica surge cuando:
+a) El sistema es totalmente predecible.
+b) No existe autonomía.
+c) El comportamiento no puede predecirse completamente.
+d) El robot es industrial.
+Solución: c
+Justificación: La autonomía bajo incertidumbre genera responsabilidad y dilemas éticos.
+
+Pregunta 36: La privacidad es un reto en robótica porque:
+a) Los robots no almacenan datos.
+b) Los robots operan en entornos humanos reales.
+c) Los robots industriales no existen.
+d) No hay sensores.
+Solución: b
+Justificación: Robots en hogares y ciudades capturan datos sensibles.
+
+Pregunta 37: La generalización del aprendizaje implica:
+a) Memorizar una tarea específica.
+b) Transferir conocimiento a nuevas situaciones.
+c) Eliminar percepción.
+d) Sustituir planificación.
+Solución: b
+Justificación: Generalizar es aplicar lo aprendido a entornos o tareas no vistas.
+
+Pregunta 38: La seguridad y fiabilidad en robótica buscan:
+a) Maximizar velocidad exclusivamente.
+b) Minimizar riesgos físicos y fallos.
+c) Eliminar autonomía.
+d) Sustituir sensores externos.
+Solución: b
+Justificación: La seguridad es esencial en interacción con humanos.
+
+Pregunta 39: En robots móviles, la localización depende de:
+a) Solo planificación.
+b) Estimación basada en sensores y modelos.
+c) Teleoperación constante.
+d) Ausencia de mapa.
+Solución: b
+Justificación: Se estima la posición combinando sensores y modelos probabilísticos.
+
+Pregunta 40: El mapeado en robótica móvil consiste en:
+a) Ejecutar trayectorias.
+b) Construir representación del entorno.
+c) Sustituir control.
+d) Eliminar incertidumbre.
+Solución: b
+Justificación: El mapeado genera un modelo del entorno para navegación.
+
+Pregunta 41: Un sistema reactivo puro se caracteriza por:
+a) Planificación deliberativa compleja.
+b) Responder directamente a estímulos sensoriales.
+c) Uso de SLAM avanzado.
+d) Representación simbólica profunda.
+Solución: b
+Justificación: Sistemas reactivos actúan según estímulos sin planificación global.
+
+Pregunta 42: La evolución histórica muestra que:
+a) La robótica nace completamente industrial.
+b) La IA influyó fuertemente en el desarrollo de robots cognitivos.
+c) La cibernética es posterior a 2000.
+d) SLAM es anterior a la teoría de control.
+Solución: b
+Justificación: La IA influyó en robots como Shakey enfatizando razonamiento.
+
+Pregunta 43: En un entorno no estructurado:
+a) El robot depende de percepción y estimación.
+b) No hay incertidumbre.
+c) No se requiere planificación.
+d) El entorno facilita el comportamiento.
+Solución: a
+Justificación: En entornos no estructurados el robot debe percibir y estimar constantemente.
+
+Pregunta 44: Un dron autónomo suele incorporar:
+a) Solo motores.
+b) Sensores inerciales, visión y GPS.
+c) Ningún sensor externo.
+d) Exclusivamente control manual.
+Solución: b
+Justificación: La navegación aérea requiere múltiples sensores para estabilidad y posición.
+
+Pregunta 45: La planificación bajo incertidumbre implica:
+a) Ignorar el ruido.
+b) Incorporar modelos probabilísticos en la toma de decisiones.
+c) Eliminar mapas.
+d) Sustituir control por percepción.
+Solución: b
+Justificación: Las decisiones deben considerar distribuciones de probabilidad.
+
+Pregunta 46: El cambio de paradigma en los años 90 consistió en:
+a) Abandonar sensores.
+b) Abandonar control determinista puro.
+c) Eliminar planificación.
+d) Sustituir robots por humanos.
+Solución: b
+Justificación: Se adoptaron modelos probabilísticos frente al determinismo clásico.
+
+Pregunta 47: Un robot personal de servicio puede:
+a) Realizar soldadura industrial.
+b) Operar en el hogar con autonomía parcial.
+c) Carecer de sensores.
+d) No interactuar con humanos.
+Solución: b
+Justificación: Robots personales como aspiradoras operan en entornos domésticos.
+
+Pregunta 48: La representación interna en un robot:
+a) Siempre es simbólica.
+b) Puede ser probabilística o implícita.
+c) Es innecesaria para cualquier autonomía.
+d) Sustituye la percepción.
+Solución: b
+Justificación: Puede ser un mapa probabilístico, modelo interno o representación implícita.
+
+Pregunta 49: El control del movimiento convierte:
+a) Datos en conocimiento.
+b) Trayectorias en órdenes a actuadores.
+c) Mapas en sensores.
+d) Ética en decisiones.
+Solución: b
+Justificación: El controlador ejecuta físicamente la trayectoria planificada.
+
+Pregunta 50: La convergencia actual entre IA generativa y robótica implica:
+a) Robots sin cuerpo físico.
+b) Robots capaces de entender lenguaje natural y actuar.
+c) Eliminación de sensores.
+d) Sustituir planificación por teleoperación.
+Solución: b
+Justificación: Los modelos Vision-Language-Action permiten comprensión semántica y ejecución física de órdenes naturales.
+
+Pregunta 51: ¿Cuál de las siguientes afirmaciones sobre el origen histórico y literario de la robótica es correcta?
+a) El término "Robótica" fue acuñado por Karel Capek en su obra RUR.
+b) Fritz Lang inventó la palabra "robot" en la película Metrópolis.
+c) El origen de la palabra "robot" proviene del término checo "robota", que significa esclavo o trabajador obligado.
+d) Isaac Asimov creó el primer dispositivo cibernético de la historia.
+Solución: c
+Justificación: El término "robot" fue introducido por el escritor checo Karel Capek en su obra de teatro R.U.R. (Robots Universales Rossum) en 1920, derivando de la palabra "robota" (trabajo forzado o servidumbre). La palabra "robótica", por otro lado, fue acuñada más tarde por Isaac Asimov.
+
+Pregunta 52: Respecto a la evolución de los robots en las décadas de 1950 a 1970, señala la afirmación FALSA:
+a) La tortuga de Walter utilizaba válvulas electrónicas y sensores analógicos para exhibir comportamientos como buscar la luz.
+b) Shakey fue un robot impulsado por Inteligencia Artificial que contaba con visión rudimentaria y estimación de posición.
+c) El Brazo PUMA (1978) destacaba por su gran capacidad de reacción ante cambios imprevistos en entornos no estructurados.
+d) Stanford Cart fue el primer robot en hacer un mapeado y navegación 3D en entornos reales.
+Solución: c
+Justificación: El Brazo PUMA fue uno de los robots industriales más exitosos de la historia, pero operaba en entornos de manufactura altamente estructurados. Carecía de la capacidad de reaccionar de forma autónoma ante cambios imprevistos en entornos dinámicos (no estructurados).
+
+Pregunta 53: En el contexto de la "Nueva Era" de la robótica (Embodied AI), ¿qué caracteriza a los modelos VLA (Vision-Language-Action)?
+a) Requieren ser pre-programados explícitamente para cada tarea física en entornos estructurados.
+b) Solo procesan información visual sin capacidad de razonamiento semántico ni lenguaje.
+c) Permiten a los robots entender órdenes en lenguaje natural, razonar semánticamente sobre el entorno y aprender nuevas tareas.
+d) Abandonan el uso de Inteligencia Artificial Generativa a favor de teoría de control clásica.
+Solución: c
+Justificación: Los modelos VLA integran visión por computador, procesamiento de lenguaje natural y control físico. Esto dota al robot de la capacidad de comprender el entorno de forma semántica y seguir instrucciones verbales para ejecutar tareas sin programación rígida explícita.
+
+Pregunta 54: La disciplina de la Cibernética en el contexto de la robótica se caracteriza principalmente por:
+a) El estudio puramente matemático de las máquinas de vapor y los aviones.
+b) La búsqueda de principios comunes a animales y máquinas, centrándose fundamentalmente en el control y la comunicación.
+c) La implementación de algoritmos SLAM en entornos de alta incertidumbre.
+d) Diseñar exclusivamente la cinemática directa de brazos robóticos industriales.
+Solución: b
+Justificación: La cibernética, definida por Norbert Wiener, es el estudio teórico de los procesos de comunicación y control tanto en sistemas biológicos (animales/humanos) como en sistemas artificiales (máquinas), buscando las similitudes subyacentes entre ambos mundos.
+
+Pregunta 55: De acuerdo a la arquitectura general de un robot móvil, ¿cuál es la función principal del sistema de control?
+a) Generar las fuerzas físicas necesarias para mover el sistema mecánico.
+b) Recoger de forma pasiva información pura del entorno.
+c) Analizar continuamente la información obtenida de los sensores, generando acciones en función de la comparación con patrones de referencia.
+d) Diseñar la trayectoria para evadir colisiones sin interactuar con los actuadores.
+Solución: c
+Justificación: En la arquitectura de un robot, los sensores recogen datos y los actuadores generan movimiento. El sistema de control actúa como el cerebro, analizando los datos sensoriales y decidiendo qué señales enviar a los actuadores basándose en los objetivos o patrones de referencia planificados.
+
+Pregunta 56: Según la definición formal vista en clase, un "robot de servicio" se distingue principalmente porque:
+a) Requiere estar anclado a una línea de montaje estructurada.
+b) Opera de forma parcial o totalmente autónoma para realizar servicios útiles para humanos o equipamiento, excluyendo operaciones de manufactura industrial.
+c) Está completamente teleoperado y carece de representación interna del entorno.
+d) Debe tener siempre una arquitectura en forma humanoide.
+Solución: b
+Justificación: Según la definición estándar, los robots de servicio asisten a seres humanos en sus tareas cotidianas o profesionales (limpieza, logística, medicina...), y su principal diferencia frente al robot industrial tradicional es que excluyen explícitamente las operaciones de manufactura industrial.
+
+Pregunta 57: Sobre las plataformas educativas y de investigación en robótica móvil, señala la afirmación correcta:
+a) El Turtlebot 4 está equipado con la base móvil iRobot Create 3 y procesa algoritmos complejos utilizando un Raspberry Pi 4.
+b) El proyecto LEGO Mindstorms surgió en la década de los 80 de una colaboración con Boston Dynamics.
+c) El módulo RCX fue lanzado en 2019, siendo la última generación que incorpora MicroPython de forma nativa.
+d) La plataforma Turtlebot 4 carece de capacidad de odometría, dependiendo exclusivamente de sensores láser.
+Solución: a
+Justificación: El Turtlebot 4 es una plataforma estándar en docencia e investigación que combina el hardware de movilidad del iRobot Create 3 con la potencia de procesamiento de una placa Raspberry Pi 4 para ejecutar frameworks modernos como ROS 2.
+
+Pregunta 58: Según el informe de la IFR (World Robotics 2025), ¿qué tendencia reciente se observa en el mercado global de robots industriales?
+a) Las instalaciones anuales en Asia han caído drásticamente en favor de Europa.
+b) Las industrias generales ("General industries") están compensando la debilidad y caída en instalaciones del sector automotriz.
+c) Estados Unidos se ha convertido en el líder mundial, superando el stock de instalaciones de China.
+d) Las instalaciones anuales han decrecido globalmente en los últimos 10 años.
+Solución: b
+Justificación: El informe destaca que, aunque históricamente la industria automotriz ha sido el principal motor de la robótica industrial, actualmente son las industrias generales (electrónica, metal, alimentación, etc.) las que sostienen el crecimiento ante las fluctuaciones y caídas del sector de automoción.
+
+Pregunta 59: De acuerdo con los datos de World Robotics 2025 respecto a robots de servicio profesionales, ¿cuál es el grupo de aplicaciones dominante (abarcando el 52% de las instalaciones)?
+a) Agricultura.
+b) Limpieza Profesional.
+c) Transporte y Logística.
+d) Interacción en Hospitalidad.
+Solución: c
+Justificación: El sector de Transporte y Logística lidera ampliamente la adopción de robots de servicio profesionales (especialmente mediante vehículos de guiado automático y AMRs), representando más de la mitad del mercado debido a las necesidades de automatización de almacenes y cadenas de suministro.
+
+Pregunta 60: En el ámbito de las tendencias tecnológicas para 2025, ¿cuál es el estado actual de los robots humanoides según la International Federation of Robotics (IFR)?
+a) Ya dominan de forma masiva y comercial las cadenas de producción logística.
+b) No existe un uso masivo en la actualidad, pero se están preparando para su producción en serie y en estados de demostrador o prototipo.
+c) Se consideran como los verdaderos robots multipropósito que ya han reemplazado universalmente a los AMR (Autonomous Mobile Robots).
+d) Han fracasado comercialmente debido a las barreras impuestas por los modelos de negocio RaaS (Robot-as-a-Service).
+Solución: b
+Justificación: La IFR recalca que, si bien generan mucha expectación y se están construyendo numerosos prototipos y demostradores (con vistas a la futura producción en serie), a día de hoy todavía no existe un uso masivo ni comercial a gran escala de robots humanoides en la industria.
+
+Pregunta 61: ¿Qué capacidad NO es estrictamente necesaria para que una máquina sea considerada un robot según las nociones técnicas vistas en clase?
+a) Sentir su entorno mediante sensores.
+b) Poseer una apariencia físicamente humanoide o animal.
+c) Procesar información para la toma de decisiones.
+d) Generar acciones físicas en el entorno mediante actuadores.
+Solución: b
+Justificación: Aunque la imaginación popular a menudo asocia los robots con formas humanoides, la definición técnica formal no requiere que un robot tenga forma humana o animal; la clave está en sus capacidades de percepción, control y actuación física.
+
+Pregunta 62: Dentro de la arquitectura básica de un robot móvil, ¿qué elemento se encarga de transformar las decisiones del sistema de control en movimiento físico?
+a) Los sensores exteroceptivos.
+b) Los algoritmos de planificación global.
+c) Los actuadores.
+d) El módulo de odometría.
+Solución: c
+Justificación: Los actuadores (como motores o cilindros neumáticos) son los componentes electromecánicos responsables de generar las fuerzas y movimientos físicos dictados por el sistema de control del robot.
+
+Pregunta 63: ¿De qué colaboración académica e industrial surgió originalmente el concepto que dio lugar a las plataformas de robótica educativa LEGO Mindstorms?
+a) Universidad de Stanford y Honda.
+b) MIT Media Lab y la empresa LEGO.
+c) Carnegie Mellon University y Boston Dynamics.
+d) Universidad de Oxford y KUKA.
+Solución: b
+Justificación: El desarrollo de LEGO Mindstorms surgió de una estrecha colaboración en los años 80 y 90 entre investigadores del MIT Media Lab y LEGO, creando el concepto del "Ladrillo Programable" (Programmable Brick).
+
+Pregunta 64: Según los datos de la International Federation of Robotics (IFR), ¿qué país lidera de forma destacada el mercado mundial en cuanto a instalaciones anuales de robots industriales?
+a) Japón.
+b) Estados Unidos.
+c) Alemania.
+d) China.
+Solución: d
+Justificación: El informe World Robotics destaca a China como el mercado más grande y de mayor volumen del mundo con gran diferencia en la instalación anual de robótica industrial.
+
+Pregunta 65: ¿Cuál es el principal factor que detona la necesidad de integrar debates éticos rigurosos en la robótica actual, según el temario?
+a) El elevado consumo eléctrico de los brazos manipuladores.
+b) Que los robots han dejado de ser predecibles al 100% al tomar decisiones autónomas bajo incertidumbre en entornos humanos.
+c) Que los robots industriales modernos se mueven demasiado rápido dentro de sus jaulas de seguridad.
+d) El alto coste de fabricación de los procesadores de silicio.
+Solución: b
+Justificación: La necesidad de una ética en robótica surge principalmente cuando los robots salen de fábricas controladas e interactúan en entornos humanos reales y dinámicos, donde la autonomía y la inteligencia artificial hacen que no se pueda preprogramar ni predecir de forma absoluta su comportamiento.
+
+Pregunta 66: Un robot diseñado de forma específica para soldar chasis de coches en una línea de montaje en serie, ¿cómo se clasifica según los estándares de la IFR?
+a) Robot de servicio profesional.
+b) Robot industrial.
+c) Robot humanoide multipropósito.
+d) Robot de servicio personal.
+Solución: b
+Justificación: Las operaciones de manufactura industrial automotriz (como la soldadura o pintura en cadenas de montaje) definen la categoría de robots industriales, excluyéndolos de la definición formal de robots de servicio.
+
+Pregunta 67: ¿Qué enfoque o paradigma clásico en la historia de la Inteligencia Artificial robótica se caracterizaba por utilizar un modelo estrictamente secuencial de "Sentir -> Planificar -> Actuar"?
+a) La robótica reactiva de Braitenberg.
+b) La IA corporizada (Embodied AI) moderna.
+c) La Inteligencia Artificial simbólica o clásica (ej. el robot Shakey).
+d) El aprendizaje profundo (Deep Learning).
+Solución: c
+Justificación: Los primeros robots móviles impulsados por IA, como Shakey, utilizaban un paradigma deliberativo clásico donde el sistema primero construía un modelo del mundo, luego calculaba lógicamente un plan completo y finalmente lo ejecutaba paso a paso.
+
+Pregunta 68: Según el informe World Robotics 2025, ¿cuál es uno de los motores sociológicos clave (key drivers) que está impulsando la adopción a largo plazo de la robótica a nivel mundial?
+a) El exceso de mano de obra joven no cualificada.
+b) El cambio demográfico y la grave escasez de trabajadores cualificados.
+c) La prohibición gubernamental de los trabajos manuales logísticos.
+d) El abaratamiento extremo de los materiales de construcción.
+Solución: b
+Justificación: La IFR señala el cambio demográfico (el envejecimiento de las poblaciones en países industrializados) y la falta de trabajadores cualificados ("lack of skilled workers") como los principales impulsores estructurales de la automatización robótica.
+
+Pregunta 69: En robótica móvil, los sensores que miden exclusivamente el estado interno del propio robot (como la velocidad de giro de sus ruedas o el nivel de batería) se denominan:
+a) Exteroceptivos.
+b) Propioceptivos.
+c) Actuadores pasivos.
+d) Sistemas de odometría global.
+Solución: b
+Justificación: Los sensores propioceptivos (o sensores internos) se encargan de medir variables físicas y de estado internas del propio sistema robótico, a diferencia de los exteroceptivos que miden fenómenos del mundo exterior (como cámaras o telémetros láser).
+
+Pregunta 70: ¿Cuál es el nombre del primer "ladrillo programable" microcontrolador comercializado por la empresa LEGO en el año 1998 para su kit Mindstorms?
+a) NXT.
+b) EV3.
+c) RCX.
+d) Spike Prime.
+Solución: c
+Justificación: El Robotic Command eXplorers (RCX) fue el bloque inteligente original de color amarillo lanzado en 1998, que sentó las bases comerciales de la línea LEGO Mindstorms.
+
+Pregunta 71: ¿Qué modelo de negocio destaca la IFR por estar reduciendo considerablemente las barreras económicas para la adopción de robots en pequeñas y medianas empresas?
+a) Open-Source Hardware (OSH).
+b) Robot-as-a-Service (RaaS).
+c) Licenciamiento de software de pago único.
+d) Fabricación bajo demanda (Make-to-order).
+Solución: b
+Justificación: El modelo "Robot como Servicio" (RaaS) permite a las empresas alquilar, hacer leasing o pagar por horas de uso de plataformas robóticas, evitando las barreras de las grandes inversiones de capital inicial (CAPEX).
+
+Pregunta 72: El desarrollo histórico de la robótica móvil buscó superar la principal limitación operativa de los robots industriales manipuladores. ¿Cuál era dicha limitación?
+a) Que no podían procesar algoritmos matemáticos en tiempo real.
+b) Que dependían de operadores humanos con mandos a distancia de corto alcance.
+c) Que estaban físicamente anclados a una base, limitando su espacio de trabajo al alcance de su brazo.
+d) Que la cinemática inversa era imposible de resolver en la década de los 70.
+Solución: c
+Justificación: Los brazos robóticos industriales tradicionales están fijos a una base en la fábrica, lo que restringe toda su área de operación a su espacio de trabajo tridimensional. La robótica móvil se desarrolló precisamente para otorgar capacidad de desplazamiento por el entorno.
+
+Pregunta 73: En el contexto de la navegación autónoma, un entorno "no estructurado" se caracteriza principalmente por:
+a) Ser dinámico, incierto y no estar preparado artificialmente para facilitar la tarea del robot.
+b) Contar con balizas reflectantes RFID colocadas a distancias exactas y conocidas.
+c) Disponer de rieles o cintas magnéticas en el suelo para guiar los actuadores.
+d) Ser un espacio estático equivalente a una jaula de seguridad industrial.
+Solución: a
+Justificación: Los entornos no estructurados (como la vía pública, un hospital o un bosque) presentan una alta incertidumbre y obstáculos dinámicos, y no han sido modificados de antemano para simplificar la percepción o la navegación de las máquinas.
+
+Pregunta 74: Dentro del ámbito de la IA Corporizada (Embodied AI), ¿qué gran reto tecnológico es indispensable resolver para que los robots móviles operen de forma generalizada fuera de los laboratorios?
+a) Reemplazar todos los procesadores digitales por sistemas analógicos.
+b) Lograr una percepción verdaderamente robusta y la capacidad de tomar decisiones seguras bajo alta incertidumbre.
+c) Restringir los algoritmos de IA únicamente a la simulación por ordenador.
+d) Eliminar los sensores exteroceptivos para abaratar los costes de producción.
+Solución: b
+Justificación: Uno de los mayores desafíos actuales (como se aborda en el Tema 1) es conseguir que la percepción y la toma de decisiones no fallen catastróficamente al enfrentarse al caos, ruido y la falta de predictibilidad del mundo real físico.
+
+Pregunta 75: ¿Cuál de las siguientes es la definición principal de la tarea de "planificación" en la arquitectura de un robot móvil?
+a) El proceso de capturar imágenes del entorno a la mayor tasa de refresco posible.
+b) La búsqueda algorítmica de una trayectoria libre de colisiones desde una pose inicial hasta una pose objetivo.
+c) El ajuste de los lazos de corriente y voltaje en los motores de las ruedas.
+d) La traducción del código Python a lenguaje ensamblador dentro del microcontrolador.
+Solución: b
+Justificación: La planificación (path/motion planning) es la etapa del sistema de control encargada de determinar la mejor ruta o secuencia de movimientos espaciales para alcanzar una meta sin chocar con los obstáculos detectados.
+
+Pregunta 76: Además de ser quien acuñó el término "robótica", ¿qué otra gran aportación hizo Isaac Asimov a la cultura y filosofía de este campo?
+a) Diseñó la arquitectura de hardware del brazo PUMA.
+b) Formuló las "Leyes de la Robótica" en sus obras literarias.
+c) Construyó el primer robot móvil basado en cibernética animal.
+d) Fundó el Instituto de Robótica de la Universidad Carnegie Mellon.
+Solución: b
+Justificación: El escritor y bioquímico Isaac Asimov es mundialmente famoso en este ámbito por haber introducido y explorado las implicaciones éticas de las "Tres Leyes de la Robótica" en su extensa obra de ciencia ficción.
+
+Pregunta 77: Según los datos de instalaciones de la IFR, la robotización masiva en el sector profesional de transporte y logística se está llevando a cabo mayoritariamente mediante:
+a) Robots humanoides antropomórficos.
+b) Drones aéreos de vigilancia.
+c) Vehículos de Guiado Automático (AGVs) y Robots Móviles Autónomos (AMRs).
+d) Manipuladores robóticos de cinemática paralela (Robots Delta).
+Solución: c
+Justificación: El inmenso crecimiento en la automatización de la intralogística y los almacenes a nivel mundial se sostiene operativamente mediante grandes flotas de plataformas rodantes autónomas, conocidas como AGVs y AMRs.
+
+Pregunta 78: En el concepto de que un robot debe actuar de forma "autónoma e inteligente", se marca una clara distinción tecnológica con respecto a:
+a) Los sistemas puramente teleoperados a distancia por un operador humano.
+b) Los sistemas que emplean algoritmos de Machine Learning.
+c) Los robots que utilizan cámaras de visión artificial estéreo.
+d) Los vehículos equipados con telémetros láser (LiDAR).
+Solución: a
+Justificación: La autonomía robótica implica que la máquina procesa datos y decide sus acciones por sí misma (parcial o totalmente), lo que la diferencia fundamentalmente de un dron o vehículo controlado enteramente en tiempo real por un humano mediante un joystick.
+
+Pregunta 79: ¿Por qué la plataforma móvil "Turtlebot" (como el Turtlebot 4) se ha convertido en un estándar fundamental en las universidades y centros de investigación de robótica?
+a) Porque es el único robot industrial capaz de levantar más de 1.000 kg de peso útil.
+b) Porque su código fuente es cerrado y perfecto para enseñar seguridad informática industrial.
+c) Porque proporciona una plataforma de hardware asequible, estandarizada y totalmente integrada con el framework de código abierto ROS.
+d) Porque carece por completo de odometría, obligando a los alumnos a programarla desde cero.
+Solución: c
+Justificación: El ecosistema Turtlebot fue diseñado específicamente como una plataforma educativa económica y estandarizada para democratizar la enseñanza e investigación del Robot Operating System (ROS) en todo el mundo.
+
+Pregunta 80: Dentro de los retos mencionados en el temario ("Robótica en el grado"), la integración de IA en dispositivos físicos con recursos de memoria y cálculo muy limitados (como pequeños microcontroladores en sensores) se conoce técnica como:
+a) Cloud Computing.
+b) Federated Learning.
+c) TinyML (Tiny Machine Learning).
+d) Blockchain robótico.
+Solución: c
+Justificación: TinyML es un subcampo del aprendizaje automático centrado en ejecutar modelos de IA (Machine Learning / Deep Learning) optimizados en hardware de muy baja potencia, como microcontroladores al borde de la red (Edge), un reto clave para dotar de inteligencia a los componentes más simples del robot.
+
+Pregunta 81: En relación con la interacción entre humanos y robots, ¿qué desafío ético surge debido al uso de modelos de Inteligencia Artificial que no son completamente predecibles?
+a) La excesiva duración de las baterías en entornos domésticos.
+b) La dificultad de asignar responsabilidad legal ante fallos o accidentes no programados explícitamente.
+c) La imposibilidad de conectar los robots a redes Wi-Fi por motivos de seguridad.
+d) La falta de estándares de color en la fabricación de brazos industriales.
+Solución: b
+Justificación: Al utilizar IA y aprendizaje automático, los robots toman decisiones bajo incertidumbre que no fueron preprogramadas línea por línea. Esto genera un vacío sobre quién es el responsable (fabricante, programador, usuario) si el robot causa un daño.
+
+Pregunta 82: A diferencia de los sistemas de IA puramente digitales (como ChatGPT o motores de recomendación), la IA Corporizada (Embodied AI) debe enfrentarse obligatoriamente a:
+a) El procesamiento de grandes bases de datos estructuradas en la nube.
+b) La traducción de textos a múltiples idiomas simultáneamente.
+c) Las leyes de la física, el ruido de los sensores y la irreversibilidad de sus acciones físicas en el mundo real.
+d) La ausencia total de hardware computacional.
+Solución: c
+Justificación: La principal diferencia de la robótica (Embodied AI) es que el agente tiene un cuerpo físico. Sus acciones cambian el mundo real de forma irreversible (ej. chocar y romper algo), y depende de sensores que introducen ruido e incertidumbre física.
+
+Pregunta 83: En un robot móvil, una cámara RGB-D (que captura color y profundidad) se clasifica como un sensor:
+a) Propioceptivo de bajo nivel.
+b) Exteroceptivo pasivo y activo.
+c) Puramente mecánico.
+d) Actuador de navegación.
+Solución: b
+Justificación: Es un sensor exteroceptivo porque mide el entorno (el mundo exterior). Al capturar profundidad suele emitir luz (activo) y al capturar RGB recibe luz ambiental (pasivo).
+
+Pregunta 84: ¿Cuál de los siguientes componentes NO es un actuador robótico?
+a) Un motor de corriente continua (DC).
+b) Un servomotor.
+c) Un codificador óptico (encoder).
+d) Un músculo neumático artificial.
+Solución: c
+Justificación: Un codificador óptico o encoder es un sensor propioceptivo que mide el giro o la posición angular de un eje motor, no es un elemento que genere movimiento físico.
+
+Pregunta 85: Según la clasificación de la International Federation of Robotics, los cobots o robots colaborativos forman parte de la categoría de:
+a) Robots de servicio personal.
+b) Robots industriales.
+c) Vehículos de Guiado Automático (AGV).
+d) Dispositivos puramente de software (RPA).
+Solución: b
+Justificación: Los robots colaborativos (cobots) están diseñados para compartir el espacio de trabajo con humanos en tareas de manufactura, por lo que son una subcategoría clave dentro de los robots industriales.
+
+Pregunta 86: Dentro de los robots de servicio destinados a uso personal/doméstico, ¿qué aplicación lidera históricamente el volumen de ventas a nivel global?
+a) Cuidado de ancianos y asistencia médica en casa.
+b) Limpieza doméstica (aspiradoras y cortacéspedes).
+c) Educación universitaria.
+d) Cocina y preparación de alimentos complejos.
+Solución: b
+Justificación: Históricamente y según los informes de la IFR, los robots aspiradores y los robots cortacésped representan la abrumadora mayoría de las ventas en el sector de la robótica de servicio personal y doméstico por su bajo coste y alta utilidad.
+
+Pregunta 87: ¿Qué importante avance de hardware introdujo la generación LEGO Mindstorms EV3 (2013) respecto a su predecesor NXT?
+a) Eliminó los motores para centrarse solo en la programación visual.
+b) Integró conectividad nativa Wi-Fi, un procesador basado en Linux y compatibilidad con tarjetas MicroSD.
+c) Fue la primera en usar válvulas de vacío para el control lógico.
+d) Sustituyó todos los sensores infrarrojos por radares láser (LiDAR) de grado industrial.
+Solución: b
+Justificación: La versión EV3 (Evolution 3) supuso un gran salto al basarse en un sistema operativo Linux y ofrecer opciones de conectividad mucho más modernas como Wi-Fi y USB host, abriendo la puerta a lenguajes más complejos.
+
+Pregunta 88: El dispositivo Unimate, considerado el primer robot industrial de la historia e instalado en la fábrica de General Motors en 1961, tenía como tarea principal:
+a) Conducir vehículos de forma autónoma por la fábrica.
+b) Ensamblar circuitos electrónicos microscópicos.
+c) Manipular piezas de metal fundido a alta temperatura (die casting).
+d) Conversar con los trabajadores para organizar sus turnos.
+Solución: c
+Justificación: Unimate fue diseñado específicamente para reemplazar a los operarios en tareas peligrosas, siendo su primera aplicación extraer piezas de metal candente de las máquinas de fundición a presión y enfriarlas.
+
+Pregunta 89: En el esquema clásico de robótica, la fase de Localización consiste en que el robot responda a la pregunta:
+a) ¿Cómo llego a mi destino?
+b) ¿Dónde estoy en el mundo o en el mapa?
+c) ¿Qué objetos puedo agarrar?
+d) ¿A qué velocidad deben girar mis motores?
+Solución: b
+Justificación: La localización es el proceso de estimar la posición y orientación (pose) del robot relativa a un sistema de coordenadas o a un mapa del entorno, es decir, averiguar dónde se encuentra.
+
+Pregunta 90: Una arquitectura de control robótico puramente Reactiva (basada en comportamientos, sin modelos del mundo) es especialmente ventajosa para:
+a) Calcular la trayectoria más corta a una ciudad a 100 km de distancia.
+b) Responder de forma rápida y robusta a cambios bruscos e inesperados en entornos dinámicos (ej. evitar un obstáculo repentino).
+c) Simular mentalmente las consecuencias de sus acciones a largo plazo.
+d) Traducir lenguaje natural a instrucciones de código.
+Solución: b
+Justificación: Los sistemas reactivos conectan directamente la percepción con la acción sin mantener modelos internos pesados. Son ideales para reflejos de bajo nivel y supervivencia (como esquivar), ya que su tiempo de respuesta es mínimo.
+
+Pregunta 91: ¿Cuál es uno de los motivos por los que las empresas posponen grandes inversiones en automatización industrial pesada, a pesar del evidente problema de escasez de mano de obra?
+a) Las condiciones económicas globales inciertas y la alta inflación/tipos de interés.
+b) La prohibición de la IFR de instalar nuevos brazos robóticos.
+c) Que los humanos siempre son más precisos que los robots en todas las tareas.
+d) Que no existen empresas que fabriquen robots en la actualidad.
+Solución: a
+Justificación: El informe World Robotics 2025 señala que la incertidumbre macroeconómica y las crisis globales frenan las grandes inversiones iniciales de capital (CAPEX) que requieren los robots industriales tradicionales.
+
+Pregunta 92: En los sistemas robóticos modernos impulsados por Modelos VLA (Vision-Language-Action), el razonamiento semántico permite al robot:
+a) Ver una matriz de píxeles sin comprender qué objetos representan.
+b) Entender que una silla es un objeto sobre el que un humano puede sentarse, y no solo un obstáculo geométrico.
+c) Desconectar sus sensores para ahorrar batería automáticamente.
+d) Ejecutar únicamente código en lenguaje ensamblador sin interacción humana.
+Solución: b
+Justificación: El razonamiento semántico va más allá de la geometría pura (saber que hay un obstáculo a 1 metro); implica comprender el significado, uso y contexto humano de los objetos (qué es una silla, qué es un vaso), habilitado por la integración con modelos de lenguaje.
+
+Pregunta 93: En la última generación educativa de LEGO (Spike Prime y Mindstorms Robot Inventor), ¿qué lenguaje de programación textual se soporta de forma nativa para acercar a los estudiantes a entornos profesionales?
+a) Fortran.
+b) COBOL.
+c) MicroPython (basado en Python).
+d) Ensamblador de 8 bits.
+Solución: c
+Justificación: Para mantener la relevancia educativa y conectar con el ecosistema de desarrollo actual, los Hubs de las últimas generaciones de LEGO incluyen soporte nativo para MicroPython, facilitando la transición desde la programación visual por bloques.
+
+Pregunta 94: La principal ventaja teórica prometida por los robots de arquitectura humanoide frente a los robots móviles de ruedas o brazos fijos es:
+a) Son mucho más baratos de fabricar mecánicamente.
+b) Consumen mucha menos energía eléctrica al caminar.
+c) Son verdaderamente multipropósito y pueden operar sin adaptaciones en entornos y herramientas diseñadas íntegramente para humanos.
+d) Tienen centros de gravedad mucho más bajos, siendo imposibles de volcar.
+Solución: c
+Justificación: La gran promesa del humanoide es que nuestro mundo (escaleras, herramientas, manivelas, puertas) está diseñado para nuestra propia anatomía. Un robot con forma humana podría usar las mismas infraestructuras y herramientas sin necesidad de modificar fábricas u hogares.
+
+Pregunta 95: ¿Qué subdisciplina tecnológica es fundamental en robótica para dotar a las máquinas de Percepción Inteligente, permitiéndoles reconocer caras, leer textos o detectar peatones?
+a) Visión por Computador (Computer Vision).
+b) Teoría de Autómatas Finita.
+c) Criptografía asimétrica.
+d) Sistemas de Bases de Datos Relacionales.
+Solución: a
+Justificación: La Visión por Computador es la rama de la Inteligencia Artificial encargada de procesar, analizar y comprender imágenes y vídeos del mundo real, siendo los ojos inteligentes del robot.
+
+Pregunta 96: El robot de investigación Stanford Cart (década 1970) es famoso en la historia de la robótica móvil porque:
+a) Fue el primer robot en correr a más de 100 km/h.
+b) Utilizaba visión estéreo (cámara que se desplazaba en un raíl) para generar modelos 3D y navegar esquivando obstáculos de forma autónoma.
+c) Fue el primer robot enviado a la superficie de Marte.
+d) Estaba diseñado exclusivamente con piezas de madera.
+Solución: b
+Justificación: El Stanford Cart, bajo la dirección de Hans Moravec, logró atravesar lentamente una habitación llena de sillas utilizando análisis de imágenes estéreo, siendo un hito pionero en percepción 3D computacional y navegación espacial.
+
+Pregunta 97: Cuando un robot móvil carece de suficiente potencia de cálculo a bordo (Edge) para procesar algoritmos pesados de Inteligencia Artificial, una solución arquitectónica moderna es:
+a) Apagar sus sensores para reducir la carga de datos.
+b) Reducir su tamaño al de una hormiga.
+c) Externalizar el procesamiento intensivo mediante conectividad a servidores remotos, concepto conocido como Cloud Robotics.
+d) Reemplazar el procesador digital por engranajes mecánicos.
+Solución: c
+Justificación: La Cloud Robotics o robótica en la nube permite a los robots descargar tareas computacionalmente intensivas (como el reconocimiento de voz o modelos masivos de IA) a servidores en la nube, procesando localmente solo el control crítico de tiempo real.
+
+Pregunta 98: El problema de SLAM (Simultaneous Localization and Mapping) se considera un desafío fundamental en la autonomía robótica. ¿Por qué es simultáneo?
+a) Porque el robot debe cargar su batería mientras navega.
+b) Porque el robot debe construir un mapa de un entorno desconocido y, al mismo tiempo, estimar su propia posición dentro de ese mismo mapa en construcción.
+c) Porque dos robots deben chocar simultáneamente para calcular las distancias.
+d) Porque el usuario le da las instrucciones por voz a la vez que por escrito.
+Solución: b
+Justificación: Es un problema circular o de huevo y gallina: para localizarse el robot necesita un mapa, pero para construir un mapa preciso necesita saber su localización exacta. SLAM resuelve matemáticamente ambos problemas al mismo tiempo.
+
+Pregunta 99: Dentro del contexto de la robótica de servicio en logística, el concepto intralogístico de bienes a persona (Goods-to-Person) se basa en:
+a) Que los trabajadores humanos caminen por todo el almacén buscando productos.
+b) Que flotas de AMRs recojan estanterías completas y las lleven de forma autónoma hasta la estación fija del trabajador humano.
+c) Que los paquetes se envíen por correo postal tradicional.
+d) Que el robot humanoide conduzca furgonetas de reparto en vías públicas.
+Solución: b
+Justificación: Este enfoque revoluciona la logística porque el operario humano no se desplaza; son los robots móviles los que mueven las estanterías de productos hacia los trabajadores, ahorrando muchísimo tiempo y aumentando la eficiencia.
+
+Pregunta 100: En las definiciones académicas más estrictas, para considerar que una máquina es realmente un sistema dotado de Robótica, NO basta con ejecutar un software inteligente virtualmente, sino que es imprescindible:
+a) Que posea extremidades con articulaciones esféricas.
+b) Que disponga de interacción física corpórea y directa con el mundo material.
+c) Que pueda ser programado en lenguaje C++.
+d) Que tenga capacidad para mantener conversaciones filosóficas.
+Solución: b
+Justificación: La esencia de la robótica radica en su presencia y actuación física. Un programa de ajedrez o un bot de chat son IA pura, pero carecen de actuadores físicos. Un robot es, por definición, una entidad artificial encarnada (corpórea) que actúa mecánicamente en el entorno físico mediante actuadores.
+
+Pregunta 101: ¿Qué implica que un robot móvil opere en un "entorno estructurado" en el contexto de la robótica clásica?
+a) Que el robot utiliza algoritmos de IA profunda para mapear su entorno en tiempo real.
+b) Que el entorno ha sido modificado artificialmente (ej. líneas magnéticas, balizas) para simplificar la navegación y percepción del robot.
+c) Que el robot carece de actuadores y solo procesa datos estadísticos.
+d) Que el entorno cambia constantemente de forma totalmente impredecible.
+Solución: b
+Justificación: Un entorno estructurado está diseñado o adaptado específicamente para facilitar el trabajo de la máquina, delegando parte de la "inteligencia" o complejidad de la navegación al propio entorno mediante infraestructuras artificiales fijas.
+
+Pregunta 102: Los rovers marcianos como Spirit y Opportunity son ejemplos clásicos de sistemas que:
+a) Son teleoperados en tiempo real puro mediante un joystick desde la Tierra.
+b) Operan con autonomía parcial, ya que los retrasos en las comunicaciones obligan a que el robot ejecute comandos de alto nivel y evite obstáculos locales por sí mismo.
+c) Carecen por completo de sensores exteroceptivos para ahorrar peso en el despegue.
+d) Utilizan exclusivamente cintas magnéticas para navegar por la superficie de Marte.
+Solución: b
+Justificación: Debido al enorme retardo en las señales de radio entre la Tierra y Marte, la teleoperación estricta en tiempo real es imposible. Los rovers reciben rutas planificadas desde la Tierra pero poseen autonomía local para esquivar rocas y protegerse durante la ejecución.
+
+Pregunta 103: ¿Cuál es la principal razón por la que se adoptan enfoques probabilísticos en la robótica móvil moderna?
+a) Porque los microcontroladores actuales no pueden realizar operaciones aritméticas exactas.
+b) Porque el hardware es cada vez más barato y no importa si falla a menudo.
+c) Para lidiar matemáticamente con la incertidumbre inherente al ruido en los sensores, la imprecisión de los actuadores y la imprevisibilidad del entorno real.
+d) Para evitar completamente el uso de algoritmos de inteligencia artificial.
+Solución: c
+Justificación: El mundo físico está lleno de ruido e incertidumbre (los sensores no son perfectos, las ruedas resbalan). Los modelos probabilísticos permiten al robot estimar su estado real manejando e integrando estas incertidumbres para tomar decisiones más robustas.
+
+Pregunta 104: ¿Qué es la odometría en el ámbito de la navegación de robots móviles?
+a) El uso de satélites GPS militares para determinar la posición exacta del robot en interiores.
+b) La estimación de la posición y orientación del robot integrando matemáticamente la información de sus sensores propioceptivos (como los encoders de las ruedas) a lo largo del tiempo.
+c) La técnica de visión por computador utilizada exclusivamente para detectar rostros humanos.
+d) El sistema de gestión térmica de las baterías recargables del robot.
+Solución: b
+Justificación: La odometría calcula cuánto y hacia dónde se ha movido el robot basándose en el giro de sus propias ruedas u otros actuadores internos, calculando su trayectoria a partir de una posición inicial conocida.
+
+Pregunta 105: Según el esquema general de componentes de un robot, ¿qué elemento actúa como interfaz para captar datos físicos del exterior y enviarlos al sistema de control?
+a) Los actuadores neumáticos.
+b) El chasis y las articulaciones de aluminio.
+c) Los sensores exteroceptivos.
+d) El algoritmo de planificación global o "Path Planning".
+Solución: c
+Justificación: Los sensores exteroceptivos (como cámaras, láseres o ultrasonidos) son los encargados de recoger información del mundo exterior y medir variables ambientales, siendo los "sentidos" externos del robot.
+
+Pregunta 106: Dentro del ecosistema de desarrollo para investigación en robótica, ¿qué significa la sigla ROS, estándar de facto en plataformas como el Turtlebot?
+a) Robot Operating System.
+b) Remote Odometry Sensor.
+c) Reactive Obstacle Solver.
+d) Robotic Optimization Software.
+Solución: a
+Justificación: ROS (Robot Operating System) es el framework, middleware y conjunto de herramientas de software de código abierto más utilizado a nivel mundial para el desarrollo de arquitecturas de control en robótica moderna.
+
+Pregunta 107: ¿Por qué la odometría pura NO es suficiente por sí sola para resolver el problema de localización exacta a largo plazo?
+a) Porque los encoders de las ruedas son componentes demasiado caros para incluirlos en robots comerciales.
+b) Porque el error de cálculo en la odometría se acumula indefinidamente (deriva o drift), haciendo que la posición estimada diverja eventualmente de la posición real.
+c) Porque requiere que el robot permanezaci completamente inmóvil durante largos periodos.
+d) Porque la odometría solo funciona en simuladores por ordenador sin física realista.
+Solución: b
+Justificación: Al basarse en la integración de pequeños incrementos de movimiento continuo, cualquier mínimo error (como un ligero derrape de una rueda o fricción asimétrica) se suma al error total anterior, creciendo sin límite con el tiempo y la distancia recorrida.
+
+Pregunta 108: Un sensor exteroceptivo de tipo "activo" se diferencia de uno "pasivo" principalmente en que:
+a) El sensor activo emite algún tipo de energía al entorno para medir su respuesta o rebote, mientras que el pasivo solo capta la energía ambiental ya presente.
+b) El sensor activo siempre consume mucha menos batería.
+c) El activo solo funciona y recoge datos si las ruedas del robot están en movimiento.
+d) El activo capta exclusivamente imágenes térmicas en blanco y negro.
+Solución: a
+Justificación: Las cámaras tradicionales son sensores pasivos porque solo reciben la luz del ambiente. Sensores como el LiDAR o el sonar son activos porque inyectan su propia energía (pulsos de láser o sonido) en el entorno y miden cómo rebota para calcular distancias.
+
+Pregunta 109: Según los datos consolidados de la IFR, ¿cuál de los siguientes países NO se encuentra en el exclusivo "Top 5" de instalaciones anuales de robots industriales a nivel mundial?
+a) China.
+b) India.
+c) Japón.
+d) Estados Unidos.
+Solución: b
+Justificación: Según el informe World Robotics, el mercado global está altamente concentrado geográficamente. Los cinco principales países instaladores (que abarcan la inmensa mayoría del mercado) son China, Japón, Estados Unidos, República de Corea y Alemania.
+
+Pregunta 110: En la arquitectura de un robot móvil, si afirmamos que el sistema realiza una "planificación global", esto implica necesariamente que:
+a) Utiliza reglas puramente reactivas para esquivar obstáculos inminentes sin importar su destino final.
+b) Posee una estimación fiable de su estado actual y dispone de una representación interna (un mapa) para calcular algorítmicamente una ruta completa hacia el objetivo.
+c) Depende por completo de instrucciones vocales dadas por el usuario paso a paso.
+d) Carece de información sobre el entorno exterior antes de iniciar el movimiento.
+Solución: b
+Justificación: Para planificar una ruta de forma global (desde un origen a un destino lejano), el robot necesita tener una representación previa del entorno espacial y conocer dónde está ubicado dentro de dicha representación antes de emitir los comandos de alto nivel.
+
+Pregunta 111: ¿Qué paradigma de inteligencia artificial moderno permite a diferentes robots compartir lo aprendido preservando la privacidad de los datos brutos locales de cada fábrica u hogar?
+a) Cloud Computing Clásico.
+b) Federated Learning (Aprendizaje Federado).
+c) Mapeo Estéreo Computacional.
+d) Criptografía de Llave Pública-Privada no asimétrica.
+Solución: b
+Justificación: El aprendizaje federado entrena algoritmos de forma distribuida en los dispositivos de los bordes (Edge). Los robots ajustan sus modelos de IA internamente y solo envían las "actualizaciones matemáticas" a la nube, no las imágenes o datos brutos privados.
+
+Pregunta 112: En el contexto de la ética en sistemas dotados de IA, el problema de los "sesgos algorítmicos" se refiere específicamente a:
+a) Que un lado del chasis del robot pesa más que el otro, provocando desviaciones al avanzar.
+b) La tendencia del sistema a heredar y reproducir prejuicios sociales o discriminatorios si ha sido entrenado con datos humanos poco representativos o desequilibrados.
+c) Una falla eléctrica recurrente en las placas base de los modelos VLA.
+d) La prohibición legal de utilizar robots humanoides en espacios públicos concurridos.
+Solución: b
+Justificación: Si los datos con los que aprende la IA contienen sesgos (por ejemplo, infrarrepresentación de ciertos géneros o etnias), el sistema tomará decisiones erróneas o discriminatorias al enfrentarse a esas poblaciones en el mundo real.
+
+Pregunta 113: ¿Cuál es la principal característica cinemática y de control de un robot móvil basado en "tracción diferencial" (Differential Drive)?
+a) Utiliza un sistema de patas hidráulicas similares a las de un insecto en lugar de ruedas tradicionales.
+b) Su avance rectilíneo y sus giros se controlan variando de forma completamente independiente la velocidad y el sentido de giro de la rueda motriz derecha y la rueda motriz izquierda.
+c) Dispone de un eje direccional con volante físico idéntico al de los automóviles (geometría Ackermann).
+d) Solo puede moverse en líneas rectas y depende de una vía o raíl en el suelo para tomar cualquier curva.
+Solución: b
+Justificación: En la configuración diferencial (muy usada en robótica educativa como los Turtlebot o en plataformas como Roomba), la diferencia de velocidad entre las dos ruedas motrices opuestas es lo que permite que el robot trace curvas o gire sobre su propio eje.
+
+Pregunta 114: Según la evolución histórica de la plataforma LEGO Mindstorms explicada en el temario, ¿qué módulo o "ladrillo inteligente" reemplazó al bloque fundacional RCX en el año 2006?
+a) Spike Prime.
+b) Mindstorms Robot Inventor.
+c) NXT.
+d) EV3.
+Solución: c
+Justificación: El módulo inteligente NXT ("Next generation") fue la exitosa segunda generación comercial lanzada en 2006 por LEGO, que actualizó drásticamente el hardware e incorporó motores con encoders precisos y conectividad Bluetooth.
+
+Pregunta 115: A diferencia de la robótica industrial tradicional aislada en jaulas, la introducción de robots de servicio avanzados en hogares plantea un nuevo desafío ético y de seguridad crucial relacionado con:
+a) El excesivo consumo de agua potable por parte de las baterías de iones de litio.
+b) El riesgo extremo de que los sistemas decidan invertir los ahorros familiares sin autorización en la bolsa.
+c) La vulneración de la privacidad y el riesgo de ciberataques, al estar equipados con cámaras, micrófonos y conexión a la red mapeando el interior de la vivienda privada.
+d) Su incapacidad física para detectar alfombras gruesas, provocando averías eléctricas diarias en la red de la ciudad.
+Solución: c
+Justificación: Los robots domésticos modernos necesitan crear representaciones semánticas de las casas para ser útiles, procesando continuamente imágenes, voces y rutinas familiares. Esta recolección masiva de datos íntimos crea riesgos severos de privacidad y espionaje si son hackeados.
+
+Pregunta 116: En el diseño de arquitecturas de software para control robótico, un sistema que asocia directamente las lecturas actuales de los sensores con comandos inmediatos para los actuadores (sin usar mapas ni memorizar estados) se define como:
+a) Arquitectura puramente deliberativa o jerárquica.
+b) Arquitectura de planificación global iterativa.
+c) Arquitectura basada en la nube.
+d) Arquitectura puramente reactiva.
+Solución: d
+Justificación: En las arquitecturas reactivas (cuyo ejemplo histórico clásico son los vehículos de Braitenberg), no existe un modelo interno del mundo. El sistema responde como un "reflejo" instantáneo a los estímulos del entorno (ej. detectar calor -> encender motor de alejamiento).
+
+Pregunta 117: En el ámbito de la robótica logística, ¿qué ventaja fundamental define y diferencia a los Robots Móviles Autónomos (AMR) frente a los tradicionales Vehículos de Guiado Automático (AGV)?
+a) Los AMR son de gran tonelaje y requieren estar siempre suspendidos del techo del almacén.
+b) Los AMR entienden su entorno y pueden recalcular trayectorias dinámicamente para esquivar obstáculos inesperados, mientras que los AGV suelen seguir una ruta fija y se detienen pasivamente si esta se bloquea.
+c) Los AMR no utilizan motores eléctricos, basándose íntegramente en motores de combustión interna para interiores.
+d) Los AMR solo pueden ser manipulados y conducidos por humanos mediante controladores de realidad virtual remotos.
+Solución: b
+Justificación: Mientras que el AGV tradicional depende de infraestructura física (cintas magnéticas, códigos QR continuos) y carece de capacidad de desvío libre, el AMR posee un mapa algorítmico, autonomía real y algoritmos de evitación local, haciendo la operativa mucho más flexible ante imprevistos.
+
+Pregunta 118: El término "Cobot", una de las tendencias más fuertes en la industria de la manufactura actual, es una abreviatura conceptual de:
+a) Cognitive Bot.
+b) Collaborative Robot (Robot Colaborativo).
+c) Cloud-operated Bot.
+d) Control-Optimized Bot.
+Solución: b
+Justificación: Los robots colaborativos o "cobots" están diseñados con tecnologías avanzadas de limitación de fuerza, detección de impactos y perfiles suaves, permitiéndoles abandonar las jaulas de seguridad tradicionales para trabajar interactuando y compartiendo el mismo espacio físico de forma segura con los operarios humanos.
+
+Pregunta 119: Según los datos sectoriales de World Robotics, el uso comercial masivo de robots de servicio para el área de "interacción y hospitalidad" (como robots camareros o informadores en hoteles) se encuentra actualmente:
+a) Representando más del 80% de las ventas del mercado global de robótica de servicio profesional.
+b) En volúmenes muy pequeños o casi experimentales, representando una fracción minúscula frente a las instalaciones logísticas o de limpieza profesional.
+c) Prohibido terminantemente por acuerdos internacionales para proteger los empleos del sector servicios.
+d) Dominando exclusivamente el mercado rural europeo, sustituyendo por completo a los tractores autónomos.
+Solución: b
+Justificación: Aunque este tipo de robots tiene una gran presencia mediática y de marketing, los informes técnicos de la IFR confirman que la robótica de interacción social/hospitalidad es anecdótica en volumen de instalaciones si se compara con los líderes aplastantes del sector profesional: transporte/logística y limpieza de grandes superficies.
+
+Pregunta 120: ¿Cuál fue la gran innovación tecnológica y de control que aportó el proyecto "Shakey" (desarrollado por el Stanford Research Institute a finales de los 60) en la historia de la disciplina?
+a) Fue el primer robot con forma humanoide capaz de subir escaleras corriendo a alta velocidad.
+b) Fue el primer robot móvil "inteligente" que integró con éxito la percepción visual por computador, la planificación simbólica deliberativa (con un modelo lógico del mundo) y la ejecución de acciones para cumplir tareas complejas.
+c) Fue el inventor directo de las tres leyes de la robótica de la literatura de ciencia ficción, adaptándolas al código fuente.
+d) Funcionaba empleando un sistema mecánico de relojería sin la intervención de componentes electrónicos ni ordenadores integrados.
+Solución: b
+Justificación: Financiado por DARPA, Shakey es considerado un hito histórico porque demostró por primera vez que un sistema móvil podía utilizar la Inteligencia Artificial (especialmente el razonamiento simbólico lógico como el algoritmo STRIPS) para entender instrucciones humanas, dividir la meta en pasos deductivos y navegar usando visión artificial rudimentaria.

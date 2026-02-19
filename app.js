@@ -29,6 +29,7 @@
  
   const LIB_SOURCES = [
     { id: 'Redes', label: 'Redes', url: './baterias/Redes.txt' },
+    { id: 'TAR', label: 'TAR', url: './baterias/TAR.txt' },
   ];
 
   const EXAM_SOURCE_ID = 'Redes';

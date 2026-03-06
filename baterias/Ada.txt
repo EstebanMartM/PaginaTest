@@ -4421,7 +4421,7 @@ c) Porque el proceso de selección de los elementos que se incorporarán a la so
 Solución: a
 Justificación: Es correcta porque Porque primero ordenan de alguna manera los elementos y porque una vez ordenados la complejidad temporal del proceso de selección de los elementos que se incorporarán a…, según las definiciones de O, Ω y Θ.
 
-### Bloque Parcial 1 ADA
+### Examen Parcial 1 ADA
 
 Pregunta 615: De las siguientes expresiones, o bien dos son verdaderas y una es falsa, obien dos son falsas y una es verdadera. Marca la que (en este sentido) esdistinta a las otras dos.:
 a) Ω(n^2) ⊂ Ω(n^3)
@@ -5200,7 +5200,7 @@ c) $$ O(n \log n) $$
 Solución: c
 Justificación: Es correcta porque $$ O(n \log n) $$, según las definiciones de O, Ω y Θ.
 
-### Bloque Parcial 2 ADA
+### Examen Parcial 2 ADA
 
 Pregunta 726: ¿Cual de estos problemas tiene una solución eficiente utilizando programación dinámica?:
 a) El problema del cambio.

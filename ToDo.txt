@@ -1,0 +1,21 @@
+B. Drag & Drop y "Paste to Load"
+- Idea: Eliminar la fricción de "Buscar archivo".
+- Nuevo Uso: El usuario simplemente arrastra el .txt a cualquier parte de la pantalla, o copia el texto de sus apuntes y pulsa Ctrl+V en la web para cargar las preguntas al instante.
+
+C. Algoritmo SRS (Spaced Repetition System)
+- Idea: Reemplazar (o añadir) al modo aleatorio un modo "Inteligente".
+- Cómo: Implementar un algoritmo tipo SuperMemo-2 (Anki). La app decide qué preguntas mostrarte hoy basándose en si fallaste ayer o hace 3 días.
+- Disrupción: Dejar de "hacer tests" para "entrenar la memoria" eficientemente.
+
+E. Modo "Flow" / Zen
+- Idea: Un modo donde la UI desaparece. Solo la pregunta, centrada, gigante.
+- Uso: Sin distracciones, sin contador de tiempo visible (solo una barra sutil), inmersión total.
+- Feedback Háptico: Si está en móvil, ligera vibración al acertar/fallar.
+
+G. "Seed" Challenge (Multijugador Asíncrono)
+- Idea: Generar un código único (ej: TEST-8X29) para una sesión aleatoria.
+- Uso: Le pasas el código a un amigo. Ambos hacéis exactamente las mismas 35 preguntas en el mismo orden. Gana quien saque más nota.
+
+H. Heatmap de Actividad
+- Idea: Un gráfico tipo GitHub (cuadritos verdes) que muestre tus días de estudio del último año.
+- Psicología: No querrás "romper la racha" (Streak).

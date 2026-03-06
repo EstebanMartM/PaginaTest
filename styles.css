@@ -1322,3 +1322,285 @@ body.marked-open .topbar .subtitle{
 
 /* Infinito: barra siempre llena */
 .progress-bar.infinite{width:100% !important;}
+
+/* =========================
+   Drop Overlay (Drag & Drop)
+   ========================= */
+.drop-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(10, 15, 26, 0.92);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: dropFadeIn 0.2s ease-out;
+}
+
+.drop-overlay[hidden] { display: none; }
+
+@keyframes dropFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.drop-content {
+  text-align: center;
+  padding: 48px;
+  border-radius: 24px;
+  border: 3px dashed var(--accent);
+  background: rgba(94, 234, 212, 0.08);
+  box-shadow: 0 0 60px rgba(94, 234, 212, 0.2);
+  animation: dropPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes dropPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 60px rgba(94, 234, 212, 0.2); }
+  50% { transform: scale(1.02); box-shadow: 0 0 80px rgba(94, 234, 212, 0.35); }
+}
+
+.drop-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 20px rgba(94, 234, 212, 0.5));
+}
+
+.drop-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.drop-hint {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* =========================
+   Zen Mode
+   ========================= */
+body.zen-mode .topbar {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 12px;
+  z-index: 100;
+}
+
+body.zen-mode .topbar .brand,
+body.zen-mode .topbar .actions,
+body.zen-mode .topbar .topbar-row {
+  display: none !important;
+}
+
+body.zen-mode .topbar .zen-home-btn {
+  display: flex !important;
+}
+
+body.zen-mode .side,
+body.zen-mode .card-head,
+body.zen-mode .shortcuts-card {
+  display: none !important;
+}
+
+body.zen-mode .layout {
+  grid-template-columns: 1fr;
+  max-width: 900px;
+  padding-top: 60px;
+}
+
+body.zen-mode .quiz-card {
+  border: none;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+body.zen-mode .quiz-body {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 32px;
+}
+
+body.zen-mode .q-title {
+  font-size: 28px;
+}
+
+body.zen-mode .q-text {
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+body.zen-mode .choice {
+  padding: 20px 18px;
+}
+
+body.zen-mode .choice .c-text {
+  font-size: 17px;
+}
+
+body.zen-mode .progress {
+  height: 4px;
+  opacity: 0.3;
+}
+
+body.zen-mode .card-foot {
+  background: transparent;
+  border: none;
+  justify-content: center;
+  padding: 24px;
+}
+
+body.zen-mode .scoreline {
+  display: none;
+}
+
+/* Zen toggle in topbar */
+.zen-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.zen-toggle:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+}
+
+.zen-toggle input {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+}
+
+/* =========================
+   Seed Challenge
+   ========================= */
+.seed-field {
+  border: 1px dashed rgba(94, 234, 212, 0.3);
+  background: rgba(94, 234, 212, 0.05);
+}
+
+.seed-row {
+  display: flex;
+  gap: 8px;
+}
+
+.seed-row .input {
+  flex: 1;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.btn-icon {
+  padding: 8px 12px;
+  font-size: 18px;
+  min-width: auto;
+}
+
+/* =========================
+   Activity Heatmap
+   ========================= */
+.heatmap-card .card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.streak-badge {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+}
+
+.heatmap-body {
+  padding: 16px;
+  overflow-x: auto;
+}
+
+.heatmap-months {
+  display: flex;
+  gap: 2px;
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 4px;
+  padding-left: 0;
+}
+
+.heatmap-months span {
+  width: calc((100% - 24px) / 12);
+  text-align: center;
+}
+
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 2px;
+  grid-auto-flow: column;
+}
+
+.heatmap-cell {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.05);
+  transition: all 0.15s;
+}
+
+.heatmap-cell:hover {
+  transform: scale(1.3);
+  box-shadow: 0 0 6px rgba(94, 234, 212, 0.5);
+}
+
+.heatmap-cell.level-0 { background: rgba(255,255,255,0.08); }
+.heatmap-cell.level-1 { background: rgba(94, 234, 212, 0.25); }
+.heatmap-cell.level-2 { background: rgba(94, 234, 212, 0.5); }
+.heatmap-cell.level-3 { background: rgba(94, 234, 212, 0.75); }
+.heatmap-cell.level-4 { background: var(--accent); }
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.heatmap-legend .heatmap-cell {
+  width: 10px;
+  height: 10px;
+}
+
+/* Responsive heatmap */
+@media (max-width: 600px) {
+  .heatmap-grid {
+    grid-template-columns: repeat(26, 1fr);
+  }
+  .heatmap-cell {
+    width: 8px;
+    height: 8px;
+  }
+}
+

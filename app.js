@@ -33,6 +33,8 @@
     { id: 'Redes', label: 'Redes', url: './baterias/Redes.txt' },
     { id: 'TAR', label: 'TAR', url: './baterias/TAR.txt' },
     { id: 'ADA', label: 'ADA', url: './baterias/Ada.txt' },
+    { id: 'ADA-P1', label: 'ADA - Parcial 1', url: './baterias/Ada-p1.txt' },
+    { id: 'ADA-P2', label: 'ADA - Parcial 2', url: './baterias/Ada-p2.txt' },
   ];
 
   const EXAM_SOURCE_ID = 'Redes';

@@ -1,309 +1,505 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-<head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-WQ383CVF');</script>
-  <!-- End Google Tag Manager -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pagina Tests</title>
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-WQ383CVF");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Pagina Tests</title>
 
-  <link rel="stylesheet" href="./styles.css?v=3" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css?v=3" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- MathJax (TeX) -->
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true,
-        processEnvironments: true,
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-      }
-    };
-  </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- MathJax (TeX) -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+          processEscapes: true,
+          processEnvironments: true,
+        },
+        options: {
+          skipHtmlTags: [
+            "script",
+            "noscript",
+            "style",
+            "textarea",
+            "pre",
+            "code",
+          ],
+        },
+      };
+    </script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
 
-  <!-- Tu app -->
-  <script defer src="./app.js?v=3"></script>
-</head>
+    <!-- Tu app -->
+    <script defer src="./app.js?v=3"></script>
+  </head>
 
-<body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ383CVF"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  <div class="gradient-bg"></div>
-  
-  <header class="topbar">
-    <div class="brand">
-      <button id="btnMenuHome" class="logo" type="button" aria-label="Menú principal">
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-WQ383CVF"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="gradient-bg"></div>
+
+    <!-- Drop overlay for drag & drop file loading -->
+    <div id="dropOverlay" class="drop-overlay" hidden>
+      <div class="drop-content">
+        <div class="drop-icon">📄</div>
+        <div class="drop-text">Suelta tu archivo .txt aquí</div>
+        <div class="drop-hint">o usa Ctrl+V para pegar texto</div>
+      </div>
+    </div>
+
+    <header class="topbar">
+      <div class="brand">
+        <button
+          id="btnMenuHome"
+          class="logo"
+          type="button"
+          aria-label="Menú principal"
+        >
+          <span class="logo-icon" aria-hidden="true">Q</span>
+        </button>
+        <div>
+          <div class="title">Tipo test</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <label class="btn ghost file-btn">
+          <input id="fileInput" type="file" accept=".txt,text/plain" />
+          Cargar TXT
+        </label>
+        <button
+          id="btnLoadLast"
+          class="btn ghost"
+          type="button"
+          title="Carga la última batería guardada en este navegador"
+        >
+          Cargar última
+        </button>
+        <button id="btnStart" class="btn primary" type="button" disabled>
+          <span class="btn-shine"></span>
+          Nuevo test (20)
+        </button>
+      </div>
+
+      <!-- Zen mode home button -->
+      <button id="btnZenHome" class="logo zen-home-btn" type="button" aria-label="Salir de Zen" style="display:none;">
         <span class="logo-icon" aria-hidden="true">Q</span>
       </button>
-      <div>
-        <div class="title">Tipo test</div>
 
-      </div>
-    </div>
+      <!-- Modo de test -->
+      <div class="topbar-row">
+        <div class="field field-card">
+          <label class="label" for="modeSelect">Modo</label>
+          <select id="modeSelect" class="select">
+            <option value="random" selected>Aleatorio (20)</option>
+            <option value="srs">Repaso SRS</option>
+            <option value="exam" disabled>Examen (35 · 1h10)</option>
+            <option value="examlist">Examen (elige)</option>
+            <option value="block">Bloque completo</option>
+            <option value="single">Pregunta concreta</option>
+          </select>
+          <div class="field-hint" id="modeHint">
+            Elige cómo quieres practicar.
+          </div>
+        </div>
 
-    <div class="actions">
-      <label class="btn ghost file-btn">
-        <input id="fileInput" type="file" accept=".txt,text/plain" />
-        Cargar TXT
-      </label>
-      <button id="btnLoadLast" class="btn ghost" type="button" title="Carga la última batería guardada en este navegador">
-        Cargar última
-      </button>
-      <button id="btnStart" class="btn primary" type="button" disabled>
-        <span class="btn-shine"></span>
-        Nuevo test (20)
-      </button>
-    </div>
+        <div class="field field-card">
+          <label class="label" for="blockSelect">Bloque</label>
+          <select id="blockSelect" class="select" disabled>
+            <option value="">—</option>
+          </select>
+          <div class="field-hint" id="blockHint">—</div>
+        </div>
 
-    <!-- Modo de test -->
-    <div class="topbar-row">
-      <div class="field field-card">
-        <label class="label" for="modeSelect">Modo</label>
-        <select id="modeSelect" class="select">
-          <option value="random" selected>Aleatorio (20)</option>
-          <option value="exam" disabled>Examen (35 · 1h10)</option>
-          <option value="examlist">Examen (elige)</option>
-          <option value="block">Bloque completo</option>
-          <option value="single">Pregunta concreta</option>
-        </select>
-        <div class="field-hint" id="modeHint">Elige cómo quieres practicar.</div>
-      </div>
+        <div class="field field-card">
+          <label class="label" for="examSelect">Examen</label>
+          <select id="examSelect" class="select" disabled>
+            <option value="">—</option>
+          </select>
+          <div class="field-hint" id="examHint">—</div>
+        </div>
 
-      <div class="field field-card">
-        <label class="label" for="blockSelect">Bloque</label>
-        <select id="blockSelect" class="select" disabled>
-          <option value="">—</option>
-        </select>
-        <div class="field-hint" id="blockHint">—</div>
-      </div>
+        <div class="field field-card">
+          <label class="label" for="questionInput">Pregunta</label>
+          <input
+            id="questionInput"
+            class="input"
+            type="number"
+            min="1"
+            step="1"
+            inputmode="numeric"
+            placeholder="Ej. 502"
+            disabled
+          />
+          <div class="field-hint" id="questionHint">—</div>
+        </div>
 
-      <div class="field field-card">
-        <label class="label" for="examSelect">Examen</label>
-        <select id="examSelect" class="select" disabled>
-          <option value="">—</option>
-        </select>
-        <div class="field-hint" id="examHint">—</div>
-      </div>
+        <div class="field field-card" id="srsCountField" style="display:none;">
+          <label class="label" for="srsCountInput">Preguntas SRS</label>
+          <input
+            id="srsCountInput"
+            class="input"
+            type="number"
+            min="1"
+            max="100"
+            step="1"
+            inputmode="numeric"
+            value="20"
+          />
+          <div class="field-hint" id="srsCountHint">Máximo por sesión</div>
+        </div>
 
-      <div class="field field-card">
-        <label class="label" for="questionInput">Pregunta</label>
-        <input id="questionInput" class="input" type="number" min="1" step="1" inputmode="numeric" placeholder="Ej. 502" disabled />
-        <div class="field-hint" id="questionHint">—</div>
-      </div>
-    </div>
-  </header>
-
-  <main class="layout">
-    <section class="card quiz-card">
-      <div class="card-head">
-        <div class="pill" id="pillState">Sin batería cargada</div>
-        <div class="spacer"></div>
-        <label class="toggle" title="Si está activado, el test no termina: sigue sacando preguntas hasta que lo pares">
-          <input type="checkbox" id="toggleContinuous" />
-          <span>Modo infinito</span>
-        </label>
-      </div>
-
-      <div class="progress">
-        <div class="progress-bar" id="progressBar" style="width:0%">
-          <div class="progress-shimmer"></div>
+        <!-- Seed Challenge -->
+        <div class="field field-card seed-field">
+          <label class="label" for="seedInput">🎲 Seed Challenge</label>
+          <div class="seed-row">
+            <input
+              id="seedInput"
+              class="input"
+              type="text"
+              placeholder="TEST-XXXX"
+              maxlength="9"
+              style="text-transform: uppercase; font-family: monospace;"
+            />
+            <button id="btnSeedGen" class="btn ghost btn-icon" type="button" title="Generar código">
+              🎲
+            </button>
+          </div>
+          <div class="field-hint" id="seedHint">Comparte el código para competir</div>
         </div>
       </div>
+    </header>
 
-      <div class="quiz-body" id="quizBody">
-        <div class="empty">
-          <div class="empty-icon">TXT</div>
-          <h2>Sube tu TXT de preguntas</h2>
-          <p>El parser está preparado para el formato del archivo que me has pasado.</p>
-          <ul>
-            <li>Bloques con <strong>###Bloque</strong> (opcional)</li>
-            <li>Preguntas con <strong>Pregunta N:</strong></li>
-            <li>Opciones <strong>a)</strong>…<strong>d)</strong></li>
-            <li><strong>Solución: x</strong> y <strong>Justificación:</strong></li>
-          </ul>
-          <p class="muted">Tu batería se guarda localmente (en este navegador) para poder usar "Cargar última".</p>
-        </div>
-      </div>
-
-      <div class="card-foot" id="quizFooter" hidden>
-        <div class="scoreline">
-          <span id="scoreInline">Puntuación: 0.00</span>
-          <div class="score-meta">
-          <span class="muted" id="countInline">0/20</span>
-          <span class="muted" id="timerInline">Tiempo 0:00</span>
-        </div>
-      </div>
-        <div class="btnrow">
-          <button id="btnFinish" class="btn ghost" type="button" hidden>Terminar</button>
-          <button id="btnSubmit" class="btn primary" type="button" disabled>
-            <span class="btn-shine"></span>
-            Responder
-          </button>
-          <button id="btnNext" class="btn" type="button" hidden>
-            Siguiente
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <aside class="side">
-      <section class="card stats-card">
+    <main class="layout">
+      <section class="card quiz-card">
         <div class="card-head">
-          <h3>Resumen</h3>
+          <div class="pill" id="pillState">Sin batería cargada</div>
           <div class="spacer"></div>
-          <button id="btnResetHistory" class="btn danger ghost" type="button">Borrar</button>
+          <label
+            class="toggle"
+            title="Si está activado, el test no termina: sigue sacando preguntas hasta que lo pares"
+          >
+            <input type="checkbox" id="toggleContinuous" />
+            <span>Modo infinito</span>
+          </label>
+          <label class="zen-toggle" title="Modo minimalista: solo la pregunta, sin distracciones">
+            <input type="checkbox" id="toggleZen" />
+            <span>Zen</span>
+          </label>
         </div>
 
-        <div class="summary">
-          <div class="kpi">
-            <div class="kpi-label">Última nota</div>
-            <div class="kpi-value" id="kpiLast">—</div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-label">Mejor nota</div>
-            <div class="kpi-value" id="kpiBest">—</div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-label">Media (10 últimos)</div>
-            <div class="kpi-value" id="kpiAvg">—</div>
+        <div class="progress">
+          <div class="progress-bar" id="progressBar" style="width: 0%">
+            <div class="progress-shimmer"></div>
           </div>
         </div>
 
-        <div class="spark-wrap" aria-hidden="true">
-          <svg id="spark" viewBox="0 0 200 40" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="sparkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#5eead4;stop-opacity:0.3" />
-                <stop offset="50%" style="stop-color:#6366f1;stop-opacity:0.6" />
-                <stop offset="100%" style="stop-color:#fb7185;stop-opacity:0.3" />
-              </linearGradient>
-            </defs>
-            <polyline id="sparkLine" fill="none" stroke="url(#sparkGradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points=""></polyline>
-          </svg>
-        </div>
-
-        <div class="history" id="historyList"></div>
-      </section>
-
-
-      <section class="card library-card">
-        <div class="card-head">
-          <h3>Biblioteca</h3>
-        </div>
-
-        <div class="library-body">
-          <div class="field">
-            <label class="label" for="libSelect">Cargar batería</label>
-            <select id="libSelect" class="select">
-              <option value="">—</option>
-            </select>
+        <div class="quiz-body" id="quizBody">
+          <div class="empty">
+            <div class="empty-icon">TXT</div>
+            <h2>Sube tu TXT de preguntas</h2>
+            <p>
+              El parser está preparado para el formato del archivo que me has
+              pasado.
+            </p>
+            <ul>
+              <li>Bloques con <strong>###Bloque</strong> (opcional)</li>
+              <li>Preguntas con <strong>Pregunta N:</strong></li>
+              <li>Opciones <strong>a)</strong>…<strong>d)</strong></li>
+              <li>
+                <strong>Solución: x</strong> y <strong>Justificación:</strong>
+              </li>
+            </ul>
+            <p class="muted">
+              Tu batería se guarda localmente (en este navegador) para poder
+              usar "Cargar última".
+            </p>
           </div>
+        </div>
 
-          <div class="btnrow" style="justify-content:flex-start; margin-top:10px;">
-            <button id="btnLibLoad" class="btn primary" type="button" disabled>
+        <div class="card-foot" id="quizFooter" hidden>
+          <div class="scoreline">
+            <span id="scoreInline">Puntuación: 0.00</span>
+            <div class="score-meta">
+              <span class="muted" id="countInline">0/20</span>
+              <span class="muted" id="timerInline">Tiempo 0:00</span>
+            </div>
+          </div>
+          <div class="btnrow">
+            <button id="btnFinish" class="btn ghost" type="button" hidden>
+              Terminar
+            </button>
+            <button id="btnSubmit" class="btn primary" type="button" disabled>
               <span class="btn-shine"></span>
-              Cargar
+              Responder
             </button>
-            <button id="btnLibRefresh" class="btn ghost" type="button">Refrescar</button>
-          </div>
-
-          <div id="libHint" class="muted small" style="margin-top:10px;"></div>
-        </div>
-      </section>
-
-      <section class="card marked-card">
-        <div class="card-head">
-          <h3>Marcadas</h3>
-          <div class="spacer"></div>
-          <span class="badge blank" id="markedCount">0</span>
-        </div>
-        <div class="library-body">
-          <p class="muted small">Guarda preguntas para repasarlas luego.</p>
-          <div class="btnrow" style="justify-content:flex-start; margin-top:10px;">
-            <button id="btnMarkedOpen" class="btn ghost" type="button" disabled>Ver marcadas</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Panel de revisión -->
-      <section id="reviewPanel" class="review" hidden>
-        <div class="review-head">
-          <div>
-            <div id="reviewTitle" class="review-title">Revisión</div>
-            <div id="reviewMeta" class="review-meta"></div>
-          </div>
-          <div class="review-actions">
-            <button id="btnReviewHome" class="logo review-home" type="button" aria-label="Volver al inicio">
-              <span class="logo-icon" aria-hidden="true">Q</span>
+            <button id="btnNext" class="btn" type="button" hidden>
+              Siguiente
             </button>
           </div>
         </div>
-
-        <div class="review-body">
-          <div id="reviewList" class="review-list"></div>
-          <div id="reviewDetail" class="review-detail">
-            <div class="muted">Selecciona una pregunta para verla aquí.</div>
-          </div>
-        </div>
       </section>
 
-      <!-- Panel de marcadas -->
-      <section id="markedPanel" class="review" hidden>
-        <div class="review-head">
-          <div>
-            <div id="markedTitle" class="review-title">Marcadas</div>
-            <div id="markedMeta" class="review-meta"></div>
-          </div>
-          <div class="review-actions">
-            <button id="btnMarkedHome" class="logo review-home" type="button" aria-label="Volver al inicio">
-              <span class="logo-icon" aria-hidden="true">Q</span>
+      <aside class="side">
+        <section class="card stats-card">
+          <div class="card-head">
+            <h3>Resumen</h3>
+            <div class="spacer"></div>
+            <button id="btnResetHistory" class="btn danger ghost" type="button">
+              Borrar
             </button>
           </div>
-        </div>
 
-        <div class="review-body">
-          <div id="markedList" class="review-list"></div>
-          <div id="markedDetail" class="review-detail">
-            <div class="muted">Selecciona una pregunta para verla aquí.</div>
+          <div class="summary">
+            <div class="kpi">
+              <div class="kpi-label">Última nota</div>
+              <div class="kpi-value" id="kpiLast">—</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Mejor nota</div>
+              <div class="kpi-value" id="kpiBest">—</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Media (10 últimos)</div>
+              <div class="kpi-value" id="kpiAvg">—</div>
+            </div>
           </div>
-        </div>
-      </section>
 
-      <section class="card shortcuts-card">
-        <div class="card-head">
-          <h3>Atajos</h3>
-        </div>
-        <div class="shortcuts-grid">
-          <div class="shortcut">
-            <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd>
-            <span>Selecciona opción</span>
+          <div class="spark-wrap" aria-hidden="true">
+            <svg id="spark" viewBox="0 0 200 40" preserveAspectRatio="none">
+              <defs>
+                <linearGradient
+                  id="sparkGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%"
+                >
+                  <stop
+                    offset="0%"
+                    style="stop-color: #5eead4; stop-opacity: 0.3"
+                  />
+                  <stop
+                    offset="50%"
+                    style="stop-color: #6366f1; stop-opacity: 0.6"
+                  />
+                  <stop
+                    offset="100%"
+                    style="stop-color: #fb7185; stop-opacity: 0.3"
+                  />
+                </linearGradient>
+              </defs>
+              <polyline
+                id="sparkLine"
+                fill="none"
+                stroke="url(#sparkGradient)"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                points=""
+              ></polyline>
+            </svg>
           </div>
-          <div class="shortcut">
-            <kbd>Enter</kbd>
-            <span>Responde / Siguiente</span>
-          </div>
-          <div class="shortcut">
-            <kbd>Esc</kbd>
-            <span>Omitir (en blanco) o enviar selección</span>
-          </div>
-        </div>
-      </section>
-    </aside>
-  </main>
 
-</body>
+          <div class="history" id="historyList"></div>
+        </section>
+
+        <!-- Activity Heatmap -->
+        <section class="card heatmap-card">
+          <div class="card-head">
+            <h3>📅 Actividad</h3>
+            <div class="streak-badge" id="streakBadge" title="Racha actual">🔥 0</div>
+          </div>
+          <div class="heatmap-body">
+            <div class="heatmap-months" id="heatmapMonths"></div>
+            <div class="heatmap-grid" id="heatmapGrid"></div>
+            <div class="heatmap-legend">
+              <span>Menos</span>
+              <span class="heatmap-cell level-0"></span>
+              <span class="heatmap-cell level-1"></span>
+              <span class="heatmap-cell level-2"></span>
+              <span class="heatmap-cell level-3"></span>
+              <span class="heatmap-cell level-4"></span>
+              <span>Más</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card library-card">
+          <div class="card-head">
+            <h3>Biblioteca</h3>
+          </div>
+
+          <div class="library-body">
+            <div class="field">
+              <label class="label" for="libSelect">Cargar batería</label>
+              <select id="libSelect" class="select">
+                <option value="">—</option>
+              </select>
+            </div>
+
+            <div
+              class="btnrow"
+              style="justify-content: flex-start; margin-top: 10px"
+            >
+              <button
+                id="btnLibLoad"
+                class="btn primary"
+                type="button"
+                disabled
+              >
+                <span class="btn-shine"></span>
+                Cargar
+              </button>
+              <button id="btnLibRefresh" class="btn ghost" type="button">
+                Refrescar
+              </button>
+            </div>
+
+            <div
+              id="libHint"
+              class="muted small"
+              style="margin-top: 10px"
+            ></div>
+          </div>
+        </section>
+
+        <section class="card marked-card">
+          <div class="card-head">
+            <h3>Marcadas</h3>
+            <div class="spacer"></div>
+            <span class="badge blank" id="markedCount">0</span>
+          </div>
+          <div class="library-body">
+            <p class="muted small">Guarda preguntas para repasarlas luego.</p>
+            <div
+              class="btnrow"
+              style="justify-content: flex-start; margin-top: 10px"
+            >
+              <button
+                id="btnMarkedOpen"
+                class="btn ghost"
+                type="button"
+                disabled
+              >
+                Ver marcadas
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Panel de revisión -->
+        <section id="reviewPanel" class="review" hidden>
+          <div class="review-head">
+            <div>
+              <div id="reviewTitle" class="review-title">Revisión</div>
+              <div id="reviewMeta" class="review-meta"></div>
+            </div>
+            <div class="review-actions">
+              <button
+                id="btnReviewHome"
+                class="logo review-home"
+                type="button"
+                aria-label="Volver al inicio"
+              >
+                <span class="logo-icon" aria-hidden="true">Q</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="review-body">
+            <div id="reviewList" class="review-list"></div>
+            <div id="reviewDetail" class="review-detail">
+              <div class="muted">Selecciona una pregunta para verla aquí.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Panel de marcadas -->
+        <section id="markedPanel" class="review" hidden>
+          <div class="review-head">
+            <div>
+              <div id="markedTitle" class="review-title">Marcadas</div>
+              <div id="markedMeta" class="review-meta"></div>
+            </div>
+            <div class="review-actions">
+              <button
+                id="btnMarkedHome"
+                class="logo review-home"
+                type="button"
+                aria-label="Volver al inicio"
+              >
+                <span class="logo-icon" aria-hidden="true">Q</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="review-body">
+            <div id="markedList" class="review-list"></div>
+            <div id="markedDetail" class="review-detail">
+              <div class="muted">Selecciona una pregunta para verla aquí.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card shortcuts-card">
+          <div class="card-head">
+            <h3>Atajos</h3>
+          </div>
+          <div class="shortcuts-grid">
+            <div class="shortcut">
+              <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd>
+              <span>Selecciona opción</span>
+            </div>
+            <div class="shortcut">
+              <kbd>Enter</kbd>
+              <span>Responde / Siguiente</span>
+            </div>
+            <div class="shortcut">
+              <kbd>Esc</kbd>
+              <span>Omitir (en blanco) o enviar selección</span>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </main>
+  </body>
 </html>

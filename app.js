@@ -17,7 +17,7 @@
   const KEY_HISTORY = 'quiz_history_v4';
   const KEY_QSTATS = 'quiz_question_stats_v2';
   const KEY_PREFS = 'quiz_prefs_v2';
-  const KEY_LASTPOS = 'quiz_last_correct_pos_v1'; // id -> pos(0..3) última vez que cayó la correcta
+  const KEY_LASTPOS = 'quiz_last_correct_pos_v1'; // id -> pos(0..4) última vez que cayó la correcta
   const KEY_SOURCE = 'quiz_last_source_v1';
   const KEY_MARKED = 'quiz_marked_v1';
 
@@ -44,6 +44,7 @@
   const MAX_INFINITE_QUESTIONS = 2000; // límite de seguridad en una sesión infinita
 
   const PREV_REF_RE = /\bejercicio\s+anterior\b/i;
+  const OPTION_LETTERS = ['a', 'b', 'c', 'd', 'e'];
 
 
 
@@ -469,9 +470,9 @@
     const questions = [];
 
     // más permisivas (tu TXT puede variar)
-    const optRe   = /^\s*([a-d])\s*[\)\.\-:]\s*(.+)\s*$/i;      // a) / a. / a- / a:
+    const optRe   = /^\s*([a-e])\s*[\)\.\-:]\s*(.+)\s*$/i;      // a) / a. / a- / a:
     const qRe     = /^\s*Pregunta\s*(\d+)\s*:\s*(.*)\s*$/i;     // Pregunta9: o Pregunta 9:
-    const solRe   = /^\s*Soluci[oó]n\s*:\s*([a-d])\s*$/i;
+    const solRe   = /^\s*Soluci[oó]n\s*:\s*([a-e])\s*$/i;
     const blockRe = /^\s*###\s*Bloque\s*(.*)\s*$/i;
     const examRe  = /^\s*###\s*Examen\b\s*(.*)\s*$/i;
     const justRe  = /^\s*Justificaci[oó]n\s*:\s*(.*)\s*$/i;
@@ -535,8 +536,7 @@
             merged.set(o.letter, prev);
           }
         }
-        const order = ['a', 'b', 'c', 'd'];
-        const options = order.filter(l => merged.has(l)).map(l => merged.get(l));
+        const options = OPTION_LETTERS.filter(l => merged.has(l)).map(l => merged.get(l));
 
         // solución
         let answer = null;
@@ -565,8 +565,9 @@
         const letters = new Set(options.map(o => o.letter));
         const ok =
           !!text &&
-          options.length >= 2 &&
-          /^[a-d]$/.test(answer || '') &&
+          options.length >= 3 &&
+          options.length <= OPTION_LETTERS.length &&
+          /^[a-e]$/.test(answer || '') &&
           letters.has(answer);
 
         if (ok) {
@@ -692,7 +693,7 @@
   // Shuffle options per question instance
   // =========================
   function makeShuffledQuestionInstance(baseQ) {
-    // baseQ.options: [{letter:'a'..,text}]
+    // baseQ.options: [{letter:'a'..'e',text}]
     const originalOptions = baseQ.options.map(o => ({ ...o }));
     const correctOriginalLetter = baseQ.answer;
 
@@ -729,13 +730,12 @@
       chosen = { shuffled: originalOptions, idxCorrect };
     }
 
-    const letters = ['a', 'b', 'c', 'd'];
     const newOptions = chosen.shuffled.map((o, idx) => ({
-      letter: letters[idx] ?? String(idx + 1),
+      letter: OPTION_LETTERS[idx] ?? String(idx + 1),
       text: o.text
     }));
 
-    const newCorrectLetter = letters[chosen.idxCorrect] ?? correctOriginalLetter;
+    const newCorrectLetter = OPTION_LETTERS[chosen.idxCorrect] ?? correctOriginalLetter;
 
     // guarda última posición de correcta
     lastPosMap[String(baseQ.id)] = chosen.idxCorrect;

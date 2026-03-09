@@ -596,18 +596,18 @@ Solución: c
 Justificación: Es correcta porque g(n)∈Ω(f(n)), según las definiciones de O, Ω y Θ.
 
 Pregunta 86: ¿Cuál de las siguientes formulaciones expresa mejor la complejidad temporal, en función del parámetro n, de la siguiente función?(asumimos que n es potencia exacta de 2)```int f(int n){    \n\tint k=0;    \n\tfor (int i = 2; i < = n; i*=2)        \n\t\tfor (int j=i; j  > 0; j-=2)            \n\t\t\tk++;    \n\treturn k;\n}```:
-a) $$\sum_{p=1}^{\log n} 2 * (p - 1)$$
-b) $$\sum_{p=1}^{\log n} 2 ^{(p - 1)}$$
-c) $$\sum_{p=2}^{n/2} {(p - 1)/2}$$
+a) $\sum_{p=1}^{\log n} 2 * (p - 1)$
+b) $\sum_{p=1}^{\log n} 2 ^{(p - 1)}$
+c) $\sum_{p=2}^{n/2} {(p - 1)/2}$
 Solución: b
-Justificación: Es correcta porque el recuento de operaciones del código da $$\sum_{p=1}^{\log n} 2 ^{(p - 1)}$$.
+Justificación: Es correcta porque el recuento de operaciones del código da $\sum_{p=1}^{\log n} 2 ^{(p - 1)}$.
 
 Pregunta 87: ¿Cuál de las siguientes formulaciones expresa mejor el número de llamadas recursivas que hace Quicksort en el mejor de los casos?:
-a) $$\sum_{i=0}^{n}\space \log n$$
-b) $$\sum_{i=0}^{\log n} \space\space\space1$$
-c) $$\sum_{i=0}^{\log n} \space\space\space2^i$$
+a) $\sum_{i=0}^{n}\space \log n$
+b) $\sum_{i=0}^{\log n} \space\space\space1$
+c) $\sum_{i=0}^{\log n} \space\space\space2^i$
 Solución: c
-Justificación: Es correcta porque $$\sum_{i=0}^{\log n} \space\space\space2^i$$ coincide con el análisis clásico de divide y vencerás.
+Justificación: Es correcta porque $\sum_{i=0}^{\log n} \space\space\space2^i$ coincide con el análisis clásico de divide y vencerás.
 
 Pregunta 88: \n\n\n\n\nEl problema del alfarero (solución discreta con valores y tiempos discretos): Se dispone de n clases de objetos. De cada una de ellas se conoce el número máximo de piezas que se puede fabricar, mi∈N;  \nEl valor de cada pieza terminada, vi∈N y el tiempo necesario para su fabricación ti∈N, i∈[0..n-1]. \n¿Cual es el valor máximo de los objetos que puede fabricar teniendo en cuenta que el tiempo total está limitado por T∈N? \nPara ello se escribe la siguiente función siguiendo la técnica de divide y vencerás:```int potter( const vector< int > &v, const vector< int > &m, \n\tconst vector< int > &t, int T, int k ) {    \n\tif( k == 0 )        \n\t\treturn 0;    \n\tint max_earnings = -1;    \n\tfor( int c = 0; c < = m[k-1]; c++ ) {        \n\t\tint earnings = 0;        \n\t\tif( T  >= c * t[k-1] )\n\t\t\t# == > Falta una línea < ==        \n\t\tmax_earnings = max( max_earnings, earnings);    \n\t}    \n\treturn max_earnings;\n}```:
 a) earnings = c * v[k-1] + potter( v, m, t, k-1, T - c * t[k-1] );
@@ -1023,13 +1023,13 @@ Solución: a
 Justificación: Es correcta porque `priority_queue` en C++ usa un heap de máximos por defecto.
 
 Pregunta 147: De las siguientes expresiones, o bien dos son ciertas y una es falsa, o bien al contrario, una es cierta y dos son falsas. Marca la que en este sentido es diferente a las otras dos.:
-a) $$\sum_{i=1}^{n/2} \sum_{j=1}^{i} 2^j \in \space \space \space \space \space \space \space \space \space \space O(n \log n)$$
-b) $$\sum_{i=1}^{n} \sum_{j=1}^{\log i} 2^j \in \space \space \space \space \space \space \space \space \space \space O(n^2)$$
-c) $$\sum_{i=1}^{\log n} \sum_{j=1}^{n} 2^j \in \space \space \space \space \space \space \space \space \space \space O(n \log n)$$
+a) $\sum_{i=1}^{n/2} \sum_{j=1}^{i} 2^j \in \space \space \space \space \space \space \space \space \space \space O(n \log n)$
+b) $\sum_{i=1}^{n} \sum_{j=1}^{\log i} 2^j \in \space \space \space \space \space \space \space \space \space \space O(n^2)$
+c) $\sum_{i=1}^{\log n} \sum_{j=1}^{n} 2^j \in \space \space \space \space \space \space \space \space \space \space O(n \log n)$
 Solución: b
-Justificación: Es correcta porque $$\sum_{i=1}^{n} \sum_{j=1}^{\log i} 2^j \in \space \space \space \space \space \space \space \space \space \space O(n^2)$$ es la única opción coherente con el enunciado.
+Justificación: Es correcta porque $\sum_{i=1}^{n} \sum_{j=1}^{\log i} 2^j \in \space \space \space \space \space \space \space \space \space \space O(n^2)$ es la única opción coherente con el enunciado.
 
-Pregunta 148: El problema de la moneda consiste a formar una suma M con el número mínimo de mo-nedas tomadas (con repetición) de un conjunto C donde hay una cantidad suficientemente grande de monedas con cada posible valor facial C = {c1 , c2 , . . . , cc}, con c1 = 1. \n ¿Cuál de estas afirmaciones sobre un algoritmo recursivo de la forma de la imagen es falsa?  $$n_{\text{opt}}(M) = 1 + \min_{1 \leq i \leq |C|} n_{\text{opt}}(M - c_i); \quad n_{\text{opt}}(0) = 0; \quad n_{\text{opt}}(x) = \infty \text{ para } x < 0$$:
+Pregunta 148: El problema de la moneda consiste a formar una suma M con el número mínimo de mo-nedas tomadas (con repetición) de un conjunto C donde hay una cantidad suficientemente grande de monedas con cada posible valor facial C = {c1 , c2 , . . . , cc}, con c1 = 1. \n ¿Cuál de estas afirmaciones sobre un algoritmo recursivo de la forma de la imagen es falsa?  $n_{\text{opt}}(M) = 1 + \min_{1 \leq i \leq |C|} n_{\text{opt}}(M - c_i); \quad n_{\text{opt}}(0) = 0; \quad n_{\text{opt}}(x) = \infty \text{ para } x < 0$:
 a) Dependiendo de cuáles sean los valores faciales y la suma, puede ser que el algorit-mo recursivo no encuentre solución.
 b) Encuentra siempre la solución óptima.
 c) Tiene un coste temporal prohibitivo, ya que puede calcular nopt (x) para el mismovalor de x más de una vez.
@@ -1085,7 +1085,7 @@ c) Θ(N²)
 Solución: b
 Justificación: Es correcta porque el recuento de operaciones del código da Θ(N).
 
-Pregunta 156: Se pretende calcular el valor $$2^n$$, $$n\in N$$, haciendo una transcripción literal de la expresión de la imagen. ¿Cuál sería la complejidad temporal asintótica, en función de n, del algoritmo resultante? \n\n\t\t\t\t\t\t $$2^n = 1 + \sum_{i=0}^{n-1} \prod_{j=1}^{i} 2$$:
+Pregunta 156: Se pretende calcular el valor $2^n$, $n\in N$, haciendo una transcripción literal de la expresión de la imagen. ¿Cuál sería la complejidad temporal asintótica, en función de n, del algoritmo resultante? \n\n\t\t\t\t\t\t $2^n = 1 + \sum_{i=0}^{n-1} \prod_{j=1}^{i} 2$:
 a) O(n)
 b) O(2^n)
 c) O(n²)
@@ -1100,11 +1100,11 @@ Solución: b
 Justificación: Es correcta porque el recuento de operaciones del código da O(n).
 
 Pregunta 158: ¿Cuál de las siguientes formulaciones expresa mejor la complejidad temporal, en función delparámetro n, de la siguiente función? (asumimos que n es potencia exacta de 2)```int f(int n){ \n\tint k=0; \n\tfor (int i=2; i<=n; i*=2) \n\t\tfor (int j=i; j>0; j-=2) \n\t\t\tk++; \n\treturn k; \n} ```:
-a) $$\sum_{p=2}^{n/2}$$  (p - 1)/2
-b) $$\sum_{p=1}^{\log n} 2 \cdot (p - 1)$$
-c) $$\sum_{p=1}^{\log n} 2^{p-1}$$
+a) $\sum_{p=2}^{n/2}$  (p - 1)/2
+b) $\sum_{p=1}^{\log n} 2 \cdot (p - 1)$
+c) $\sum_{p=1}^{\log n} 2^{p-1}$
 Solución: c
-Justificación: Es correcta porque el recuento de operaciones del código da $$\sum_{p=1}^{\log n} 2^{p-1}$$.
+Justificación: Es correcta porque el recuento de operaciones del código da $\sum_{p=1}^{\log n} 2^{p-1}$.
 
 Pregunta 159: ¿Podemos saber cuál sería el elemento en posición k cuando ordenáramos un vector de n elementos sin tener que ordenarlo?:
 a) Sí, y el algoritmo es Ω(n) y O(n²), aunque la frecuencia de los casos peores disminuye muy rápidamente con n.
@@ -1723,10 +1723,10 @@ d) T1(n) E O(2^n), T2(n) E O(n), T3(n) E O(log n), T4(n) E O(2n)
 Solución: a
 Justificación: Es correcta porque T1(n) E O(2^n), T2(n) E O(n), T3(n) E O(log n), T4(n) E O(n^2), según las definiciones de O, Ω y Θ.
 
-Pregunta 235: Sea el vector $$ v = {1, 3, 2, 7, 4, 6, 8} $$ cuyos elementos están dispuestos formando un montículo de mínimos. Posteriormente añadimos en la última posición del vector un elemento nuevo con valor 5. ¿Qué operación hay que hacer para que el vector siga representando un montículo de mínimos?:
+Pregunta 235: Sea el vector $ v = {1, 3, 2, 7, 4, 6, 8} $ cuyos elementos están dispuestos formando un montículo de mínimos. Posteriormente añadimos en la última posición del vector un elemento nuevo con valor 5. ¿Qué operación hay que hacer para que el vector siga representando un montículo de mínimos?:
 a) Intercambiar el 7 con el 5.
 b) Intercambiar el 8 con el 5.
-c) No hay que hacer nada pues el vector $$ \space\space v = {1, 3, 2, 7, 4, 6, 8,5} \space\space$$ también es un montículo de mínimos.
+c) No hay que hacer nada pues el vector $ \space\space v = {1, 3, 2, 7, 4, 6, 8,5} \space\space$ también es un montículo de mínimos.
 Solución: a
 Justificación: Es correcta porque Intercambiar el 7 con el 5 y eso coincide con las propiedades del montículo.
 
@@ -1744,7 +1744,7 @@ c) Ninguna de las otras dos opciones es cierta.
 Solución: b
 Justificación: Es correcta porque al resolver la recurrencia el término dominante coincide con f (n) ∈ Θ(n^3).
 
-Pregunta 238: Indica cuál es la complejidad temporal en función de $$n$$, donde $$A$$ es un vector de enteros y $$k$$ es una constante que no depende de $$n$$, del fragmento siguiente:```for (int i = k; i < n - k; i++){ \n\tA[i] = 0; \n\tfor (int j = i - k; j < i + k; j++){ \n\t\tA[i] += B[j]; \n\t} \n}```:
+Pregunta 238: Indica cuál es la complejidad temporal en función de $n$, donde $A$ es un vector de enteros y $k$ es una constante que no depende de $n$, del fragmento siguiente:```for (int i = k; i < n - k; i++){ \n\tA[i] = 0; \n\tfor (int j = i - k; j < i + k; j++){ \n\t\tA[i] += B[j]; \n\t} \n}```:
 a) Θ(k)
 b) Θ(n^2)
 c) Θ(n)
@@ -1773,11 +1773,11 @@ Solución: a
 Justificación: Es correcta porque `priority_queue` en C++ usa un heap de máximos por defecto.
 
 Pregunta 242: De las siguientes expresiones, o bien dos son ciertas y una es falsa, o bien al contrario, una es cierta y dos son falsas. Marca la que en este sentido es diferente a las otras dos.:
-a) $$\sum_{i=1}^{n/2} \sum_{j=1}^{i} 2^j = \space\space\space\space\space\space\space\space\space\space\space\space O(n \log n)$$
-b) $$\sum_{i=1}^{n} \sum_{j=1}^{\log i} 2^j = \space\space\space\space\space\space\space\space\space\space\space\space O(n^2)$$
-c) $$\sum_{i=1}^{\log n} \sum_{j=1}^{n} 2^j = \space\space\space\space\space\space\space\space\space\space\space\space O(n \log n)$$
+a) $\sum_{i=1}^{n/2} \sum_{j=1}^{i} 2^j = \space\space\space\space\space\space\space\space\space\space\space\space O(n \log n)$
+b) $\sum_{i=1}^{n} \sum_{j=1}^{\log i} 2^j = \space\space\space\space\space\space\space\space\space\space\space\space O(n^2)$
+c) $\sum_{i=1}^{\log n} \sum_{j=1}^{n} 2^j = \space\space\space\space\space\space\space\space\space\space\space\space O(n \log n)$
 Solución: b
-Justificación: Es correcta porque $$\sum_{i=1}^{n} \sum_{j=1}^{\log i} 2^j = \space\space\space\space\space\space\space\space\space\space\space\space O(n^2)$$ es la única opción coherente con el enunciado.
+Justificación: Es correcta porque $\sum_{i=1}^{n} \sum_{j=1}^{\log i} 2^j = \space\space\space\space\space\space\space\space\space\space\space\space O(n^2)$ es la única opción coherente con el enunciado.
 
 Pregunta 243: ¿Cuál es el coste de monticulizar (heapify) un vector de tamaño N?:
 a) O(N log N) y Ω(N)
@@ -1786,7 +1786,7 @@ c) O(N) y Ω(1)
 Solución: b
 Justificación: Es correcta porque Θ(N) y eso coincide con las propiedades del montículo.
 
-Pregunta 244: El problema de la moneda consiste a formar una suma M con el número mínimo de monedas tomadas (con repetición) de un conjunto C donde hay una cantidad suficientemente grande de monedas con cada posible valor facial C' = {c1, c2, ..., c|C|}, con c1 = 1. ¿Cuál de estas afirmaciones sobre un algoritmo recursivo de la forma\n\n$$ n_opt(M) = 1 + min_{1≤i≤|C|} n_opt(M - ci); $$\n\n$$n_opt(0) = 0;$$\n\n$$n_opt(x) = ∞$$ para $$x < 0$$ \n\nes falsa?:
+Pregunta 244: El problema de la moneda consiste a formar una suma M con el número mínimo de monedas tomadas (con repetición) de un conjunto C donde hay una cantidad suficientemente grande de monedas con cada posible valor facial C' = {c1, c2, ..., c|C|}, con c1 = 1. ¿Cuál de estas afirmaciones sobre un algoritmo recursivo de la forma\n\n$ n_opt(M) = 1 + min_{1≤i≤|C|} n_opt(M - ci); $\n\n$n_opt(0) = 0;$\n\n$n_opt(x) = ∞$ para $x < 0$ \n\nes falsa?:
 a) Dependiendo de cuáles sean los valores faciales y la suma, puede ser que el algoritmo recursivo no encuentre solución.
 b) Tiene un coste temporal prohibitivo, ya que puede calcular n_opt(x) para el mismo valor de x más de una vez.
 c) Encuentra siempre la solución óptima.
@@ -1828,9 +1828,9 @@ c) Quicksort
 Solución: a
 Justificación: Es correcta porque Mergesort coincide con el análisis clásico de divide y vencerás.
 
-Pregunta 250: Si $$ \lim_{n → \infty} \left(\frac{f(n)}{n^2}\right) = 3 $$, ¿cuál de estas afirmaciones es cierta?:
-a) $$ f(n) \in \Omega(n^3) $$
-b) $$ f(n) \in \Theta(n^3) $$
+Pregunta 250: Si $ \lim_{n → \infty} \left(\frac{f(n)}{n^2}\right) = 3 $, ¿cuál de estas afirmaciones es cierta?:
+a) $ f(n) \in \Omega(n^3) $
+b) $ f(n) \in \Theta(n^3) $
 c) Las otras dos opciones son ambas falsas.
 Solución: c
 Justificación: Es correcta porque las otras dos afirmaciones sí se cumplen simultáneamente en este caso.
@@ -1850,18 +1850,18 @@ Solución: b
 Justificación: Es correcta porque f(n) ∈ O(n) y f(n) ∈ Ω(n^2) es la única opción coherente con el enunciado.
 
 Pregunta 253: En cuanto a la complejidad temporal de la siguiente función, ¿cuál de las siguientes formulaciones expresa mejor su complejidad en el peor de los casos?```int f(vector <int> &v) { \n\tint n=v.size(), i=2, k=0; \n\twhile (i<n){ \n\t\tint j=i; \n\t\twhile (v[j] != v[1]){ \n\t\t\tk++; \n\t\t\tj=j/2; \n\t\t} \n\t\ti=i+2; \n\t} \n\treturn k; \n}```:
-a) $$ c_s(n) = \sum_{k=1}^{\lfloor \frac{n-1}{2} \rfloor} \log_2 2k \in O(n \log n) $$
-b) $$ c_s(n) = \sum_{k=1}^{\lfloor \frac{n-1}{2} \rfloor} \log_2 2k^2 \in O(\log^2 n) $$
+a) $ c_s(n) = \sum_{k=1}^{\lfloor \frac{n-1}{2} \rfloor} \log_2 2k \in O(n \log n) $
+b) $ c_s(n) = \sum_{k=1}^{\lfloor \frac{n-1}{2} \rfloor} \log_2 2k^2 \in O(\log^2 n) $
 c) Las otras dos opciones son ambas falsas.
 Solución: a
-Justificación: Es correcta porque el recuento de operaciones del código da $$ c_s(n) = \sum_{k=1}^{\lfloor \frac{n-1}{2} \rfloor} \log_2 2k \in O(n \log n) $$.
+Justificación: Es correcta porque el recuento de operaciones del código da $ c_s(n) = \sum_{k=1}^{\lfloor \frac{n-1}{2} \rfloor} \log_2 2k \in O(n \log n) $.
 
 Pregunta 254: ¿Cuál de las siguientes formulaciones expresa mejor la complejidad temporal, en función del parámetro n, de la siguiente función? (asumimos que n es potencia exacta de 2)```int f(int n) { \n\tint k=0; \n\tfor (int i = 2; i <= n; i *= 2) \n\t\tfor (int j = i; j > 0; j -= 2) \n\t\t\tk++; \n\treturn k; \n}```:
-a) $$ \sum_{p=2}^{n/2} \space\space\space\space$$ (p-1)/2
-b) $$ \sum_{p=1}^{\log n} \space\space\space\space$$ 2^{p-1}
-c) $$ \sum_{p=1}^{\log n} \space\space\space\space$$ 2 * (p-1)
+a) $ \sum_{p=2}^{n/2} \space\space\space\space$ (p-1)/2
+b) $ \sum_{p=1}^{\log n} \space\space\space\space$ 2^{p-1}
+c) $ \sum_{p=1}^{\log n} \space\space\space\space$ 2 * (p-1)
 Solución: b
-Justificación: Es correcta porque el recuento de operaciones del código da $$ \sum_{p=1}^{\log n} \space\space\space\space$$ 2^{p-1}.
+Justificación: Es correcta porque el recuento de operaciones del código da $ \sum_{p=1}^{\log n} \space\space\space\space$ 2^{p-1}.
 
 Pregunta 255: ¿Cuál es el coste temporal de crear un montículo a partir de un vector no ordenado?:
 a) Θ(n)
@@ -1898,7 +1898,7 @@ c) Las otras dos opciones son ambas falsas.
 Solución: b
 Justificación: Es correcta porque el recuento de operaciones del código da Que uno de los mejores casos ocurre cuando v[j] = v[1] ∀ j ∈ ℕ y la complejidad es Ω(n).
 
-Pregunta 260: Se pretende calcular el valor 2^n, n ∈ ℕ, haciendo una transcripción literal de la expresión $$2^n = 1 + \sum_{i=0}^{n-1} \prod_{j=1}^i 2$$. ¿Cuál sería la complejidad temporal asintótica, en función de n, del algoritmo resultante?:
+Pregunta 260: Se pretende calcular el valor 2^n, n ∈ ℕ, haciendo una transcripción literal de la expresión $2^n = 1 + \sum_{i=0}^{n-1} \prod_{j=1}^i 2$. ¿Cuál sería la complejidad temporal asintótica, en función de n, del algoritmo resultante?:
 a) O(2^n)
 b) O(n^2)
 c) O(n)
@@ -3680,7 +3680,7 @@ c) No, porque una cota pesimista es típicamente el valor que se encuentra en un
 Solución: a
 Justificación: Es correcta porque Sí permite podar ramas sin perder la solución óptima.
 
-Pregunta 512: La costa de un país tiene n núcleos de población, todos unidos por una línea costera de tren. La industria de cada núcleo de población $$j$$ produce $$T_j$$ toneladas de productos para la exportación y se encuentra en el kilómetro $$k_j$$ de la línea de tren. Las exportaciones son básicas para su economía y debe realizarse por mar ya que ha roto relaciones con los países con los que linda por tierra. El gobierno ha decidido promover el transporte marítimo y ha presupuestado la cantidad necesaria para construir p puertos de manera que se minimice el tráfico por la línea de tren. El tráfico es $$\sum_{j=1}^{n} T_j |k_j - k_{s(j)}|$$ donde $$s(j)$$ es el puerto de salida más cercano al núcleo $$j$$ ¿Es posible resolver el problema mediante una técnica de programación dinámica?:
+Pregunta 512: La costa de un país tiene n núcleos de población, todos unidos por una línea costera de tren. La industria de cada núcleo de población $j$ produce $T_j$ toneladas de productos para la exportación y se encuentra en el kilómetro $k_j$ de la línea de tren. Las exportaciones son básicas para su economía y debe realizarse por mar ya que ha roto relaciones con los países con los que linda por tierra. El gobierno ha decidido promover el transporte marítimo y ha presupuestado la cantidad necesaria para construir p puertos de manera que se minimice el tráfico por la línea de tren. El tráfico es $\sum_{j=1}^{n} T_j |k_j - k_{s(j)}|$ donde $s(j)$ es el puerto de salida más cercano al núcleo $j$ ¿Es posible resolver el problema mediante una técnica de programación dinámica?:
 a) No. Debe resolverse usando una técnica de búsqueda y enumeración (vuelta atrás, ramificación y poda) ya que el problema no tiene subestructura óptima.
 b) Sí. El problema goza de subestructura óptima: podemos resolver el problema asumiendo que conocemos la solución para las m primeras ciudades y para p - 1 puertos, determinar la posición óptima para que el puerto p sirva a las n - m ciudades restantes, y buscar la valor óptimo de m.
 c) No, pero el problema tiene una solución voraz exacta que consiste en empezar por asignar puerto a todos los núcleos de población e ir quitando uno a uno los puertos de manera que el tráfico que resulte de quitarlos aumente lo mínimo posible.
@@ -3708,7 +3708,7 @@ c) No, los nodos hojas son los nodos completados y por lo tanto hay que visitar 
 Solución: b
 Justificación: Es correcta porque Sí, pero esto solo podría ocurrir si se hace uso de cotas pesimistas permite podar ramas sin perder la solución óptima.
 
-Pregunta 516: El problema del alfarero (solución discreta con tiempos continuos): Se dispone de $$n$$ clases de objetos. De cada una de ellas se conoce el número máximo de piezas que se puede fabricar, $$m_i \in N$$; El valor de cada pieza terminada, $$v_i \in N$$ y el tiempo necesario para su fabricación $$t_i \in R$$, $$i \in [0..n-1]$$. El tiempo disponible para la fabricación de objetos está limitado por $$T \in R$$. \n\nSe pretende resolver mediante ramificación y poda y para ello se hace uso de una cota que consiste en asumir que de las restantes clases de objetos aún no tratadas se va a fabricar exactamente una pieza. ¿Qué podemos decir de esta cota? CONFIRMADA:
+Pregunta 516: El problema del alfarero (solución discreta con tiempos continuos): Se dispone de $n$ clases de objetos. De cada una de ellas se conoce el número máximo de piezas que se puede fabricar, $m_i \in N$; El valor de cada pieza terminada, $v_i \in N$ y el tiempo necesario para su fabricación $t_i \in R$, $i \in [0..n-1]$. El tiempo disponible para la fabricación de objetos está limitado por $T \in R$. \n\nSe pretende resolver mediante ramificación y poda y para ello se hace uso de una cota que consiste en asumir que de las restantes clases de objetos aún no tratadas se va a fabricar exactamente una pieza. ¿Qué podemos decir de esta cota? CONFIRMADA:
 a) Que no es cota, ni optimista ni pesimista
 b) Que es una cota pesimista.
 c) Que es una cota optimista.
@@ -4337,7 +4337,7 @@ c) ... El hecho de que el vector estuviera previamente ordenado o no, no influye
 Solución: a
 Justificación: Es correcta porque el recuento de operaciones del código da ... se comporta mejor cuando el vector ya está ordenado.
 
-Pregunta 603: Con respecto al parámetro n, ¿Cuál es la complejidad temporal de la siguiente función? \n```void f(unsigned n){\n\tif(n<2)return;\n\tfor(int i=0;i<pow(n,2);i++)\n\t\tcout<< "*";\n\tfor(int i=0;i<5;i++)\n\t\tf(n/2);\n}``` $$O(5^{log\,n})$$ $$O(n^2\,log\,n)$$ $$O(n^2)$$ Se pretende obtener la complejidad temporal en el caso más desfavorable de la siguiente función. \n```int exa(vector<int> &v){ \n\tint i, sum = 0, n = v.size(); \n\tif(n>0){ \n\t\tint j=n; \n\t\twhile(sum<100 and j!=0({ \n\t\t\tj = j /2; \n\t\t\tsum = 0; \n\t\t\tfor(i = j;i<n;i++) \n\t\t\t\tsum += v[i]; \n\t\t} \n\t\treturn j; \n\t} \n\telse return -1; \n}``` 1 $$ C_s(n)=\sum^{log(n+1)}_{k=1}(n-n/2^k)\in O(n\log n) $$ $$ C_s(n)=\sum^{log\,n}_{j=1}\sum^{j}_{i=1}(1/2)^i \in O(n\log n) $$ $$ C_s(n)=\sum^{n/2}_{j=0}(1/2\sum^{n}_{i=j}1) \in O(n\log n) $$ Las siguientes funciones calculan el valor de potencia n-+esima de dos. ¿Cuál es el más eficiente en cuanto a coste temporal?\n```unsigned long pot2_1 (unsigned n){ \n\tif(n==0) return 1; \n\tif(n%2==0) return pot2_1(n/2) * pot2_1(n/2); \n\telse return 2 * pot2_1(n/2) * pot2_1(n/2); \n} \n\nunsigned long pot2_2(unsigned n){ \n\tif(n==0) return 1; \nm\t unsigned long aux= pot2_2(n/2); \n\tif(n%2==0) return aux * aux; \n\telse return 2 * aux * aux; \n}``` \n Seleccione una: 3 La primera, pot2_1(n), es más eficiente que la otra. Las dos funciones son equivalentes en cuanto a coste temporal. La segunda, pot2_2(n), es más eficiente que la otra. Tenemos un vector desordenado y queremos obtener los tres elementos más pequeños. ¿Cuál seria la complejidad emporal más ajustada para hacerlo? (sin pérdida de generalidad puedes suponer que en el vector todos los elementos son distintos) \nSeleccione una: 2 El logaritmo de la longitud del vector Lineal con la longitud del vector Cuadrática con la longitud del vector Supongamos que una solución recursiva a un problema de optimización muestra estas dos características: por un lado, se basa en obtener soluciones óptimas a problemas parciales más pequeños, y por otro, estos subproblemas se resuelven más de una vez durante el proceso recursivo. Este problema es candidato a tener una solución alternativa basada en \nSeleccione una: 1 un algoritmo de programación dinámica. un algoritmo voraz. un algoritmo del estilo de divide y vencerás. Si $$ f ∉ O(g_1) $$ y $$ f \in O(g_2) $$ entonces siempre se cumplirá: \nSeleccione una: 1 $$ f \in \Omega(min(g_1,g_2)) $$ $$ f \in \Omega(g_1 + g_2) $$ $$ f ∉ O(max(g_1, g_2)) $$ Con respecto al parámetro n, ¿Cuál es la complejidad temporal de la siguiente función? \n```void f(unsigned n){ \n\t if(n < 1) return; \n\tfor(int i = 0; i < n; i++) \n\t\tfor(int j = 0; j < n;j++) \n\t\t\tfor(int k = 0; k < n;k++) \n\t\t\t\tcout << "*"; \n\tfor(int i = 0;i < 8;i++) \n\t\tf(n / 2); \n}``` \nSeleccione una: 1 $$ \Theta(n^3 \log n) $$ $$ \Theta(n^3) $$ $$ \Theta(n^2 \log n) $$ ¿En qué caso la complejidad temporal del algoritmo de ordenación Quicksort es igual a la complejidad temporal del algoritmo Mergesort? \nSeleccione una: 1 En el caso mejor de ambos. En el caso peor de ambos. Tanto en el caso peor como en el caso mejor de ambo Di cuál de estos resultados de coste temporal asintótico es falsa: \nSeleccione una: 2 La ordenación de un vector usando el algoritmo Quicksort requiere en el peor caso un tiempo en $$ O(n^2) $$ La ordenación de un vector usando el algoritmo Mergesort requiere en el peor caso un tiempo en $$ O(n^2) $$ La búsqueda binaria en un vector ordenado requiere en el peor caso un tiempo en $$ O(\log n) $$ De las siguientes expresiones, o bien dos son verdaderas y una es falsa, o bien dos son falsas y una es verdadera. Marca la que (en este sentido) es  distinta a las otras dos. \nSeleccione una: 2 $$ O(n^2) \subset O(2^{\log_2(n)}) \subset O(2^n) $$ $$ O(2^{\log_2(n)}) \subset O(n^2) \subset O(n!) $$ $$ O(4^{\log_2(n)}) \subset O(n) \subset O(2^n) $$ Tenemos un vector ordenado de tamano $$n_0$$ y un vector desordenado de tamano $$n_d$$ y queremos obtener un vector ordenado con todos los elementos. ¿Qué serå más rápido? \nSeleccione una: 3 Depende de si $$ n_o > n_d $$ o no. Insertar los elementos del vector desordenado (uno a uno) en el vector ordenado. Ordenar el desordenado y luego mezclar las listas. La complejidad temporal (o coste temporal asintötico) en el mejor de los casos... \nSeleccione una: 2 Las otras dos opciones son ambas verdaderas. ... es una función de la talla, o tamano del problema, que tiene que estar definida para todos los posibles valores de ésta ... es el tiempo que tarda el algoritmo en resolver la talla más pequena que se le puede presentar. Con respecto al parámetro n, ¿Cuál es la complejidad temporal de la siguiente función? \n```void f(unsigned n){ \n\tif(n < 1) return; \n\tfor( int i = 0;i < n; i++) \n\t\tfor(int j = 0; j < n; j++) \n\t\t\tfor(int k = 0; k < n; k++) \n\t\t\t\tcout << "*"; \n\tfor(int i = 0; i < 8; i++) \n\t\tif(n / 2); \n}``` \nSeleccione una: 3 $$ \Theta(n^3) $$ $$ \Theta(n^2 \log n) $$ $$ \Theta(n^3 \log n) $$ Sea la siguiente relacion de recurrencia: \n$$ T(n) = \begin{cases} 1 & si\,n \le 1 \\ 8T(\frac{n}{8}) + g(n) & en\,otro\, caso\end{cases} $$ \nSi $$ T(n) \in \Theta(n^2) $$, ¿en cuál de estos tres casos nos podemos encontrar? \nSeleccione una: 2 $$ g(n) = \space\space\space\space\space\space\space n^3  $$ $$ g(n) = \space\space\space\space\space\space\space n^2 $$ $$ g(n) = \space\space\space\space\space\space\space n $$ ¿Cuál de los siguientes algoritmos de ordenación necesita un espacio de almacenamiento adicional al vector que se ordena con complejidad O(n)? \nSeleccione una: 1 Mergesort. Quicksort. Bubblesort. Si $$ f ∉ O(g_1) $$ y $$ f \in O(g_2) $$ entonces siempre se cumplirá: \nSeleccione una: 3 $$ f \in \Omega(g_1 + g_2) $$ $$ f ∉ O(max(g_1, g_2)) $$ $$ f \in \Omega(min(g_1, g_2)) $$ Con respecto al parámetro n, ¿Cuál es la complejidad temporal de la siguiente función? \n```void f(unsigned n){ \n\tif(n < 2) return; \n\tfor(int i = 0; i < pow(n,2); i++) \n\t\tcout << "*"; \n\tf(n - 2); \n}``` \nSeleccione una: 3 $$ \Theta(n^2 \log n) $$ $$ \Theta(n^2) $$ $$ \Theta(n^3) $$ Si $$ f ∉ O(g_1) $$ y $$ f \in O(g_2) $$ enbtonces siempre se cumplirá: \nSeleccione una: 1 $$ f \in \Omega(min(g_1, g_2)) $$ $$ f \in \Omega(g_1 + g_2) $$ $$ f ∉ \Omega(max(g_1, g_2)) $$ ¿Qué nos proporciona la media entre el coste temporal asintótico (o complejidad temporal) en el peor caso y el coste temporal asintótico en el mejor caso? \nSeleccione una: 3 El coste temporal promedio. El coste temporal asintótico en eI caso medio. En general, nada de interés. Las siguientes funciones calculan el valor de la potencia n-ésima de dos. ¿Cuál es más eficiente en cuanto a coste temporal? \n```unsigned long pot2_1(unsigned n){ \n\tif(n==0) return 1; \n\tif(n%2==0)return pot2_1(n/2) * pot2_1(n/2); \n\telse return 2 * pot2_1(n/2) * pot2_1(n/2); \n} \n\nunsigned long pot2_2(unsigned n){ \n\t if(n==0) return 1; \n\treturn 2 * pot2_2(n-1); \n}``` \nSeleccione una: 2 La segunda, pot2_2(n), es más eficiente que la otra. Las dos funciones son equivalentes en cuanto a coste temporal. La primera, pot2_1(n), es más eficiente que la otra. Con respecto al parámetro n, ¿Cuál es la complejidad temporal de la siguiente función? \n```void f(unsigned n){ \n\tif(n < 2) return; \n\tfor(int i = 0; i < pow(n,2); i++) \n\t\tcout << "*"; \n\tfor(int i = 0; i < 5; i++) \n\t\tf(n/2); \n}``` \nSeleccione una: 3 $$ \Theta(n^2) $$ $$ \Theta(n^2 \log n) $$ $$ \Theta(5^{\log n}) $$ ¿Qué algoritmo es asintóticamente más rápido, el Quicksort o el Mergesort? \nSeleccione una: 3 Los dos son igual de rápidos ya que el coste temporal asintótico de ambos es O(n log(n)). como su nombre indica, el Quicksort. el Mergesort es siempre más rápido o igual (salvo una constante) que el Quicksort. La solucion Optima al problema de encontrar el arbol de recubrimiento de coste minimo para un grafo no dirigido, conexo y ponderado \nSeleccione una: 2 ... se construye haciendo crecer varios arboles que al final acaban injertados en un unico arbol. ... puede construir un unico arbol que va creciendo o bien construir un bosque de arboles que al final se injenan en un unico arbol ... se construye haciendo crecer un unico arbol. Se pretende implementar mediante programación dinámica iterativa la función recursiva: \n```int f(int x, int y){ \n\tif(x <= y) return 1; \n\treturn x + f(x-1,y); \n}``` \n¿Cuál es la mejor complejidad espacial que se puede conseguir? \nSeleccione una: 2 $$ O(x) $$ $$ O(1) $$ $$ O(x^2) $$ iCual de los siguientes pares de problemas son equivalentes en cuanto al tipo de solucian (Optima, factible, etc.) aportada por el método voraz? \nSeleccione una: 3 La mochila continua y la asignación de tareas. El fontanero diligente y el problema del cambio. La mochila discreta y la asignación de tareas. De los problemas siguientes, indicad cual no se puede tratar eficientemente como los otros dos: \nSeleccione una: 2 El problema de cortar un tubo de forma que se obtenga el maximo beneficio posible. El problema de la mochila sin fraccionamiento y sin restricciones en cuanto al dominio de los pesos de los objetos y de sus valores. El problema del cambio, o sea, el de encontrar la manera de entregar una cantidad de dinero usando el minimo de monedas posibles. La eficiencia de los algoritmos voraces se basa en el hecho de que ... \nSeleccione una: 2 ... antes de tomar una decisiön se comprueba si satisface las retricciones del problema. ... las decisiones tomadas nunca se reconsideran. ... con antelaciön, Ias posibles decisiones se ordenan de mejor a peor. Se pretende implementar mediante programación dinamica iterativa la función recursiva:```unsigned f(unsigned x, unsigned v[]) { \n\tif (x==0) \n\t\treturn 0; \n\tunsigned m = 0; \n\tfor (unsigned k = 0; k < x; k++) \n\t\tm = max(m, v[k] + f(x-k, v)); \n\treturn m; \n}```¿Cuál es la mejor estructura para el almacén? 2:
+Pregunta 603: Con respecto al parámetro n, ¿Cuál es la complejidad temporal de la siguiente función? \n```void f(unsigned n){\n\tif(n<2)return;\n\tfor(int i=0;i<pow(n,2);i++)\n\t\tcout<< "*";\n\tfor(int i=0;i<5;i++)\n\t\tf(n/2);\n}``` $O(5^{log\,n})$ $O(n^2\,log\,n)$ $O(n^2)$ Se pretende obtener la complejidad temporal en el caso más desfavorable de la siguiente función. \n```int exa(vector<int> &v){ \n\tint i, sum = 0, n = v.size(); \n\tif(n>0){ \n\t\tint j=n; \n\t\twhile(sum<100 and j!=0({ \n\t\t\tj = j /2; \n\t\t\tsum = 0; \n\t\t\tfor(i = j;i<n;i++) \n\t\t\t\tsum += v[i]; \n\t\t} \n\t\treturn j; \n\t} \n\telse return -1; \n}``` 1 $ C_s(n)=\sum^{log(n+1)}_{k=1}(n-n/2^k)\in O(n\log n) $ $ C_s(n)=\sum^{log\,n}_{j=1}\sum^{j}_{i=1}(1/2)^i \in O(n\log n) $ $ C_s(n)=\sum^{n/2}_{j=0}(1/2\sum^{n}_{i=j}1) \in O(n\log n) $ Las siguientes funciones calculan el valor de potencia n-+esima de dos. ¿Cuál es el más eficiente en cuanto a coste temporal?\n```unsigned long pot2_1 (unsigned n){ \n\tif(n==0) return 1; \n\tif(n%2==0) return pot2_1(n/2) * pot2_1(n/2); \n\telse return 2 * pot2_1(n/2) * pot2_1(n/2); \n} \n\nunsigned long pot2_2(unsigned n){ \n\tif(n==0) return 1; \nm\t unsigned long aux= pot2_2(n/2); \n\tif(n%2==0) return aux * aux; \n\telse return 2 * aux * aux; \n}``` \n Seleccione una: 3 La primera, pot2_1(n), es más eficiente que la otra. Las dos funciones son equivalentes en cuanto a coste temporal. La segunda, pot2_2(n), es más eficiente que la otra. Tenemos un vector desordenado y queremos obtener los tres elementos más pequeños. ¿Cuál seria la complejidad emporal más ajustada para hacerlo? (sin pérdida de generalidad puedes suponer que en el vector todos los elementos son distintos) \nSeleccione una: 2 El logaritmo de la longitud del vector Lineal con la longitud del vector Cuadrática con la longitud del vector Supongamos que una solución recursiva a un problema de optimización muestra estas dos características: por un lado, se basa en obtener soluciones óptimas a problemas parciales más pequeños, y por otro, estos subproblemas se resuelven más de una vez durante el proceso recursivo. Este problema es candidato a tener una solución alternativa basada en \nSeleccione una: 1 un algoritmo de programación dinámica. un algoritmo voraz. un algoritmo del estilo de divide y vencerás. Si $ f ∉ O(g_1) $ y $ f \in O(g_2) $ entonces siempre se cumplirá: \nSeleccione una: 1 $ f \in \Omega(min(g_1,g_2)) $ $ f \in \Omega(g_1 + g_2) $ $ f ∉ O(max(g_1, g_2)) $ Con respecto al parámetro n, ¿Cuál es la complejidad temporal de la siguiente función? \n```void f(unsigned n){ \n\t if(n < 1) return; \n\tfor(int i = 0; i < n; i++) \n\t\tfor(int j = 0; j < n;j++) \n\t\t\tfor(int k = 0; k < n;k++) \n\t\t\t\tcout << "*"; \n\tfor(int i = 0;i < 8;i++) \n\t\tf(n / 2); \n}``` \nSeleccione una: 1 $ \Theta(n^3 \log n) $ $ \Theta(n^3) $ $ \Theta(n^2 \log n) $ ¿En qué caso la complejidad temporal del algoritmo de ordenación Quicksort es igual a la complejidad temporal del algoritmo Mergesort? \nSeleccione una: 1 En el caso mejor de ambos. En el caso peor de ambos. Tanto en el caso peor como en el caso mejor de ambo Di cuál de estos resultados de coste temporal asintótico es falsa: \nSeleccione una: 2 La ordenación de un vector usando el algoritmo Quicksort requiere en el peor caso un tiempo en $ O(n^2) $ La ordenación de un vector usando el algoritmo Mergesort requiere en el peor caso un tiempo en $ O(n^2) $ La búsqueda binaria en un vector ordenado requiere en el peor caso un tiempo en $ O(\log n) $ De las siguientes expresiones, o bien dos son verdaderas y una es falsa, o bien dos son falsas y una es verdadera. Marca la que (en este sentido) es  distinta a las otras dos. \nSeleccione una: 2 $ O(n^2) \subset O(2^{\log_2(n)}) \subset O(2^n) $ $ O(2^{\log_2(n)}) \subset O(n^2) \subset O(n!) $ $ O(4^{\log_2(n)}) \subset O(n) \subset O(2^n) $ Tenemos un vector ordenado de tamano $n_0$ y un vector desordenado de tamano $n_d$ y queremos obtener un vector ordenado con todos los elementos. ¿Qué serå más rápido? \nSeleccione una: 3 Depende de si $ n_o > n_d $ o no. Insertar los elementos del vector desordenado (uno a uno) en el vector ordenado. Ordenar el desordenado y luego mezclar las listas. La complejidad temporal (o coste temporal asintötico) en el mejor de los casos... \nSeleccione una: 2 Las otras dos opciones son ambas verdaderas. ... es una función de la talla, o tamano del problema, que tiene que estar definida para todos los posibles valores de ésta ... es el tiempo que tarda el algoritmo en resolver la talla más pequena que se le puede presentar. Con respecto al parámetro n, ¿Cuál es la complejidad temporal de la siguiente función? \n```void f(unsigned n){ \n\tif(n < 1) return; \n\tfor( int i = 0;i < n; i++) \n\t\tfor(int j = 0; j < n; j++) \n\t\t\tfor(int k = 0; k < n; k++) \n\t\t\t\tcout << "*"; \n\tfor(int i = 0; i < 8; i++) \n\t\tif(n / 2); \n}``` \nSeleccione una: 3 $ \Theta(n^3) $ $ \Theta(n^2 \log n) $ $ \Theta(n^3 \log n) $ Sea la siguiente relacion de recurrencia: \n$ T(n) = \begin{cases} 1 & si\,n \le 1 \\ 8T(\frac{n}{8}) + g(n) & en\,otro\, caso\end{cases} $ \nSi $ T(n) \in \Theta(n^2) $, ¿en cuál de estos tres casos nos podemos encontrar? \nSeleccione una: 2 $ g(n) = \space\space\space\space\space\space\space n^3  $ $ g(n) = \space\space\space\space\space\space\space n^2 $ $ g(n) = \space\space\space\space\space\space\space n $ ¿Cuál de los siguientes algoritmos de ordenación necesita un espacio de almacenamiento adicional al vector que se ordena con complejidad O(n)? \nSeleccione una: 1 Mergesort. Quicksort. Bubblesort. Si $ f ∉ O(g_1) $ y $ f \in O(g_2) $ entonces siempre se cumplirá: \nSeleccione una: 3 $ f \in \Omega(g_1 + g_2) $ $ f ∉ O(max(g_1, g_2)) $ $ f \in \Omega(min(g_1, g_2)) $ Con respecto al parámetro n, ¿Cuál es la complejidad temporal de la siguiente función? \n```void f(unsigned n){ \n\tif(n < 2) return; \n\tfor(int i = 0; i < pow(n,2); i++) \n\t\tcout << "*"; \n\tf(n - 2); \n}``` \nSeleccione una: 3 $ \Theta(n^2 \log n) $ $ \Theta(n^2) $ $ \Theta(n^3) $ Si $ f ∉ O(g_1) $ y $ f \in O(g_2) $ enbtonces siempre se cumplirá: \nSeleccione una: 1 $ f \in \Omega(min(g_1, g_2)) $ $ f \in \Omega(g_1 + g_2) $ $ f ∉ \Omega(max(g_1, g_2)) $ ¿Qué nos proporciona la media entre el coste temporal asintótico (o complejidad temporal) en el peor caso y el coste temporal asintótico en el mejor caso? \nSeleccione una: 3 El coste temporal promedio. El coste temporal asintótico en eI caso medio. En general, nada de interés. Las siguientes funciones calculan el valor de la potencia n-ésima de dos. ¿Cuál es más eficiente en cuanto a coste temporal? \n```unsigned long pot2_1(unsigned n){ \n\tif(n==0) return 1; \n\tif(n%2==0)return pot2_1(n/2) * pot2_1(n/2); \n\telse return 2 * pot2_1(n/2) * pot2_1(n/2); \n} \n\nunsigned long pot2_2(unsigned n){ \n\t if(n==0) return 1; \n\treturn 2 * pot2_2(n-1); \n}``` \nSeleccione una: 2 La segunda, pot2_2(n), es más eficiente que la otra. Las dos funciones son equivalentes en cuanto a coste temporal. La primera, pot2_1(n), es más eficiente que la otra. Con respecto al parámetro n, ¿Cuál es la complejidad temporal de la siguiente función? \n```void f(unsigned n){ \n\tif(n < 2) return; \n\tfor(int i = 0; i < pow(n,2); i++) \n\t\tcout << "*"; \n\tfor(int i = 0; i < 5; i++) \n\t\tf(n/2); \n}``` \nSeleccione una: 3 $ \Theta(n^2) $ $ \Theta(n^2 \log n) $ $ \Theta(5^{\log n}) $ ¿Qué algoritmo es asintóticamente más rápido, el Quicksort o el Mergesort? \nSeleccione una: 3 Los dos son igual de rápidos ya que el coste temporal asintótico de ambos es O(n log(n)). como su nombre indica, el Quicksort. el Mergesort es siempre más rápido o igual (salvo una constante) que el Quicksort. La solucion Optima al problema de encontrar el arbol de recubrimiento de coste minimo para un grafo no dirigido, conexo y ponderado \nSeleccione una: 2 ... se construye haciendo crecer varios arboles que al final acaban injertados en un unico arbol. ... puede construir un unico arbol que va creciendo o bien construir un bosque de arboles que al final se injenan en un unico arbol ... se construye haciendo crecer un unico arbol. Se pretende implementar mediante programación dinámica iterativa la función recursiva: \n```int f(int x, int y){ \n\tif(x <= y) return 1; \n\treturn x + f(x-1,y); \n}``` \n¿Cuál es la mejor complejidad espacial que se puede conseguir? \nSeleccione una: 2 $ O(x) $ $ O(1) $ $ O(x^2) $ iCual de los siguientes pares de problemas son equivalentes en cuanto al tipo de solucian (Optima, factible, etc.) aportada por el método voraz? \nSeleccione una: 3 La mochila continua y la asignación de tareas. El fontanero diligente y el problema del cambio. La mochila discreta y la asignación de tareas. De los problemas siguientes, indicad cual no se puede tratar eficientemente como los otros dos: \nSeleccione una: 2 El problema de cortar un tubo de forma que se obtenga el maximo beneficio posible. El problema de la mochila sin fraccionamiento y sin restricciones en cuanto al dominio de los pesos de los objetos y de sus valores. El problema del cambio, o sea, el de encontrar la manera de entregar una cantidad de dinero usando el minimo de monedas posibles. La eficiencia de los algoritmos voraces se basa en el hecho de que ... \nSeleccione una: 2 ... antes de tomar una decisiön se comprueba si satisface las retricciones del problema. ... las decisiones tomadas nunca se reconsideran. ... con antelaciön, Ias posibles decisiones se ordenan de mejor a peor. Se pretende implementar mediante programación dinamica iterativa la función recursiva:```unsigned f(unsigned x, unsigned v[]) { \n\tif (x==0) \n\t\treturn 0; \n\tunsigned m = 0; \n\tfor (unsigned k = 0; k < x; k++) \n\t\tm = max(m, v[k] + f(x-k, v)); \n\treturn m; \n}```¿Cuál es la mejor estructura para el almacén? 2:
 a) int A
 b) int A[]
 c) int A[][]
@@ -4372,7 +4372,7 @@ c) Lleva la mochila llena hasta arriba y ha usado la sierra radial más de una v
 Solución: c
 Justificación: Es correcta porque Lleva la mochila llena hasta arriba y ha usado la sierra radial más de una vez para llevarse porciones bien calculadas de los quesos más caros es la única opción coherente con el enunciado.
 
-Pregunta 608: El problema del cambio es el de formar una suma M con el número mínimo de monedas tomadas (con repetición) de un conjunto C en el que el valor facial de la moneda de tipo i es $$c_i$$. ¿Cuál de las siguientes afirmaciones es falsa?:
+Pregunta 608: El problema del cambio es el de formar una suma M con el número mínimo de monedas tomadas (con repetición) de un conjunto C en el que el valor facial de la moneda de tipo i es $c_i$. ¿Cuál de las siguientes afirmaciones es falsa?:
 a) Una versión (memoizada) de la siguiente recursión da la solución óptima en caso de que exista: n(M) = 1 + min_{1≤i≤|C|} n(M - c_i); n(0) = 0; n(x) = ∞ para x < 0
 b) La solución voraz consistente en coger siempre la moneda de valor facial más grande de cuyo valor es menor que la cantidad M así: n(M) = 1 + n(M - c*) donde c* = max{c ∈ C |c ≤ M} puede no encontrar solución para cualquier M y C.
 c) La solución voraz consistente en coger siempre la moneda de valor facial más grande de cuyo valor es menor que la cantidad M así: n(M) = 1 + n(M - c*) donde c* = max{c ∈ C |c ≤ M} encuentra siempre la solución óptima para cualquier M y C si existe dicha solución.
@@ -4731,33 +4731,33 @@ c) Θ (n^2 · lg n)
 Solución: a
 Justificación: Es correcta porque al resolver la recurrencia el término dominante coincide con Θ (n).
 
-Pregunta 659: Dado el polinomio $$f(n)= a_mn^m + a_{m-1}n^{m-1} + … + a_0,$$ con $$a_m \in{R^+}$$ entonces f pertenece al orden:
-a) $$O(n^m)$$.
-b) $$Ω(n^m)$$.
+Pregunta 659: Dado el polinomio $f(n)= a_mn^m + a_{m-1}n^{m-1} + … + a_0,$ con $a_m \in{R^+}$ entonces f pertenece al orden:
+a) $O(n^m)$.
+b) $Ω(n^m)$.
 c) Las dos respuestas anteriores son correctas.
 Solución: c
 Justificación: Es correcta porque Las dos respuestas anteriores son correctas, según las definiciones de O, Ω y Θ.
 
-Pregunta 660: Si $$f1(n) \in{ Ο(g1(n))}$$ y $$f2(n) \in{ Ο(g2(n))}$$ entonces:
-a) $$f1(n)·f2(n) \in{ Ο(maximo(g1(n),g2(n)))}$$
-b) $$f1(n)·f2(n) \in{ Ο (g1(n)· g2(n))}$$
+Pregunta 660: Si $f1(n) \in{ Ο(g1(n))}$ y $f2(n) \in{ Ο(g2(n))}$ entonces:
+a) $f1(n)·f2(n) \in{ Ο(maximo(g1(n),g2(n)))}$
+b) $f1(n)·f2(n) \in{ Ο (g1(n)· g2(n))}$
 c) Ambas son correctas
 Solución: b
-Justificación: Es correcta porque $$f1(n)·f2(n) \in{ Ο (g1(n)· g2(n))}$$ es la única opción coherente con el enunciado.
+Justificación: Es correcta porque $f1(n)·f2(n) \in{ Ο (g1(n)· g2(n))}$ es la única opción coherente con el enunciado.
 
-Pregunta 661: Si $$f1(n) \in{ Ο(g1(n))}$$ y $$f2(n) \in{ Ο(g2(n))}$$ entonces:
-a) $$f1(n)+f2(n) \in{ Ο(maximo(g1(n),g2(n)))}$$
-b) $$f1(n)+f2(n) \in{ Ο (g1(n)+g2(n))}$$
+Pregunta 661: Si $f1(n) \in{ Ο(g1(n))}$ y $f2(n) \in{ Ο(g2(n))}$ entonces:
+a) $f1(n)+f2(n) \in{ Ο(maximo(g1(n),g2(n)))}$
+b) $f1(n)+f2(n) \in{ Ο (g1(n)+g2(n))}$
 c) Ambas son correctas
 Solución: c
 Justificación: Es correcta porque Ambas son correctas es la única opción coherente con el enunciado.
 
-Pregunta 662: Un algoritmo cuya talla es n y que tarda $$40^n$$ segundos en resolver cualquier instancia tiene una complejidad temporal:
-a) $$\Theta{( n^n )}$$
-b) $$\Theta{( 4^n )}$$
+Pregunta 662: Un algoritmo cuya talla es n y que tarda $40^n$ segundos en resolver cualquier instancia tiene una complejidad temporal:
+a) $\Theta{( n^n )}$
+b) $\Theta{( 4^n )}$
 c) Ninguna de las anteriores
 Solución: b
-Justificación: Es correcta porque el recuento de operaciones del código da $$\Theta{( 4^n )}$$.
+Justificación: Es correcta porque el recuento de operaciones del código da $\Theta{( 4^n )}$.
 
 Pregunta 663: Si dos algoritmos tienen la misma complejidad asintótica:
 a) No necesitan exactamente el mismo tiempo para su ejecución.
@@ -4787,26 +4787,26 @@ c) No influye en ninguna de sus complejidades.
 Solución: b
 Justificación: Es correcta porque Influye en su complejidad temporal y reutiliza subproblemas para evitar recomputaciones.
 
-Pregunta 667: $$f(n) = 5n+3m·n +11$$ entonces $$f(n)$$ pertenece a:
-a) $$O (n·m)$$.
-b) $$O (n^m)$$.
+Pregunta 667: $f(n) = 5n+3m·n +11$ entonces $f(n)$ pertenece a:
+a) $O (n·m)$.
+b) $O (n^m)$.
 c) Las dos son correctas
 Solución: c
 Justificación: Es correcta porque Las dos son correctas, según las definiciones de O, Ω y Θ.
 
-Pregunta 668: El sumatorio, desde $$i=1$$ hasta n, de $$i^k$$ pertenece a:
-a) $$Ο(n^{k+1})$$
-b) $$Ο(n^k)$$
+Pregunta 668: El sumatorio, desde $i=1$ hasta n, de $i^k$ pertenece a:
+a) $Ο(n^{k+1})$
+b) $Ο(n^k)$
 c) Ninguna de las anteriores
 Solución: a
-Justificación: Es correcta porque $$Ο(n^{k+1})$$, según las definiciones de O, Ω y Θ.
+Justificación: Es correcta porque $Ο(n^{k+1})$, según las definiciones de O, Ω y Θ.
 
 Pregunta 669: La complejidad de la función A2 es: ```Funcion A2 (n, a: entero):entero; \nVar r: entero; fvar \n\tsi (a² > n) devuelve 0 \n\tsino \n\t\tr:= A2(n, 2a); \n\t\topción \n\t\t\tn < a²: devuelve r; \n\t\t\tn ≥ a² : devuelve r + a; \n\t\tfopción \n\tfsi \nfin```:
-a) $$O(\sqrt{n} · a)$$
-b) $$O( \sqrt{n} / a)$$
-c) $$O( n / \sqrt{a} )$$
+a) $O(\sqrt{n} · a)$
+b) $O( \sqrt{n} / a)$
+c) $O( n / \sqrt{a} )$
 Solución: b
-Justificación: Es correcta porque $$O( \sqrt{n} / a)$$ es la única opción coherente con el enunciado.
+Justificación: Es correcta porque $O( \sqrt{n} / a)$ es la única opción coherente con el enunciado.
 
 Pregunta 670: Cual de las siguientes definiciones es cierta:
 a) Las cotas de complejidad se emplean cuando para una misma talla se obtienen diferentes complejidades dependiendo de la entrada al problema.
@@ -4822,14 +4822,14 @@ c) Calculamos el máximo y mínimo coste que nos puede dar el algoritmo.
 Solución: c
 Justificación: Es correcta porque Calculamos el máximo y mínimo coste que nos puede dar el algoritmo es la única opción coherente con el enunciado.
 
-Pregunta 672: $$f(n) = 5n+5$$ ¿ $$f(n)$$ pertenece a $$O(n)$$?:
+Pregunta 672: $f(n) = 5n+5$ ¿ $f(n)$ pertenece a $O(n)$?:
 a) Si. El valor de c es 5 y el valor mínimo de n_0 es de 3
 b) Si. El valor de c es 9 y el valor mínimo de n_0 es de 1
 c) Si. El valor de c es 6 y el valor mínimo de n_0 es de 5
 Solución: c
 Justificación: Es correcta porque Si. El valor de c es 6 y el valor mínimo de n_0 es de 5, según las definiciones de O, Ω y Θ.
 
-Pregunta 673: $$f(n) = 10n+7$$ ¿ $$f(n)$$ pertenece a $$O(n 2)$$$?:
+Pregunta 673: $f(n) = 10n+7$ ¿ $f(n)$ pertenece a $O(n 2)$?:
 a) Si. Para c = 1 y a partir de un valor de n_0 =10.
 b) Sí Para cualquier valor de c positivo siempre existe un n_0 a partir del que se cumple.
 c) No.
@@ -4843,7 +4843,7 @@ c) ∃ c, n_0 ∈ R^+ : f(n) ≤ c· g(n) ∀ n ≥ n_0
 Solución: a
 Justificación: Es correcta porque ∃ c, n_0 ∈ R^+ : f(n) ≥ c· g(n) ∀ n ≥ n_0, según las definiciones de O, Ω y Θ.
 
-Pregunta 675: El coste asociado a la siguiente ecuación de recurrencia es: \n$$f(n) = \begin{cases} 1 & n \leq 1 \\ n + f(\frac{n}{2}) + f(\frac{n}{2}) & n > 1 \end{cases}$$:
+Pregunta 675: El coste asociado a la siguiente ecuación de recurrencia es: \n$f(n) = \begin{cases} 1 & n \leq 1 \\ n + f(\frac{n}{2}) + f(\frac{n}{2}) & n > 1 \end{cases}$:
 a) Θ(n lg n^2)
 b) Θ(n^2 lg n)
 c) Θ(n lg n)
@@ -4913,7 +4913,7 @@ c) O(n^2)
 Solución: a
 Justificación: Es correcta porque el recuento de operaciones del código da O(n).
 
-Pregunta 685: Pertenece $$3n^2 + 3$$ a $$O(n^3)$$?:
+Pregunta 685: Pertenece $3n^2 + 3$ a $O(n^3)$?:
 a) Solo para c = 1 y n_0 = 5.
 b) No.
 c) Sí.
@@ -4934,26 +4934,26 @@ c) ... El hecho de que el vector estuviera previamente ordenado o no, no influye
 Solución: c
 Justificación: Es correcta porque ... El hecho de que el vector estuviera previamente ordenado o no, no influye en la complejidad temporal de este algoritmo coincide con el análisis clásico de divide y vencerás.
 
-Pregunta 688: Dada la siguiente relación de recurrencia, ¿Qué cota es verdadera? \n\n$$f(n) = \begin{cases} 1 & n = 1 \\ \sqrt{n} + 3f(\frac{n}{3}) & n > 1 \end{cases}$$:
+Pregunta 688: Dada la siguiente relación de recurrencia, ¿Qué cota es verdadera? \n\n$f(n) = \begin{cases} 1 & n = 1 \\ \sqrt{n} + 3f(\frac{n}{3}) & n > 1 \end{cases}$:
 a) f(n) ∈ Θ(n)
 b) f(n) ∈ Θ(n^3)
 c) f(n) ∈ Θ(√n log n)
 Solución: a
 Justificación: Es correcta porque al resolver la recurrencia el término dominante coincide con f(n) ∈ Θ(n).
 
-Pregunta 689: Un problema de tamaño $$n$$ puede transformarse en tiempo $$O(n^2)$$ en nueve de tamaño $$n/3$$. Por otro lado, la solución al problema cuando la talla es $$1$$ requiere un tiempo constante. \n¿Cuál de estas clases de coste temporal asintótico es la más ajustada?:
+Pregunta 689: Un problema de tamaño $n$ puede transformarse en tiempo $O(n^2)$ en nueve de tamaño $n/3$. Por otro lado, la solución al problema cuando la talla es $1$ requiere un tiempo constante. \n¿Cuál de estas clases de coste temporal asintótico es la más ajustada?:
 a) O(n^2)
 b) O(n^2 log n)
 c) O(n log n)
 Solución: b
 Justificación: Es correcta porque O(n^2 log n), según las definiciones de O, Ω y Θ.
 
-Pregunta 690: Indica cuál es la complejidad, en función de $$n$$, del siguiente fragmento de código: ```s=0; for(i=0;i<n;i++) for(j=i;j<n;j++) s+=i*j;```:
-a) $$\Theta(n^2)$$
-b) $$O(n^2)$$ pero no $$\Omega(n^2)$$
-c) $$\Theta(n)$$
+Pregunta 690: Indica cuál es la complejidad, en función de $n$, del siguiente fragmento de código: ```s=0; for(i=0;i<n;i++) for(j=i;j<n;j++) s+=i*j;```:
+a) $\Theta(n^2)$
+b) $O(n^2)$ pero no $\Omega(n^2)$
+c) $\Theta(n)$
 Solución: a
-Justificación: Es correcta porque el recuento de operaciones del código da $$\Theta(n^2)$$.
+Justificación: Es correcta porque el recuento de operaciones del código da $\Theta(n^2)$.
 
 Pregunta 691: Sea ƒ(n) la solución de la relación de recurrencia ƒ (n) = 2ƒ(n-1)+1 ƒ(1) = 1. Indicad cuál de estas tres expresiones es cierta:
 a) ƒ(n) ∈ Θ(n)
@@ -4962,26 +4962,26 @@ c) ƒ(n) ∈ Θ(n^2)
 Solución: b
 Justificación: Es correcta porque al resolver la recurrencia el término dominante coincide con ƒ(n) ∈ Θ(2^n).
 
-Pregunta 692: Un programa con dos bucles anidados uno dentro del otro, El primero hace $$n$$ iteraciones aproximadamente y el segundo la mitad, tarda un tiempo:
-a) $$O(n \log{n})$$
-b) $$O(n^2)$$
-c) $$O(n \sqrt{n})$$
+Pregunta 692: Un programa con dos bucles anidados uno dentro del otro, El primero hace $n$ iteraciones aproximadamente y el segundo la mitad, tarda un tiempo:
+a) $O(n \log{n})$
+b) $O(n^2)$
+c) $O(n \sqrt{n})$
 Solución: b
-Justificación: Es correcta porque el recuento de operaciones del código da $$O(n^2)$$.
+Justificación: Es correcta porque el recuento de operaciones del código da $O(n^2)$.
 
-Pregunta 693: Un problema de tamaño $$n$$ puede transformarse en tiempo $$O(\frac{n}{2})$$ en nueve de tamaño $$\frac{n}{3}$$; por otro lado, la solución al problema cuando la talla es 1 requiere un tiempo constante. ¿Cuál de estas clases de coste temporal asintótico es la más ajustada?:
-a) $$O(n \log n)$$
-b) $$O(n^2 \log n)$$
-c) $$O(n^2)$$
+Pregunta 693: Un problema de tamaño $n$ puede transformarse en tiempo $O(\frac{n}{2})$ en nueve de tamaño $\frac{n}{3}$; por otro lado, la solución al problema cuando la talla es 1 requiere un tiempo constante. ¿Cuál de estas clases de coste temporal asintótico es la más ajustada?:
+a) $O(n \log n)$
+b) $O(n^2 \log n)$
+c) $O(n^2)$
 Solución: b
-Justificación: Es correcta porque $$O(n^2 \log n)$$, según las definiciones de O, Ω y Θ.
+Justificación: Es correcta porque $O(n^2 \log n)$, según las definiciones de O, Ω y Θ.
 
 Pregunta 694: ¿Cuál es la complejidad temporal de la siguiente función recursiva?```unsigned desperdicio (unsigned n){ \nif (n<=1) \n\treturn 0; \nunsigned sum = desperdicio (n/2) + desperdicio (n/2); \nfor (unsigned i=1; i<n-1; i++) \n\tfor (unsigned j=1; j<=i; j++) \n\t\tfor (unsigned k=1; k<=j; k++) \n\t\t\tsum+=i*j*k; \nreturn sum; \n}```:
-a) $$O(2^n)$$
-b) $$O(n^3 \log n)$$
-c) $$O(n^3)$$
+a) $O(2^n)$
+b) $O(n^3 \log n)$
+c) $O(n^3)$
 Solución: c
-Justificación: Es correcta porque el recuento de operaciones del código da $$O(n^3)$$.
+Justificación: Es correcta porque el recuento de operaciones del código da $O(n^3)$.
 
 Pregunta 695: Los algoritmos de ordenación Quicksort y Mergesort tienen en común ...:
 a) ... que se ejecutan en tiempo O(n).
@@ -4991,18 +4991,18 @@ Solución: c
 Justificación: Es correcta porque ... que aplican la estrategia de divide y vencerás coincide con el análisis clásico de divide y vencerás.
 
 Pregunta 696: Indica cuál es la complejidad de la función siguiente:```unsigned sum( const mat &A ) {    # A es una matriz cuadrada \n\tunsigned d = A.n_rows(); \n\tunsigned a = 0; \n\tfor( unsigned i = 0; i < d; i++ ) \n\t\tfor( unsigned j = 0; j < d; j++ ) \n\t\t\ta += A(i,j); \n\treturn a; \n}```:
-a) $$O(n^2)$$
-b) $$O(n)$$
-c) $$O(n \log n)$$
+a) $O(n^2)$
+b) $O(n)$
+c) $O(n \log n)$
 Solución: b
-Justificación: Es correcta porque el recuento de operaciones del código da $$O(n)$$.
+Justificación: Es correcta porque el recuento de operaciones del código da $O(n)$.
 
 Pregunta 697: Indicad cuál de estas tres expresiones es falsa.:
-a) $$\Theta(n/2) = \space\space\space\space\space\space\space \Theta(n)$$
-b) $$\Theta(n) \subseteq \space \Theta(n)$$
-c) $$\Theta(n) \subseteq \space \Theta(n^2)$$
+a) $\Theta(n/2) = \space\space\space\space\space\space\space \Theta(n)$
+b) $\Theta(n) \subseteq \space \Theta(n)$
+c) $\Theta(n) \subseteq \space \Theta(n^2)$
 Solución: c
-Justificación: Es correcta porque $$\Theta(n) \subseteq \space \Theta(n^2)$$ es la única opción coherente con el enunciado.
+Justificación: Es correcta porque $\Theta(n) \subseteq \space \Theta(n^2)$ es la única opción coherente con el enunciado.
 
 Pregunta 698: ¿Cuál de estos tres problemas de optimización no tiene, o no se le conoce, una solución voraz óptima?:
 a) El árbol de cobertura de coste mínimo de un grafo conexo.
@@ -5018,19 +5018,19 @@ c) ... de una estrategia trivial consistente en examinar todas las soluciones po
 Solución: b
 Justificación: Es correcta porque ... de que se puede ahorrar cálculos guardando resultados anteriores en un almacén y reutiliza subproblemas para evitar recomputaciones.
 
-Pregunta 700: Cuando se calculan los coeficientes binomiales usando la recursión $$\binom{n}{r} = \binom{n-1}{r} + \binom{n-1}{r-1} $$, con $$ \binom{n}{0} = \binom{n}{n} = 1 $$, qué problema se da y cómo se puede resolver?:
+Pregunta 700: Cuando se calculan los coeficientes binomiales usando la recursión $\binom{n}{r} = \binom{n-1}{r} + \binom{n-1}{r-1} $, con $ \binom{n}{0} = \binom{n}{n} = 1 $, qué problema se da y cómo se puede resolver?:
 a) La recursión puede ser infinita y por tanto es necesario organizarla según el esquema iterativo de programación dinámica.
 b) Se repiten muchos cálculos y ello se puede evitar haciendo uso de una estrategia voraz.
 c) Se repiten muchos cálculos y ello se puede evitar usando programación dinámica.
 Solución: c
 Justificación: Es correcta porque Se repiten muchos cálculos y ello se puede evitar usando programación dinámica y reutiliza subproblemas para evitar recomputaciones.
 
-Pregunta 701: Sea $$f(n)$$ la solución de la relación de recurrencia $$f(n) = 2f(n/2) + n $$; $$ f(1) = 1 $$. Indicad cuál de estas tres expresiones es cierta.:
-a) $$ f(n) \in \Theta(n^2) $$
-b) $$ f(n) \in \Theta(n) $$
-c) $$ f(n) \in \Theta(n \log n) $$
+Pregunta 701: Sea $f(n)$ la solución de la relación de recurrencia $f(n) = 2f(n/2) + n $; $ f(1) = 1 $. Indicad cuál de estas tres expresiones es cierta.:
+a) $ f(n) \in \Theta(n^2) $
+b) $ f(n) \in \Theta(n) $
+c) $ f(n) \in \Theta(n \log n) $
 Solución: c
-Justificación: Es correcta porque al resolver la recurrencia el término dominante coincide con $$ f(n) \in \Theta(n \log n) $$.
+Justificación: Es correcta porque al resolver la recurrencia el término dominante coincide con $ f(n) \in \Theta(n \log n) $.
 
 Pregunta 702: Para que la complejidad de un algoritmo presente caso mejor y peor distintos ...:
 a) ... es condición necesaria y suficiente que existan instancias distintas del problema con el mismo tamaño.
@@ -5040,11 +5040,11 @@ Solución: b
 Justificación: Es correcta porque ... es condición necesaria que existan instancias distintas del problema con el mismo tamaño es la única opción coherente con el enunciado.
 
 Pregunta 703: Indicad cuál de estas tres expresiones es cierta:
-a) $$ O(n^2) \subseteq O(2^{\log(n)}) \subset   O(2^n) $$
-b) $$ O(n^2) \subseteq O(2^{\log(n)}) \subseteq O(2^n) $$
-c) $$ O(2^{\log(n)}) \subseteq O(n^2) \subseteq O(2^n) $$
+a) $ O(n^2) \subseteq O(2^{\log(n)}) \subset   O(2^n) $
+b) $ O(n^2) \subseteq O(2^{\log(n)}) \subseteq O(2^n) $
+c) $ O(2^{\log(n)}) \subseteq O(n^2) \subseteq O(2^n) $
 Solución: c
-Justificación: Es correcta porque $$ O(2^{\log(n)}) \subseteq O(n^2) \subseteq O(2^n) $$ es la única opción coherente con el enunciado.
+Justificación: Es correcta porque $ O(2^{\log(n)}) \subseteq O(n^2) \subseteq O(2^n) $ es la única opción coherente con el enunciado.
 
 Pregunta 704: La complejidad temporal en el mejor de los casos de un algoritmo recursivo...:
 a) ... coincide con el valor del caso base de la ecuación de recurrencia que expresa la complejidad temporal del algoritmo.
@@ -5053,12 +5053,12 @@ c) ... siempre coincidirá con la complejidad temporal de las instancias que est
 Solución: b
 Justificación: Es correcta porque el recuento de operaciones del código da Las demás opciones son falsas.
 
-Pregunta 705: Considerad la función siguiente:```int M( int i, int f ) { \n\tif ( i == f ) \n\t\treturn i; \n\telse { \n\t\te = v[ M( i, (i+f)/2 ) ]; \n\t\tf = v[ M( (i+f)/2+1, f ) ]; \n\t\tif (e<f) \n\t\t\treturn e; \n\t\telse \n\t\t\treturn f; \n\t} \n}```Si la talla del problema viene dada por $$ n = f - i + 1 $$, ¿cuál es el coste temporal asintótico en el supuesto de que $$ n $$ sea una potencia de 2?:
-a) $$ O(n) $$.
-b) $$ O(n^2) $$.
-c) $$ O(n \log(n)) $$.
+Pregunta 705: Considerad la función siguiente:```int M( int i, int f ) { \n\tif ( i == f ) \n\t\treturn i; \n\telse { \n\t\te = v[ M( i, (i+f)/2 ) ]; \n\t\tf = v[ M( (i+f)/2+1, f ) ]; \n\t\tif (e<f) \n\t\t\treturn e; \n\t\telse \n\t\t\treturn f; \n\t} \n}```Si la talla del problema viene dada por $ n = f - i + 1 $, ¿cuál es el coste temporal asintótico en el supuesto de que $ n $ sea una potencia de 2?:
+a) $ O(n) $.
+b) $ O(n^2) $.
+c) $ O(n \log(n)) $.
 Solución: a
-Justificación: Es correcta porque el recuento de operaciones del código da $$ O(n) $$.
+Justificación: Es correcta porque el recuento de operaciones del código da $ O(n) $.
 
 Pregunta 706: La versión de Quicksort que utiliza como pivote el elemento del vector que ocupa la posición central ...:
 a) ... se comporta mejor cuando el vector ya está ordenado.
@@ -5067,12 +5067,12 @@ c) ... no presenta casos mejor y peor distintos para instancias del mismo tamañ
 Solución: a
 Justificación: Es correcta porque ... se comporta mejor cuando el vector ya está ordenado coincide con el análisis clásico de divide y vencerás.
 
-Pregunta 707: Dada la siguiente relación de recurrencia, ¿Qué cota es verdadera? \n\n $$ f(n) = \begin{cases} 1 & n = 1 \\ n + 3f(n/3) & n > 1 \end{cases} $$:
-a) $$ f(n) \in \Theta(n \log n) $$
-b) $$ f(n) \in \Theta(n^3) $$
-c) $$ f(n) \in \Theta(n) $$
+Pregunta 707: Dada la siguiente relación de recurrencia, ¿Qué cota es verdadera? \n\n $ f(n) = \begin{cases} 1 & n = 1 \\ n + 3f(n/3) & n > 1 \end{cases} $:
+a) $ f(n) \in \Theta(n \log n) $
+b) $ f(n) \in \Theta(n^3) $
+c) $ f(n) \in \Theta(n) $
 Solución: a
-Justificación: Es correcta porque al resolver la recurrencia el término dominante coincide con $$ f(n) \in \Theta(n \log n) $$.
+Justificación: Es correcta porque al resolver la recurrencia el término dominante coincide con $ f(n) \in \Theta(n \log n) $.
 
 Pregunta 708: Sobre la complejidad temporal de la siguiente función: ```unsigned desperdicio (unsigned n){ \n\tif (n<=1) \n\t\treturn 0; \n\tunsigned sum = desperdicio (n/2) + desperdicio (n/2) + desperdicio (n/2); \n\tfor (unsigned i=1; i<n-1; i++) \n\t\tfor (unsigned j=1; j<=i; j++) \n\t\t\tfor (unsigned k=1; k<=j; k++) \n\t\t\t\tsum+=i*j*k; \n\treturn sum; \n}```:
 a) Ninguna de las otras dos alternativas es cierta.
@@ -5088,7 +5088,7 @@ c) Sí, siempre, en Divide y Vencerás la complejidad temporal depende únicamen
 Solución: b
 Justificación: Es correcta porque el recuento de operaciones del código da No tiene porqué, la complejidad temporal no depende únicamente del tamaño resultante de los subproblemas.
 
-Pregunta 710: ¿Qué cota se deduce de la siguiente relación de recurrencia? \n\n $$ f(n) = \begin{cases} 1 & n = 1 \\ n + 4f(\frac{n}{2}) & n > 1 \end{cases} $$:
+Pregunta 710: ¿Qué cota se deduce de la siguiente relación de recurrencia? \n\n $ f(n) = \begin{cases} 1 & n = 1 \\ n + 4f(\frac{n}{2}) & n > 1 \end{cases} $:
 a) f(n) ∈ Θ(n^2)
 b) f(n) ∈ Θ(n)
 c) f(n) ∈ Θ(n log n)
@@ -5096,25 +5096,25 @@ Solución: a
 Justificación: Es correcta porque al resolver la recurrencia el término dominante coincide con f(n) ∈ Θ(n^2).
 
 Pregunta 711: ¿Cuál de estas tres expresiones es falsa?:
-a) $$ 2n^3 - 10n^2 + 1 \in O(n^3) $$
-b) $$ n + n \sqrt{n} \in \Omega(n) $$
-c) $$ n + n \sqrt{n} \in \Theta(n) $$
+a) $ 2n^3 - 10n^2 + 1 \in O(n^3) $
+b) $ n + n \sqrt{n} \in \Omega(n) $
+c) $ n + n \sqrt{n} \in \Theta(n) $
 Solución: c
-Justificación: Es correcta porque $$ n + n \sqrt{n} \in \Theta(n) $$ es la única opción coherente con el enunciado.
+Justificación: Es correcta porque $ n + n \sqrt{n} \in \Theta(n) $ es la única opción coherente con el enunciado.
 
-Pregunta 712: Sea $$ f(n) = n \log(n) + n $$.:
-a) ... $$ f(n) \in \Omega(n \log(n)) $$
-b) ... $$ f(n) \in O(n \log(n)) $$
+Pregunta 712: Sea $ f(n) = n \log(n) + n $.:
+a) ... $ f(n) \in \Omega(n \log(n)) $
+b) ... $ f(n) \in O(n \log(n)) $
 c) Las otras dos opciones son ciertas
 Solución: c
 Justificación: Es correcta porque Las otras dos opciones son ciertas es la única opción coherente con el enunciado.
 
 Pregunta 713: ¿Cuál es la complejidad temporal de la siguiente función?```int ejemplo (vector < int > & v){ \n\tint n=v.size(); \n\tint j,i=2; \n\tint sum=0; \n\twhile (n>0 && i<n){ \n\t\tj=i; \n\t\twhile (v[j] != v[1]){ \n\t\t\tsum+=v[j]; \n\t\t\tj=j/2; \n\t\t} \n\t\ti++; \n\t} \n\treturn sum; \n}```:
-a) $$ \Theta(n \log n) $$
-b) $$ \Theta(n^2) $$
-c) $$ \Omega(n) $$
+a) $ \Theta(n \log n) $
+b) $ \Theta(n^2) $
+c) $ \Omega(n) $
 Solución: a
-Justificación: Es correcta porque el recuento de operaciones del código da $$ \Theta(n \log n) $$.
+Justificación: Es correcta porque el recuento de operaciones del código da $ \Theta(n \log n) $.
 
 Pregunta 714: En cuanto a la complejidad temporal de la siguiente función:```int ejemplo (vector < int > & v){ \n\tint n=v.size(); \n\tint j,i=2; \n\tint sum=0; \n\twhile (n>0 && i<n){ \n\t\tj=i; \n\t\twhile (v[j] != v[1]){ \n\t\t\tsum+=v[j]; \n\t\t\tj=j/2; \n\t\t} \n\t\ti++; \n\t} \n\treturn sum; \n}```:
 a) Las complejidades en el mejor y en el peor de los casos no coinciden.
@@ -5124,18 +5124,18 @@ Solución: a
 Justificación: Es correcta porque el recuento de operaciones del código da Las complejidades en el mejor y en el peor de los casos no coinciden.
 
 Pregunta 715: Indica cuál es la complejidad, en función de \( n \), del fragmento siguiente:```for( int i = n; i > 0; i /= 2 ) \n\tfor( int j = n; j > 0; j /= 2 ) \n\t\ta += A[i][j]; \n```:
-a) $$ O(\log^2(n)) $$
-b) $$ O(n \log(n)) $$
-c) $$ O(n^2) $$
+a) $ O(\log^2(n)) $
+b) $ O(n \log(n)) $
+c) $ O(n^2) $
 Solución: a
-Justificación: Es correcta porque el recuento de operaciones del código da $$ O(\log^2(n)) $$.
+Justificación: Es correcta porque el recuento de operaciones del código da $ O(\log^2(n)) $.
 
 Pregunta 716: Indica cuál es la complejidad, en función de \( n \), del fragmento siguiente:```a = 0; \nfor( int i = 0; i < n*n; i++ ) \n\ta += A[(i + j) % n];```:
-a) $$ O(n^2) $$
-b) $$ O(n \log(n)) $$
-c) $$ O(n) $$
+a) $ O(n^2) $
+b) $ O(n \log(n)) $
+c) $ O(n) $
 Solución: a
-Justificación: Es correcta porque el recuento de operaciones del código da $$ O(n^2) $$.
+Justificación: Es correcta porque el recuento de operaciones del código da $ O(n^2) $.
 
 Pregunta 717: La versión deQuicksort que utiliza como pivote la mediana del vector...:
 a) ... no presenta caso mejor y peor distintos para instancias del mismo tamaño.
@@ -5151,54 +5151,54 @@ c) ... lineal en el caso peor y constante en el caso mejor.
 Solución: a
 Justificación: Es correcta porque el recuento de operaciones del código da ... lineal en cualquier caso.
 
-Pregunta 719: Dada la siguiente relación de recurrencia, ¿Qué cota es verdadera?  \n\n$$ f(n) = \begin{cases} 1 & n = 1 \\ n + 2f(n-1) & n \geq 1 \end{cases} $$:
-a) $$ f(n) \in \Omega(2^n) $$
-b) $$ f(n) \in \Theta(n^2) $$
-c) $$ f(n) \in \Theta(2^n) $$
+Pregunta 719: Dada la siguiente relación de recurrencia, ¿Qué cota es verdadera?  \n\n$ f(n) = \begin{cases} 1 & n = 1 \\ n + 2f(n-1) & n \geq 1 \end{cases} $:
+a) $ f(n) \in \Omega(2^n) $
+b) $ f(n) \in \Theta(n^2) $
+c) $ f(n) \in \Theta(2^n) $
 Solución: a
-Justificación: Es correcta porque al resolver la recurrencia el término dominante coincide con $$ f(n) \in \Omega(2^n) $$.
+Justificación: Es correcta porque al resolver la recurrencia el término dominante coincide con $ f(n) \in \Omega(2^n) $.
 
-Pregunta 720: ¿Cuál es la solución a la siguiente relación de recurrencia? \n\n$$ f(n) = \begin{cases} \Theta(1) & n = 0 \\ \Theta(1) + f(n/3) & n > 0 \end{cases} $$:
-a) $$ f(n) \in \Theta(\log(n)) $$.
-b) $$ f(n) \in \Theta(n/3) $$.
+Pregunta 720: ¿Cuál es la solución a la siguiente relación de recurrencia? \n\n$ f(n) = \begin{cases} \Theta(1) & n = 0 \\ \Theta(1) + f(n/3) & n > 0 \end{cases} $:
+a) $ f(n) \in \Theta(\log(n)) $.
+b) $ f(n) \in \Theta(n/3) $.
 c) Ninguna de las otras dos es cierta.
 Solución: a
-Justificación: Es correcta porque $$ f(n) \in \Theta(\log(n)) $$, según las definiciones de O, Ω y Θ.
+Justificación: Es correcta porque $ f(n) \in \Theta(\log(n)) $, según las definiciones de O, Ω y Θ.
 
 Pregunta 721: De las siguientes expresiones, o bien dos son verdaderas y una es falsa o bien al contrario: dos son falsas y una es verdadera. Marca la que en este sentido es distinta a las otras dos.:
-a) $$ 2n^3 - 10n^2 + 1 \in O(n^3) $$
-b) $$ n + n\sqrt{n} \in \Omega(n) $$
-c) $$ n + n\sqrt{n} \in \Theta(n) $$
+a) $ 2n^3 - 10n^2 + 1 \in O(n^3) $
+b) $ n + n\sqrt{n} \in \Omega(n) $
+c) $ n + n\sqrt{n} \in \Theta(n) $
 Solución: c
-Justificación: Es correcta porque $$ n + n\sqrt{n} \in \Theta(n) $$ es la única opción coherente con el enunciado.
+Justificación: Es correcta porque $ n + n\sqrt{n} \in \Theta(n) $ es la única opción coherente con el enunciado.
 
-Pregunta 722: Si $$ f \in \Omega(g_1) $$ y $$ f \in \Omega(g_2) $$ entonces:
-a) $$ f \not\in \Omega(\min(g_1, g_2)) $$
-b) $$ f \in \Omega(g_1 \cdot g_2) $$
-c) $$ f \in \Omega(g_1 + g_2) $$
+Pregunta 722: Si $ f \in \Omega(g_1) $ y $ f \in \Omega(g_2) $ entonces:
+a) $ f \not\in \Omega(\min(g_1, g_2)) $
+b) $ f \in \Omega(g_1 \cdot g_2) $
+c) $ f \in \Omega(g_1 + g_2) $
 Solución: c
-Justificación: Es correcta porque $$ f \in \Omega(g_1 + g_2) $$, según las definiciones de O, Ω y Θ.
+Justificación: Es correcta porque $ f \in \Omega(g_1 + g_2) $, según las definiciones de O, Ω y Θ.
 
 Pregunta 723: ¿Cuál de las siguientes relaciones de recurrencia expresa mejor la complejidad espacial es la del algoritmo Mergesort?:
-a) $$ T(n) = n + T(n - 1) \space\space$$ para $$\space\space n > 1 \space\space$$ y $$\space\space T(n) \space = \space\space\space\space\space\space\space 1 \space\space$$ para $$\space\space n \leq \space\space 1 $$
-b) $$ T(n) = n + T(n/2) \space\space$$ para $$\space\space n > 1 \space\space$$ y $$\space\space T(n) \space = \space\space\space\space\space\space\space 1 \space\space$$ para $$\space\space n \leq \space\space 1 $$
-c) $$ T(n) = n + 2T(n/2) \space\space$$ para $$\space\space n > 1 \space\space$$ y $$\space\space T(n) \space\ = \space\space\space\space\space\space\space 1 \space\space$$ para $$\space\space n \leq \space\space 1 $$
+a) $ T(n) = n + T(n - 1) \space\space$ para $\space\space n > 1 \space\space$ y $\space\space T(n) \space = \space\space\space\space\space\space\space 1 \space\space$ para $\space\space n \leq \space\space 1 $
+b) $ T(n) = n + T(n/2) \space\space$ para $\space\space n > 1 \space\space$ y $\space\space T(n) \space = \space\space\space\space\space\space\space 1 \space\space$ para $\space\space n \leq \space\space 1 $
+c) $ T(n) = n + 2T(n/2) \space\space$ para $\space\space n > 1 \space\space$ y $\space\space T(n) \space\ = \space\space\space\space\space\space\space 1 \space\space$ para $\space\space n \leq \space\space 1 $
 Solución: c
-Justificación: Es correcta porque al resolver la recurrencia el término dominante coincide con $$ T(n) = n + 2T(n/2) \space\space$$ para $$\space\space n > 1 \space\space$$ y $$\space\space T(n) \space\ = \space\space\space\space\space\space\space 1 \space\space$$….
+Justificación: Es correcta porque al resolver la recurrencia el término dominante coincide con $ T(n) = n + 2T(n/2) \space\space$ para $\space\space n > 1 \space\space$ y $\space\space T(n) \space\ = \space\space\space\space\space\space\space 1 \space\space$….
 
 Pregunta 724: De las siguientes expresiones, o bien dos son verdaderas y una es falsa, o bien dos son falsas y una es verdadera. Marca la que (en este sentido) es distinta a las otras dos.:
-a) $$ \log(n^3) \not\in \Theta(\log_3(n)) $$
-b) $$ \Theta(\log^2(n)) = \Theta(\log^3(n)) $$
-c) $$ \Theta(\log_2(n)) = \Theta(\log_3(n)) $$
+a) $ \log(n^3) \not\in \Theta(\log_3(n)) $
+b) $ \Theta(\log^2(n)) = \Theta(\log^3(n)) $
+c) $ \Theta(\log_2(n)) = \Theta(\log_3(n)) $
 Solución: c
-Justificación: Es correcta porque $$ \Theta(\log_2(n)) = \Theta(\log_3(n)) $$ es la única opción coherente con el enunciado.
+Justificación: Es correcta porque $ \Theta(\log_2(n)) = \Theta(\log_3(n)) $ es la única opción coherente con el enunciado.
 
-Pregunta 725: Un problema de tamaño $$ n $$ puede transformarse en tiempo $$ O(1) $$ en siete de tamaño $$ \frac{n}{7} $$; por otro lado, la solución al problema cuando la talla es 1 requiere un tiempo constante. \n¿Cuál de estas clases de coste temporal asintótico es la más ajustada?:
-a) $$ O(n^2) $$
-b) $$ O(n) $$
-c) $$ O(n \log n) $$
+Pregunta 725: Un problema de tamaño $ n $ puede transformarse en tiempo $ O(1) $ en siete de tamaño $ \frac{n}{7} $; por otro lado, la solución al problema cuando la talla es 1 requiere un tiempo constante. \n¿Cuál de estas clases de coste temporal asintótico es la más ajustada?:
+a) $ O(n^2) $
+b) $ O(n) $
+c) $ O(n \log n) $
 Solución: c
-Justificación: Es correcta porque $$ O(n \log n) $$, según las definiciones de O, Ω y Θ.
+Justificación: Es correcta porque $ O(n \log n) $, según las definiciones de O, Ω y Θ.
 
 ### Examen Parcial 2 ADA
 
@@ -5545,14 +5545,14 @@ c) Hace una evaluación exhaustiva "de fuerza bruta" de todas las posibles maner
 Solución: a
 Justificación: Es correcta porque Hacer una evaluación exhaustiva "de fuerza bruta" de todas las posibles maneras de cortar el tubo consume un tiempo Θ(n!) es la única opción coherente con el enunciado.
 
-Pregunta 775: ¿Cuál de estas estrategias para calcular el $$n$$-ésimo elemento de la serie de Fibonacci \n $$f(n) = f(n - 1) + f(n - 2),\ f(1) = f(2) = 1$$ \nes más eficiente? CONFIRMADA:
+Pregunta 775: ¿Cuál de estas estrategias para calcular el $n$-ésimo elemento de la serie de Fibonacci \n $f(n) = f(n - 1) + f(n - 2),\ f(1) = f(2) = 1$ \nes más eficiente? CONFIRMADA:
 a) Programación dinámica
 b) La estrategia voraz
 c) Las dos estrategias citadas serían similares en cuanto a la eficiencia
 Solución: a
 Justificación: Es correcta porque Programación dinámica y reutiliza subproblemas para evitar recomputaciones.
 
-Pregunta 776: Dada la suma de la recurrencia: \n $$ T(n) = \begin{cases} 1 & n = 0 \\ \sum_{k=0}^{n-1} T(k) & n > 0 \end{cases} $$ \n ¿cuál de las siguientes afirmaciones es cierta?:
+Pregunta 776: Dada la suma de la recurrencia: \n $ T(n) = \begin{cases} 1 & n = 0 \\ \sum_{k=0}^{n-1} T(k) & n > 0 \end{cases} $ \n ¿cuál de las siguientes afirmaciones es cierta?:
 a) T(n) ∈ Θ(n^2)
 b) T(n) ∈ Θ(2^n)
 c) T(n) ∈ Θ(n!)
@@ -5580,7 +5580,7 @@ c) O(1)
 Solución: c
 Justificación: Es correcta porque O(1) y reutiliza subproblemas para evitar recomputaciones.
 
-Pregunta 780: Cuando se calculan los coeficientes binomiales usando la recursión $$ {n \choose r} = {n-1 \choose r} + {n-1 \choose r-1} $$, con $$ {n \choose 0} = {n \choose n} = 1 $$, qué problemas se da y cómo se puede resolver? CONFIRMADA:
+Pregunta 780: Cuando se calculan los coeficientes binomiales usando la recursión $ {n \choose r} = {n-1 \choose r} + {n-1 \choose r-1} $, con $ {n \choose 0} = {n \choose n} = 1 $, qué problemas se da y cómo se puede resolver? CONFIRMADA:
 a) Se repiten muchos cálculos y ello se puede evitar haciendo uso de una estrategia voraz.
 b) Se repiten muchos cálculos y ello se puede evitar usando programación dinámica.
 c) La recursión puede ser infinita y por tanto es necesario organizarla según el esquema iterativo de programación dinámica.
@@ -5685,14 +5685,14 @@ c) Θ (n^2)
 Solución: b
 Justificación: Es correcta porque Θ (n logn) coincide con el análisis clásico de divide y vencerás.
 
-Pregunta 795: La serie de números de Fibonacci se define de la siguiente forma: \n\n $$fib(n) = \begin{cases} 1 & n \leq 1 \\ fib(n-1) + fib(n-2) & n > 1 \end{cases}$$ \n\nPara implementar esta función podemos emplear:
+Pregunta 795: La serie de números de Fibonacci se define de la siguiente forma: \n\n $fib(n) = \begin{cases} 1 & n \leq 1 \\ fib(n-1) + fib(n-2) & n > 1 \end{cases}$ \n\nPara implementar esta función podemos emplear:
 a) Divide y vencerás
 b) Programación dinámica
 c) Cualquiera de las dos anteriores
 Solución: c
 Justificación: Es correcta porque Cualquiera de las dos anteriores y reutiliza subproblemas para evitar recomputaciones.
 
-Pregunta 796: La serie de números de Fibonacci se define de la siguiente forma: \n\n $$fib(n) = \begin{cases} 1 & n \leq 1 \\ fib(n-1) + fib(n-2) & n > 1 \end{cases}$$ \n\n¿Qué implementación de entre las siguientes supone el menor coste?:
+Pregunta 796: La serie de números de Fibonacci se define de la siguiente forma: \n\n $fib(n) = \begin{cases} 1 & n \leq 1 \\ fib(n-1) + fib(n-2) & n > 1 \end{cases}$ \n\n¿Qué implementación de entre las siguientes supone el menor coste?:
 a) Divide y vencerás
 b) Programación dinámica
 c) Cualquiera de las dos anteriores

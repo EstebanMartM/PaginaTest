@@ -2000,12 +2000,17 @@
       if (state.mode === "block") {
         blockKey = resolveBlockValue(state.block || "");
         blockLabel = blockKey || "(Sin bloque)";
-        modeLabel = "Infinito (Bloque)";
+        modeLabel = activeSeed
+          ? `Infinito (Bloque, Seed: ${activeSeed})`
+          : "Infinito (Bloque)";
       } else {
-        modeLabel = "Infinito (Aleatorio)";
+        modeLabel = activeSeed
+          ? `Infinito · Seed: ${activeSeed}`
+          : "Infinito (Aleatorio)";
       }
 
-      const quizSeed = state.mode === "random" && activeSeed ? activeSeed : "";
+      // Seed activa en cualquier modo infinito
+      const quizSeed = activeSeed || "";
       if (quizSeed) basePool = sortPoolForSeed(basePool);
       const quiz = {
         questions: [],
@@ -2061,17 +2066,26 @@
         modeLabel = `Repaso SRS (${selectedQuestions.length})`;
       } else if (state.mode === "exam") {
         if (!state.examUnlocked || state.pool.length < EXAM_QUESTIONS) return;
-        selectedQuestions = sample(state.pool, EXAM_QUESTIONS);
-        modeLabel = `Examen (${EXAM_QUESTIONS} · 1h10)`;
+        if (activeSeed) {
+          const seedBase = sortPoolForSeed(state.pool);
+          selectedQuestions = seededShuffle(seedBase, `${activeSeed}::0`).slice(0, EXAM_QUESTIONS);
+          modeLabel = `Examen (Seed: ${activeSeed})`;
+        } else {
+          selectedQuestions = sample(state.pool, EXAM_QUESTIONS);
+          modeLabel = `Examen (${EXAM_QUESTIONS} · 1h10)`;
+        }
         durationMs = EXAM_DURATION_MS;
       } else if (state.mode === "examlist") {
         examKey = state.exam || "";
         examLabel = examKey || "(Sin examen)";
-        selectedQuestions = shuffleArray(
-          state.pool.filter((q) => (q.exam || "") === examKey),
-        );
-        if (!selectedQuestions.length) return;
-        modeLabel = `Examen · ${examLabel}`;
+        const examPool = state.pool.filter((q) => (q.exam || "") === examKey);
+        if (!examPool.length) return;
+        selectedQuestions = activeSeed
+          ? seededShuffle(sortPoolForSeed(examPool), `${activeSeed}::0`)
+          : shuffleArray(examPool);
+        modeLabel = activeSeed
+          ? `Examen · ${examLabel} (Seed: ${activeSeed})`
+          : `Examen · ${examLabel}`;
       } else if (state.mode === "single") {
         const num = getManualQuestionNumber();
         const picked = num ? state.poolById.get(String(num)) : null;
@@ -2080,17 +2094,20 @@
         modeLabel = `Pregunta ${num}`;
       } else {
         blockKey = resolveBlockValue(state.block || "");
-        selectedQuestions = shuffleArray(
-          state.pool.filter((q) => (q.block || "") === blockKey),
-        );
-        if (!selectedQuestions.length) return;
-        modeLabel = "Bloque completo";
+        const blockPool = state.pool.filter((q) => (q.block || "") === blockKey);
+        if (!blockPool.length) return;
+        selectedQuestions = activeSeed
+          ? seededShuffle(sortPoolForSeed(blockPool), `${activeSeed}::0`)
+          : shuffleArray(blockPool);
+        modeLabel = activeSeed
+          ? `Bloque · ${blockKey || '(Sin bloque)'} (Seed: ${activeSeed})`
+          : "Bloque completo";
         blockLabel = blockKey || "(Sin bloque)";
       }
 
       // Reordena opciones por pregunta y recalcula letra correcta
-      const optionSeed =
-        state.mode === "random" && activeSeed ? activeSeed : "";
+      // optionSeed aplica a cualquier modo si hay seed activa
+      const optionSeed = activeSeed || "";
       const instanced = selectedQuestions.map((q) =>
         makeShuffledQuestionInstance(q, optionSeed),
       );

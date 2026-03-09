@@ -728,11 +728,40 @@ body.ref-open{
   border: 1px solid rgba(255,255,255,0.18);
 }
 
-.justif p{ 
+.justif-content{ 
   margin: 0;
   color: rgba(255,255,255,0.82);
   line-height: 1.6;
-  white-space: pre-wrap;
+}
+
+.md-code-block{
+  margin: 10px 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(6,8,14,0.9);
+  overflow-x: auto;
+}
+
+.md-code-block code{
+  display: block;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.55;
+  white-space: pre;
+  color: rgba(232,239,255,0.95);
+}
+
+.q-text .md-code-block:first-child,
+.c-text .md-code-block:first-child,
+.justif-content .md-code-block:first-child{
+  margin-top: 0;
+}
+
+.q-text .md-code-block:last-child,
+.c-text .md-code-block:last-child,
+.justif-content .md-code-block:last-child{
+  margin-bottom: 0;
 }
 
 /* Footer */
@@ -1603,4 +1632,3 @@ body.zen-mode .scoreline {
     height: 8px;
   }
 }
-

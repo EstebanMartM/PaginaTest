@@ -114,10 +114,51 @@
     return wrapped.replace(/@@MATH(\d+)@@/g, (_, i) => protectedChunks[Number(i)]);
   }
 
+  function sanitizeCodeLanguage(raw) {
+    return String(raw ?? '')
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9_+-]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function renderTextWithMath(segment) {
+    return escapeHtml(wrapBareTeX(segment)).replace(/\n/g, '<br>');
+  }
+
+  function renderMarkdownWithMath(rawText) {
+    const normalized = String(rawText ?? '').replace(/\r\n?/g, '\n');
+    const fenceRe = /```([^\n`]*)\n?([\s\S]*?)```/g;
+    let html = '';
+    let lastIndex = 0;
+    let match;
+
+    while ((match = fenceRe.exec(normalized)) !== null) {
+      const fullMatch = match[0];
+      const langRaw = match[1];
+      const codeBody = match[2];
+      const start = match.index;
+
+      if (start > lastIndex) {
+        html += renderTextWithMath(normalized.slice(lastIndex, start));
+      }
+
+      const lang = sanitizeCodeLanguage(langRaw);
+      const langClass = lang ? ` class="language-${lang}"` : '';
+      html += `<pre class="md-code-block"><code${langClass}>${escapeHtml(codeBody)}</code></pre>`;
+      lastIndex = start + fullMatch.length;
+    }
+
+    if (lastIndex < normalized.length) {
+      html += renderTextWithMath(normalized.slice(lastIndex));
+    }
+
+    return html;
+  }
+
   function setMathText(el, rawText) {
     if (!el) return;
-    const safe = escapeHtml(wrapBareTeX(rawText)).replace(/\n/g, '<br>');
-    el.innerHTML = safe;
+    el.innerHTML = renderMarkdownWithMath(rawText);
   }
 
   function typesetMath(container) {
@@ -1317,7 +1358,7 @@
 
       <div class="justif" style="margin-top:12px">
         <h4>Justificación</h4>
-        <p id="rvJustif"></p>
+        <div id="rvJustif" class="justif-content"></div>
       </div>
     `;
 
@@ -1466,7 +1507,7 @@
 
       <div class="justif" style="margin-top:12px">
         <h4>Justificación</h4>
-        <p id="mkJustif"></p>
+        <div id="mkJustif" class="justif-content"></div>
       </div>
 
       <div class="btnrow" style="margin-top:12px; justify-content:flex-start;">
@@ -1813,7 +1854,7 @@
 
       <div id="justif" class="justif" hidden>
         <h4>Justificación</h4>
-        <p id="justifText"></p>
+        <div id="justifText" class="justif-content"></div>
       </div>
     `;
 

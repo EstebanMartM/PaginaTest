@@ -88,6 +88,36 @@
   }
   const sample = (arr, n) => shuffleArray(arr).slice(0, Math.min(n, arr.length));
 
+  function sortPoolForSeed(pool) {
+    const decorated = pool.map((q, idx) => {
+      const idStr = String(q.id ?? '');
+      const idNum = Number(idStr);
+      const hasNum = Number.isFinite(idNum);
+      const optKey = Array.isArray(q.options)
+        ? q.options.map(o => `${o.letter}:${o.text}`).join('|')
+        : '';
+      const stableKey = `${idStr}|${q.text || ''}|${q.answer || ''}|${q.block || ''}|${q.exam || ''}|${optKey}`;
+      return {
+        q,
+        idx,
+        idStr,
+        idNum,
+        hasNum,
+        h: hashSeed(stableKey)
+      };
+    });
+
+    decorated.sort((a, b) => {
+      if (a.hasNum && b.hasNum && a.idNum !== b.idNum) return a.idNum - b.idNum;
+      if (a.hasNum !== b.hasNum) return a.hasNum ? -1 : 1;
+      if (a.idStr !== b.idStr) return a.idStr < b.idStr ? -1 : 1;
+      if (a.h !== b.h) return a.h - b.h;
+      return a.idx - b.idx;
+    });
+
+    return decorated.map(d => d.q);
+  }
+
   // =========================
   // MathJax helpers (TeX suelto)
   // =========================
@@ -1728,7 +1758,7 @@
     const activeSeed = (seedInput && seedInput.length >= 4) ? seedInput : '';
 
     if (infinite) {
-      const basePool = getBasePoolForQuiz();
+      let basePool = getBasePoolForQuiz();
       if (!basePool.length) return;
 
       if (state.mode === 'block') {
@@ -1740,6 +1770,7 @@
       }
 
       const quizSeed = (state.mode === 'random' && activeSeed) ? activeSeed : '';
+      if (quizSeed) basePool = sortPoolForSeed(basePool);
       const quiz = {
         questions: [],
         idx: 0,
@@ -1773,7 +1804,8 @@
         const seed = activeSeed;
         if (seed) {
           // Use seeded shuffle for reproducible order
-          const shuffled = seededShuffle(state.pool, seed);
+          const seedBase = sortPoolForSeed(state.pool);
+          const shuffled = seededShuffle(seedBase, seed);
           selectedQuestions = shuffled.slice(0, 20);
           modeLabel = `Seed: ${seed}`;
         } else {

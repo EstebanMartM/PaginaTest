@@ -126,24 +126,47 @@
     return escapeHtml(wrapBareTeX(segment)).replace(/\n/g, '<br>');
   }
 
+  function normalizeFencedCodeBody(codeBody) {
+    let out = String(codeBody ?? '');
+    // Algunas baterías guardan bloques en una sola línea usando escapes "\n\t".
+    if (!out.includes('\n') && /\\[nrt]/.test(out)) {
+      out = out
+        .replace(/\\r\\n/g, '\n')
+        .replace(/\\n/g, '\n')
+        .replace(/\\t/g, '\t')
+        .replace(/\\r/g, '\n');
+    }
+    return out;
+  }
+
   function renderMarkdownWithMath(rawText) {
     const normalized = String(rawText ?? '').replace(/\r\n?/g, '\n');
-    const fenceRe = /```([^\n`]*)\n?([\s\S]*?)```/g;
+    const fenceRe = /```([\s\S]*?)```/g;
     let html = '';
     let lastIndex = 0;
     let match;
 
     while ((match = fenceRe.exec(normalized)) !== null) {
       const fullMatch = match[0];
-      const langRaw = match[1];
-      const codeBody = match[2];
+      const inner = String(match[1] ?? '');
       const start = match.index;
 
       if (start > lastIndex) {
         html += renderTextWithMath(normalized.slice(lastIndex, start));
       }
 
-      const lang = sanitizeCodeLanguage(langRaw);
+      let lang = '';
+      let codeBody = inner;
+      const firstNewline = inner.indexOf('\n');
+      if (firstNewline >= 0) {
+        const firstLine = inner.slice(0, firstNewline).trim();
+        if (/^[a-zA-Z0-9_+-]{1,30}$/.test(firstLine)) {
+          lang = sanitizeCodeLanguage(firstLine);
+          codeBody = inner.slice(firstNewline + 1);
+        }
+      }
+
+      codeBody = normalizeFencedCodeBody(codeBody);
       const langClass = lang ? ` class="language-${lang}"` : '';
       html += `<pre class="md-code-block"><code${langClass}>${escapeHtml(codeBody)}</code></pre>`;
       lastIndex = start + fullMatch.length;

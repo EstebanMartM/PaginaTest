@@ -5,28 +5,28 @@ a) Un heap o montículo de mínimos.
 b) Un heap o montículo sin orden establecido ya que no se ha definido la funcion de comparacion.
 c) Un heap o montículo de maximos
 Solución: c
-Justificación: Es correcta porque `priority_queue` en C++ usa un heap de máximos por defecto.
+Justificación: En C++, el contenedor std::priority_queue utiliza por defecto el comparador std::less, lo que posiciona el elemento con mayor valor en la raíz de la estructura. Este comportamiento define intrínsecamente un montículo de máximos o max-heap.
 
 Pregunta 2: ¿Cual es el coste de monticulizar (heapify) un vector de tamaño N?:
 a) O(N) y Ω(1)
 b) O(N log N) y Ω(N)
 c) Θ(N)
 Solución: c
-Justificación: Es correcta porque Θ(N) y eso coincide con las propiedades del montículo.
+Justificación: El algoritmo de construcción bottom-up aprovecha que la mayoría de los elementos se encuentran en los niveles inferiores con una altura mínima, reduciendo drásticamente el número total de intercambios. Matemáticamente, la suma de las alturas de todos los nodos en un árbol binario completo converge a una complejidad lineal de Θ(N).
 
 Pregunta 3: De las siguientes expresiones, o bien dos son ciertas y una es falsa, o bien al contrario, una es cierta y dos son falsas. Marca la que en este sentido es diferente a las otras dos.:
 a) n SUM i=1 (log i SUM j=1 2j ∈ O(n^2)
 b) (log n)SUM i=1 (n SUM j=1 2j ∈ O(n log n)
 c) (n/2)SUM i=1 (i SUM j=1 2j ∈ O(n log n)
 Solución: c
-Justificación: Es correcta porque (n/2)SUM i=1 (i SUM j=1 2j ∈ O(n log n) es la única opción coherente con el enunciado.
+Justificación: Las expresiones a y b resultan en una complejidad asintótica de $O(n \log n)$, lo que las hace verdaderas respecto a sus cotas, mientras que la c es de orden cuadrático $O(n^2)$ y constituye la única afirmación falsa. Al ser la única falsedad entre dos verdades, c es la opción que difiere de las demás.
 
 Pregunta 4: Se dispone de un conjunto de n valores numericos dispuestos en forma de monticulo y se desea obtener el valor de la suma de todos los que al menos tienen un hijo (es decir, no son nodos hoja). ¿Cual es la complejidad temporal del mejor algoritmo que se puede escribir:
 a) O(log n)
 b) O(n log n)
 c) O(n)
 Solución: c
-Justificación: Es correcta porque el recuento de operaciones del código da O(n).
+Justificación: Para sumar los nodos internos es necesario procesar individualmente aproximadamente la mitad de los elementos del montículo. Dado que el número de estos nodos es proporcional al tamaño total de la estructura, cualquier algoritmo de recorrido requiere un tiempo lineal $O(n)$.
 
 Pregunta 5: Se dispone de un conjunto de n valores numericos dispuestos en un vector sin orden pre-establecido. Se desea escribir una funcion que reciba ese vector y un valor  k (n/2 < = k < = n) y que devuelva los k valores mas pequeños dispuestos en otro vector de manera ordenada. ¿Cual es la complejidad temporal del mejor algoritmo que se puede escribir?:
 a) O(kn)
@@ -40,21 +40,21 @@ a) Θ(k)
 b) Θ(n^2)
 c) Θ(n)
 Solución: c
-Justificación: Es correcta porque el recuento de operaciones del código da Θ(n).
+Justificación: El bucle externo realiza un número de iteraciones proporcional a $n$, mientras que el bucle interno ejecuta siempre un número constante de pasos ($2k$) independiente del tamaño de la entrada. Al ser $k$ una constante, el trabajo total realizado escala de forma lineal respecto a $n$, resultando en una complejidad $\Theta(n)$.
 
 Pregunta 7: El problema de la moneda consiste a formar una suma M con el numero mínimo de monedas tomadas (con repeticion) de un conjunto C donde hay una cantidad suficientemente grande de monedas con cada posible valor facial C = {c1, c2, . . . , c..} , con c1 = 1. ¿Cual de estas afirmaciones sobre un algoritmo recursivo de la forma nOPT (M)  = 1 + min nOPT(M-ci); nOPT(0) = 0; nOPT(x) = inf para x <  0 es falsa?:
 a) Tiene un coste temporal prohibitivo, ya que puede calcular nOPT(x) para el mismo valor de x mas de una vez.
 b) Dependiendo de cuales sean los valores faciales y la suma, puede ser que el algoritmo recursivo no encuentre solucion
 c) Encuentra siempre la solucion optima
 Solución: b
-Justificación: Es correcta porque al resolver la recurrencia el término dominante coincide con Dependiendo de cuales sean los valores faciales y la suma, puede ser que el algoritmo recursivo no encuentre solucion.
+Justificación: Al incluirse obligatoriamente una moneda de valor unidad, cualquier suma entera es alcanzable y el algoritmo siempre encontrará una solución válida. La definición recursiva realiza una exploración exhaustiva de todas las combinaciones posibles, asegurando la obtención del mínimo óptimo para cualquier valor de M.
 
 Pregunta 8: ¿Cual es la complejidad temporal en funcion de n, del siguiente fragmento:```for( int i = 0; i <  n; i++ ) {\n\tA[i] = 0;\n\tfor( int j = 0; j <  20; j++ )\n\t\tA[i] += B[j];\n}```:
 a) Θ(n logn)
 b) Θ(n)
 c) Θ(n^2)
 Solución: b
-Justificación: Es correcta porque el recuento de operaciones del código da Θ(n).
+Justificación: El bucle interno realiza un número constante de iteraciones que no depende de $n$, por lo que la carga computacional total escala de forma lineal. Al ignorar los coeficientes constantes en el análisis asintótico, la complejidad resultante es $\Theta(n)$.
 
 Pregunta 9: ¿Cual es la complejidad, en función de n, del siguiente fragmento: (suponed que A está definido como vector< int >A(n) y sort() es la funcion de ordenacion de la librería estandar de C++, que tiene la mejor complejidad, temporal y espacial, posible para un algoritmo de ordenacion de proposito general.) ```std::sort(begin(A), end(A));\nint acc = 0;\nfor( auto i : A )  \n\tacc += i;```:
 a) Θ(n log n)
@@ -362,7 +362,7 @@ a) f(n) pertenece 0(n) y f(n) pertenece omega(1)
 b) f(n) pertenece 0(n) y f(n) pertenece 0(n cuadrado)
 c) f(n) pertenece mejorcaso(n cuadrado) y f(n) pertenece 0(n)
 Solución: c
-Justificación: Es correcta porque f(n) pertenece mejorcaso(n cuadrado) y f(n) pertenece 0(n) es la única opción coherente con el enunciado.
+Justificación: Una función no puede tener un crecimiento mínimo de orden cuadrático y estar acotada superiormente por una función lineal, ya que $n^2$ domina asintóticamente a $n$. Estas dos condiciones son mutuamente excluyentes porque imponen límites de crecimiento contradictorios.
 
 Pregunta 53: ¿Garantiza el uso de una estrategia “divide y venceras” la existencia de una solucion de complejidad temporal polinomica a cualquierproblema?:
 a) si, en cualquier caso
@@ -684,7 +684,7 @@ a) En el caso mejor de ambos.
 b) En el caso peor de ambos.
 c) Tanto en el caso peor como en el caso mejor de ambos.
 Solución: a
-Justificación: Es correcta porque el recuento de operaciones del código da En el caso mejor de ambos.
+Justificación: Ambos algoritmos coinciden en una eficiencia de $O(n \log n)$ durante su mejor caso, pero divergen en el peor escenario debido a que Quicksort se degrada a una complejidad cuadrática.
 
 Pregunta 99: Para que la compeljidad de un algoritmo presenta caso mejor y peor distintos...:
 a) ... es condicion necesaria que existan instancias distintas del problema con el mismo tamaño
@@ -950,7 +950,7 @@ a) Solo para c = 1 y n0 = 5
 b) Sí
 c) No
 Solución: b
-Justificación: Es correcta porque Sí, según las definiciones de O, Ω y Θ.
+Justificación: La notación Big O establece una cota superior asintótica, por lo que cualquier función de orden cuadrático pertenece al conjunto $O(n^3)$ al crecer más lentamente que una cúbica. Al ser el grado del polinomio menor que el de la cota propuesta, existen constantes que satisfacen la definición formal para valores de $n$ suficientemente grandes.
 
 Pregunta 137: Que algoritmo es mas rápido, quicksort o mergesort?:
 a) el mergesort es siempre más rápido
@@ -1034,7 +1034,7 @@ a) Dependiendo de cuáles sean los valores faciales y la suma, puede ser que el 
 b) Encuentra siempre la solución óptima.
 c) Tiene un coste temporal prohibitivo, ya que puede calcular nopt (x) para el mismovalor de x más de una vez.
 Solución: a
-Justificación: Es correcta porque Dependiendo de cuáles sean los valores faciales y la suma, puede ser que el algorit-mo recursivo no encuentre solución es la única opción coherente con el enunciado.
+Justificación: La presencia de una moneda con valor $c_1=1$ garantiza que siempre exista una combinación válida para cualquier suma entera $M$, invalidando la afirmación de que el algoritmo podría no hallar solución. Al explorar todas las opciones mediante su estructura recursiva, el procedimiento asegura el hallazgo del mínimo global de monedas para cualquier valor solicitado.
 
 Pregunta 149: ¿De qué clase de complejidad es la solución de la siguiente relación de recurrencia? ```f(n) = n(n-1) + f(n-1) # si n>0 \n\t\t\t  f(0) = 1 # si n=0```:
 a) f(n) ∈ Θ(n³)
@@ -1167,7 +1167,7 @@ a) O(n·log(n))
 b) O(n)
 c) O(1)
 Solución: a
-Justificación: Es correcta porque O(n·log(n)) coincide con el análisis clásico de divide y vencerás.
+Justificación: La optimización del caso base para un tamaño constante no altera la estructura de log(n) niveles de recursión ni el coste lineal de la fase de mezcla. Al no modificarse el comportamiento asintótico de los pasos fundamentales del algoritmo, la complejidad permanece en O(n log n).
 
 Pregunta 168: Uno de estos tres algoritmos de ordenación no opera directamente sobre el vector, y necesita almacenamiento adicional para los elementos del mismo. ¿Cuál es?:
 a) Mergesort
@@ -1320,7 +1320,7 @@ b) O(log^2(n))
 c) O(n*log(n))
 d) O(log(n))
 Solución: c
-Justificación: Es correcta porque el recuento de operaciones del código da O(n*log(n)).
+Justificación: La función presenta una recurrencia $T(n) = 2T(n/2) + n$ debido al bucle lineal y las dos llamadas recursivas sobre la mitad de la entrada. Aplicando el Teorema Maestro, esta estructura de división equilibrada con trabajo lineal en cada nivel resulta en una complejidad de $O(n \log n)$.
 
 Pregunta 187: Sea A un array ordenado de n enteros que se vuelca en un árbol binario ordenado, y sea x un entero a buscar dentro del árbol binario. Entonces, la complejidad de ese algoritmo de búsqueda es:
 a) Depende del algoritmo de volcado. Sera lineal si A se vuelca de forma lineal, y logarítmica si se sigue un algoritmo puro de back tracking para localizar el elemento x dentro del árbol.
@@ -1670,7 +1670,7 @@ b) O(log(n))
 c) Θ(n)
 d) Ω(log(n)) y O(n)
 Solución: a
-Justificación: Es correcta porque el recuento de operaciones del código da Θ(n*log(n)).
+Justificación: El algoritmo realiza una búsqueda binaria para cada uno de los $n$ elementos del vector con el fin de determinar su posición de inserción, acumulando una sumatoria de costes logarítmicos. Esta sucesión de comparaciones, $\sum_{i=1}^{n-1} \log(i)$, equivale asintóticamente a un orden de complejidad de $\Theta(n \log n)$.
 
 Pregunta 229: La complejidad del siguiente bucle es: ```for (i=1; i<=N; i++) {\n\tif (T[i] == x)\n\t\tAux=i;\n}```:
 a) IV I y II son correctas
@@ -1854,7 +1854,7 @@ a) $ c_s(n) = \sum_{k=1}^{\lfloor \frac{n-1}{2} \rfloor} \log_2 2k \in O(n \log 
 b) $ c_s(n) = \sum_{k=1}^{\lfloor \frac{n-1}{2} \rfloor} \log_2 2k^2 \in O(\log^2 n) $
 c) Las otras dos opciones son ambas falsas.
 Solución: a
-Justificación: Es correcta porque el recuento de operaciones del código da $ c_s(n) = \sum_{k=1}^{\lfloor \frac{n-1}{2} \rfloor} \log_2 2k \in O(n \log n) $.
+Justificación: El bucle externo realiza aproximadamente $n/2$ iteraciones con pasos de dos, mientras que el interno divide el índice $i=2k$ por la mitad sucesivamente produciendo un coste logarítmico en cada paso. La suma de estos costes logarítmicos para todo el rango de $k$ define una complejidad asintótica de $O(n \log n)$.
 
 Pregunta 254: ¿Cuál de las siguientes formulaciones expresa mejor la complejidad temporal, en función del parámetro n, de la siguiente función? (asumimos que n es potencia exacta de 2)```int f(int n) { \n\tint k=0; \n\tfor (int i = 2; i <= n; i *= 2) \n\t\tfor (int j = i; j > 0; j -= 2) \n\t\t\tk++; \n\treturn k; \n}```:
 a) $ \sum_{p=2}^{n/2} \space\space\space\space$ (p-1)/2
@@ -2057,7 +2057,7 @@ a) O(n)
 b) O(n log n)
 c) O(n^2)
 Solución: a
-Justificación: Es correcta porque el recuento de operaciones del código da O(n).
+Justificación: Aunque presenta un bucle anidado, el índice $j$ no se reinicia en cada iteración de $i$, por lo que ambos punteros avanzan de forma lineal hasta un máximo de $n$. El coste total es proporcional a la suma de los desplazamientos de $i$ y $j$, resultando en una complejidad lineal $O(n)$.
 
 Pregunta 283: Una de las siguientes afirmaciones es falsa. ¿Cuál?:
 a) Si f ∈ O(g) y g ∈ O(f), entonces f = g
@@ -2276,7 +2276,7 @@ a) El  algoritmo  que  calcularia  n(M)  asi  seria  un  algoritmo  voraz  y  te
 b) El algoritmo recursivo que calcularia n(M) asi tendria un coste prohibitivo
 c) El  algoritmo  recursivo  que  calcularia  n(M)  se  podria  convertir  en  un  algoritmo  con coste razonable usando memoizacion.
 Solución: a
-Justificación: Es correcta porque El algoritmo que calcularia n(M) asi seria un algoritmo voraz y tendria un coste razonable describe decisiones locales que no se reconsideran.
+Justificación: El enfoque voraz no garantiza la obtención del número mínimo de monedas para cualquier sistema de valores faciales arbitrario, siendo necesario el uso de programación dinámica para asegurar la optimalidad. Aunque su coste computacional sea bajo, la afirmación es falsa porque el algoritmo no calcularía correctamente el valor $n(M)$ en todos los casos.
 
 Pregunta 314: La programacion dinamica...:
 a) en algunos casos se puede utilizar para resolver problemas de optimizacion con dominios continuos pero probablemente pierda su eficacia ya que puede disminuir drasticamente el numero de subproblemas repetidos
@@ -2602,7 +2602,7 @@ a) ...se trata de un problema con complejidad inherentemente prohibitiva.
 b) ...es posible escribir una solución voraz para el problema
 c) ...su solución se puede construir eficientemente a partir de soluciones de subproblemas suyos.
 Solución: c
-Justificación: Es correcta porque ...su solución se puede construir eficientemente a partir de soluciones de subproblemas suyos y reutiliza subproblemas para evitar recomputaciones.
+Justificación: La subestructura óptima implica que la solución óptima de un problema complejo se compone de las soluciones óptimas de sus subproblemas. Esta propiedad permite construir el resultado global de manera eficiente combinando los resultados de instancias de menor tamaño.
 
 Pregunta 360: ¿Cuál sería la complejidad temporal de la siguiente función tras aplicar programación dinámica? CONFIRMADA ```double f(int n, int m){ \n\tif(n <= 1) return 1; \n\treturn m * f(n-1,m) * f(n-2,m); \n}```:
 a) Θ(n^2)
@@ -2723,7 +2723,7 @@ a) podremos aplicar el esquema vuelta atras siempre que se trate de un conjunto 
 b) una estrategia voraz puede ser la unica alternativa
 c) es probable que a traves de programacion dinamica se obtenga un algoritmo eficaz que lo solucione
 Solución: b
-Justificación: Es correcta porque una estrategia voraz puede ser la unica alternativa describe decisiones locales que no se reconsideran.
+Justificación: Los métodos que requieren explorar o almacenar estados, como la vuelta atrás o la programación dinámica, son inviables ante ramificaciones infinitas al no poder agotar el espacio de búsqueda. Una estrategia voraz permite tomar decisiones directas mediante una regla de selección, siendo a menudo la única alternativa funcional para manejar dominios continuos o no numerables.
 
 Pregunta 377: Al resolver el problema del viajante de comercio mediantebacktracking asumiendo un grafo den vertices totalmente conexo ¿cual de estas es una buena cotapesimista al iniciar la busqueda?:
 a) se ordenan las aristas restantes de menor a mayor distancia y se calcula la suma de las n aristas mas cortas
@@ -3063,7 +3063,7 @@ a) La complejidad temporal de la mejor solucion posible al problema es O(n log n
 b) Si se construye una solucion al problema basada en el esquema de ramificacion y poda, una  buena  eleccion  de  cotas  optimistas  y  pesimistas  podria  evitar  la  exploracion  de todas las permutaciones posibles.
 c) La complejidad temporal de la mejor solucion posible al problema esta en mejor(n^2).
 Solución: a
-Justificación: Es correcta porque La complejidad temporal de la mejor solucion posible al problema es O(n log n) es la única opción coherente con el enunciado.
+Justificación: El problema de asignación requiere procesar los $n^2$ elementos de la matriz, lo que imposibilita una solución $O(n \log n)$ al ser una cota inferior al tamaño de la entrada. Los algoritmos óptimos conocidos para minimizar esta suma, como el método húngaro, presentan una complejidad polinómica significativamente superior, típicamente $O(n^3)$.
 
 Pregunta 425: La  estrategia  de  ramificacion  y  poda  genera  las  soluciones  posibles  al  problema mediante:
 a) un recorrido en profundidad del arbol que representa el espacio de soluciones
@@ -3476,7 +3476,7 @@ a) Una cota optimista es necesariamente un valor insuperable, de no ser así se 
 b) Una cota pesimista es el valor que a lo sumo alcanza cualquier nodo factible que no es el óptimo.
 c) Una cota optimista es necesariamente un valor alcanzable, de no ser así no está garantizando que se encuentre la solución óptima.
 Solución: a
-Justificación: Es correcta porque Una cota optimista es necesariamente un valor insuperable, de no ser así se podría podar el nodo que conduce a la solución óptima permite podar ramas sin perder la solución óptima.
+Justificación: La cota optimista debe representar el mejor valor teórico posible para asegurar que no se descarte prematuramente ninguna rama que contenga la solución óptima. Si este valor no fuera un límite insuperable, el algoritmo podría podar erróneamente el nodo que conduce al mejor resultado global al subestimar su potencial real.
 
 Pregunta 484: Si para resolver un mismo problema usamos un algoritmo de vuelta atrás y lo modificamos mínimamente para convertirlo en un algoritmo de ramificación y poda, ¿qué cambiamos realmente?:
 a) Cambiamos la función que damos a la cota pesimista.
@@ -3890,7 +3890,7 @@ a) el arbol de cobertura de coste minimo de un grafo conexo
 b) el problema de la mochila discreta
 c) el problema de la mochila continuao con fraccionamiento
 Solución: b
-Justificación: Es correcta porque el problema de la mochila discreta describe decisiones locales que no se reconsideran.
+Justificación: La indivisibilidad de los elementos en la mochila discreta impide que decisiones locales basadas en el mejor ratio valor-peso aseguren un óptimo global, a diferencia de los otros problemas que sí poseen estructuras compatibles con estrategias voraces. Este carácter combinatorio requiere explorar diversas configuraciones mediante programación dinámica para garantizar el aprovechamiento máximo de la capacidad.
 
 Pregunta 542: Cuando  se  usa  un  algoritmo  voraz  para  abordar  la  resolucion  de  un  problema  de optimizacion por seleccion discreta (es decir, un problema para el cual la solucion consiste  en  encontrar  un  subconjuto  del  conjuto  de  elementos  que  optimiza  una determinada funcion), ¿cual de estas tres cosas es imposible que ocurra?:
 a) que la solucion no sea la optima
@@ -4540,7 +4540,7 @@ a) ... de que se puede ahorrar cálculos guardando resultados anteriores en un a
 b) ... de una estrategia trivial consistente en examinar todas las soluciones posibles
 c) ... de que la solución óptima se puede construir añadiendo a la solución el elemento óptimo de los elementos restantes, uno a uno.
 Solución: a
-Justificación: Es correcta porque ... de que se puede ahorrar cálculos guardando resultados anteriores en un almacén y reutiliza subproblemas para evitar recomputaciones.
+Justificación: La programación dinámica optimiza la ejecución al almacenar las soluciones de subproblemas superpuestos para evitar cálculos redundantes, técnica fundamental conocida como memoización o tabulación.
 
 Pregunta 632: La versión de Quicksort que utiliza como pivote el elemento del vector que ocupa la posición central...:
 a) .... se comporta mejor cuando el vector ya está ordenado
@@ -5100,7 +5100,7 @@ a) $ 2n^3 - 10n^2 + 1 \in O(n^3) $
 b) $ n + n \sqrt{n} \in \Omega(n) $
 c) $ n + n \sqrt{n} \in \Theta(n) $
 Solución: c
-Justificación: Es correcta porque $ n + n \sqrt{n} \in \Theta(n) $ es la única opción coherente con el enunciado.
+Justificación: El término dominante de la expresión es $n\sqrt{n}$ ($n^{1.5}$), cuyo orden de crecimiento es estrictamente superior a $n$. Al no tener el mismo comportamiento asintótico que una función lineal, la afirmación de que pertenece a $\Theta(n)$ es falsa.
 
 Pregunta 712: Sea $ f(n) = n \log(n) + n $.:
 a) ... $ f(n) \in \Omega(n \log(n)) $
@@ -5235,7 +5235,7 @@ a) El valor de una mochila que contiene todos los objetos restantes aunque se pa
 b) El valor de la mochila continua correspondiente.
 c) El valor de la mochila discreta que se obtiene usando un algoritmo voraz basado en el valor especifico de los objetos.
 Solución: c
-Justificación: Es correcta porque El valor de la mochila discreta que se obtiene usando un algoritmo voraz basado en el valor especifico de los objetos describe decisiones locales que no se reconsideran.
+Justificación: Un algoritmo voraz proporciona una solución factible y real que establece un valor mínimo garantizado, cumpliendo la definición de cota inferior o pesimista para el problema. Las opciones alternativas representan valores inalcanzables o cotas superiores (optimistas) que sobreestiman el beneficio máximo real en la versión discreta.
 
 Pregunta 731: Si un problema de optimizacion lo es para una funcion que toma valores continuos ...:
 a) la  programacion  dinamica  iterativa  siempre  es  mucho  mas  eficiente  que  la programacion dinamica iterativa ¿? en cuanto al uso de memoria
@@ -5473,7 +5473,7 @@ a) O(x-y), tanto temporal como espacial.
 b) Ninguna de las otras dos opciones es correcta
 c) Temporal O(x-y) y espacial O(1)
 Solución: a
-Justificación: Es correcta porque O(x-y), tanto temporal como espacial y reutiliza subproblemas para evitar recomputaciones.
+Justificación: El número de estados únicos que se deben calcular y almacenar es proporcional a la diferencia $x-y$, lo que define un crecimiento lineal tanto en el tiempo de ejecución como en la memoria necesaria para la tabla de memoización.
 
 Pregunta 765: Se pretende implementar mediante programación dinámica iterativa la función recursiva:```unsigned f(unsigned y, unsigned x) { # suponemos y >= x \n\tif (x==0 || y==x) return 1; \n\treturn f(y-1, x-1) + f(y-1, x); \n}```¿Cuál es la mejor estructura para el almacén? \nSeleccione una:
 a) int A[]
@@ -5669,7 +5669,7 @@ a) Cuando los subproblemas son de tamaños muy diferentes
 b) Cuando el problema no cumple el principio de optimalidad
 c) Se puede aplicar en ambos casos
 Solución: c
-Justificación: Es correcta porque Se puede aplicar en ambos casos coincide con el análisis clásico de divide y vencerás.
+Justificación: El esquema Divide y Vencerás es una técnica general de descomposición que no exige subproblemas equilibrados ni el cumplimiento del principio de optimalidad, requisito este último específico de la programación dinámica. Ambas situaciones permiten la aplicación del paradigma siempre que el problema sea recursivamente divisible y sus soluciones parciales puedan combinarse.
 
 Pregunta 793: Dado el algoritmo de búsqueda binaria, supongamos que, en vez de dividir la lista de elementos en dos mitades del mismo tamaño, la dividamos en dos partes de tamaños 1/3 y 2/3. El coste de este algoritmo:
 a) Es el mismo que el del original
@@ -5718,7 +5718,7 @@ a) Resolver los subproblemas de mayor a menor y guardar su resultado en una tabl
 b) Resolver los subproblemas de menor a mayor y guardar su resultado en una tabla, inicializándola con los problemas pequeños.
 c) Resolver los subproblemas de mayor a menor y guardar su resultado en una tabla, inicializándola con los problemas más grandes.
 Solución: b
-Justificación: Es correcta porque Resolver los subproblemas de menor a mayor y guardar su resultado en una tabla, inicializándola con los problemas pequeños y reutiliza subproblemas para evitar recomputaciones.
+Justificación: La programación dinámica bottom-up resuelve primero los subproblemas más sencillos y almacena sus resultados para construir de forma iterativa las soluciones de problemas mayores. Este método asegura que cualquier cálculo necesario esté disponible previamente en la tabla, eliminando la redundancia de resolver múltiples veces el mismo estado.
 
 Pregunta 800: Si aplicamos Programación Dinámica a un problema que también tiene solución por divide y vencerás podemos asegurar que...:
 a) El coste temporal se reduce y el espacial aumenta con respecto a la solución por DyV

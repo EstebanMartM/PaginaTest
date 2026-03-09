@@ -961,7 +961,7 @@
   // =========================
   // Shuffle options per question instance
   // =========================
-  function makeShuffledQuestionInstance(baseQ) {
+  function makeShuffledQuestionInstance(baseQ, seed = '') {
     // baseQ.options: [{letter:'a'..'e',text}]
     const originalOptions = baseQ.options.map(o => ({ ...o }));
     const correctOriginalLetter = baseQ.answer;
@@ -972,31 +972,47 @@
       return { ...baseQ, options: originalOptions, answer: correctOriginalLetter };
     }
 
-    const lastPosMap = loadLastPos();
-    const lastPos = lastPosMap[String(baseQ.id)];
-
     let chosen = null;
 
-    for (let tries = 0; tries < 12; tries++) {
-      const shuffled = shuffleArray(originalOptions);
+    if (seed) {
+      const optSeed = `${seed}::${baseQ.id}::opt`;
+      const shuffled = seededShuffle(originalOptions, optSeed);
       const idxCorrect = shuffled.findIndex(o => o.letter === correctOriginalLetter);
-      if (idxCorrect === -1) continue;
+      if (idxCorrect !== -1) {
+        chosen = { shuffled, idxCorrect };
+      } else {
+        const fallbackIdx = originalOptions.findIndex(o => o.letter === correctOriginalLetter);
+        chosen = { shuffled: originalOptions, idxCorrect: fallbackIdx };
+      }
+    } else {
+      const lastPosMap = loadLastPos();
+      const lastPos = lastPosMap[String(baseQ.id)];
 
-      if (Number.isInteger(lastPos) && shuffled.length > 1) {
-        if (idxCorrect === lastPos) {
-          // guarda candidato por si no hay alternativa (raro)
-          chosen = chosen || { shuffled, idxCorrect };
-          continue;
+      for (let tries = 0; tries < 12; tries++) {
+        const shuffled = shuffleArray(originalOptions);
+        const idxCorrect = shuffled.findIndex(o => o.letter === correctOriginalLetter);
+        if (idxCorrect === -1) continue;
+
+        if (Number.isInteger(lastPos) && shuffled.length > 1) {
+          if (idxCorrect === lastPos) {
+            // guarda candidato por si no hay alternativa (raro)
+            chosen = chosen || { shuffled, idxCorrect };
+            continue;
+          }
         }
+
+        chosen = { shuffled, idxCorrect };
+        break;
       }
 
-      chosen = { shuffled, idxCorrect };
-      break;
-    }
+      if (!chosen) {
+        const idxCorrect = originalOptions.findIndex(o => o.letter === correctOriginalLetter);
+        chosen = { shuffled: originalOptions, idxCorrect };
+      }
 
-    if (!chosen) {
-      const idxCorrect = originalOptions.findIndex(o => o.letter === correctOriginalLetter);
-      chosen = { shuffled: originalOptions, idxCorrect };
+      // guarda última posición de correcta
+      lastPosMap[String(baseQ.id)] = chosen.idxCorrect;
+      saveLastPos(lastPosMap);
     }
 
     const newOptions = chosen.shuffled.map((o, idx) => ({
@@ -1005,10 +1021,6 @@
     }));
 
     const newCorrectLetter = OPTION_LETTERS[chosen.idxCorrect] ?? correctOriginalLetter;
-
-    // guarda última posición de correcta
-    lastPosMap[String(baseQ.id)] = chosen.idxCorrect;
-    saveLastPos(lastPosMap);
 
     return {
       ...baseQ,
@@ -1680,7 +1692,13 @@
   function takeNextBaseQuestion(quiz) {
     if (!quiz || !quiz.basePool || !quiz.basePool.length) return null;
     if (quiz.deckPtr >= quiz.deck.length) {
-      quiz.deck = shuffleArray(quiz.basePool);
+      if (quiz.seed) {
+        const nextCycle = Number.isInteger(quiz.deckCycle) ? quiz.deckCycle + 1 : 1;
+        quiz.deckCycle = nextCycle;
+        quiz.deck = seededShuffle(quiz.basePool, `${quiz.seed}::${nextCycle}`);
+      } else {
+        quiz.deck = shuffleArray(quiz.basePool);
+      }
       quiz.deckPtr = 0;
     }
     const q = quiz.deck[quiz.deckPtr];
@@ -1706,6 +1724,8 @@
     let examKey = '';
     let examLabel = '';
     let durationMs = 0;
+    const seedInput = el.seedInput ? el.seedInput.value.trim().toUpperCase() : '';
+    const activeSeed = (seedInput && seedInput.length >= 4) ? seedInput : '';
 
     if (infinite) {
       const basePool = getBasePoolForQuiz();
@@ -1719,6 +1739,7 @@
         modeLabel = 'Infinito (Aleatorio)';
       }
 
+      const quizSeed = (state.mode === 'random' && activeSeed) ? activeSeed : '';
       const quiz = {
         questions: [],
         idx: 0,
@@ -1732,13 +1753,15 @@
         infinite: true,
         durationMs,
         basePool,
-        deck: shuffleArray(basePool),
+        seed: quizSeed,
+        deckCycle: 0,
+        deck: quizSeed ? seededShuffle(basePool, `${quizSeed}::0`) : shuffleArray(basePool),
         deckPtr: 0
       };
 
       const firstBase = takeNextBaseQuestion(quiz);
       if (!firstBase) return;
-      quiz.questions.push(makeShuffledQuestionInstance(firstBase));
+      quiz.questions.push(makeShuffledQuestionInstance(firstBase, quiz.seed));
       state.quiz = quiz;
     } else {
       let selectedQuestions = [];
@@ -1747,8 +1770,8 @@
         if (state.pool.length < 20) return;
         
         // Check for seed challenge
-        const seed = el.seedInput ? el.seedInput.value.trim().toUpperCase() : '';
-        if (seed && seed.length >= 4) {
+        const seed = activeSeed;
+        if (seed) {
           // Use seeded shuffle for reproducible order
           const shuffled = seededShuffle(state.pool, seed);
           selectedQuestions = shuffled.slice(0, 20);
@@ -1789,7 +1812,8 @@
       }
 
       // Reordena opciones por pregunta y recalcula letra correcta
-      const instanced = selectedQuestions.map(q => makeShuffledQuestionInstance(q));
+      const optionSeed = (state.mode === 'random' && activeSeed) ? activeSeed : '';
+      const instanced = selectedQuestions.map(q => makeShuffledQuestionInstance(q, optionSeed));
 
       state.quiz = {
         questions: instanced,
@@ -2035,7 +2059,7 @@
       }
 
       state.quiz.idx += 1;
-      state.quiz.questions.push(makeShuffledQuestionInstance(nextBase));
+      state.quiz.questions.push(makeShuffledQuestionInstance(nextBase, state.quiz.seed));
 
       state.locked = false;
       state.selected = null;

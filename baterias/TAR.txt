@@ -846,754 +846,806 @@ d) El robot mantiene ambos pies apoyados en el suelo.
 Solución: c
 Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
 
-Pregunta 7: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
+¡Entendido! Aquí tienes un bloque completamente nuevo con 100 preguntas inéditas (numeradas de la 101 a la 200) sobre robótica, cinemática, planificación, arquitecturas, SLAM, IA y procesamiento. Siguen exactamente el mismo formato, longitud y rigor que tus primeras 100 preguntas.
+
+Puedes copiar y pegar este bloque directamente al final de tu documento original (justo después de la Pregunta 100) para tener tu test de 200 preguntas reales y sin repeticiones.
+
+Pregunta 101: En robótica móvil, la configuración "skid-steer" (deslizamiento) se caracteriza por:
+a) Tener ruedas direccionales independientes.
+b) Girar mediante la diferencia de velocidad entre las ruedas de un lado y del otro, provocando deslizamiento.
+c) Usar ruedas Mecanum en todos sus ejes.
+d) Eliminar por completo el error de odometría.
+Solución: b
+Justificación: El giro tipo tanque o skid-steer requiere que las ruedas se deslicen lateralmente al rotar, lo que causa alto desgaste y error odométrico.
+
+Pregunta 102: Las ruedas Mecanum permiten a un robot:
+a) Subir escaleras sin control dinámico.
+b) Moverse holonómicamente gracias a los rodillos inclinados a 45 grados en su periferia.
+c) Consumir menos energía que las ruedas convencionales.
+d) Desplazarse solo en línea recta.
+Solución: b
+Justificación: La disposición de los rodillos permite generar vectores de fuerza en múltiples direcciones, logrando un movimiento omnidireccional.
+
+Pregunta 103: El Centro Instantáneo de Rotación (ICC) en un robot diferencial:
+a) Está siempre en el centro geométrico del robot.
+b) Es el punto alrededor del cual rotan todas las ruedas del robot en un instante dado.
+c) Solo existe si el robot avanza en línea recta.
+d) Es el punto donde se procesan los datos del servidor cloud.
+Solución: b
+Justificación: Cinemáticamente, cualquier movimiento 2D se puede describir como una rotación pura alrededor del ICC.
+
+Pregunta 104: La cinemática directa de un robot móvil resuelve el problema de:
+a) Calcular las velocidades de las ruedas a partir de la velocidad deseada del robot.
+b) Calcular la pose y velocidad del robot en el espacio a partir de las velocidades de sus ruedas.
+c) Evitar obstáculos en el mapa global.
+d) Construir una rejilla de ocupación.
+Solución: b
+Justificación: La cinemática directa parte de las entradas de los actuadores para predecir el comportamiento global del chasis.
+
+Pregunta 105: La cinemática inversa de un robot móvil se utiliza para:
+a) Estimar la batería restante.
+b) Transformar comandos de velocidad del robot (v, ω) en las velocidades necesarias en cada rueda.
+c) Mapear un entorno sin sensores.
+d) Apagar los motores de forma segura.
+Solución: b
+Justificación: El controlador de navegación da un comando general y la cinemática inversa deduce qué debe hacer cada actuador.
+
+Pregunta 106: En la marcha de un robot bípedo, la fase en la que un pie está en el aire moviéndose hacia adelante se denomina:
+a) Fase de doble soporte.
+b) Fase de balanceo (swing phase).
+c) Fase de apoyo (stance phase).
+d) ZMP inverso.
+Solución: b
+Justificación: La pierna en fase de balanceo avanza mientras la de apoyo soporta el peso y mantiene el equilibrio.
+
+Pregunta 107: En el modelo de "péndulo invertido" para el equilibrio de robots bípedos:
+a) Toda la masa se concentra en un punto que oscila sobre la base de soporte.
+b) El centro de gravedad siempre está por debajo del suelo.
+c) Se ignoran las fuerzas inerciales.
+d) Solo sirve para robots con ruedas.
 Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+Justificación: Es una simplificación clásica para modelar la dinámica de la caída y calcular el ZMP.
 
-Pregunta 8: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
+Pregunta 108: El margen de estabilidad estática en un robot con patas se define como:
+a) La altura del robot.
+b) La distancia mínima desde la proyección del centro de masas hasta los bordes del polígono de soporte.
+c) La velocidad máxima de sus patas.
+d) El peso de la batería.
 Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+Justificación: Un mayor margen indica que el robot está más lejos de volcar, siendo más robusto ante perturbaciones.
 
-Pregunta 9: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
+Pregunta 109: Los sensores exteroceptivos miden:
+a) El estado interno del robot (posición de motores, batería).
+b) La velocidad del procesador on-board.
+c) Información del entorno exterior (LiDAR, cámaras, ultrasonidos).
+d) Únicamente la temperatura interna.
 Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+Justificación: Proveen datos sobre el mundo físico que rodea al robot para poder interactuar y navegar.
 
-Pregunta 10: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
+Pregunta 110: Una Unidad de Medida Inercial (IMU) tradicionalmente incluye:
+a) Solo GPS y cámara.
+b) Acelerómetro, giroscopio y a veces magnetómetro.
+c) LiDAR y ultrasonido.
+d) Sensores de contacto.
 Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+Justificación: Combina sensores para estimar aceleración lineal y velocidad angular, ayudando en la odometría y equilibrio.
 
-Pregunta 11: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
+Pregunta 111: El error sistemático en odometría es causado principalmente por:
+a) Deslizamiento por suelo mojado.
+b) Golpes con obstáculos.
+c) Diámetros de rueda desiguales o desalineación mecánica constante.
+d) Pérdida de paquetes en la red WiFi.
 Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+Justificación: Son errores intrínsecos de la máquina que se acumulan de manera predecible y pueden calibrarse.
 
-Pregunta 12: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Pregunta 112: ¿Qué ventaja ofrece una cámara RGB-D frente a un LiDAR 2D clásico?
+a) Tiene mayor alcance y funciona perfectamente a plena luz del sol.
+b) Proporciona información de profundidad y color en 3D del entorno cercano.
+c) Consume mucha menos memoria computacional.
+d) Nunca sufre de ruido en la imagen.
+Solución: b
+Justificación: Las RGB-D capturan imágenes con información tridimensional (nube de puntos) ideal para manipulación y navegación 3D.
+
+Pregunta 113: Una representación espacial basada en Octrees consiste en:
+a) Un mapa topológico lineal.
+b) Dividir el espacio 3D jerárquicamente en 8 cubos menores de forma recursiva.
+c) Descartar todos los obstáculos no convexos.
+d) Una lista de reglas reactivas.
+Solución: b
+Justificación: Los Octrees son muy eficientes en memoria para mapas 3D volumétricos, comprimiendo el espacio vacío.
+
+Pregunta 114: El "Cierre de Bucle" (Loop Closure) en SLAM consiste en:
+a) Apagar el robot al terminar el mapa.
+b) Detectar que el robot ha vuelto a un lugar ya visitado para corregir la deriva acumulada en la trayectoria.
+c) Reconectar el cable de red.
+d) Aislar el procesamiento en edge.
+Solución: b
+Justificación: Al reconocer un sitio previo, el algoritmo reoptimiza el mapa completo eliminando los errores acumulados por la odometría.
+
+Pregunta 115: El problema de la "Asociación de Datos" en SLAM se refiere a:
+a) Sincronizar el robot con la nube.
+b) Determinar qué medidas actuales del sensor corresponden a qué landmarks ya guardados en el mapa.
+c) Formatear el disco duro on-board.
+d) Subir los pesos en Federated Learning.
+Solución: b
+Justificación: Una mala asociación (confundir dos columnas iguales, por ejemplo) destruye la calidad del mapa estimado.
+
+Pregunta 116: En el Filtro de Kalman Extendido (EKF) para SLAM, la incertidumbre de la posición se representa típicamente mediante:
+a) Una partícula solitaria.
+b) Elipses de covarianza que crecen al moverse y se encogen al ver landmarks conocidos.
+c) Un polígono de soporte rígido.
+d) Árboles de decisión.
+Solución: b
+Justificación: El EKF asume distribuciones gaussianas, cuya incertidumbre espacial se visualiza como elipses.
+
+Pregunta 117: Un mapa semántico se diferencia de un mapa métrico puro en que:
+a) No contiene información sobre el espacio libre.
+b) Asigna significado a las zonas u objetos (ej. "silla", "pasillo", "puerta") más allá de su geometría.
+c) Sólo usa TinyML.
+d) No se puede utilizar para navegación.
+Solución: b
+Justificación: La semántica añade comprensión del entorno, facilitando tareas complejas (ej. "ve a la cocina").
+
+Pregunta 118: PRM (Probabilistic Roadmap) es un algoritmo de planificación que:
+a) Muestrea puntos aleatorios en el espacio libre y los conecta para formar un grafo reutilizable.
+b) Sólo funciona para celdas de ocupación.
+c) Exige que el robot sea puramente reactivo.
+d) Calcula campos vectoriales.
 Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+Justificación: Es excelente para planificaciones múltiples en entornos estáticos conocidos mediante muestreo probabilístico.
 
-Pregunta 13: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
+Pregunta 119: El algoritmo RRT (Rapidly-exploring Random Tree) destaca por:
+a) Ser incapaz de encontrar caminos en espacios de alta dimensionalidad.
+b) Explorar eficientemente espacios continuos y complejos expandiendo un árbol hacia zonas no visitadas.
+c) Evaluar el coste de todos los caminos posibles en un grafo.
+d) Sustituir el uso de sensores locales.
 Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+Justificación: RRT busca rápidamente soluciones en espacios grandes (como robots con muchos grados de libertad) sin garantizar optimalidad pura.
 
-Pregunta 14: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 15: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
+Pregunta 120: A diferencia del RRT básico, el algoritmo RRT* (RRT-Star) se caracteriza por:
+a) Funcionar solo en robots de dos patas.
+b) Reconectar los nodos del árbol para garantizar la optimalidad asintótica de la ruta.
+c) No usar factores aleatorios.
+d) Ser más rápido pero generar peores trayectorias.
 Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+Justificación: RRT* optimiza las conexiones locales continuamente, logrando caminos cada vez más cortos cuanto más tiempo de cálculo se da.
 
-Pregunta 16: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
+Pregunta 121: En el método de Campos de Potencial Artificial para navegación, el objetivo actúa como:
+a) Una fuerza repulsiva.
+b) Un obstáculo más.
+c) Una fuerza atractiva que tira del robot hacia él.
+d) Una partícula del filtro.
 Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+Justificación: El objetivo atrae al robot, mientras que los obstáculos generan fuerzas repulsivas que el robot combina para moverse.
 
-Pregunta 17: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Pregunta 122: Un problema clásico de los Campos de Potencial Artificial es:
+a) El alto consumo de batería.
+b) Los mínimos locales, donde las fuerzas atractivas y repulsivas se anulan y el robot se queda atrapado.
+c) No pueden ejecutarse en microcontroladores.
+d) Que ignoran los sensores exteroceptivos.
+Solución: b
+Justificación: Zonas en forma de "U" o configuraciones simétricas pueden cancelar las fuerzas, deteniendo al robot lejos de su objetivo.
+
+Pregunta 123: El enfoque DWA (Dynamic Window Approach) para evasión de obstáculos se basa en:
+a) Mapear globalmente todo el edificio.
+b) Simular varias velocidades posibles durante un corto tiempo y elegir la que evite colisiones acercándose al objetivo.
+c) Desplegar un sensor ultrasónico apuntando al techo.
+d) Eliminar los límites de velocidad de los actuadores.
+Solución: b
+Justificación: DWA opera en el espacio de velocidades, evaluando arcos factibles dinámicamente dados los límites de aceleración del robot.
+
+Pregunta 124: Al usar una distancia heurística Manhattan en lugar de Euclidiana en una rejilla con movimientos de 4 vías:
+a) El robot viaja en línea recta atravesando paredes.
+b) La estimación es más precisa respecto a cómo se moverá realmente el robot por la rejilla.
+c) El A* dejará de encontrar la ruta óptima.
+d) El coste computacional se vuelve infinito.
+Solución: b
+Justificación: Si el robot solo se mueve arriba, abajo, izquierda y derecha, Manhattan calcula exactamente el coste sin diagonales.
+
+Pregunta 125: El concepto de "Inflation Radius" (radio de inflado) en los costmaps de navegación sirve para:
+a) Mantener al robot a una distancia de seguridad de las paredes para evitar colisiones.
+b) Reducir el tamaño de las partículas en el filtro.
+c) Acelerar el servidor fog.
+d) Calibrar la cámara RGB-D.
 Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+Justificación: Se asigna alto coste a celdas cercanas a los obstáculos, forzando a los planificadores a buscar rutas centradas y seguras.
 
-Pregunta 18: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
-Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
-
-Pregunta 19: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 20: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
-Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
-
-Pregunta 21: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
-Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
-
-Pregunta 22: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Pregunta 126: ¿Qué representa un espacio de trabajo (workspace) frente al espacio de configuración?
+a) Las coordenadas geométricas del mundo real, frente a los parámetros articulares/pose que definen al robot.
+b) El escritorio del programador frente a los parámetros del servidor.
+c) El área del almacén frente a las celdas marcadas.
+d) El protocolo IoT frente al IoRT.
 Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+Justificación: El espacio de configuración transforma las dimensiones físicas del robot en un punto manipulable algebraicamente en N dimensiones.
 
-Pregunta 23: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
+Pregunta 127: Un Diagrama de Voronoi generalizado utilizado para navegación:
+a) Obliga al robot a raspar las paredes.
+b) Construye caminos que maximizan la distancia a los obstáculos más cercanos.
+c) Es un enfoque puramente subsumido.
+d) Minimiza la memoria on-board borrando el mapa cada segundo.
 Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+Justificación: Voronoi genera el "esqueleto" del espacio libre, garantizando rutas inherentemente seguras al ir por el centro de pasillos.
 
-Pregunta 24: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 25: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
+Pregunta 128: En trayectorias globales, la "suavidad" (smoothness) es crítica porque:
+a) Disminuye el peso del robot.
+b) Una trayectoria con esquinas afiladas obligaría a un robot no holonómico a detenerse y rotar en el sitio continuamente.
+c) Evita ataques de envenenamiento en Edge AI.
+d) Aumenta la resolución del LiDAR.
 Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+Justificación: Las rutas cinemáticamente factibles (ej. curvas Spline) permiten movimientos continuos, ahorrando tiempo y energía.
 
-Pregunta 26: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
-Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
-
-Pregunta 27: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Pregunta 129: Un Deadlock en robótica multi-agente ocurre cuando:
+a) Dos o más robots se bloquean mutuamente el paso sin que sus navegadores locales encuentren salida.
+b) Los motores consumen poca corriente.
+c) Se pierde la conexión Cloud.
+d) El robot alcanza el objetivo correctamente.
 Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+Justificación: Es un punto muerto clásico; requiere reglas de prioridad o planificación centralizada para desatascar a los agentes.
 
-Pregunta 28: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
+Pregunta 130: En planificación 2.5D (Mapas de Elevación), cada celda de la rejilla guarda:
+a) Un estado "libre" o "ocupado" estricto.
+b) La altura promedio u obstáculo máximo registrado en esa zona.
+c) Exclusivamente la textura de la imagen.
+d) Reglas reactivas del entorno.
 Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+Justificación: Útiles para terreno irregular, no son 3D puro (no admiten voladizos múltiples sobre la misma celda) pero representan el desnivel.
 
-Pregunta 29: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 30: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
+Pregunta 131: La clásica arquitectura "Sense-Plan-Act" (Sentir-Planificar-Actuar) pertenece al paradigma:
+a) Reactivo.
+b) Deliberativo.
+c) Subsumido.
+d) Fog Computing.
 Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+Justificación: Crea un ciclo secuencial de modelo global, planificación lógica y ejecución final.
 
-Pregunta 31: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
-Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+Pregunta 132: Una limitación conocida de "Sense-Plan-Act" ante entornos muy dinámicos es:
+a) Que no puede conectarse a internet.
+b) El "cuello de botella" computacional: el entorno puede cambiar mientras aún está planificando la acción.
+c) La ausencia de un modelo interno.
+d) Que necesita exclusivamente robots omnidireccionales.
+Solución: b
+Justificación: Si el bucle es lento, el robot actuará en base a un modelo desactualizado, colisionando con obstáculos dinámicos.
 
-Pregunta 32: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Pregunta 133: La arquitectura de tres capas (3T) típica incluye:
+a) Sensor, rueda, batería.
+b) Reactiva, de ejecución/secuenciadora, y deliberativa.
+c) Edge, fog y cloud.
+d) WiFi, Bluetooth y 5G.
+Solución: b
+Justificación: Es la arquitectura híbrida por excelencia: el nivel alto planea, el intermedio secuencia tareas, y el bajo reacciona.
+
+Pregunta 134: La capa secuenciadora en una arquitectura 3T se encarga de:
+a) Entrenar IA en la nube.
+b) Hacer de intermediario, activando y desactivando comportamientos reactivos en función del plan deliberativo.
+c) Solo encender los motores.
+d) Mantener el equilibrio estático de un hexápodo.
+Solución: b
+Justificación: Traduce objetivos simbólicos (ej. "ve a la sala A") en un conjunto de estados motores discretos.
+
+Pregunta 135: En fusión de comportamientos mediante Vectores de Esquema Motor (Motor Schemas):
+a) Un comportamiento siempre bloquea al resto (arbitraje).
+b) Los comportamientos emiten vectores de fuerza que se suman para generar una acción resultante continua.
+c) Se usa siempre SLAM visual.
+d) El robot apaga los sensores repetidos.
+Solución: b
+Justificación: A diferencia del arbitraje (que elige uno), los esquemas motores combinan respuestas (ej. evitar + ir a objetivo = esquivar hacia adelante).
+
+Pregunta 136: En ROS (Robot Operating System), un "Nodo" es:
+a) Un puerto de red físico.
+b) Un proceso ejecutable independiente que realiza tareas de computación.
+c) Una rueda motriz inteligente.
+d) Una partícula del filtro de Kalman.
+Solución: b
+Justificación: ROS está basado en grafos donde los nodos son programas modulares (ej. un nodo para la cámara, otro para planificar).
+
+Pregunta 137: En el modelo de comunicaciones de ROS, los "Tópicos" (Topics) funcionan mediante:
+a) Llamadas telefónicas directas.
+b) Un modelo de publicación y suscripción (publish/subscribe) de flujos de mensajes asíncronos.
+c) Sincronización estricta por turnos.
+d) Conexión exclusiva a servidores Cloud.
+Solución: b
+Justificación: Permite a los nodos enviar y recibir datos de forma desacoplada y continua (como imágenes o lecturas LiDAR).
+
+Pregunta 138: A diferencia de los Tópicos, los "Servicios" (Services) en ROS se utilizan para:
+a) Transmitir un flujo de vídeo continuo.
+b) Interacciones síncronas de petición-respuesta (request-reply) para tareas rápidas y puntuales.
+c) Alimentar eléctricamente el robot.
+d) Entrenar TinyML.
+Solución: b
+Justificación: Se usan cuando se necesita confirmación rápida (ej. "¿está encendido el motor? -> sí/no").
+
+Pregunta 139: Un Árbol de Comportamiento (Behavior Tree) se prefiere hoy en día sobre las Máquinas de Estados Finitos complejas porque:
+a) Son menos legibles para humanos.
+b) Son más modulares, escalables y fáciles de reutilizar y depurar sin crear marañas de transiciones.
+c) Solo funcionan en robots de orugas.
+d) Ejecutan algoritmos DWA automáticamente.
+Solución: b
+Justificación: En FSM complejas, añadir estados implica rehacer todas las flechas de transición; los BT usan nodos de control organizados jerárquicamente.
+
+Pregunta 140: La arquitectura BDI (Belief-Desire-Intention) modela agentes en base a:
+a) Celdas de rejilla probabilísticas.
+b) Estados mentales humanos: creencias (modelo del mundo), deseos (metas) e intenciones (planes comprometidos).
+c) Dinámica de fluidos.
+d) Subsunción reactiva pura sin memoria.
+Solución: b
+Justificación: Es una arquitectura cognitiva de alto nivel para robots sociales o sistemas multi-agente complejos.
+
+Pregunta 141: Una ventaja crucial del uso de 5G en redes de robots teleoperados es:
+a) Su alto consumo de batería.
+b) Su bajísima latencia (URLLC) y alta confiabilidad para transmisión de datos y comandos críticos en tiempo real.
+c) Su obligatoriedad de usar WiFi.
+d) Su dependencia de Green AI.
+Solución: b
+Justificación: La latencia casi nula permite control a distancia (incluso quirúrgico o industrial) sin desfases peligrosos.
+
+Pregunta 142: El protocolo MQTT, muy usado en IoT/IoRT, es especialmente útil porque:
+a) Consume mucha CPU y requiere conexiones estables permanentemente.
+b) Es un protocolo de mensajería ligero, ideal para dispositivos con recursos limitados y redes de baja calidad.
+c) Es un algoritmo de SLAM gráfico.
+d) Controla directamente la cinemática inversa.
+Solución: b
+Justificación: MQTT usa bajo ancho de banda y asegura la entrega de mensajes asíncronos (pub/sub).
+
+Pregunta 143: En el contexto del Cloud/Edge Robotics, el "Offloading de computación" consiste en:
+a) Descargar pesados cálculos matemáticos del robot hacia un servidor más potente para ahorrar energía y tiempo local.
+b) Apagar todos los servidores para trabajar aisladamente.
+c) Descargar carga física del chasis del robot.
+d) Eliminar los mapas para liberar disco duro.
 Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+Justificación: Tareas costosas como entrenamiento de IA o mapeo semántico global se delegan a servidores externos.
 
-Pregunta 33: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
+Pregunta 144: El paradigma de Computación Distribuida en enjambres robóticos (Swarm Robotics) se basa en:
+a) Un único superordenador controlando todos los agentes rígidamente.
+b) Múltiples robots simples interactuando localmente, generando comportamientos globales emergentes e inteligentes.
+c) Eliminar todas las comunicaciones.
+d) Reducir el polígono de soporte a cero.
 Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+Justificación: Se inspira en colonias de insectos, aportando robustez extrema al sistema si falla algún agente individual.
 
-Pregunta 34: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 35: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
+Pregunta 145: Un "Gemelo Digital" (Digital Twin) en sistemas IoRT es:
+a) Un robot físico de repuesto.
+b) Una réplica virtual hiperrealista y sincronizada de un sistema físico, útil para simulación, análisis y mantenimiento predictivo.
+c) Una cámara doble estéreo.
+d) El algoritmo A* duplicado.
 Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+Justificación: Recibe datos telemétricos en tiempo real del robot real para simular su estado e identificar fallos futuros.
 
-Pregunta 36: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
+Pregunta 146: El principal reto de la teleoperación de robots espaciales o submarinos es:
+a) La excesiva cantidad de baterías.
+b) El retardo significativo (latencia) de la red, que dificulta el control reactivo manual seguro.
+c) La falta de arquitecturas subsumidas.
+d) El exceso de precisión del LiDAR.
+Solución: b
+Justificación: Latencias de varios segundos exigen interfaces que usen realidad virtual predictiva e impiden la reacción humana a colisiones inminentes.
+
+Pregunta 147: ¿Cómo influye el "Ancho de Banda" en un sistema IoRT con múltiples cámaras de alta resolución?
+a) Solo afecta al color de los mapas.
+b) Limita la cantidad de imágenes que pueden enviarse simultáneamente a la nube sin compresión.
+c) Aumenta la estabilidad estática.
+d) Regula los voltajes del motor interno.
+Solución: b
+Justificación: Envíos masivos colapsan la red, de ahí la necesidad de procesar los datos (Edge Computing) antes de enviarlos.
+
+Pregunta 148: Una medida básica para mejorar la ciberseguridad en enlaces IoRT es:
+a) Enviar siempre datos en texto plano.
+b) Usar redes abiertas sin contraseña.
+c) Autenticar dispositivos e implementar encriptación de extremo a extremo (TLS/SSL).
+d) Eliminar el hardware criptográfico para ahorrar batería.
 Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+Justificación: Evita ataques de inyección de comandos o la interceptación de datos sensibles del entorno (Man-in-the-Middle).
 
-Pregunta 37: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Pregunta 149: Un ataque de "Envenenamiento de Datos" (Poisoning Attack) en Federated Learning busca:
+a) Destruir las ruedas del robot.
+b) Enviar intencionadamente actualizaciones de pesos locales corruptas para comprometer el modelo global de la nube.
+c) Desconectar la batería central.
+d) Saturar la memoria del LiDAR.
+Solución: b
+Justificación: Como FL entrena en el borde sin verificar los datos brutos, un agente malicioso puede deteriorar o sesgar la IA del conjunto.
+
+Pregunta 150: La técnica de "Privacidad Diferencial" en Federated Learning tiene como objetivo principal:
+a) Entregar todos los datos de los usuarios en bruto al servidor.
+b) Añadir un ruido matemático controlado a los datos o gradientes antes de compartirlos, evitando que se reconstruya la información original.
+c) Usar algoritmos de Dijkstra.
+d) Acelerar el proceso on-board.
+Solución: b
+Justificación: Permite al modelo global aprender las tendencias sin poder identificar nunca los datos exactos del nodo que los originó.
+
+Pregunta 151: ¿Qué técnica de optimización en TinyML reduce el número de bits necesarios para representar los parámetros matemáticos de la red neuronal?
+a) Pruning.
+b) Knowledge Distillation.
+c) Cuantización (Quantization), por ejemplo, pasando de Float32 a Int8.
+d) Data Augmentation.
+Solución: c
+Justificación: Al usar menos bits por parámetro, el modelo pierde mínima precisión, pero se encoge hasta un 75% en tamaño, ideal para microcontroladores.
+
+Pregunta 152: La técnica de "Pruning" (Poda) en redes neuronales embebidas consiste en:
+a) Arrancar actuadores físicos defectuosos.
+b) Eliminar sistemáticamente las conexiones (pesos sinápticos) que tienen valores muy cercanos a cero y no aportan apenas información.
+c) Comprimir el código fuente en ZIP.
+d) Borrar los mapas topológicos.
+Solución: b
+Justificación: Reduce el número de operaciones matemáticas durante la inferencia local, acelerando el Edge Computing.
+
+Pregunta 153: El problema conocido como "Sim-to-Real gap" ocurre porque:
+a) El robot no tiene conexión a internet.
+b) Los modelos de IA aprenden comportamientos perfectos en el simulador que fallan debido a la fricción, ruidos o dinámicas complejas del mundo físico.
+c) Las baterías en simulación no se agotan.
+d) La cinemática de los simuladores nunca usa orugas.
+Solución: b
+Justificación: La realidad es desordenada y compleja, causando que políticas de control de IA fallen dramáticamente al pasar del software al hardware.
+
+Pregunta 154: Para mitigar el "Sim-to-Real gap", una técnica común en entrenamiento de IA es la "Randomización de Dominio" (Domain Randomization), que implica:
+a) Solo usar colores oscuros.
+b) Alterar aleatoriamente texturas, iluminación, masas y fricciones durante la simulación para que la IA aprenda un comportamiento más general y robusto.
+c) Entrenar la IA apagando aleatoriamente el ordenador.
+d) Muestrear puntos A* ciegamente.
+Solución: b
+Justificación: Al experimentar variaciones extremas simuladas, el robot percibe el entorno real como solo otra ligera variación del simulador.
+
+Pregunta 155: En Aprendizaje por Refuerzo (Reinforcement Learning) aplicado a robótica, la función encargada de guiar el aprendizaje hacia el éxito se llama:
+a) Heurística admisible.
+b) Función de recompensa (Reward Function).
+c) Función de pérdida cruzada.
+d) Nodo maestro de ROS.
+Solución: b
+Justificación: Otorga valores positivos o negativos según las acciones del agente, "moldeando" el comportamiento deseado tras miles de pruebas.
+
+Pregunta 156: Un inconveniente crítico de usar Aprendizaje por Refuerzo directamente en un robot físico desde cero es:
+a) Que no puede usar redes neuronales.
+b) Que la etapa inicial de exploración aleatoria provocará múltiples caídas, colisiones y rotura de hardware antes de aprender nada.
+c) Que siempre es 100% eficiente energéticamente.
+d) Que mejora automáticamente la ciberseguridad.
+Solución: b
+Justificación: Aprender de los fallos es inaceptable si el coste de reparar el robot físico es alto (motivo por el que primero se entrena en simulación).
+
+Pregunta 157: El Aprendizaje por Imitación (Imitation Learning) o Clonación de Comportamientos consiste en:
+a) Fabricar robots gemelos idénticos.
+b) Utilizar teleoperación o demostraciones de un experto humano para alimentar un dataset supervisado que la IA aprenderá a copiar.
+c) Simular un entorno A*.
+d) Programar máquinas de estados finitas.
+Solución: b
+Justificación: Acorta enormemente el tiempo de entrenamiento, pues la IA no empieza explorando al azar, sino mapeando observaciones a las acciones del experto.
+
+Pregunta 158: En el paradigma de Green AI aplicado al entrenamiento en la nube (Cloud), un factor determinante a reducir es:
+a) La conectividad 5G.
+b) La masiva huella de carbono originada por el consumo de energía y enfriamiento de los servidores durante semanas de entrenamiento.
+c) El uso de lenguajes compilados.
+d) La precisión pura del modelo.
+Solución: b
+Justificación: Green AI busca eficiencia y sostenibilidad ambiental ante el crecimiento exponencial computacional del Deep Learning.
+
+Pregunta 159: ¿Qué tipo de hardware de procesamiento es característico del despliegue TinyML?
+a) Servidores GPU de grado industrial.
+b) Microcontroladores (MCU) con memorias del orden de los Kilobytes y un consumo de milivatios.
+c) Solo clusters Cloud AWS.
+d) Raspberry Pi con discos de estado sólido masivos.
+Solución: b
+Justificación: El ecosistema TinyML exprime la IA para que quepa en chips ultra pequeños y baratos, integrables en herramientas y pequeños sensores.
+
+Pregunta 160: Una aplicación clásica de TinyML en maquinaria rotativa conectada es:
+a) Generación de imágenes sintéticas fotorrealistas.
+b) Procesamiento y generación de lenguaje natural a tiempo real.
+c) Mantenimiento predictivo analizando vibraciones in situ para alertar de un fallo antes de que ocurra.
+d) Compilación centralizada de ROS.
+Solución: c
+Justificación: El sensor recoge datos locales del acelerómetro, el MCU identifica la anomalía vibracional con su modelo int8 y notifica al Fog/Cloud solo la alerta.
+
+Pregunta 161: Las NPUs (Neural Processing Units) incorporadas en sistemas embebidos sirven para:
+a) Sustituir las antenas WiFi.
+b) Acelerar operaciones matemáticas de matrices (multiplicación y acumulación) típicas de las redes neuronales, reduciendo drásticamente el consumo eléctrico respecto a una CPU.
+c) Procesar exclusivamente el algoritmo de Dijkstra.
+d) Regular la suspensión mecánica del robot.
+Solución: b
+Justificación: Son silicio dedicado para hacer inferencia de IA rápido y gastando fracciones de vatio, vital en Edge computing.
+
+Pregunta 162: ¿Cuál de las siguientes métricas NO suele ser una prioridad primordial bajo los criterios de Green AI?
+a) El número de parámetros flotantes totales del modelo (Tamaño).
+b) Los milisegundos por inferencia.
+c) Alcanzar un 99.99% de precisión si el 97% requiere un 90% menos de recursos computacionales.
+d) El consumo energético en julios.
+Solución: c
+Justificación: Green AI está dispuesto a sacrificar precisiones insignificantes si el retorno en ahorro de coste, energía y viabilidad es inmenso.
+
+Pregunta 163: "Transfer Learning" en visión robótica suele emplearse para:
+a) Transferir el robot a otra habitación a ciegas.
+b) Tomar una red neuronal previamente entrenada en millones de imágenes comunes y "afinarla" con unas pocas imágenes de los objetos específicos del entorno del robot.
+c) Mandar logs por MQTT.
+d) Mapear SLAM mediante radar.
+Solución: b
+Justificación: Ahorra semanas de entrenamiento y potencia de cálculo masiva, aprovechando los detectores de bordes y formas ya aprendidos.
+
+Pregunta 164: Las Redes Neuronales Pulsantes (SNN) o arquitectura neuromórfica están ganando atención en Edge Robotics debido a que:
+a) Son exactamente iguales computacionalmente a las CNN.
+b) Operan de manera asíncrona enviando pulsos solo cuando hay eventos (como la retina humana), bajando el consumo energético a niveles ínfimos.
+c) Consumen mucha más memoria RAM que los modelos LLM.
+d) Reemplazan la necesidad de actuadores.
+Solución: b
+Justificación: Estas tecnologías combinadas con cámaras de eventos (Event Cameras) posibilitan visión artificial super-rápida y ultra-eficiente.
+
+Pregunta 165: Edge Impulse y TensorFlow Lite for Microcontrollers (TFLM) son ejemplos de:
+a) Sistemas operativos completos de PC.
+b) Simuladores cinemáticos 3D.
+c) Entornos/herramientas orientados a compilar y desplegar modelos de aprendizaje automático en arquitecturas IoT limitadas.
+d) Motores de bases de datos relacionales puros.
+Solución: c
+Justificación: Son las herramientas estrella para cerrar la brecha entre entrenar modelos de IA y meterlos en microchips.
+
+Pregunta 166: El grado de libertad (DoF) de un robot hace referencia a:
+a) La capacidad que tiene la IA para reescribir su propio código.
+b) El número de parámetros independientes o articulaciones mecánicas que definen su configuración espacial.
+c) Su capacidad de autonomía energética (días sin cargar).
+d) El ancho de banda de su conexión WiFi.
+Solución: b
+Justificación: Cada eje de rotación en un brazo o pata añade al menos un grado de libertad, aumentando la complejidad cinemática.
+
+Pregunta 167: Un robot de dos ruedas coaxiales motrices (ej. un Segway o Turtlebot2) sin rueda loca:
+a) Es estáticamente estable por definición.
+b) Es inherentemente inestable en el plano de cabeceo (pitch) y necesita un controlador dinámico activo tipo PID para no caerse hacia adelante o atrás.
+c) No requiere odometría.
+d) No tiene ICC.
+Solución: b
+Justificación: Su polígono de soporte es esencialmente una línea, requiriendo estabilidad dinámica constante mediante aceleraciones compensatorias.
+
+Pregunta 168: En el modelado de cinemática de ruedas, la restricción de rodadura pura asume que:
+a) La rueda patina constantemente para ahorrar batería.
+b) El punto de contacto con el suelo tiene velocidad relativa nula y no hay deslizamiento lateral.
+c) La rueda gira en sentido inverso para frenar instantáneamente.
+d) El robot siempre vuela.
+Solución: b
+Justificación: La derivación matemática de odometría ideal asume cero patinamiento y cero deslizamiento lateral.
+
+Pregunta 169: Al aplicar un filtro de partículas para Localización Global (ej. robot encendido en un punto ciego):
+a) Todas las partículas inician en el centro del mapa exacto.
+b) Las partículas se distribuyen uniformemente por todo el espacio libre conocido del mapa hasta que las observaciones empiecen a descartar falsas posiciones.
+c) Se omite la fase de predicción.
+d) Se usan únicamente comandos reactivos tipo Braitenberg.
+Solución: b
+Justificación: Ante el desconocimiento total ("problema del robot secuestrado"), las hipótesis cubren todo y convergen poco a poco hacia la pose real.
+
+Pregunta 170: Los "Vehículos de Braitenberg" son el ejemplo clásico más simple de:
+a) Una nave espacial interplanetaria.
+b) Planificación deliberativa masiva con algoritmos Dijkstra profundos.
+c) Comportamientos reactivos puros (conexión de un par de sensores fotolumínicos directos a los motores para atraerse/evitar la luz).
+d) Servidores Federated Learning.
+Solución: c
+Justificación: Muestran cómo conexiones mecánicas/analógicas muy simples provocan aparentes comportamientos complejos emergentes de "amor" o "miedo" a estímulos.
+
+Pregunta 171: Durante la exploración y mapeo autónomo (Frontier Exploration), el objetivo del robot suele ser:
+a) Mantenerse en la estación base.
+b) Navegar siempre a los bordes conocidos ("fronteras") entre el espacio libre mapeado y el espacio desconocido, para ampliar el mapa eficientemente.
+c) Generar obstáculos virtuales infinitos.
+d) Evitar el Edge Computing.
+Solución: b
+Justificación: La técnica busca puntos que maximicen la ganancia de nueva información hasta completar todo el recinto.
+
+Pregunta 172: Las marcas fiduciarias (ej. códigos AprilTag, ArUco, códigos QR) en robótica se utilizan principalmente para:
+a) Estimar la postura (posición y orientación 6D) extremadamente precisa y robusta de objetos frente a una cámara.
+b) Reemplazar el motor del chasis diferencial.
+c) Mejorar la latencia 5G.
+d) Entrenar TinyML a bajo nivel.
 Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+Justificación: Al ser geométricamente conocidas, los algoritmos de visión identifican rápidamente su patrón y derivan la perspectiva, ideal para docking y anclaje.
 
-Pregunta 38: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
+Pregunta 173: "V-SLAM" hace referencia a:
+a) SLAM donde los mapas topológicos no se utilizan nunca.
+b) Algoritmos de SLAM que utilizan predominante o exclusivamente cámaras (Visión) en lugar de LiDAR como sensor exteroceptivo.
+c) Virtual SLAM, hecho sin sensores físicos.
+d) SLAM Vectorial.
 Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+Justificación: Utiliza descriptores visuales de esquinas o texturas (features) de la cámara para realizar la odometría visual y el mapeo.
 
-Pregunta 39: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 40: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
+Pregunta 174: Al programar controladores de seguimiento de trayectoria, un controlador PID (Proporcional-Integral-Derivativo) regula:
+a) El encendido del LiDAR.
+b) El error de la ruta, actuando sobre la posición actual, la acumulación pasada del error y la tasa de cambio de dicho error para suavizar la llegada al setpoint.
+c) La política de privacidad del Fog server.
+d) Los pesos de la red neuronal.
 Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+Justificación: El PID es el lazo de control industrial básico para conseguir que un motor logre una posición/velocidad reduciendo oscilaciones.
 
-Pregunta 41: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
-Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+Pregunta 175: Los sensores ultrasónicos son económicos y comunes en robots reactivos, sin embargo, su limitación física conocida incluye:
+a) Funcionan perfectamente sin restricciones de rango angular.
+b) Tienen mala resolución angular (su cono de emisión es muy amplio) y sufren interferencias de reflexiones especulares en superficies lisas inclinadas.
+c) Son imposibles de usar en microcontroladores.
+d) Consumen enormes recursos en Cloud.
+Solución: b
+Justificación: El sonido rebota en diagonal al golpear esquinas planas, no devolviendo el eco y engañando al sensor de que hay vía libre.
 
-Pregunta 42: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Pregunta 176: Cuando se dice que un robot "pierde odometría" típicamente se refiere a que:
+a) Las cámaras se han fundido.
+b) Ha sufrido un deslizamiento notable (ej. resbalón de la rueda o levantamiento) alterando por completo su estimación de posición interna, requiriendo que los sensores exteroceptivos (ej. láser) salven su localización.
+c) La batería se agotó.
+d) Está usando Dijkstra.
+Solución: b
+Justificación: Los encoders cuentan rotaciones de motor, no avance físico; si la rueda gira en el aire, el robot creerá falsamente haber avanzado metros.
+
+Pregunta 177: En el algoritmo de navegación VFH (Vector Field Histogram), para calcular comandos libres de choque:
+a) Se ignoran las dinámicas físicas del robot.
+b) Se transforma la nube de obstáculos en un histograma polar 1D para elegir la mejor abertura o "valle" que dirija hacia el objetivo.
+c) Se entrenan pesos por imitación.
+d) Se hace una llamada API al servidor Cloud.
+Solución: b
+Justificación: Es una evolución de Campos de Potencial menos propensa a oscilaciones en pasillos estrechos al modelar zonas libres direccionales.
+
+Pregunta 178: El término "Actuación Física" en la Robótica de IoT (IoRT) es el punto crítico que la diferencia del IoT normal porque:
+a) Impide el acceso al Cloud.
+b) Modifica activamente el estado del entorno real (ej. abrir una llave, mover cajas, cortar material), introduciendo riesgos de seguridad y daño mecánico no presentes en sensores puramente de lectura.
+c) Oculta la latencia del servidor Fog.
+d) Permite baterías infinitas.
+Solución: b
+Justificación: Si un sensor térmico IoT falla, se pierde información; si un brazo IoRT en fábrica falla o recibe datos corruptos, puede lastimar a un operador.
+
+Pregunta 179: El "Grafo Topológico" de un recinto a veces se complementa con navegación geométrica local porque:
+a) Los mapas topológicos tienen un consumo energético extremadamente alto por sí mismos.
+b) El grafo dicta la secuencia lógica de estancias a seguir, mientras que el geométrico evita pisar una papelera física durante ese trayecto abstracto.
+c) Dijkstra requiere sensores láser y odometría inercial forzosamente.
+d) Cloud computing y Fog computing son excluyentes.
+Solución: b
+Justificación: La hibridación Topológico-Métrico permite planificación a gran escala ultrarrápida (nodos) reteniendo la capacidad de control bajo nivel anti-choques (Métrico).
+
+Pregunta 180: "Duty Factor" (Factor de Trabajo) en el ciclo de marcha de un robot de patas define:
+a) La fracción de tiempo durante todo el ciclo de zancada en el cual una pata determinada se encuentra en contacto con el suelo.
+b) El volumen del polígono de soporte en ZMP estático.
+c) La eficiencia de TinyML en su ejecución.
+d) Las vueltas por segundo de los motores eléctricos.
 Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+Justificación: Si el Duty Factor es >0.5 para todas las patas, suele implicar marchas de caminata lentas y seguras (siempre hay más patas en el suelo que en el aire).
 
-Pregunta 43: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
+Pregunta 181: A diferencia de la marcha en oleada (Wave gait), una marcha de "Galope" en cuadrúpedos o "Bounding" implica:
+a) Apoyo simultáneo siempre de todas las patas.
+b) Tiempos de vuelo donde el robot entero no toca el suelo, requiriendo un control de estabilidad dinámica extraordinariamente veloz y modelado tipo muelle (SLIP).
+c) Polígonos de soporte invariables.
+d) Ahorro total de las reservas energéticas de las articulaciones.
 Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+Justificación: Los movimientos atléticos rápidos introducen tiempos en el aire (vuelo balístico) perdiendo el polígono de soporte, obligando a reequilibrar al aterrizar.
 
-Pregunta 44: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 45: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
+Pregunta 182: El concepto de "Agregación de Parámetros" (Parameter Aggregation) en arquitecturas Federated Learning para flotas robóticas es el momento en que:
+a) Todos los robots se acoplan físicamente.
+b) El nodo maestro fusiona mediante promedios (FedAvg u otros) los múltiples pesos locales enviados por las flotas, creando un solo modelo global actualizado e inteligente.
+c) Se fusionan sensores IMU y láser.
+d) Se borra el código TinyML defectuoso.
 Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+Justificación: Es el corazón matemático de FL, donde las experiencias separadas (gradientes/pesos) de todos los robots convergen en un cerebro maestro sin mover los datos originales.
 
-Pregunta 46: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
-Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+Pregunta 183: Un ejemplo paradigmático de Edge AI / Green AI aplicado a drones (robots aéreos) sería:
+a) Transmitir en vídeo 4K ininterrumpido cada vuelo a un servidor base, usando grandes potencias de transmisión de radio para encontrar objetos perdidos.
+b) Utilizar un acelerador NPU de 2 gramos acoplado a la cámara para identificar sobrevivientes directamente en el drone, mandando solo las coordenadas GPS al rescatista.
+c) Mandar instrucciones motoras individuales por WiFi lejano.
+d) Utilizar algoritmos A* en mapas 1D.
+Solución: b
+Justificación: Maximiza la duración de batería de vuelo al cortar la pesada radiofrecuencia de vídeo continuo, siendo un sistema desplegable en misiones críticas.
 
-Pregunta 47: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Pregunta 184: La representación de Celdas (Grid Mapping) tiene una debilidad clara frente a las representaciones geométricas (Features Map):
+a) Es imposible utilizar A* sobre Celdas de rejilla.
+b) El coste de memoria crece masivamente con la resolución o al ampliar enormemente el tamaño del mundo físico real.
+c) Son ilegibles para sistemas subsumidos.
+d) Los modelos TinyML no soportan coordenadas de mapas.
+Solución: b
+Justificación: Una rejilla milimétrica de un área de kilómetros requiere almacenar millones de celdas vacías, desperdiciando muchísima RAM, algo que Octrees o vectores evitan.
+
+Pregunta 185: Si un actuador de articulación de un robot cuadrúpedo presenta compliancia pasiva (añade elementos flexibles o resortes mecánicos en serie):
+a) Será más rígido, consumirá el doble y planificará peor con Dijkstra.
+b) Podrá absorber picos de choque contra el terreno, almacenar energía elástica e incrementar su eficiencia dinámica al mimetizar tendones animales.
+c) Inutilizará por completo su odometría interna, evitando la fase SLAM remuestreada.
+d) Estabilidad estática estricta durante trayectorias aéreas completas.
+Solución: b
+Justificación: Los Actuadores Elásticos en Serie (SEA) son clave en robótica patas/caminante para tolerar los golpes de pisada constantes y reusar energía.
+
+Pregunta 186: El modelo de datos basado en "Sujeto-Observación" de la arquitectura IoT (Internet de las Cosas), cuando lo adaptas a arquitecturas IoRT:
+a) Abandona el uso de sensores o actuadores en favor de solo cámaras 2D.
+b) Pasa a un bucle cerrado ("closed-loop") continuo de percibir-procesar-reaccionar-modificar el estado de origen de forma autónoma.
+c) Deshabilita siempre el protocolo MQTT por usar paquetes HTTP estáticos asíncronos.
+d) No tolera procesamiento de tipo Edge Computing de bajo voltaje.
+Solución: b
+Justificación: El robot genera un bucle de retroalimentación en la nube: afecta al entorno y el entorno le da nuevos datos para cambiar de plan sin mediación humana.
+
+Pregunta 187: El protocolo de comunicación y middleware de Data Distribution Service (DDS), que se utiliza en la nueva generación ROS 2, es muy destacable frente a anteriores porque:
+a) Introduce de forma predeterminada un servidor Cloud mandatorio para arbitrar los comportamientos subsumidos y SLAM.
+b) Es peer-to-peer real sin un "Nodo Maestro" único (evitando punto único de fallo) y proporciona perfiles de Calidad de Servicio (QoS) configurables para sistemas de tiempo real e IoRT industrial.
+c) Obliga a programar todo en hardware int8 bajo TinyML.
+d) No permite el modelo Publish/Subscribe ni telemetría exteroceptiva.
+Solución: b
+Justificación: ROS 2 fue creado exactamente para dar solidez comercial e industrial que ROS 1 no tenía, mediante estándares de telecomunicación resilientes.
+
+Pregunta 188: A la hora de calcular la cinemática inversa de un Brazo Robótico (Manipulador) a bordo de nuestro robot móvil:
+a) Puede haber múltiples soluciones (distintas posturas de los codos) válidas para que la garra alcance las mismas coordenadas espaciales.
+b) Solo existe una solución geométrica matemática única sin importar el número de ejes motores.
+c) Es un problema lineal y trivial sin implicaciones en el espacio de configuración ni colisiones posibles en la base móvil de soporte.
+d) Se usan siempre algoritmos de búsqueda grafos puramente A* o Dijkstra ignorando ángulos matemáticos directos del efector.
 Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+Justificación: Cuantos más grados de libertad y redundancia tiene un brazo, de más formas diferentes puede curvarse para alcanzar el mismo punto "xyz".
 
-Pregunta 48: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
+Pregunta 189: "A* Bidireccional" es una optimización del A* en planificaciones geométricas enormes que:
+a) Cancela la heurística en espacios tridimensionales para depender de odometría métrica pasiva.
+b) Lanza dos búsquedas simultáneas: una desde el nodo "Inicio" avanzando y otra desde el "Objetivo" retrocediendo, deteniéndose cuando sus fronteras se tocan.
+c) Utiliza mapas topológicos y Federated Learning exclusivamente en Edge.
+d) Obliga a que la suma de todos los pesos en las partículas predictivas sea igual a uno.
 Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+Justificación: Corta espectacularmente el tiempo de búsqueda en mapas enormes porque el área del círculo de nodos expandidos crece mucho más lento al dividirse en dos frentes simultáneos.
 
-Pregunta 49: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 50: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
-Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
-
-Pregunta 51: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
-Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
-
-Pregunta 52: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Pregunta 190: En el ámbito del diseño TinyML, un método habitual de recopilación del dataset de un robot sería:
+a) Teleoperar el sensor embebido acoplado al robot físico por el recinto objetivo durante días y capturar millones de lecturas puras del MCU antes del preprocesamiento y entrenamiento ex-situ.
+b) Instalar una tarjeta gráfica (GPU Nvidia de última generación) encima del robot de patas para que su TinyML procese a una tasa ultrarrápida (1 ms) y de bajo consumo (Green AI) a la vez.
+c) Descargar solo bases de datos de imágenes satelitales en 2.5D de elevación geográfica de la nube para algoritmos de IA de manipulación local fina por ultrasonidos.
+d) No usar datasets empíricos, puesto que TinyML se basa en árboles reactivos BDI y heurísticas A* sin aprendizaje.
 Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+Justificación: El flujo real conlleva recuperar telemetría genuina del dispositivo terminal ("Edge Device"), usar una torre central para fabricar la IA, y luego flashear el cerebro microscópico en el robot físico terminal.
 
-Pregunta 53: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
-Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
-
-Pregunta 54: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 55: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
-Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
-
-Pregunta 56: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
-Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
-
-Pregunta 57: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Pregunta 191: Los métodos de Odometría Lidar (Lidar Odometry), usualmente apoyados en algoritmos como "ICP" (Iterative Closest Point):
+a) Tratan de alinear dos nubes de puntos de escaneos consecutivos minimizando matemáticamente el error de distancia entre los puntos solapados para deducir cuánto se movió el propio robot de manera precisa.
+b) Sirven para construir grafos de Voronoi puramente abstractos en los que ninguna coordenada final importa.
+c) Se usan estrictamente y de forma obligatoria dentro de capas de comportamiento asíncronas Subsumidas en evitación B3.
+d) Utilizan marcas semánticas ArUco puestas adrede a lo largo del pasillo a alturas equidistantes preestablecidas.
 Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+Justificación: ICP escanea frame-a-frame de las reflexiones láser, emparejando paredes superpuestas de dos periodos de tiempo e infiriendo vectores cinemáticos del agente altísimamente certeros.
 
-Pregunta 58: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
+Pregunta 192: Un reto clave de la escalabilidad horizontal en servidores de computación Fog intermedios dentro de una "Fábrica IoRT inteligente" conectada es:
+a) Asegurar que A* planifica diagonalmente usando la distancia de tipo Manhattan por defecto para ganar rendimiento a nivel logístico interno y ZMP.
+b) Gestionar el "handover" de conexión de un robot móvil (AGV) moviéndose rápidamente, pasando la gestión del control de baja latencia sin caídas desde un servidor o antena Fog a otro contiguo dentro del mismo galpón.
+c) Forzar que el polígono de apoyo de la transpaleta diferencial conectada permanezca siempre en contacto estático pasivo sin control dinámico en ningún servidor.
+d) Imponer filtros de partículas exclusivamente distribuidos en cada una de sus ruedas motrices puras independientes (Ackermann simulado).
 Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+Justificación: El Edge o Fog local cubren zonas geográficamente delimitadas. Si el AGV cambia de sector logístico a otra red WiFi/5G interna, el "cerebro Fog" debe traspasar la sesión sin saltos ni cortes letales.
 
-Pregunta 59: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 60: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
+Pregunta 193: La aproximación de diseño de comportamientos modulares en base a "Esquemas Perceptuales" y "Esquemas Motores" dictamina que:
+a) Cada subsistema de esquiva B3 en Subsunción apaga los sensores láser para reaccionar mediante topología de Voronoi.
+b) A un Esquema Motor particular (p.ej. ir hacia puerta) solo se le acopla un Esquema Perceptual particular encargado de extraer justo los features que requiere (p.ej. detector de marco), descartando el resto del procesamiento superfluo del mundo, haciéndolos ligeros de correr.
+c) Usa un filtro EKF unificado y masivo global que envía una rejilla estocástica métrica al Green AI en forma Cloud paralela y asíncrona.
+d) No soporta fusión de salidas.
 Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+Justificación: Representa un modelo altamente eficiente derivado del paradigma de la acción orientada. Solo "percibo lo que necesito para la acción concreta".
 
-Pregunta 61: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
-Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+Pregunta 194: Uno de los parámetros de configuración críticos de la Búsqueda Dinámica Espacial ("Dynamic Window Approach" o DWA local) es "Goal Cost" vs "Path Cost" u "Obstacle Cost". Un peso abusivamente elevado dado al término "Goal Cost" provocaría típicamente:
+a) El robot retrocederá de inmediato apagando toda la navegación de las rutinas de ZMP estático sin intentar siquiera levantar patas.
+b) Un comportamiento temerario, donde el robot "recorta esquinas" acercándose peligrosamente a los obstáculos con tal de mantener el vector de velocidad apuntando de manera agresiva hacia el final.
+c) Generar un árbol denso y globalizado que explora todo punto ciego aleatorio simulando un RRT de trayectoria divergente lejana antes del objetivo.
+d) Congelar el uso puro y simple del TinyML para inferir nubes RGB-D profundas.
+Solución: b
+Justificación: Las heurísticas del combinador de ventanas DWA premian distintas actitudes. Mucho premio a meta y poco a lejanía de obstáculo = recortes rozando muros.
 
-Pregunta 62: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Pregunta 195: La característica de "Anytime Algorithms" (Algoritmos iterativos en cualquier momento) como el "RRT-Star" planificador significa que:
+a) Ejecutan su matemática exclusivamente una vez y luego colapsan el proceso.
+b) Son capaces de devolver siempre una solución inicial rápida, por sub-óptima que sea, si se interrumpe prematuramente, e ir refinando y mejorando ese camino hacia la ruta más directa de manera ininterrumpida si se les da margen temporal sobrante de computación en el procesador on-board.
+c) No garantizan absolutamente ningún camino posible hasta encontrar obligatoriamente e inevitablemente la línea recta.
+d) Excluyen totalmente los grafos de visibilidad en configuraciones cuadrúpedas puras mediante control reactivo asimétrico.
+Solución: b
+Justificación: Esto es clave si la CPU local tiene cuellos de botella (Paradigma Deliberativo clásico). Entregan un plan "lo suficientemente bueno" a tiempo en lugar del "mejor" demasiado tarde.
+
+Pregunta 196: Una configuración cinemática "Sincro-Drive" o dirección síncrona en robots 2D móviles tiene de característica especial:
+a) Que tres o más de sus ruedas pueden orientarse pivotando a la par simultáneamente y todas traccionan con la misma potencia de motor exacto mediante cadenas de transmisión comunes, permitiendo avanzar en cualquier dirección sin cambiar la orientación ni la cara frontal (heading) original del chasis base.
+b) Operan un giro sobre el mismo eje similar exactamente a un diferencial tipo oruga desgastante (skid steer).
+c) Son imposibles mecánicamente por el fenómeno derivado de las inestabilidades ZMP puras dinámicas holonómicas locales.
+d) Son idénticas al Ackermann.
 Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+Justificación: Es una variante de alta movilidad industrial donde la rueda avanza pero el chasis mira al frente fijo. Menos desgaste odométrico que una omni Mecanum genuina.
 
-Pregunta 63: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
+Pregunta 197: Para tareas avanzadas robóticas conectadas, una arquitectura híbrida de tipo Cloud Edge IoT distribuida puede dividir una red neuronal pesada de Deep Learning por "Split Computing", en la cual:
+a) El Fog Server reenvía las imágenes crudas LiDAR de nuevo al robot on-board sin procesamiento para garantizar seguridad y privacidad puramente de Green AI.
+b) Las capas primarias más rápidas (detector de bordes) del modelo inferencian velozmente en el MCU local del sensor y sus características resultantes reducidas y comprimidas se pasan por red 5G al clúster masivo backend Cloud para acabar de clasificar el resto de las capas profundas analíticas.
+c) Subsumir prioridades puramente por arbitraje en la base ZMP remuestreada.
+d) Excluye el Federated Learning y usa PRM asintóticos distribuidos forzosamente.
 Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+Justificación: Reparte el trabajo inteligentemente combinando ventajas latencia/ancho de banda del borde con la inmensa inteligencia del núcleo remoto de IA masivo.
 
-Pregunta 64: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 65: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
+Pregunta 198: El componente clave subyacente que le otorga a un "A*" clásico una cota absoluta de garantía de "Completez" (garantía formal de encontrar un resultado siempre, en el caso en que sí exista camino logístico abierto) reside en que:
+a) Solo revisa partículas mediante ponderación estocástica sesgada por la vista previa local sin heurística de coste retrospectiva global en el grafo.
+b) Emplea listas formales de revisión y expansión retrospectiva exhaustiva en grafo cerrado sin quedarse atascado evaluando rutas infinitas ni mínimos locales, siempre y cuando el recinto y costes sean no-negativos finitos y su heurística sea estrictamente no-sobreestimante o admisible al nodo de cierre final.
+c) Obliga al robot móvil cuadrúpedo a estabilizar dinámicamente sus 4 apoyos sobre ZMP.
+d) Omite totalmente las medidas del láser inercial sobre SLAM en Fog remoto al ser reactivo BDI puro inercialmente.
 Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+Justificación: Como buscador óptimo en un entorno discretizado finito (celdas y costes cerrados), eventualmente la búsqueda exhaustiva agotará todas las sub-rutas para asegurar matemáticamente el paso.
 
-Pregunta 66: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
-Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+Pregunta 199: Bajo parámetros de evaluación estrictamente de Robótica Ecológica eficiente ("Green AI"): ¿Qué arquitectura de inferencia (resolución final de toma de decisión ante obstáculo visual no planificado) debe recibir la puntuación general más desfavorable si el caso práctico ocurre sobrevolando áreas silvestres forestales desconectadas?
+a) Ejecución del procesamiento mediante TinyML comprimido por poda y aceleración de hardware neuronal en el dron local.
+b) Streaming constante por modem satelital de gran antena hacia clusters AWS para identificar ramas usando modelos visuales Transformers Giga-paramétricos y recibir el control directo cada vez que sale una rama.
+c) Un clasificador simple random-forest ejecutado local y subsumido mediante ultrasonido estático direccional y cámara de infrarrojos básica.
+d) Planificador híbrido de comportamientos con A* y ventana DWA dinámica puramente perimétrico en el onboard Fog interno aislado.
+Solución: b
+Justificación: Enviar datos enormes a un lugar remoto por enlace satelital de alta potencia consumirá masivamente batería en el dron y energía del datacenter enorme para resolver un problema evasivo simple trivial, volviéndolo ineficaz, lento por latencia e insostenible.
 
-Pregunta 67: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Pregunta 200: Una característica de resiliencia final intrínseca a un modelo Robótico de "Federated Learning" descentralizado entre 200 robots trabajando de flota, frente a un sistema de un clúster de "Cloud Learning masivo centralizado único y gigante" resulta ser que:
+a) Al fallar las redes de conexión de internet o el gran servidor en la central (Single Point Of Failure), cada robot individual y aislado seguirá usando plenamente local el último modelo inteligente de peso que ya tuviese bajado y continuará su operación en edge independientemente sin bloquearse.
+b) Al caer el servidor centralizado maestro único, los robots reactivan obligatoriamente comportamientos aleatorios en base puramente DWA ciego de envenenamiento venenoso aleatorio por el protocolo MQTT subsumido.
+c) Los pesos y algoritmos dejan siempre de operar al estar centralizados pasivamente en cada rueda independientemente del LiDAR en TinyML cuantizado al extremo Int8 estático puro de ZMP.
+d) No puede existir tal cosa pues los pesos centrales impiden a los sensores exteroceptivos accionar los motores servomecánicos estables de la máquina.
 Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
-
-Pregunta 68: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
-Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
-
-Pregunta 69: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 70: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
-Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
-
-Pregunta 71: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
-Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
-
-Pregunta 72: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
-Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
-
-Pregunta 73: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
-Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
-
-Pregunta 74: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 75: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
-Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
-
-Pregunta 76: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
-Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
-
-Pregunta 77: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
-Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
-
-Pregunta 78: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
-Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
-
-Pregunta 79: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 80: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
-Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
-
-Pregunta 81: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
-Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
-
-Pregunta 82: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
-Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
-
-Pregunta 83: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
-Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
-
-Pregunta 84: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 85: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
-Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
-
-Pregunta 86: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
-Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
-
-Pregunta 87: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
-Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
-
-Pregunta 88: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
-Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
-
-Pregunta 89: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 90: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
-Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
-
-Pregunta 91: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
-Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
-
-Pregunta 92: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
-Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
-
-Pregunta 93: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
-Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
-
-Pregunta 94: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 95: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
-Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
-
-Pregunta 96: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
-Solución: c
-Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
-
-Pregunta 97: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
-Solución: a
-Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
-
-Pregunta 98: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
-Solución: b
-Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
-
-Pregunta 99: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
-Solución: c
-Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
-
-Pregunta 100: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
-Solución: b
-Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+Justificación: Las arquitecturas de borde e IoT distribuido son resilientes por propia definición; su cerebro principal viaja embebido y listo para inferenciar "offline" en cuanto las comunicaciones vitales fallan, permitiéndoles seguir autónomos y funcionales a nivel de piso frente a catástrofes de servidor remoto o caídas momentáneas Cloud.

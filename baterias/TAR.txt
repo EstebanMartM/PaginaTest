@@ -797,3 +797,803 @@ c) No participa en el aprendizaje.
 d) Sólo calcula rutas A*.
 Solución: a
 Justificación: El nodo conserva datos locales y aporta actualizaciones al modelo global.
+
+Pregunta 1: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 2: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 3: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 4: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 5: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 6: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 7: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 8: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 9: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 10: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 11: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 12: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 13: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 14: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 15: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 16: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 17: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 18: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 19: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 20: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 21: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 22: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 23: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 24: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 25: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 26: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 27: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 28: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 29: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 30: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 31: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 32: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 33: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 34: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 35: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 36: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 37: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 38: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 39: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 40: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 41: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 42: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 43: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 44: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 45: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 46: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 47: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 48: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 49: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 50: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 51: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 52: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 53: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 54: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 55: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 56: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 57: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 58: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 59: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 60: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 61: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 62: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 63: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 64: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 65: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 66: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 67: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 68: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 69: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 70: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 71: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 72: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 73: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 74: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 75: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 76: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 77: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 78: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 79: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 80: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 81: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 82: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 83: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 84: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 85: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 86: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 87: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 88: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 89: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 90: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 91: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 92: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 93: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 94: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 95: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
+
+Pregunta 96: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
+b) El centro de masas coincide exactamente con el origen del sistema de referencia.
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
+d) El robot mantiene ambos pies apoyados en el suelo.
+Solución: c
+Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
+
+Pregunta 97: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
+b) Dijkstra sólo puede trabajar sobre mapas topológicos.
+c) A* no garantiza optimalidad aunque la heurística sea admisible.
+d) Dijkstra necesita obligatoriamente sensores LiDAR.
+Solución: a
+Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
+
+Pregunta 98: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
+a) Porque no puede estimar desplazamientos angulares.
+b) Porque acumula error progresivamente con el movimiento.
+c) Porque sólo funciona en exteriores.
+d) Porque sustituye completamente el mapa.
+Solución: b
+Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
+
+Pregunta 99: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
+a) Puede calcular planes globales óptimos con gran precisión.
+b) Tiene mejor representación simbólica del entorno.
+c) Reacciona rápidamente ante cambios imprevistos del entorno.
+d) Necesita mapas completos para funcionar.
+Solución: c
+Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
+
+Pregunta 100: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
+a) Tienen menor complejidad mecánica que robots con ruedas.
+b) Consumen más energía y requieren control más complejo.
+c) No pueden utilizar sensores de percepción.
+d) Son incapaces de mantener estabilidad dinámica.
+Solución: b
+Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.

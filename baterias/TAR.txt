@@ -1,1651 +1,1649 @@
 Pregunta 1: Un robot móvil trabaja en un almacén junto con sensores de ocupación, cámaras fijas, una red WiFi, un servidor local y una aplicación de monitorización. El robot recibe información externa para decidir rutas y evitar zonas congestionadas. ¿Cuál es la interpretación más correcta?
-a) Es un sistema robótico con navegación local.
-b) Es un sistema IoRT.
-c) Es un sistema IoT, porque no hay actuación física sobre el entorno.
-d) Es un sistema puramente cloud, porque toda la decisión debe hacerse fuera del robot.
+a) Es un sistema robótico con navegación local. Enfoque que no se ajusta a la configuración descrita en el problema
+b) Es un sistema IoRT, de acuerdo con los principios fundamentales de la disciplina
+c) Es un sistema IoT, porque no hay actuación física sobre el entorno
+d) Es un sistema puramente cloud, porque toda la decisión debe hacerse fuera del robot
 Solución: b
 Justificación: Es IoRT porque combina robots, sensores, comunicaciones, procesamiento y acción física en el entorno.
 
 Pregunta 2: Se desea diseñar un robot para inspeccionar una zona industrial con suelo irregular, pequeñas rampas, cables en el suelo y obstáculos bajos. ¿Qué sistema de locomoción sería más razonable?
-a) Ruedas, porque son siempre la mejor opción en terrenos irregulares.
-b) Orugas, porque mejoran tracción y estabilidad en terreno irregular.
-c) Bípedo, porque es la opción más eficiente energéticamente.
-d) Todas las anteriores son igualmente adecuadas.
+a) Ruedas, porque son siempre la mejor opción en terrenos irregulares
+b) Orugas, porque mejoran tracción y estabilidad en terreno irregular
+c) Bípedo, porque es la opción más eficiente energéticamente
+d) Todas las anteriores son igualmente adecuadas
 Solución: b
 Justificación: Las orugas distribuyen el peso sobre una superficie mayor y mejoran tracción y estabilidad en terrenos irregulares.
 
 Pregunta 3: Un robot cuadrúpedo está parado. Para que el movimiento sea estáticamente estable al levantar una pata para avanzar, debe cumplirse que:
-a) El robot sea completamente simétrico.
-b) La proyección del centro de masas permanezca dentro del polígono de soporte.
-c) El robot use wave gait o tripod gait.
-d) El ZMP esté necesariamente en la planta de apoyo.
+a) El robot sea completamente simétrico. Perspectiva que omite elementos clave del sistema planteado
+b) La proyección del centro de masas permanezca dentro del polígono de soporte
+c) El robot use wave gait o tripod gait. Perspectiva que omite elementos clave del sistema planteado
+d) El ZMP esté necesariamente en la planta de apoyo
 Solución: b
 Justificación: La estabilidad estática se consigue cuando la proyección del centro de masas queda dentro del polígono de soporte.
 
 Pregunta 4: Un robot tiene un mapa del edificio y calcula una ruta hasta una sala usando A*. Durante la ejecución, aparece una caja en el pasillo que no estaba en el mapa, y el robot debe rodearla sin perder completamente la ruta prevista. ¿Qué combinación de capacidades describe mejor este comportamiento?
-a) Sólo navegación global.
-b) Sólo navegación local.
-c) Navegación global para planificar la ruta y navegación local para evitar obstáculos no previstos.
-d) Ninguna de las anteriores.
+a) Sólo navegación global. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+b) Sólo navegación local. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+c) Navegación global para planificar la ruta y navegación local para evitar obstáculos no previstos
+d) Ninguna de las anteriores. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: c
 Justificación: La navegación global planifica con el mapa y la local evita obstáculos detectados durante la ejecución.
 
 Pregunta 5: En una rejilla de ocupación, se aplica un algoritmo de búsqueda para encontrar una ruta óptima entre origen y destino. ¿Qué afirmación es más correcta?
-a) La rejilla de ocupación se suele usar como un grafo de búsqueda.
-b) La rejilla de ocupación es necesariamente un mapa topológico.
-c) El robot no necesita conocer su posición para planificar.
-d) La planificación no puede realizarse sobre rejillas, sólo sobre mapas geométricos continuos.
+a) La rejilla de ocupación se suele usar como un grafo de búsqueda
+b) La rejilla de ocupación es necesariamente un mapa topológico
+c) El robot no necesita conocer su posición para planificar
+d) La planificación no puede realizarse sobre rejillas, sólo sobre mapas geométricos continuos
 Solución: a
 Justificación: En una rejilla, cada celda puede tratarse como un nodo conectado con sus vecinos.
 
 Pregunta 6: Un robot debe ir desde el nodo S hasta el nodo G. Los costes permiten comparar varios caminos y se usa A*. ¿Qué camino de menor coste corresponde al modelo de prueba?
-a) S → A → C → G
+a) S → A → C → G, respuesta que se alinea con las mejores prácticas del dominio
 b) S → B → D → G
-c) S → A → C → D → G
-d) S → B → D → C → G
+c) S → A → C → D → G. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+d) S → B → D → C → G. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: a
 Justificación: Según el modelo de prueba, el camino óptimo obtenido mediante A* es S → A → C → G.
 
 Pregunta 7: Un robot entra en un entorno desconocido. Usa odometría para estimar su movimiento y un LiDAR para observar paredes, esquinas y puertas. A medida que avanza, corrige su posición y va construyendo un mapa. ¿Qué problema está resolviendo?
-a) Planificación global.
-b) Navegación local reactiva.
-c) SLAM.
-d) Navegación con algoritmos como Dijkstra o A*.
+a) Planificación global. Enfoque que no se ajusta a la configuración descrita en el problema
+b) Navegación local reactiva. Enfoque que no se ajusta a la configuración descrita en el problema
+c) SLAM, una solución ampliamente validada en la literatura del campo
+d) Navegación con algoritmos como Dijkstra o A*
 Solución: c
 Justificación: SLAM consiste en localizarse y construir el mapa simultáneamente en un entorno desconocido o incompleto.
 
 Pregunta 8: En un filtro de partículas, después de mover el robot y comparar las observaciones con el mapa, algunas partículas explican muy bien las medidas del sensor y otras no. ¿Qué ocurre en la fase de remuestreo?
-a) Se eliminan partículas con bajo peso y se replican partículas con alto peso.
-b) Se eliminan los obstáculos del mapa para simplificar la localización.
-c) Se calcula directamente el camino más corto hasta el objetivo.
-d) Se transforma el robot real en un punto expandiendo los obstáculos.
+a) Se eliminan partículas con bajo peso y se replican partículas con alto peso
+b) Se eliminan los obstáculos del mapa para simplificar la localización
+c) Se calcula directamente el camino más corto hasta el objetivo
+d) Se transforma el robot real en un punto expandiendo los obstáculos
 Solución: a
 Justificación: El remuestreo conserva las hipótesis más probables y descarta las que explican peor las observaciones.
 
 Pregunta 9: Se diseña un robot móvil para explorar una zona con obstáculos. Se proponen estos comportamientos: B1 explorar, B2 seguir pared, B3 evitar obstáculo y B4 escapar. En una arquitectura subsumida, ¿qué prioridad es más adecuada, de mayor a menor?
-a) B1 → B2 → B3 → B4
-b) B4 → B3 → B2 → B1
+a) B1 → B2 → B3 → B4. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+b) B4 → B3 → B2 → B1, lo cual se ajusta a la configuración específica del escenario
 c) B2 → B1 → B4 → B3
-d) B3 → B1 → B2 → B4
+d) B3 → B1 → B2 → B4. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: b
 Justificación: En subsunción, los comportamientos de supervivencia y seguridad deben tener prioridad sobre los exploratorios.
 
 Pregunta 10: ¿Cuál de las siguientes afirmaciones es más correcta?
-a) TinyML consiste en entrenar grandes modelos siempre en cloud y ejecutar la inferencia también en cloud.
-b) Federated Learning garantiza automáticamente la privacidad y la seguridad del sistema.
-c) Green AI propone evaluar los modelos no sólo por precisión, sino también por coste computacional, consumo, eficiencia y viabilidad de despliegue.
-d) Edge, fog y cloud funcionan similarmente porque todos representan procesamiento remoto.
+a) TinyML consiste en entrenar grandes modelos siempre en cloud y ejecutar la inferencia también en cloud
+b) Federated Learning garantiza automáticamente la privacidad y la seguridad del sistema. Enfoque que no se ajusta a la configuración descrita en el problema
+c) Green AI propone evaluar los modelos no sólo por precisión, sino también por coste computacional, consumo, eficiencia y viabilidad de despliegue
+d) Edge, fog y cloud funcionan similarmente porque todos representan procesamiento remoto. Perspectiva que omite elementos clave del sistema planteado
 Solución: c
 Justificación: Green AI busca modelos útiles y eficientes, considerando coste, energía, memoria, tiempo y despliegue.
 
 Pregunta 11: La locomoción de un robot móvil es importante porque:
-a) Sólo determina la forma externa del robot.
-b) Define capacidades de movimiento, estabilidad, odometría y estrategias de control.
-c) No afecta a la navegación si el robot tiene buenos sensores.
-d) Sólo influye en la velocidad máxima.
+a) Sólo determina la forma externa del robot. Perspectiva que omite elementos clave del sistema planteado
+b) Define capacidades de movimiento, estabilidad, odometría y estrategias de control
+c) No afecta a la navegación si el robot tiene buenos sensores
+d) Sólo influye en la velocidad máxima. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: b
 Justificación: El sistema de locomoción condiciona movimiento, equilibrio, errores odométricos, navegación y control.
 
 Pregunta 12: ¿Qué desventaja típica presentan los robots con ruedas en comparación con las orugas?
-a) Tienen siempre mayor consumo energético.
-b) No pueden desplazarse en superficies planas.
-c) Tienen limitaciones para superar obstáculos y terrenos irregulares.
-d) No permiten control preciso.
+a) Tienen siempre mayor consumo energético. Enfoque que no se ajusta a la configuración descrita en el problema
+b) No pueden desplazarse en superficies planas. A primera vista parece una respuesta válida, pero un examen más detallado del enunciado revela contradicciones con esta opción
+c) Tienen limitaciones para superar obstáculos y terrenos irregulares, tal como se desprende del análisis del problema planteado
+d) No permiten control preciso. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: c
 Justificación: Las ruedas son eficientes en suelos planos, pero tienen problemas en terreno irregular y ante obstáculos.
 
 Pregunta 13: En un robot diferencial, una característica relevante es que:
-a) No puede girar sin avanzar.
-b) Gira de forma similar a un automóvil Ackermann.
-c) Puede girar sobre su propio eje mediante dos ruedas motrices independientes.
-d) Necesita obligatoriamente cuatro ruedas directrices.
+a) Tiene restricciones cinemáticas que limitan severamente su maniobrabilidad rotacional sin avanzar. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+b) Gira de forma similar a un automóvil Ackermann
+c) Puede girar sobre su propio eje mediante dos ruedas motrices independientes
+d) Necesita obligatoriamente cuatro ruedas directrices
 Solución: c
 Justificación: La configuración diferencial usa dos ruedas motrices independientes y puede girar sobre sí misma.
 
 Pregunta 14: ¿Qué caracteriza a un robot Ackermann?
-a) Tiene movimiento lateral instantáneo en cualquier dirección.
-b) Su sistema de giro es similar al de un automóvil.
-c) Utiliza dos orugas independientes.
-d) No tiene radio mínimo de giro.
+a) Tiene movimiento lateral instantáneo en cualquier dirección
+b) Su sistema de giro es similar al de un automóvil, enfoque consolidado en aplicaciones prácticas de robótica
+c) Utiliza dos orugas independientes. Perspectiva que omite elementos clave del sistema planteado
+d) No tiene radio mínimo de giro. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
 Solución: b
 Justificación: La dirección Ackermann se basa en un giro similar al de los automóviles y no gira en el sitio.
 
 Pregunta 15: ¿Cuál es la ventaja principal de una configuración omnidireccional?
-a) Reducir todos los errores de odometría.
-b) Moverse en cualquier eje con gran maniobrabilidad.
-c) Superar obstáculos altos sin dificultad.
-d) Eliminar la necesidad de control.
+a) Reducir todos los errores de odometría
+b) Moverse en cualquier eje con gran maniobrabilidad
+c) Superar obstáculos altos sin dificultad
+d) Eliminar la necesidad de control. Enfoque que no se ajusta a la configuración descrita en el problema
 Solución: b
 Justificación: Los robots omnidireccionales permiten desplazamientos en múltiples direcciones, aunque su control es más complejo.
 
 Pregunta 16: ¿Por qué las orugas suelen ser adecuadas en rescate, minería o desactivación de explosivos?
-a) Porque son más rápidas que cualquier robot con ruedas.
-b) Porque distribuyen el peso y aumentan la tracción en terrenos difíciles.
-c) Porque eliminan el consumo energético.
-d) Porque no necesitan sensores.
+a) Porque son más rápidas que cualquier robot con ruedas. Perspectiva que omite elementos clave del sistema planteado
+b) Porque distribuyen el peso y aumentan la tracción en terrenos difíciles, tal como se desprende del análisis del problema planteado
+c) Porque eliminan el consumo energético. Enfoque que no se ajusta a la configuración descrita en el problema
+d) Porque no necesitan sensores. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: b
 Justificación: Las orugas aportan estabilidad y tracción en terrenos accidentados, aunque consumen más energía.
 
 Pregunta 17: Una desventaja típica de los robots con orugas es:
-a) Menor precisión y mayor consumo energético.
-b) Imposibilidad total de subir pendientes.
-c) Incapacidad de distribuir el peso.
-d) Ausencia de tracción.
+a) Menor precisión y mayor consumo energético
+b) Imposibilidad total de subir pendientes
+c) Incapacidad de distribuir el peso
+d) Ausencia de tracción. Perspectiva que omite elementos clave del sistema planteado
 Solución: a
 Justificación: Las orugas son robustas en terreno irregular, pero suelen tener peor precisión y mayor consumo.
 
 Pregunta 18: La estabilidad estática significa que:
-a) El robot sólo es estable si avanza continuamente.
-b) El robot puede mantenerse estable sin control activo continuo.
-c) El robot necesita siempre moverse para no caer.
-d) El robot no depende del polígono de soporte.
+a) El robot sólo es estable si avanza continuamente
+b) El robot puede mantenerse estable sin control activo continuo
+c) El robot necesita siempre moverse para no caer
+d) El robot no depende del polígono de soporte
 Solución: b
 Justificación: En estabilidad estática el robot permanece estable sin necesidad de movimiento o control activo constante.
 
 Pregunta 19: La estabilidad dinámica implica que:
-a) El robot no necesita control durante el movimiento.
-b) El equilibrio se mantiene mediante control activo al moverse.
-c) Sólo se aplica a robots con ruedas.
-d) Depende únicamente del color del terreno.
+a) El robot no necesita control durante el movimiento
+b) El equilibrio se mantiene mediante control activo al moverse
+c) Sólo se aplica a robots con ruedas. Interpretación que resulta insuficiente ante los detalles del enunciado
+d) Depende de la reflectividad y textura superficial del entorno
 Solución: b
 Justificación: La estabilidad dinámica requiere acciones de control continuas para mantener el equilibrio.
 
 Pregunta 20: El polígono de soporte de un robot se forma a partir de:
-a) La trayectoria planificada.
-b) Los puntos de contacto del robot con el suelo.
-c) La posición de los sensores LiDAR.
-d) La velocidad angular de las ruedas.
+a) La trayectoria planificada. Enfoque que no se ajusta a la configuración descrita en el problema
+b) Los puntos de contacto del robot con el suelo
+c) La posición de los sensores LiDAR
+d) La velocidad angular de las ruedas
 Solución: b
 Justificación: El polígono de soporte es la base formada por los puntos de contacto con el entorno.
 
 Pregunta 21: Un robot es estable estáticamente cuando:
-a) Su centro de masas proyectado cae dentro del polígono de soporte.
-b) Su centro de masas está siempre fuera de la base.
-c) Tiene al menos dos sensores de proximidad.
-d) Usa planificación A*.
+a) Su centro de masas proyectado cae dentro del polígono de soporte, enfoque consolidado en aplicaciones prácticas de robótica
+b) Su centro de masas está siempre fuera de la base. Interpretación que resulta insuficiente ante los detalles del enunciado
+c) Tiene al menos dos sensores de proximidad. Interpretación que resulta insuficiente ante los detalles del enunciado
+d) Usa planificación A*. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: a
 Justificación: La condición básica de estabilidad estática es que la proyección del centro de masas quede dentro del soporte.
 
 Pregunta 22: ¿Por qué los robots con patas son más complejos que los de ruedas?
-a) Porque tienen contacto discreto, más grados de libertad y planificación de pisadas.
-b) Porque siempre usan menos actuadores.
-c) Porque no necesitan equilibrio.
-d) Porque sólo se mueven en 2D.
+a) Porque tienen contacto discreto, más grados de libertad y planificación de pisadas, tal como se desprende del análisis del problema planteado
+b) Porque siempre usan menos actuadores. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+c) Porque no necesitan equilibrio. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) Porque sólo se mueven en 2D. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: a
 Justificación: Las patas introducen contacto discreto, alta dimensionalidad y trayectorias articulares complejas.
 
 Pregunta 23: En robots con patas, a menor número de patas:
-a) Más sencilla es siempre la locomoción.
-b) Menor es la necesidad de control.
-c) Más complicada suele ser la locomoción y el equilibrio.
-d) Desaparece la estabilidad dinámica.
+a) Más sencilla es siempre la locomoción. Interpretación que resulta insuficiente ante los detalles del enunciado
+b) Menor es la necesidad de control. Perspectiva que omite elementos clave del sistema planteado
+c) Más complicada suele ser la locomoción y el equilibrio, respuesta que se alinea con las mejores prácticas del dominio
+d) Desaparece la estabilidad dinámica. Interpretación que resulta insuficiente ante los detalles del enunciado
 Solución: c
 Justificación: Con menos apoyos se reduce el polígono de soporte y aumenta la dificultad de mantener estabilidad.
 
 Pregunta 24: Para mover una pata hacia delante se requieren al menos:
-a) Cero grados de libertad.
-b) Un único grado de libertad.
-c) Dos grados de libertad: levantar/bajar y avanzar hacia el siguiente apoyo.
-d) Ocho grados de libertad obligatoriamente.
+a) Cero grados de libertad. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+b) Un único grado de libertad. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+c) Dos grados de libertad: levantar/bajar y avanzar hacia el siguiente apoyo, respuesta que se alinea con las mejores prácticas del dominio
+d) Ocho grados de libertad obligatoriamente. Si bien algunos sistemas operan bajo este paradigma, el caso descrito involucra componentes que contradicen esta interpretación
 Solución: c
 Justificación: Una pata necesita al menos levantar/bajar y desplazarse al siguiente punto de contacto.
 
 Pregunta 25: Añadir más grados de libertad a una pata suele implicar:
-a) Más versatilidad y mayor complejidad de control.
-b) Menos posibilidades de movimiento.
-c) Eliminación de sensores.
-d) Menor espacio de control.
+a) Más versatilidad y mayor complejidad de control
+b) Menos posibilidades de movimiento
+c) Eliminación de sensores. Perspectiva que omite elementos clave del sistema planteado
+d) Menor espacio de control. Perspectiva que omite elementos clave del sistema planteado
 Solución: a
 Justificación: Más grados de libertad aumentan maniobrabilidad, pero también la dificultad de control.
 
 Pregunta 26: En un hexápodo, el tripod gait es:
-a) Más lento que wave gait y sin coordinación.
-b) Más rápido, pero requiere mayor coordinación entre patas.
-c) Exclusivo de robots bípedos.
-d) Una técnica de navegación global.
+a) Más lento que wave gait y sin coordinación
+b) Más rápido, pero requiere mayor coordinación entre patas
+c) Exclusivo de robots bípedos. Enfoque que no se ajusta a la configuración descrita en el problema
+d) Una técnica de navegación global. Enfoque que no se ajusta a la configuración descrita en el problema
 Solución: b
 Justificación: El tripod gait reduce etapas y aumenta velocidad, pero exige más coordinación.
 
 Pregunta 27: En un hexápodo, el wave gait se caracteriza por:
-a) Ser imposible en robots de seis patas.
-b) Requerir más etapas y favorecer estabilidad.
-c) Usar únicamente dos patas de apoyo.
-d) No depender de la secuencia de patas.
+a) Ser imposible en robots de seis patas
+b) Requerir más etapas y favorecer estabilidad
+c) Usar únicamente dos patas de apoyo
+d) No depender de la secuencia de patas
 Solución: b
 Justificación: El wave gait es más gradual y estable, aunque más lento.
 
 Pregunta 28: Un robot cuadrúpedo en reposo:
-a) Puede ser estáticamente estable.
-b) Tiene siempre polígono de soporte igual a un punto.
-c) No puede apoyarse en cuatro patas.
-d) No necesita sensores de estado.
+a) Puede ser estáticamente estable, lo cual se ajusta a la configuración específica del escenario
+b) Tiene siempre polígono de soporte igual a un punto
+c) No puede apoyarse en cuatro patas. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
+d) Puede operar mediante modelos predictivos sin realimentación sensorial continua de estado
 Solución: a
 Justificación: Los cuadrúpedos pueden ser estables en reposo, pero al caminar necesitan control dinámico.
 
 Pregunta 29: Al caminar, un cuadrúpedo suele necesitar:
-a) Sólo navegación global.
-b) Estabilidad dinámica.
-c) Eliminar el centro de masas.
-d) No levantar ninguna pata.
+a) Sólo navegación global
+b) Estabilidad dinámica
+c) Eliminar el centro de masas
+d) No levantar ninguna pata
 Solución: b
 Justificación: Al levantar patas, cambia el soporte y suele requerirse control dinámico.
 
 Pregunta 30: Los robots cuadrúpedos como Spot o ANYmal se emplean especialmente en:
-a) Entornos planos donde las ruedas son siempre mejores.
-b) Escaleras, pasarelas, inspección industrial y terreno irregular.
-c) Tareas que no requieren sensores.
-d) Aplicaciones donde no importa el consumo.
+a) Entornos planos donde las ruedas son siempre mejores
+b) Escaleras, pasarelas, inspección industrial y terreno irregular
+c) Tareas que no requieren sensores. Perspectiva que omite elementos clave del sistema planteado
+d) Aplicaciones donde no importa el consumo. Interpretación que resulta insuficiente ante los detalles del enunciado
 Solución: b
 Justificación: Se usan donde ruedas u orugas tienen limitaciones: escaleras, obstáculos discretos e inspección.
 
 Pregunta 31: Un inconveniente de los cuadrúpedos reales es:
-a) Menor complejidad mecánica que las ruedas.
-b) Mayor consumo energético y mayor complejidad de control.
-c) Imposibilidad de usar cámaras o LiDAR.
-d) Ausencia de actuadores.
+a) Menor complejidad mecánica que las ruedas. Enfoque que no se ajusta a la configuración descrita en el problema
+b) Mayor consumo energético y mayor complejidad de control, tal como se desprende del análisis del problema planteado
+c) Imposibilidad de usar cámaras o LiDAR. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
+d) Ausencia de actuadores. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
 Solución: b
 Justificación: Los cuadrúpedos necesitan múltiples articulaciones, sensores y control continuo.
 
 Pregunta 32: En un robot bípedo parado, el polígono de soporte suele ser:
-a) Un rectángulo muy amplio.
-b) Una línea formada por los apoyos.
-c) Un volumen 3D cerrado.
-d) Un mapa topológico.
+a) Un rectángulo muy amplio. Enfoque que no se ajusta a la configuración descrita en el problema
+b) Una línea formada por los apoyos, de acuerdo con los principios fundamentales de la disciplina
+c) Un volumen 3D cerrado. Perspectiva que omite elementos clave del sistema planteado
+d) Un mapa topológico. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: b
 Justificación: En bípedos, el soporte es muy reducido; al caminar puede quedar prácticamente en un punto o planta de pie.
 
 Pregunta 33: Los robots bípedos requieren estabilidad dinámica porque:
-a) Su soporte es reducido y el centro de masas cambia de una pierna a otra.
-b) Siempre tienen seis apoyos.
-c) No tienen actuadores.
-d) Sólo funcionan en agua.
+a) Su soporte es reducido y el centro de masas cambia de una pierna a otra, lo cual se ajusta a la configuración específica del escenario
+b) Siempre tienen seis apoyos. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+c) No tienen actuadores. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+d) Sólo funcionan en agua. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: a
 Justificación: El equilibrio bípedo es complejo por el soporte reducido y el movimiento del centro de masas.
 
 Pregunta 34: El ZMP se utiliza principalmente para:
-a) Calcular la ruta más corta en grafos.
-b) Mantener el equilibrio en robots bípedos mediante la planificación de la pisada.
-c) Representar mapas topológicos.
-d) Reducir la conectividad WiFi.
+a) Calcular la ruta más corta en grafos. Interpretación que resulta insuficiente ante los detalles del enunciado
+b) Mantener el equilibrio en robots bípedos mediante la planificación de la pisada, enfoque consolidado en aplicaciones prácticas de robótica
+c) Representar mapas topológicos. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+d) Reducir la conectividad WiFi. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: b
 Justificación: El punto de momento cero ayuda a decidir dónde apoyar el pie para conservar estabilidad.
 
 Pregunta 35: Para mantener estabilidad en un bípedo, el ZMP debe estar:
-a) Fuera del polígono de soporte.
-b) Dentro del polígono de soporte.
-c) Siempre en el servidor cloud.
-d) En cualquier punto del mapa.
+a) Fuera del polígono de soporte
+b) Dentro del polígono de soporte
+c) Depende de infraestructura de computación remota para su funcionamiento
+d) En cualquier punto del mapa
 Solución: b
 Justificación: El ZMP debe mantenerse dentro del área de soporte para evitar caída.
 
 Pregunta 36: El footstep planning en robots con patas consiste en:
-a) Planificar únicamente la velocidad de las ruedas.
-b) Seleccionar pisadas válidas sobre un mapa de costes o elevación.
-c) Ignorar obstáculos bajos.
-d) Convertir el robot en un dispositivo IoT.
+a) Planificar únicamente la velocidad de las ruedas
+b) Seleccionar pisadas válidas sobre un mapa de costes o elevación
+c) Ignorar obstáculos bajos. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+d) Convertir el robot en un dispositivo IoT. Enfoque que no se ajusta a la configuración descrita en el problema
 Solución: b
 Justificación: La planificación de pisadas busca apoyos seguros y trayectorias sin colisión en terreno 3D.
 
 Pregunta 37: En footstep planning, una nube de puntos LiDAR puede servir para:
-a) Construir un mapa de elevación y detectar zonas peligrosas.
-b) Sustituir todos los actuadores.
-c) Eliminar el control de estabilidad.
-d) Convertir un bípedo en diferencial.
+a) Construir un mapa de elevación y detectar zonas peligrosas
+b) Sustituir todos los actuadores. Enfoque que no se ajusta a la configuración descrita en el problema
+c) Eliminar el control de estabilidad. Perspectiva que omite elementos clave del sistema planteado
+d) Convertir un bípedo en diferencial. Perspectiva que omite elementos clave del sistema planteado
 Solución: a
 Justificación: La percepción 3D permite identificar pendientes, bordes y obstáculos para decidir pisadas.
 
 Pregunta 38: La navegación global se ocupa principalmente de:
-a) Evitar únicamente obstáculos no previstos a muy corto plazo.
-b) Calcular una ruta adecuada u óptima usando un mapa.
-c) Controlar directamente cada motor sin mapa.
-d) Reconocer palabras yes/no.
+a) Evitar únicamente obstáculos no previstos a muy corto plazo. Enfoque que no se ajusta a la configuración descrita en el problema
+b) Calcular una ruta adecuada u óptima usando un mapa, de acuerdo con los principios fundamentales de la disciplina
+c) Controlar directamente cada motor sin mapa. Interpretación que resulta insuficiente ante los detalles del enunciado
+d) Reconocer palabras yes/no. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
 Solución: b
 Justificación: La navegación global usa un mapa y algoritmos para encontrar un camino hasta el destino.
 
 Pregunta 39: La navegación local se ocupa principalmente de:
-a) Evitar obstáculos no reflejados en el mapa usando sensores.
-b) Construir exclusivamente mapas topológicos.
-c) Entrenar modelos federados.
-d) Elegir entre edge y cloud.
+a) Evitar obstáculos no reflejados en el mapa usando sensores, de acuerdo con los principios fundamentales de la disciplina
+b) Construir exclusivamente mapas topológicos. A primera vista parece una respuesta válida, pero un examen más detallado del enunciado revela contradicciones con esta opción
+c) Entrenar modelos federados. Sin embargo, este enfoque no aborda correctamente los requisitos de coordinación entre percepción y actuación que el enunciado establece
+d) Elegir entre edge y cloud. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: a
 Justificación: La navegación local reacciona a obstáculos cercanos sin alejarse demasiado de la ruta prevista.
 
 Pregunta 40: Un mapa métrico representa:
-a) Conectividad abstracta entre lugares sin geometría.
-b) Espacio libre y obstáculos de forma geométrica o discretizada.
-c) Únicamente prioridades de comportamientos.
-d) Sólo etiquetas semánticas sin posición.
+a) Conectividad abstracta entre lugares sin geometría
+b) Espacio libre y obstáculos de forma geométrica o discretizada
+c) Únicamente prioridades de comportamientos. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
+d) Sólo etiquetas semánticas sin posición. Interpretación que resulta insuficiente ante los detalles del enunciado
 Solución: b
 Justificación: Los mapas métricos representan directamente espacio libre y ocupado.
 
 Pregunta 41: Un mapa topológico representa el entorno mediante:
-a) Un grafo de conectividad entre lugares.
-b) Un modelo TinyML.
-c) Una lista de partículas.
-d) Un polígono de soporte.
+a) Un grafo de conectividad entre lugares, tal como se desprende del análisis del problema planteado
+b) Un modelo TinyML. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+c) Una lista de partículas. Perspectiva que omite elementos clave del sistema planteado
+d) Un polígono de soporte. Perspectiva que omite elementos clave del sistema planteado
 Solución: a
 Justificación: Los mapas topológicos abstraen el entorno como nodos y conexiones.
 
 Pregunta 42: Una rejilla de ocupación es un ejemplo de:
-a) Mapa métrico por descomposición en celdas.
-b) Arquitectura subsumida.
-c) Filtro de partículas sin mapa.
-d) Modelo de lenguaje natural.
+a) Mapa métrico por descomposición en celdas
+b) Arquitectura subsumida. Enfoque que no se ajusta a la configuración descrita en el problema
+c) Filtro de partículas sin mapa
+d) Modelo de lenguaje natural. Enfoque que no se ajusta a la configuración descrita en el problema
 Solución: a
 Justificación: La rejilla divide el espacio en celdas que pueden estar libres u ocupadas.
 
 Pregunta 43: En una rejilla de ocupación, cada celda puede conectarse típicamente con:
-a) Sus vecinos inmediatos.
-b) Sólo con el servidor cloud.
-c) Los motores del robot.
-d) Los modelos federados.
+a) Sus vecinos inmediatos
+b) Requiere conexión permanente con infraestructura de procesamiento externo
+c) Los motores del robot
+d) Los modelos federados
 Solución: a
 Justificación: Para planificación, las celdas se tratan como nodos conectados con celdas vecinas.
 
 Pregunta 44: Un plan en navegación robótica es:
-a) Un conjunto de acciones que lleva del estado inicial al estado final.
-b) Una batería del robot.
-c) Un sensor de distancia.
-d) Una arquitectura puramente reactiva.
+a) Un conjunto de acciones que lleva del estado inicial al estado final, enfoque consolidado en aplicaciones prácticas de robótica
+b) Una batería del robot. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+c) Un sensor de distancia. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+d) Una arquitectura puramente reactiva. Esta visión, si bien es técnicamente correcta en abstracto, no se corresponde con la configuración particular del escenario planteado
 Solución: a
 Justificación: Un plan define estados y operadores para llegar al objetivo.
 
 Pregunta 45: En planificación global, tratar el robot como un punto es posible si:
-a) Se eliminan todos los obstáculos.
-b) Se expanden los obstáculos según el tamaño o radio del robot.
-c) No existe mapa.
-d) El robot no tiene masa.
+a) Se eliminan todos los obstáculos. Perspectiva que omite elementos clave del sistema planteado
+b) Se expanden los obstáculos según el tamaño o radio del robot, de acuerdo con los principios fundamentales de la disciplina
+c) No existe mapa. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+d) El robot no tiene masa. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: b
 Justificación: El espacio de configuración permite representar al robot como punto si se inflan los obstáculos.
 
 Pregunta 46: El espacio de configuración representa:
-a) El robot según sus grados de libertad relevantes para planificar.
-b) Sólo el consumo energético del robot.
-c) La lista de sensores IoT.
-d) La prioridad de comportamientos reactivos.
+a) El robot según sus grados de libertad relevantes para planificar, una solución ampliamente validada en la literatura del campo
+b) Sólo el consumo energético del robot. Interpretación que resulta insuficiente ante los detalles del enunciado
+c) La lista de sensores IoT. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) La prioridad de comportamientos reactivos. Perspectiva que omite elementos clave del sistema planteado
 Solución: a
 Justificación: Reduce el problema a coordenadas o variables que describen la configuración del robot.
 
 Pregunta 47: Un grafo de visibilidad se construye normalmente:
-a) Con vértices de obstáculos poligonales y conexiones que no cruzan obstáculos.
-b) Con partículas aleatorias sin relación.
-c) Con comandos de voz.
-d) Con pesos de redes neuronales.
+a) Con vértices de obstáculos poligonales y conexiones que no cruzan obstáculos, lo cual se ajusta a la configuración específica del escenario
+b) Con partículas aleatorias sin relación. Enfoque que no se ajusta a la configuración descrita en el problema
+c) Con comandos de voz. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+d) Con pesos de redes neuronales. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
 Solución: a
 Justificación: En mapas poligonales, conecta vértices visibles entre sí para buscar rutas.
 
 Pregunta 48: Dijkstra se diferencia de A* en que:
-a) Dijkstra no usa heurística para guiar la búsqueda.
-b) Dijkstra sólo funciona con TinyML.
-c) A* no usa costes.
-d) Dijkstra no puede trabajar en grafos.
+a) Dijkstra no usa heurística para guiar la búsqueda, respuesta que se alinea con las mejores prácticas del dominio
+b) Dijkstra sólo funciona con TinyML. Interpretación que resulta insuficiente ante los detalles del enunciado
+c) A* no usa costes. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Dijkstra no puede trabajar en grafos. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
 Solución: a
 Justificación: Dijkstra expande según coste acumulado; A* añade heurística.
 
 Pregunta 49: En A*, la función f(n)=g(n)+h(n) significa que:
-a) g(n) es el coste recorrido y h(n) estima el coste restante.
-b) g(n) es la batería y h(n) el peso.
-c) f(n) ignora el coste.
-d) h(n) debe sobreestimar siempre.
+a) g(n) es el coste recorrido y h(n) estima el coste restante, respuesta que se alinea con las mejores prácticas del dominio
+b) g(n) es la batería y h(n) el peso. Enfoque que no se ajusta a la configuración descrita en el problema
+c) f(n) ignora el coste. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+d) h(n) debe sobreestimar siempre. Pese a que suena razonable desde un punto de vista teórico, la práctica revela que esta solución presenta limitaciones significativas
 Solución: a
 Justificación: A* combina coste acumulado y una heurística admisible u optimista.
 
 Pregunta 50: Una heurística admisible en A* debe ser:
-a) Una estimación optimista que no sobreestima el coste real restante.
-b) Una estimación siempre mayor que el coste real.
-c) Un sensor físico.
-d) Una regla de subsunción.
+a) Una estimación optimista que no sobreestima el coste real restante, tal como se desprende del análisis del problema planteado
+b) Una estimación siempre mayor que el coste real. Interpretación que resulta insuficiente ante los detalles del enunciado
+c) Un sensor físico. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) Una regla de subsunción. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: a
 Justificación: La admisibilidad evita sobreestimar, ayudando a conservar optimalidad.
 
 Pregunta 51: SLAM aparece cuando:
-a) El robot debe construir el mapa y localizarse al mismo tiempo.
-b) El robot ya conoce exactamente su posición y el mapa completo.
-c) Sólo se necesita controlar ruedas.
-d) No existen sensores.
+a) El robot debe construir el mapa y localizarse al mismo tiempo, enfoque consolidado en aplicaciones prácticas de robótica
+b) El robot ya conoce exactamente su posición y el mapa completo
+c) Sólo se necesita controlar ruedas. Interpretación que resulta insuficiente ante los detalles del enunciado
+d) No existen sensores. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: a
 Justificación: En entornos desconocidos, localización y mapeado dependen mutuamente.
 
 Pregunta 52: Las entradas típicas de un sistema SLAM son:
-a) Odometría/IMU y observaciones del entorno.
-b) Sólo comandos de teclado.
-c) Únicamente el plan global terminado.
-d) Sólo actualizaciones federadas.
+a) Odometría/IMU y observaciones del entorno
+b) Sólo comandos de teclado. Perspectiva que omite elementos clave del sistema planteado
+c) Únicamente el plan global terminado
+d) Sólo actualizaciones federadas
 Solución: a
 Justificación: SLAM usa movimiento estimado y medidas de sensores como LiDAR o cámara.
 
 Pregunta 53: Las salidas típicas de SLAM son:
-a) Trayectoria estimada del robot y mapa del entorno.
-b) Sólo una contraseña de acceso.
-c) Un único comportamiento reactivo.
-d) Una rueda omnidireccional.
+a) Trayectoria estimada del robot y mapa del entorno, de acuerdo con los principios fundamentales de la disciplina
+b) Sólo una contraseña de acceso. Perspectiva que omite elementos clave del sistema planteado
+c) Un único comportamiento reactivo. Interpretación que resulta insuficiente ante los detalles del enunciado
+d) Una rueda omnidireccional. Interpretación que resulta insuficiente ante los detalles del enunciado
 Solución: a
 Justificación: SLAM estima simultáneamente pose/trayectoria y mapa.
 
 Pregunta 54: Un landmark en SLAM es:
-a) Una referencia identificable del entorno, como una esquina, puerta o columna.
-b) Una rueda motriz.
-c) Una partícula eliminada.
-d) Un algoritmo de Green AI.
+a) Una referencia identificable del entorno, como una esquina, puerta o columna, de acuerdo con los principios fundamentales de la disciplina
+b) Una rueda motriz. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+c) Una partícula eliminada. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+d) Un algoritmo de Green AI. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
 Solución: a
 Justificación: Los landmarks ayudan a relacionar observaciones con el mapa y corregir la localización.
 
 Pregunta 55: La odometría en SLAM presenta el problema de que:
-a) Acumula error con el movimiento.
-b) No puede estimar ningún desplazamiento.
-c) Elimina la necesidad de sensores.
-d) Sólo sirve para cloud.
+a) Acumula error con el movimiento, enfoque consolidado en aplicaciones prácticas de robótica
+b) No puede estimar ningún desplazamiento
+c) Elimina la necesidad de sensores
+d) Está diseñado exclusivamente para entornos con conectividad permanente a servidores remotos
 Solución: a
 Justificación: La odometría es útil, pero sus errores se acumulan y deben corregirse con observaciones.
 
 Pregunta 56: En un filtro de partículas, cada partícula representa:
-a) Una hipótesis sobre la posición del robot.
-b) Un obstáculo expandido.
-c) Una ruta global completa.
-d) Una capa cloud.
+a) Una hipótesis sobre la posición del robot, respuesta que se alinea con las mejores prácticas del dominio
+b) Un obstáculo expandido. Interpretación que resulta insuficiente ante los detalles del enunciado
+c) Una ruta global completa. Perspectiva que omite elementos clave del sistema planteado
+d) Una capa cloud. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
 Solución: a
 Justificación: Las partículas son posibles estados o poses del robot.
 
 Pregunta 57: Durante la predicción de un filtro de partículas:
-a) Las partículas se desplazan según el modelo de movimiento u odometría.
-b) Se calcula A* directamente.
-c) Se eliminan todos los sensores.
-d) Se crea una arquitectura deliberativa.
+a) Las partículas se desplazan según el modelo de movimiento u odometría, enfoque consolidado en aplicaciones prácticas de robótica
+b) Se calcula A* directamente. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+c) Se eliminan todos los sensores. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+d) Se crea una arquitectura deliberativa. Interpretación que resulta insuficiente ante los detalles del enunciado
 Solución: a
 Justificación: La fase de predicción propaga las hipótesis según el movimiento estimado.
 
 Pregunta 58: Durante la actualización de un filtro de partículas:
-a) Cada partícula recibe un peso según lo bien que explica las observaciones.
-b) Se ignora el sensor.
-c) Se borran todos los mapas.
-d) Se transforma el robot en bípedo.
+a) Cada partícula recibe un peso según lo bien que explica las observaciones, una solución ampliamente validada en la literatura del campo
+b) Se ignora el sensor. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+c) Se borran todos los mapas. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Se transforma el robot en bípedo. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: a
 Justificación: Las observaciones permiten valorar qué hipótesis son más probables.
 
 Pregunta 59: Tras varias iteraciones de filtro de partículas:
-a) Las partículas tienden a concentrarse en zonas más probables.
-b) Todas las partículas se distribuyen uniformemente para siempre.
-c) El robot deja de localizarse.
-d) El mapa topológico desaparece.
+a) Las partículas tienden a concentrarse en zonas más probables
+b) Todas las partículas se distribuyen uniformemente para siempre
+c) El robot deja de localizarse. Interpretación que resulta insuficiente ante los detalles del enunciado
+d) El mapa topológico desaparece. Perspectiva que omite elementos clave del sistema planteado
 Solución: a
 Justificación: El remuestreo y las observaciones concentran hipótesis en posiciones compatibles con las medidas.
 
 Pregunta 60: Una arquitectura robótica define:
-a) La organización de la generación de acciones a partir de percepciones.
-b) Sólo el color del chasis.
-c) Únicamente la batería.
-d) El tipo de examen.
+a) La organización de la generación de acciones a partir de percepciones, lo cual se ajusta a la configuración específica del escenario
+b) El diseño estético y la ergonomía del operador. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+c) Únicamente la batería. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) El tipo de examen. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: a
 Justificación: La arquitectura establece cómo se transforma percepción en control y acción.
 
 Pregunta 61: Un comportamiento robótico debe ser:
-a) Bien definido, autocontenido e independiente.
-b) Siempre deliberativo y con mapa global.
-c) Un servidor remoto.
-d) Una celda ocupada.
+a) Bien definido, autocontenido e independiente, de acuerdo con los principios fundamentales de la disciplina
+b) Siempre deliberativo y con mapa global. Enfoque que no se ajusta a la configuración descrita en el problema
+c) Un servidor remoto. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Una celda ocupada. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: a
 Justificación: Los comportamientos son primitivas básicas del control robótico.
 
 Pregunta 62: Una arquitectura deliberativa se basa en:
-a) Sentir, planificar y actuar usando un modelo del mundo.
-b) Reaccionar sin representación interna.
-c) Eliminar todos los planes.
-d) Ejecutar sólo reflejos.
+a) Sentir, planificar y actuar usando un modelo del mundo, tal como se desprende del análisis del problema planteado
+b) Reaccionar sin representación interna. Enfoque que no se ajusta a la configuración descrita en el problema
+c) Eliminar todos los planes. Enfoque que no se ajusta a la configuración descrita en el problema
+d) Ejecutar sólo reflejos. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: a
 Justificación: El paradigma SPA usa percepción, modelo, planificación, control y ejecución.
 
 Pregunta 63: Una ventaja de la arquitectura deliberativa es:
-a) Permite optimizar acciones usando un modelo del entorno.
-b) No requiere memoria ni cómputo.
-c) Reacciona siempre instantáneamente.
-d) No necesita mapa aunque planifique.
+a) Permite optimizar acciones usando un modelo del entorno, tal como se desprende del análisis del problema planteado
+b) Su arquitectura mínima prescinde de almacenamiento de estado entre ciclos ni cómputo
+c) Reacciona siempre instantáneamente. Interpretación que resulta insuficiente ante los detalles del enunciado
+d) Puede navegar mediante estrategias puramente reactivas sin representación espacial explícita aunque planifique
 Solución: a
 Justificación: El modelo permite calcular planes adecuados u óptimos.
 
 Pregunta 64: Una limitación de la arquitectura deliberativa es:
-a) Necesita un modelo preciso y puede reaccionar lentamente a imprevistos.
-b) No puede usar mapas.
-c) No puede calcular planes.
-d) No requiere sensores.
+a) Necesita un modelo preciso y puede reaccionar lentamente a imprevistos, enfoque consolidado en aplicaciones prácticas de robótica
+b) No puede usar mapas. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+c) No puede calcular planes. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) No requiere sensores. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: a
 Justificación: El coste de cómputo, memoria y dependencia del modelo dificultan mundos dinámicos.
 
 Pregunta 65: Una arquitectura reactiva se caracteriza por:
-a) Conexión directa percepción-acción sin modelo interno del mundo.
-b) Planificación estratégica a largo plazo obligatoria.
-c) Uso exclusivo de mapas métricos.
-d) Dependencia total de cloud.
+a) Conexión directa percepción-acción sin modelo interno del mundo
+b) Planificación estratégica a largo plazo obligatoria
+c) Uso exclusivo de mapas métricos. Enfoque que no se ajusta a la configuración descrita en el problema
+d) Dependencia total de cloud. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
 Solución: a
 Justificación: El enfoque reactivo responde directamente a estímulos sensoriales.
 
 Pregunta 66: Los sistemas puramente reactivos:
-a) No usan representación interna del entorno ni consideran acciones futuras.
-b) Siempre planifican con A*.
-c) Necesitan un mapa global completo.
-d) Sólo funcionan con FL.
+a) No usan representación interna del entorno ni consideran acciones futuras, enfoque consolidado en aplicaciones prácticas de robótica
+b) Siempre planifican con A*. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+c) Necesitan un mapa global completo. Interpretación que resulta insuficiente ante los detalles del enunciado
+d) Sólo funcionan con FL. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: a
 Justificación: Su fortaleza es la reacción rápida, pero sin planificación estratégica.
 
 Pregunta 67: Las reglas reactivas son similares a reflejos porque:
-a) Generan respuestas rápidas ante situaciones específicas.
-b) Requieren un plan global completo.
-c) Se ejecutan sólo en servidores cloud.
-d) No usan sensores.
+a) Generan respuestas rápidas ante situaciones específicas, una solución ampliamente validada en la literatura del campo
+b) Requieren un plan global completo. Interpretación que resulta insuficiente ante los detalles del enunciado
+c) Se ejecutan sólo en servidores cloud. Interpretación que resulta insuficiente ante los detalles del enunciado
+d) No usan sensores. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
 Solución: a
 Justificación: Transforman percepciones concretas en acciones concretas de forma rápida.
 
 Pregunta 68: Cuando varias reglas reactivas proponen acciones incompatibles, se necesita:
-a) Arbitraje o fusión de comportamientos.
-b) Eliminar los actuadores.
-c) Cambiar a locomoción acuática.
-d) Usar sólo odometría.
+a) Arbitraje o fusión de comportamientos
+b) Eliminar los actuadores. Enfoque que no se ajusta a la configuración descrita en el problema
+c) Cambiar a locomoción acuática
+d) Usar sólo odometría. Perspectiva que omite elementos clave del sistema planteado
 Solución: a
 Justificación: La selección de acciones resuelve conflictos entre comportamientos concurrentes.
 
 Pregunta 69: Arbitraje significa:
-a) Escoger una acción o comportamiento entre varios en conflicto.
-b) Sumar todos los comandos sin criterio.
-c) Construir un mapa de ocupación.
-d) Entrenar un modelo TinyML.
+a) Escoger una acción o comportamiento entre varios en conflicto, enfoque consolidado en aplicaciones prácticas de robótica
+b) Sumar todos los comandos sin criterio. Perspectiva que omite elementos clave del sistema planteado
+c) Construir un mapa de ocupación. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
+d) Entrenar un modelo TinyML. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: a
 Justificación: El arbitraje decide qué comportamiento predomina.
 
 Pregunta 70: Fusión de comportamientos significa:
-a) Combinar varias acciones para generar una única orden.
-b) Eliminar todos los comportamientos.
-c) Elegir siempre el más lento.
-d) Construir un grafo topológico.
+a) Combinar varias acciones para generar una única orden, tal como se desprende del análisis del problema planteado
+b) Eliminar todos los comportamientos. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
+c) Elegir siempre el más lento. Perspectiva que omite elementos clave del sistema planteado
+d) Construir un grafo topológico. Interpretación que resulta insuficiente ante los detalles del enunciado
 Solución: a
 Justificación: La fusión integra comandos para obtener una salida conjunta.
 
 Pregunta 71: En arquitectura subsumida, subsumir significa:
-a) Tener prioridad sobre otro comportamiento.
-b) Construir un mapa métrico.
-c) Reducir la batería.
-d) Centralizar datos.
+a) Tener prioridad sobre otro comportamiento, una solución ampliamente validada en la literatura del campo
+b) Construir un mapa métrico. Si bien algunos sistemas operan bajo este paradigma, el caso descrito involucra componentes que contradicen esta interpretación
+c) Reducir la batería. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) Centralizar datos. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
 Solución: a
 Justificación: Las capas superiores pueden predominar sobre las inferiores.
 
 Pregunta 72: En una arquitectura subsumida, los comportamientos se organizan:
-a) Jerárquicamente por niveles concurrentes con prioridades.
-b) Sólo secuencialmente y sin sensores.
-c) Como una única regla global.
-d) Como celdas de una rejilla.
+a) Jerárquicamente por niveles concurrentes con prioridades, una solución ampliamente validada en la literatura del campo
+b) Sólo secuencialmente y sin sensores. Interpretación que resulta insuficiente ante los detalles del enunciado
+c) Como una única regla global. Perspectiva que omite elementos clave del sistema planteado
+d) Como celdas de una rejilla. Enfoque que no se ajusta a la configuración descrita en el problema
 Solución: a
 Justificación: La subsunción usa niveles ejecutados concurrente y asíncronamente.
 
 Pregunta 73: Un beneficio de la arquitectura subsumida es:
-a) Robustez y modularidad por construcción incremental.
-b) Planificación estratégica completa.
-c) Necesidad de un modelo perfecto.
-d) Imposibilidad de reutilizar reglas.
+a) Robustez y modularidad por construcción incremental, tal como se desprende del análisis del problema planteado
+b) Planificación estratégica completa. Perspectiva que omite elementos clave del sistema planteado
+c) Necesidad de un modelo perfecto. Perspectiva que omite elementos clave del sistema planteado
+d) Imposibilidad de reutilizar reglas. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
 Solución: a
 Justificación: Al fallar un nivel superior, los inferiores pueden seguir funcionando.
 
 Pregunta 74: Un problema de la arquitectura subsumida es:
-a) No tiene representación interna ni planificación estratégica.
-b) No permite reacción rápida.
-c) No puede evitar obstáculos.
-d) Siempre requiere cloud.
+a) No tiene representación interna ni planificación estratégica, respuesta que se alinea con las mejores prácticas del dominio
+b) No permite reacción rápida. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+c) No puede evitar obstáculos. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) Siempre requiere cloud. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
 Solución: a
 Justificación: Su limitación principal es la falta de razonamiento complejo y planificación.
 
 Pregunta 75: Una arquitectura híbrida combina:
-a) Planificación deliberativa y reacción rápida reactiva.
-b) Sólo cloud y edge.
-c) Únicamente ruedas y orugas.
-d) SLAM y Green AI exclusivamente.
+a) Planificación deliberativa y reacción rápida reactiva, de acuerdo con los principios fundamentales de la disciplina
+b) Sólo cloud y edge. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+c) Únicamente ruedas y orugas. Perspectiva que omite elementos clave del sistema planteado
+d) SLAM y Green AI exclusivamente. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
 Solución: a
 Justificación: Integra una capa deliberativa para futuro y una reactiva para imprevistos.
 
 Pregunta 76: IoT se refiere a:
-a) Una red de objetos físicos con sensores, software y conectividad para intercambiar datos.
-b) Un robot necesariamente autónomo con patas.
-c) Un algoritmo de búsqueda en grafos.
-d) Una técnica de estabilidad bípeda.
+a) Una red de objetos físicos con sensores, software y conectividad para intercambiar datos, tal como se desprende del análisis del problema planteado
+b) Un robot necesariamente autónomo con patas. A primera vista parece una respuesta válida, pero un examen más detallado del enunciado revela contradicciones con esta opción
+c) Un algoritmo de búsqueda en grafos. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+d) Una técnica de estabilidad bípeda. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: a
 Justificación: IoT conecta dispositivos capaces de medir, enviar datos y activar decisiones automatizadas.
 
 Pregunta 77: Un elemento clave de IoT es:
-a) Sensor, comunicación, procesamiento y energía.
-b) Sólo el chasis mecánico.
-c) Únicamente el polígono de soporte.
-d) Sólo la heurística de A*.
+a) Sensor, comunicación, procesamiento y energía
+b) Sólo el chasis mecánico. Perspectiva que omite elementos clave del sistema planteado
+c) Únicamente el polígono de soporte
+d) Sólo la heurística de A*. Enfoque que no se ajusta a la configuración descrita en el problema
 Solución: a
 Justificación: Un sistema IoT necesita medir, comunicar, procesar y alimentarse energéticamente.
 
 Pregunta 78: IoRT amplía IoT porque:
-a) Añade robots capaces de percibir, decidir y actuar físicamente.
-b) Elimina sensores y actuadores.
-c) Sólo usa mapas topológicos.
-d) Impide la comunicación entre nodos.
+a) Añade robots capaces de percibir, decidir y actuar físicamente, enfoque consolidado en aplicaciones prácticas de robótica
+b) Elimina sensores y actuadores. Enfoque que no se ajusta a la configuración descrita en el problema
+c) Sólo usa mapas topológicos. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+d) Impide la comunicación entre nodos. Perspectiva que omite elementos clave del sistema planteado
 Solución: a
 Justificación: IoRT no sólo conecta objetos; integra acción robótica en una arquitectura conectada.
 
 Pregunta 79: Un componente clave de IoRT es:
-a) Robots, sensores, actuadores, comunicación, procesamiento, IA y seguridad.
-b) Sólo ruedas diferenciales.
-c) Únicamente un servidor cloud.
-d) Sólo mapas de elevación.
+a) Robots, sensores, actuadores, comunicación, procesamiento, IA y seguridad, de acuerdo con los principios fundamentales de la disciplina
+b) Sólo ruedas diferenciales. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+c) Únicamente un servidor cloud. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+d) Sólo mapas de elevación. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: a
 Justificación: IoRT combina elementos físicos, computacionales, comunicación, decisión y seguridad.
 
 Pregunta 80: En un sistema robótico conectado, pasar de robot aislado a IoRT implica:
-a) Cambiar la arquitectura del sistema, no sólo añadir tecnología.
-b) Quitar toda comunicación.
-c) Eliminar sensores externos.
-d) No actuar sobre el mundo físico.
+a) Cambiar la arquitectura del sistema, no sólo añadir tecnología, de acuerdo con los principios fundamentales de la disciplina
+b) Quitar toda comunicación. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+c) Eliminar sensores externos. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+d) No actuar sobre el mundo físico. Interpretación que resulta insuficiente ante los detalles del enunciado
 Solución: a
 Justificación: La conectividad modifica cómo se distribuyen datos, decisiones y coordinación.
 
 Pregunta 81: Un robot aislado se caracteriza por:
-a) Usar sensores propios, control local y decisiones individuales.
-b) Depender siempre de una red 5G.
-c) Compartir todos los datos con cloud.
-d) Coordinarse necesariamente con otros sistemas.
+a) Usar sensores propios, control local y decisiones individuales
+b) Depender siempre de una red 5G. Enfoque que no se ajusta a la configuración descrita en el problema
+c) Compartir todos los datos con cloud. Enfoque que no se ajusta a la configuración descrita en el problema
+d) Coordinarse necesariamente con otros sistemas
 Solución: a
 Justificación: El robot aislado opera principalmente con sus recursos locales.
 
 Pregunta 82: Un robot conectado se caracteriza por:
-a) Compartir datos, recibir información externa y coordinarse con otros sistemas.
-b) No tener sensores propios.
-c) No poder actuar.
-d) No usar procesamiento.
+a) Compartir datos, recibir información externa y coordinarse con otros sistemas, enfoque consolidado en aplicaciones prácticas de robótica
+b) No tener sensores propios. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+c) No poder actuar. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) No usar procesamiento. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: a
 Justificación: La conexión permite ampliar información y coordinación.
 
 Pregunta 83: El procesamiento on-board se realiza:
-a) Dentro del propio robot.
-b) Sólo en servidores lejanos.
-c) En una red social.
-d) En una celda ocupada.
+a) Dentro del propio robot, tal como se desprende del análisis del problema planteado
+b) Se ejecuta en infraestructura de computación distribuida geográficamente
+c) En una red social. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) En una celda ocupada. Enfoque que no se ajusta a la configuración descrita en el problema
 Solución: a
 Justificación: On-board significa procesamiento embarcado dentro del robot.
 
 Pregunta 84: Una ventaja del procesamiento on-board es:
-a) Respuesta inmediata y mayor autonomía.
-b) Capacidad de cálculo infinita.
-c) Dependencia completa de red.
-d) Mayor latencia que cloud siempre.
+a) Respuesta inmediata y mayor autonomía
+b) Capacidad de cálculo infinita
+c) Dependencia completa de red
+d) Mayor latencia que cloud siempre
 Solución: a
 Justificación: Al estar en el robot reduce latencia y dependencia de conectividad.
 
 Pregunta 85: Una limitación del procesamiento on-board es:
-a) Recursos de cálculo y energía limitados.
-b) Imposibilidad de actuar físicamente.
-c) Ausencia total de sensores.
-d) No poder ejecutar control.
+a) Recursos de cálculo y energía limitados
+b) Imposibilidad de actuar físicamente
+c) Ausencia total de sensores. Enfoque que no se ajusta a la configuración descrita en el problema
+d) No poder ejecutar control. Enfoque que no se ajusta a la configuración descrita en el problema
 Solución: a
 Justificación: El hardware embarcado suele tener restricciones de cómputo y batería.
 
 Pregunta 86: El procesamiento edge se sitúa:
-a) Muy cerca del dispositivo.
-b) En un servidor remoto global exclusivamente.
-c) Dentro del pie del robot necesariamente.
-d) En el polígono de soporte.
+a) Muy cerca del dispositivo, respuesta que se alinea con las mejores prácticas del dominio
+b) En un servidor remoto global exclusivamente, interpretación que pasa por alto aspectos fundamentales del funcionamiento de este tipo de sistemas
+c) Dentro del pie del robot necesariamente, interpretación que pasa por alto aspectos fundamentales del funcionamiento de este tipo de sistemas
+d) En el polígono de soporte. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
 Solución: a
 Justificación: Edge acerca el cálculo al dispositivo para reducir latencia y tráfico.
 
 Pregunta 87: Una ventaja del edge es:
-a) Baja latencia y reducción del envío de datos.
-b) Dependencia total de redes lejanas.
-c) Imposibilidad de coordinar dispositivos.
-d) Mayor consumo obligatorio que cloud.
+a) Baja latencia y reducción del envío de datos
+b) Dependencia total de redes lejanas
+c) Imposibilidad de coordinar dispositivos
+d) Mayor consumo obligatorio que cloud
 Solución: a
 Justificación: Edge procesa cerca del origen de los datos.
 
 Pregunta 88: El procesamiento fog se caracteriza por:
-a) Infraestructura local que coordina varios dispositivos y agrega procesamiento.
-b) Procesamiento únicamente dentro del motor.
-c) Ausencia de comunicaciones.
-d) Ser igual que ZMP.
+a) Infraestructura local que coordina varios dispositivos y agrega procesamiento, de acuerdo con los principios fundamentales de la disciplina
+b) Procesamiento únicamente dentro del motor. Perspectiva que omite elementos clave del sistema planteado
+c) Ausencia de comunicaciones. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+d) Ser igual que ZMP. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: a
 Justificación: Fog es una capa intermedia local, útil para coordinación y agregación.
 
 Pregunta 89: El procesamiento cloud destaca por:
-a) Gran capacidad de cálculo y visión global.
-b) Latencia siempre nula.
-c) Independencia completa de la red.
-d) Estar dentro de cada sensor.
+a) Gran capacidad de cálculo y visión global
+b) Latencia siempre nula. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
+c) Independencia completa de la red, interpretación que pasa por alto aspectos fundamentales del funcionamiento de este tipo de sistemas
+d) Estar dentro de cada sensor. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
 Solución: a
 Justificación: Cloud ofrece mucha capacidad, pero depende de conectividad y puede aumentar latencia.
 
 Pregunta 90: La elección entre on-board, edge, fog y cloud depende de:
-a) Latencia, conectividad, coste, energía, seguridad y capacidad de cálculo.
-b) Únicamente del color del robot.
-c) Sólo del número de ruedas.
-d) Sólo del tipo de mapa.
+a) Latencia, conectividad, coste, energía, seguridad y capacidad de cálculo, enfoque consolidado en aplicaciones prácticas de robótica
+b) Únicamente del color del robot. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+c) Sólo del número de ruedas. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+d) Sólo del tipo de mapa. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: a
 Justificación: La arquitectura se elige equilibrando requisitos de tarea y recursos.
 
 Pregunta 91: TinyML consiste en:
-a) Ejecutar IA en dispositivos pequeños con modelos ligeros e inferencia local.
-b) Usar siempre modelos gigantes en cloud.
-c) Eliminar sensores IoT.
-d) Planificar con Dijkstra.
+a) Ejecutar IA en dispositivos pequeños con modelos ligeros e inferencia local, lo cual se ajusta a la configuración específica del escenario
+b) Usar siempre modelos gigantes en cloud. Si bien algunos sistemas operan bajo este paradigma, el caso descrito involucra componentes que contradicen esta interpretación
+c) Eliminar sensores IoT. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Planificar con Dijkstra. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
 Solución: a
 Justificación: TinyML acerca inteligencia al dispositivo mediante modelos eficientes.
 
 Pregunta 92: Una ventaja de TinyML es:
-a) Menor latencia, menor comunicación, más privacidad y bajo consumo.
-b) Mayor dependencia de cloud.
-c) Imposibilidad de inferencia local.
-d) Necesidad de mapas topológicos.
+a) Menor latencia, menor comunicación, más privacidad y bajo consumo, enfoque consolidado en aplicaciones prácticas de robótica
+b) Mayor dependencia de cloud. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+c) Imposibilidad de inferencia local. Perspectiva que omite elementos clave del sistema planteado
+d) Necesidad de mapas topológicos. Si bien algunos sistemas operan bajo este paradigma, el caso descrito involucra componentes que contradicen esta interpretación
 Solución: a
 Justificación: La inferencia local reduce comunicación y latencia y puede mejorar privacidad.
 
 Pregunta 93: Una limitación de TinyML es:
-a) Modelos más simples, memoria limitada y menor capacidad de cálculo.
-b) Necesidad de robots bípedos.
-c) Imposibilidad de usar sensores.
-d) Ausencia de optimización.
+a) Modelos más simples, memoria limitada y menor capacidad de cálculo, una solución ampliamente validada en la literatura del campo
+b) Necesidad de robots bípedos. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+c) Imposibilidad de usar sensores. Si bien algunos sistemas operan bajo este paradigma, el caso descrito involucra componentes que contradicen esta interpretación
+d) Ausencia de optimización. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: a
 Justificación: Los microcontroladores tienen restricciones fuertes de memoria y cómputo.
 
 Pregunta 94: Un flujo típico TinyML incluye:
-a) Entrenamiento, compresión/optimización, despliegue en microcontrolador e inferencia local.
-b) Sólo planificación global.
-c) Remuestreo de partículas.
-d) Diseño de polígono de soporte.
+a) Entrenamiento, compresión/optimización, despliegue en microcontrolador e inferencia local, una solución ampliamente validada en la literatura del campo
+b) Sólo planificación global. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+c) Remuestreo de partículas. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+d) Diseño de polígono de soporte. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
 Solución: a
 Justificación: TinyML suele entrenar en máquinas potentes, optimizar y desplegar en dispositivos pequeños.
 
 Pregunta 95: Herramientas habituales de TinyML incluyen:
-a) TensorFlow Lite for Microcontrollers, Edge Impulse y ONNX/ONNX Runtime.
-b) Sólo A* y Dijkstra.
-c) Sólo ZMP y SLAM.
-d) Únicamente mapas topológicos.
+a) TensorFlow Lite for Microcontrollers, Edge Impulse y ONNX/ONNX Runtime, una solución ampliamente validada en la literatura del campo
+b) Sólo A* y Dijkstra. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+c) Sólo ZMP y SLAM. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Únicamente mapas topológicos. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
 Solución: a
 Justificación: Estas herramientas permiten crear y desplegar modelos eficientes en dispositivos limitados.
 
 Pregunta 96: Green AI propone que los modelos se evalúen por:
-a) Precisión, coste computacional, memoria, tiempo, energía y viabilidad.
-b) Sólo precisión máxima sin importar recursos.
-c) Únicamente número de sensores.
-d) Sólo tamaño físico del robot.
+a) Precisión, coste computacional, memoria, tiempo, energía y viabilidad, enfoque consolidado en aplicaciones prácticas de robótica
+b) Sólo precisión máxima sin importar recursos. A primera vista parece una respuesta válida, pero un examen más detallado del enunciado revela contradicciones con esta opción
+c) Únicamente número de sensores. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+d) Sólo tamaño físico del robot. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: a
 Justificación: Green AI busca modelos útiles, sostenibles y desplegables.
 
 Pregunta 97: Green AI es especialmente relevante en robótica porque:
-a) Batería, latencia y recursos limitados condicionan el despliegue real.
-b) Los robots siempre tienen energía infinita.
-c) La eficiencia no importa en sistemas embarcados.
-d) Sólo se usa en mapas geométricos.
+a) Batería, latencia y recursos limitados condicionan el despliegue real
+b) Los robots siempre tienen energía infinita. Interpretación que resulta insuficiente ante los detalles del enunciado
+c) La eficiencia no importa en sistemas embarcados
+d) Sólo se usa en mapas geométricos. Enfoque que no se ajusta a la configuración descrita en el problema
 Solución: a
 Justificación: Los robots reales dependen de autonomía, cómputo local y consumo energético.
 
 Pregunta 98: En Green AI, no siempre gana el modelo más grande porque:
-a) Puede tener coste, memoria o consumo inviables para el despliegue.
-b) Los modelos grandes nunca aprenden.
-c) La precisión no existe.
-d) Los sensores se desconectan.
+a) Puede tener coste, memoria o consumo inviables para el despliegue, tal como se desprende del análisis del problema planteado
+b) Los modelos grandes nunca aprenden. Si bien algunos sistemas operan bajo este paradigma, el caso descrito involucra componentes que contradicen esta interpretación
+c) La precisión no existe. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+d) Los sensores se desconectan. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: a
 Justificación: Un modelo ligeramente menos preciso puede ser preferible si es más eficiente y desplegable.
 
 Pregunta 99: Federated Learning se basa en:
-a) Aprender de muchos nodos sin centralizar todos los datos.
-b) Enviar siempre todos los datos brutos al servidor.
-c) Eliminar los modelos locales.
-d) No compartir ninguna actualización.
+a) Aprender de muchos nodos sin centralizar todos los datos
+b) Enviar siempre todos los datos brutos al servidor
+c) Eliminar los modelos locales. Interpretación que resulta insuficiente ante los detalles del enunciado
+d) No compartir ninguna actualización. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
 Solución: a
 Justificación: FL entrena localmente y comparte actualizaciones de modelo para agregarlas.
 
 Pregunta 100: En FL, cada nodo normalmente:
-a) Entrena localmente y envía actualizaciones del modelo.
-b) Envía todos sus datos brutos obligatoriamente.
-c) No participa en el aprendizaje.
-d) Sólo calcula rutas A*.
+a) Entrena localmente y envía actualizaciones del modelo
+b) Envía todos sus datos brutos obligatoriamente
+c) No participa en el aprendizaje. Enfoque que no se ajusta a la configuración descrita en el problema
+d) Sólo calcula rutas A*. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: a
 Justificación: El nodo conserva datos locales y aporta actualizaciones al modelo global.
 
 Pregunta 1: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha
+b) El centro de masas coincide exactamente con el origen del sistema de referencia
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo
+d) El robot mantiene ambos pies apoyados en el suelo
 Solución: c
 Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
 
 Pregunta 2: ¿Qué diferencia fundamental existe entre Dijkstra y A* en planificación de trayectorias?
-a) A* utiliza una heurística para estimar el coste restante hasta el objetivo.
-b) Dijkstra sólo puede trabajar sobre mapas topológicos.
-c) A* no garantiza optimalidad aunque la heurística sea admisible.
-d) Dijkstra necesita obligatoriamente sensores LiDAR.
+a) A* utiliza una heurística para estimar el coste restante hasta el objetivo
+b) Dijkstra sólo puede trabajar sobre mapas topológicos
+c) A* no garantiza optimalidad aunque la heurística sea admisible
+d) Dijkstra necesita obligatoriamente sensores LiDAR
 Solución: a
 Justificación: A* incorpora una heurística h(n) para guiar la búsqueda hacia el objetivo.
 
 Pregunta 3: ¿Por qué la odometría por sí sola no es suficiente en SLAM?
-a) Porque no puede estimar desplazamientos angulares.
-b) Porque acumula error progresivamente con el movimiento.
-c) Porque sólo funciona en exteriores.
-d) Porque sustituye completamente el mapa.
+a) Porque no puede estimar desplazamientos angulares
+b) Porque acumula error progresivamente con el movimiento
+c) Porque sólo funciona en exteriores. Perspectiva que omite elementos clave del sistema planteado
+d) Porque sustituye completamente el mapa
 Solución: b
 Justificación: La odometría introduce errores acumulativos que deben corregirse con observaciones del entorno.
 
 Pregunta 4: ¿Qué ventaja principal tiene una arquitectura reactiva frente a una deliberativa?
-a) Puede calcular planes globales óptimos con gran precisión.
-b) Tiene mejor representación simbólica del entorno.
-c) Reacciona rápidamente ante cambios imprevistos del entorno.
-d) Necesita mapas completos para funcionar.
+a) Puede calcular planes globales óptimos con gran precisión
+b) Tiene mejor representación simbólica del entorno
+c) Reacciona rápidamente ante cambios imprevistos del entorno
+d) Necesita mapas completos para funcionar. Interpretación que resulta insuficiente ante los detalles del enunciado
 Solución: c
 Justificación: Las arquitecturas reactivas priorizan velocidad de respuesta frente a planificación.
 
 Pregunta 5: ¿Cuál es un inconveniente habitual de robots cuadrúpedos como Spot?
-a) Tienen menor complejidad mecánica que robots con ruedas.
-b) Consumen más energía y requieren control más complejo.
-c) No pueden utilizar sensores de percepción.
-d) Son incapaces de mantener estabilidad dinámica.
+a) Tienen menor complejidad mecánica que robots con ruedas
+b) Consumen más energía y requieren control más complejo
+c) No pueden utilizar sensores de percepción
+d) Son incapaces de mantener estabilidad dinámica
 Solución: b
 Justificación: Los cuadrúpedos requieren múltiples actuadores y control continuo.
 
 Pregunta 6: En un robot bípedo, ¿qué situación indica con mayor probabilidad pérdida de estabilidad dinámica?
-a) El ZMP permanece dentro del polígono de soporte durante toda la marcha.
-b) El centro de masas coincide exactamente con el origen del sistema de referencia.
-c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo.
-d) El robot mantiene ambos pies apoyados en el suelo.
+a) El ZMP permanece dentro del polígono de soporte durante toda la marcha
+b) El centro de masas coincide exactamente con el origen del sistema de referencia
+c) El ZMP sale del polígono de soporte mientras una pierna está en fase de balanceo
+d) El robot mantiene ambos pies apoyados en el suelo
 Solución: c
 Justificación: Si el ZMP sale del polígono de soporte, el robot pierde equilibrio y aumenta el riesgo de caída.
-
 ¡Entendido! Aquí tienes un bloque completamente nuevo con 100 preguntas inéditas (numeradas de la 101 a la 200) sobre robótica, cinemática, planificación, arquitecturas, SLAM, IA y procesamiento. Siguen exactamente el mismo formato, longitud y rigor que tus primeras 100 preguntas.
-
 Puedes copiar y pegar este bloque directamente al final de tu documento original (justo después de la Pregunta 100) para tener tu test de 200 preguntas reales y sin repeticiones.
 
 Pregunta 101: En robótica móvil, la configuración "skid-steer" (deslizamiento) se caracteriza por:
-a) Tener ruedas direccionales independientes.
-b) Girar mediante la diferencia de velocidad entre las ruedas de un lado y del otro, provocando deslizamiento.
-c) Usar ruedas Mecanum en todos sus ejes.
-d) Eliminar por completo el error de odometría.
+a) Tener ruedas direccionales independientes. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+b) Girar mediante la diferencia de velocidad entre las ruedas de un lado y del otro, provocando deslizamiento, de acuerdo con los principios fundamentales de la disciplina
+c) Usar ruedas Mecanum en todos sus ejes. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Eliminar por completo el error de odometría. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: b
 Justificación: El giro tipo tanque o skid-steer requiere que las ruedas se deslicen lateralmente al rotar, lo que causa alto desgaste y error odométrico.
 
 Pregunta 102: Las ruedas Mecanum permiten a un robot:
-a) Subir escaleras sin control dinámico.
-b) Moverse holonómicamente gracias a los rodillos inclinados a 45 grados en su periferia.
-c) Consumir menos energía que las ruedas convencionales.
-d) Desplazarse solo en línea recta.
+a) Subir escaleras sin control dinámico. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+b) Moverse holonómicamente gracias a los rodillos inclinados a 45 grados en su periferia
+c) Consumir menos energía que las ruedas convencionales
+d) Desplazarse solo en línea recta. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: b
 Justificación: La disposición de los rodillos permite generar vectores de fuerza en múltiples direcciones, logrando un movimiento omnidireccional.
 
 Pregunta 103: El Centro Instantáneo de Rotación (ICC) en un robot diferencial:
-a) Está siempre en el centro geométrico del robot.
-b) Es el punto alrededor del cual rotan todas las ruedas del robot en un instante dado.
-c) Solo existe si el robot avanza en línea recta.
-d) Es el punto donde se procesan los datos del servidor cloud.
+a) Está siempre en el centro geométrico del robot
+b) Es el punto alrededor del cual rotan todas las ruedas del robot en un instante dado
+c) Solo existe si el robot avanza en línea recta
+d) Es el punto donde se procesan los datos del servidor cloud
 Solución: b
 Justificación: Cinemáticamente, cualquier movimiento 2D se puede describir como una rotación pura alrededor del ICC.
 
 Pregunta 104: La cinemática directa de un robot móvil resuelve el problema de:
-a) Calcular las velocidades de las ruedas a partir de la velocidad deseada del robot.
-b) Calcular la pose y velocidad del robot en el espacio a partir de las velocidades de sus ruedas.
-c) Evitar obstáculos en el mapa global.
-d) Construir una rejilla de ocupación.
+a) Calcular las velocidades de las ruedas a partir de la velocidad deseada del robot. Enfoque que no se ajusta a la configuración descrita en el problema
+b) Calcular la pose y velocidad del robot en el espacio a partir de las velocidades de sus ruedas, lo cual se ajusta a la configuración específica del escenario
+c) Evitar obstáculos en el mapa global. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Construir una rejilla de ocupación. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: b
 Justificación: La cinemática directa parte de las entradas de los actuadores para predecir el comportamiento global del chasis.
 
 Pregunta 105: La cinemática inversa de un robot móvil se utiliza para:
-a) Estimar la batería restante.
-b) Transformar comandos de velocidad del robot (v, ω) en las velocidades necesarias en cada rueda.
-c) Mapear un entorno sin sensores.
-d) Apagar los motores de forma segura.
+a) Estimar la batería restante. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+b) Transformar comandos de velocidad del robot (v, ω) en las velocidades necesarias en cada rueda, de acuerdo con los principios fundamentales de la disciplina
+c) Mapear un entorno sin sensores. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) Apagar los motores de forma segura. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
 Solución: b
 Justificación: El controlador de navegación da un comando general y la cinemática inversa deduce qué debe hacer cada actuador.
 
 Pregunta 106: En la marcha de un robot bípedo, la fase en la que un pie está en el aire moviéndose hacia adelante se denomina:
-a) Fase de doble soporte.
-b) Fase de balanceo (swing phase).
-c) Fase de apoyo (stance phase).
-d) ZMP inverso.
+a) Fase de doble soporte. Enfoque que no se ajusta a la configuración descrita en el problema
+b) Fase de balanceo (swing phase), tal como se desprende del análisis del problema planteado
+c) Fase de apoyo (stance phase). Perspectiva que omite elementos clave del sistema planteado
+d) ZMP inverso. ya que esta arquitectura es la que mejor se adapta al problema planteado, aunque tiene limitaciones
 Solución: b
 Justificación: La pierna en fase de balanceo avanza mientras la de apoyo soporta el peso y mantiene el equilibrio.
 
 Pregunta 107: En el modelo de "péndulo invertido" para el equilibrio de robots bípedos:
-a) Toda la masa se concentra en un punto que oscila sobre la base de soporte.
-b) El centro de gravedad siempre está por debajo del suelo.
-c) Se ignoran las fuerzas inerciales.
-d) Solo sirve para robots con ruedas.
+a) Toda la masa se concentra en un punto que oscila sobre la base de soporte
+b) El centro de gravedad siempre está por debajo del suelo
+c) Se ignoran las fuerzas inerciales. Perspectiva que omite elementos clave del sistema planteado
+d) Solo sirve para robots con ruedas. Enfoque que no se ajusta a la configuración descrita en el problema
 Solución: a
 Justificación: Es una simplificación clásica para modelar la dinámica de la caída y calcular el ZMP.
 
 Pregunta 108: El margen de estabilidad estática en un robot con patas se define como:
-a) La altura del robot.
-b) La distancia mínima desde la proyección del centro de masas hasta los bordes del polígono de soporte.
-c) La velocidad máxima de sus patas.
-d) El peso de la batería.
+a) La altura del robot. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+b) La distancia mínima desde la proyección del centro de masas hasta los bordes del polígono de soporte
+c) La velocidad máxima de sus patas. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+d) El peso de la batería. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: b
 Justificación: Un mayor margen indica que el robot está más lejos de volcar, siendo más robusto ante perturbaciones.
 
 Pregunta 109: Los sensores exteroceptivos miden:
-a) El estado interno del robot (posición de motores, batería).
-b) La velocidad del procesador on-board.
-c) Información del entorno exterior (LiDAR, cámaras, ultrasonidos).
-d) Únicamente la temperatura interna.
+a) El estado interno del robot (posición de motores, batería)
+b) La velocidad del procesador on-board. Interpretación que resulta insuficiente ante los detalles del enunciado
+c) Información del entorno exterior (LiDAR, cámaras, ultrasonidos)
+d) Únicamente la temperatura interna. Perspectiva que omite elementos clave del sistema planteado
 Solución: c
 Justificación: Proveen datos sobre el mundo físico que rodea al robot para poder interactuar y navegar.
 
 Pregunta 110: Una Unidad de Medida Inercial (IMU) tradicionalmente incluye:
-a) Solo GPS y cámara.
-b) Acelerómetro, giroscopio y a veces magnetómetro.
-c) LiDAR y ultrasonido.
-d) Sensores de contacto.
+a) Solo GPS y cámara. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+b) Acelerómetro, giroscopio y a veces magnetómetro, de acuerdo con los principios fundamentales de la disciplina
+c) LiDAR y ultrasonido. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+d) Sensores de contacto. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: b
 Justificación: Combina sensores para estimar aceleración lineal y velocidad angular, ayudando en la odometría y equilibrio.
 
 Pregunta 111: El error sistemático en odometría es causado principalmente por:
-a) Deslizamiento por suelo mojado.
-b) Golpes con obstáculos.
-c) Diámetros de rueda desiguales o desalineación mecánica constante.
-d) Pérdida de paquetes en la red WiFi.
+a) Deslizamiento por suelo mojado. Enfoque que no se ajusta a la configuración descrita en el problema
+b) Golpes con obstáculos. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+c) Diámetros de rueda desiguales o desalineación mecánica constante, una solución ampliamente validada en la literatura del campo
+d) Pérdida de paquetes en la red WiFi. Enfoque que no se ajusta a la configuración descrita en el problema
 Solución: c
 Justificación: Son errores intrínsecos de la máquina que se acumulan de manera predecible y pueden calibrarse.
 
 Pregunta 112: ¿Qué ventaja ofrece una cámara RGB-D frente a un LiDAR 2D clásico?
-a) Tiene mayor alcance y funciona perfectamente a plena luz del sol.
-b) Proporciona información de profundidad y color en 3D del entorno cercano.
-c) Consume mucha menos memoria computacional.
-d) Nunca sufre de ruido en la imagen.
+a) Tiene mayor alcance y funciona perfectamente a plena luz del sol
+b) Proporciona información de profundidad y color en 3D del entorno cercano
+c) Consume mucha menos memoria computacional. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
+d) Nunca sufre de ruido en la imagen. Enfoque que no se ajusta a la configuración descrita en el problema
 Solución: b
 Justificación: Las RGB-D capturan imágenes con información tridimensional (nube de puntos) ideal para manipulación y navegación 3D.
 
 Pregunta 113: Una representación espacial basada en Octrees consiste en:
-a) Un mapa topológico lineal.
-b) Dividir el espacio 3D jerárquicamente en 8 cubos menores de forma recursiva.
-c) Descartar todos los obstáculos no convexos.
-d) Una lista de reglas reactivas.
+a) Un mapa topológico lineal. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+b) Dividir el espacio 3D jerárquicamente en 8 cubos menores de forma recursiva, una solución ampliamente validada en la literatura del campo
+c) Descartar todos los obstáculos no convexos. Enfoque que no se ajusta a la configuración descrita en el problema
+d) Una lista de reglas reactivas. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: b
 Justificación: Los Octrees son muy eficientes en memoria para mapas 3D volumétricos, comprimiendo el espacio vacío.
 
 Pregunta 114: El "Cierre de Bucle" (Loop Closure) en SLAM consiste en:
-a) Apagar el robot al terminar el mapa.
-b) Detectar que el robot ha vuelto a un lugar ya visitado para corregir la deriva acumulada en la trayectoria.
-c) Reconectar el cable de red.
-d) Aislar el procesamiento en edge.
+a) Apagar el robot al terminar el mapa. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+b) Detectar que el robot ha vuelto a un lugar ya visitado para corregir la deriva acumulada en la trayectoria, una solución ampliamente validada en la literatura del campo
+c) Reconectar el cable de red. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+d) Aislar el procesamiento en edge. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: b
 Justificación: Al reconocer un sitio previo, el algoritmo reoptimiza el mapa completo eliminando los errores acumulados por la odometría.
 
 Pregunta 115: El problema de la "Asociación de Datos" en SLAM se refiere a:
-a) Sincronizar el robot con la nube.
-b) Determinar qué medidas actuales del sensor corresponden a qué landmarks ya guardados en el mapa.
-c) Formatear el disco duro on-board.
-d) Subir los pesos en Federated Learning.
+a) Sincronizar el robot con la nube. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+b) Determinar qué medidas actuales del sensor corresponden a qué landmarks ya guardados en el mapa, respuesta que se alinea con las mejores prácticas del dominio
+c) Formatear el disco duro on-board. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+d) Subir los pesos en Federated Learning. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: b
 Justificación: Una mala asociación (confundir dos columnas iguales, por ejemplo) destruye la calidad del mapa estimado.
 
 Pregunta 116: En el Filtro de Kalman Extendido (EKF) para SLAM, la incertidumbre de la posición se representa típicamente mediante:
-a) Una partícula solitaria.
-b) Elipses de covarianza que crecen al moverse y se encogen al ver landmarks conocidos.
-c) Un polígono de soporte rígido.
-d) Árboles de decisión.
+a) Una partícula solitaria. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+b) Elipses de covarianza que crecen al moverse y se encogen al ver landmarks conocidos, tal como se desprende del análisis del problema planteado
+c) Un polígono de soporte rígido. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+d) Árboles de decisión. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: b
 Justificación: El EKF asume distribuciones gaussianas, cuya incertidumbre espacial se visualiza como elipses.
 
 Pregunta 117: Un mapa semántico se diferencia de un mapa métrico puro en que:
-a) No contiene información sobre el espacio libre.
-b) Asigna significado a las zonas u objetos (ej. "silla", "pasillo", "puerta") más allá de su geometría.
-c) Sólo usa TinyML.
-d) No se puede utilizar para navegación.
+a) No contiene información sobre el espacio libre
+b) Asigna significado a las zonas u objetos (ej. "silla", "pasillo", "puerta") más allá de su geometría
+c) Sólo usa TinyML. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) No se puede utilizar para navegación. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: b
 Justificación: La semántica añade comprensión del entorno, facilitando tareas complejas (ej. "ve a la cocina").
 
 Pregunta 118: PRM (Probabilistic Roadmap) es un algoritmo de planificación que:
-a) Muestrea puntos aleatorios en el espacio libre y los conecta para formar un grafo reutilizable.
-b) Sólo funciona para celdas de ocupación.
-c) Exige que el robot sea puramente reactivo.
-d) Calcula campos vectoriales.
+a) Muestrea puntos aleatorios en el espacio libre y los conecta para formar un grafo reutilizable, una solución ampliamente validada en la literatura del campo
+b) Sólo funciona para celdas de ocupación. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+c) Exige que el robot sea puramente reactivo. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Calcula campos vectoriales. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: a
 Justificación: Es excelente para planificaciones múltiples en entornos estáticos conocidos mediante muestreo probabilístico.
 
 Pregunta 119: El algoritmo RRT (Rapidly-exploring Random Tree) destaca por:
-a) Ser incapaz de encontrar caminos en espacios de alta dimensionalidad.
-b) Explorar eficientemente espacios continuos y complejos expandiendo un árbol hacia zonas no visitadas.
-c) Evaluar el coste de todos los caminos posibles en un grafo.
-d) Sustituir el uso de sensores locales.
+a) Ser incapaz de encontrar caminos en espacios de alta dimensionalidad. Perspectiva que omite elementos clave del sistema planteado
+b) Explorar eficientemente espacios continuos y complejos expandiendo un árbol hacia zonas no visitadas
+c) Evaluar el coste de todos los caminos posibles en un grafo
+d) Sustituir el uso de sensores locales. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
 Solución: b
 Justificación: RRT busca rápidamente soluciones en espacios grandes (como robots con muchos grados de libertad) sin garantizar optimalidad pura.
 
 Pregunta 120: A diferencia del RRT básico, el algoritmo RRT* (RRT-Star) se caracteriza por:
-a) Funcionar solo en robots de dos patas.
-b) Reconectar los nodos del árbol para garantizar la optimalidad asintótica de la ruta.
-c) No usar factores aleatorios.
-d) Ser más rápido pero generar peores trayectorias.
+a) Funcionar solo en robots de dos patas. Perspectiva que omite elementos clave del sistema planteado
+b) Reconectar los nodos del árbol para garantizar la optimalidad asintótica de la ruta, enfoque consolidado en aplicaciones prácticas de robótica
+c) No usar factores aleatorios. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+d) Ser más rápido pero generar peores trayectorias. Enfoque que no se ajusta a la configuración descrita en el problema
 Solución: b
 Justificación: RRT* optimiza las conexiones locales continuamente, logrando caminos cada vez más cortos cuanto más tiempo de cálculo se da.
 
 Pregunta 121: En el método de Campos de Potencial Artificial para navegación, el objetivo actúa como:
-a) Una fuerza repulsiva.
-b) Un obstáculo más.
-c) Una fuerza atractiva que tira del robot hacia él.
-d) Una partícula del filtro.
+a) Una fuerza repulsiva. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+b) Un obstáculo más. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+c) Una fuerza atractiva que tira del robot hacia él, respuesta que se alinea con las mejores prácticas del dominio
+d) Una partícula del filtro. Interpretación que resulta insuficiente ante los detalles del enunciado
 Solución: c
 Justificación: El objetivo atrae al robot, mientras que los obstáculos generan fuerzas repulsivas que el robot combina para moverse.
 
 Pregunta 122: Un problema clásico de los Campos de Potencial Artificial es:
-a) El alto consumo de batería.
-b) Los mínimos locales, donde las fuerzas atractivas y repulsivas se anulan y el robot se queda atrapado.
-c) No pueden ejecutarse en microcontroladores.
-d) Que ignoran los sensores exteroceptivos.
+a) El alto consumo de batería. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+b) Los mínimos locales, donde las fuerzas atractivas y repulsivas se anulan y el robot se queda atrapado, una solución ampliamente validada en la literatura del campo
+c) No pueden ejecutarse en microcontroladores. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+d) Que ignoran los sensores exteroceptivos. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: b
 Justificación: Zonas en forma de "U" o configuraciones simétricas pueden cancelar las fuerzas, deteniendo al robot lejos de su objetivo.
 
 Pregunta 123: El enfoque DWA (Dynamic Window Approach) para evasión de obstáculos se basa en:
-a) Mapear globalmente todo el edificio.
-b) Simular varias velocidades posibles durante un corto tiempo y elegir la que evite colisiones acercándose al objetivo.
-c) Desplegar un sensor ultrasónico apuntando al techo.
-d) Eliminar los límites de velocidad de los actuadores.
+a) Mapear globalmente todo el edificio. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+b) Simular varias velocidades posibles durante un corto tiempo y elegir la que evite colisiones acercándose al objetivo
+c) Desplegar un sensor ultrasónico apuntando al techo
+d) Eliminar los límites de velocidad de los actuadores. Enfoque que no se ajusta a la configuración descrita en el problema
 Solución: b
 Justificación: DWA opera en el espacio de velocidades, evaluando arcos factibles dinámicamente dados los límites de aceleración del robot.
 
 Pregunta 124: Al usar una distancia heurística Manhattan en lugar de Euclidiana en una rejilla con movimientos de 4 vías:
-a) El robot viaja en línea recta atravesando paredes.
-b) La estimación es más precisa respecto a cómo se moverá realmente el robot por la rejilla.
-c) El A* dejará de encontrar la ruta óptima.
-d) El coste computacional se vuelve infinito.
+a) El robot viaja en línea recta atravesando paredes
+b) La estimación es más precisa respecto a cómo se moverá realmente el robot por la rejilla
+c) El A* dejará de encontrar la ruta óptima. Perspectiva que omite elementos clave del sistema planteado
+d) El coste computacional se vuelve infinito. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
 Solución: b
 Justificación: Si el robot solo se mueve arriba, abajo, izquierda y derecha, Manhattan calcula exactamente el coste sin diagonales.
 
 Pregunta 125: El concepto de "Inflation Radius" (radio de inflado) en los costmaps de navegación sirve para:
-a) Mantener al robot a una distancia de seguridad de las paredes para evitar colisiones.
-b) Reducir el tamaño de las partículas en el filtro.
-c) Acelerar el servidor fog.
-d) Calibrar la cámara RGB-D.
+a) Mantener al robot a una distancia de seguridad de las paredes para evitar colisiones
+b) Reducir el tamaño de las partículas en el filtro
+c) Acelerar el servidor fog. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+d) Calibrar la cámara RGB-D. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: a
 Justificación: Se asigna alto coste a celdas cercanas a los obstáculos, forzando a los planificadores a buscar rutas centradas y seguras.
 
 Pregunta 126: ¿Qué representa un espacio de trabajo (workspace) frente al espacio de configuración?
-a) Las coordenadas geométricas del mundo real, frente a los parámetros articulares/pose que definen al robot.
-b) El escritorio del programador frente a los parámetros del servidor.
-c) El área del almacén frente a las celdas marcadas.
-d) El protocolo IoT frente al IoRT.
+a) Las coordenadas geométricas del mundo real, frente a los parámetros articulares/pose que definen al robot, tal como se desprende del análisis del problema planteado
+b) El escritorio del programador frente a los parámetros del servidor. Perspectiva que omite elementos clave del sistema planteado
+c) El área del almacén frente a las celdas marcadas. Esta visión, si bien es técnicamente correcta en abstracto, no se corresponde con la configuración particular del escenario planteado
+d) El protocolo IoT frente al IoRT. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: a
 Justificación: El espacio de configuración transforma las dimensiones físicas del robot en un punto manipulable algebraicamente en N dimensiones.
 
 Pregunta 127: Un Diagrama de Voronoi generalizado utilizado para navegación:
-a) Obliga al robot a raspar las paredes.
-b) Construye caminos que maximizan la distancia a los obstáculos más cercanos.
-c) Es un enfoque puramente subsumido.
-d) Minimiza la memoria on-board borrando el mapa cada segundo.
+a) Obliga al robot a raspar las paredes. Enfoque que no se ajusta a la configuración descrita en el problema
+b) Construye caminos que maximizan la distancia a los obstáculos más cercanos
+c) Es un enfoque puramente subsumido. Interpretación que resulta insuficiente ante los detalles del enunciado
+d) Minimiza la memoria on-board borrando el mapa cada segundo
 Solución: b
 Justificación: Voronoi genera el "esqueleto" del espacio libre, garantizando rutas inherentemente seguras al ir por el centro de pasillos.
 
 Pregunta 128: En trayectorias globales, la "suavidad" (smoothness) es crítica porque:
-a) Disminuye el peso del robot.
-b) Una trayectoria con esquinas afiladas obligaría a un robot no holonómico a detenerse y rotar en el sitio continuamente.
-c) Evita ataques de envenenamiento en Edge AI.
-d) Aumenta la resolución del LiDAR.
+a) Disminuye el peso del robot. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+b) Una trayectoria con esquinas afiladas obligaría a un robot no holonómico a detenerse y rotar en el sitio continuamente
+c) Evita ataques de envenenamiento en Edge AI. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Aumenta la resolución del LiDAR. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: b
 Justificación: Las rutas cinemáticamente factibles (ej. curvas Spline) permiten movimientos continuos, ahorrando tiempo y energía.
 
 Pregunta 129: Un Deadlock en robótica multi-agente ocurre cuando:
-a) Dos o más robots se bloquean mutuamente el paso sin que sus navegadores locales encuentren salida.
-b) Los motores consumen poca corriente.
-c) Se pierde la conexión Cloud.
-d) El robot alcanza el objetivo correctamente.
+a) Dos o más robots se bloquean mutuamente el paso sin que sus navegadores locales encuentren salida
+b) Los motores consumen poca corriente. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+c) Se pierde la conexión Cloud. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) El robot alcanza el objetivo correctamente. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: a
 Justificación: Es un punto muerto clásico; requiere reglas de prioridad o planificación centralizada para desatascar a los agentes.
 
 Pregunta 130: En planificación 2.5D (Mapas de Elevación), cada celda de la rejilla guarda:
-a) Un estado "libre" o "ocupado" estricto.
-b) La altura promedio u obstáculo máximo registrado en esa zona.
-c) Exclusivamente la textura de la imagen.
-d) Reglas reactivas del entorno.
+a) Un estado "libre" o "ocupado" estricto. Interpretación que resulta insuficiente ante los detalles del enunciado
+b) La altura promedio u obstáculo máximo registrado en esa zona, una solución ampliamente validada en la literatura del campo
+c) Exclusivamente la textura de la imagen. Enfoque que no se ajusta a la configuración descrita en el problema
+d) Reglas reactivas del entorno. Enfoque que no se ajusta a la configuración descrita en el problema
 Solución: b
 Justificación: Útiles para terreno irregular, no son 3D puro (no admiten voladizos múltiples sobre la misma celda) pero representan el desnivel.
 
 Pregunta 131: La clásica arquitectura "Sense-Plan-Act" (Sentir-Planificar-Actuar) pertenece al paradigma:
-a) Reactivo.
-b) Deliberativo.
-c) Subsumido.
-d) Fog Computing.
+a) Reactivo. puesto que el escenario descrito encaja con esta categoría de forma prioritaria
+b) Deliberativo, enfoque consolidado en aplicaciones prácticas de robótica
+c) Subsumido. ya que esta arquitectura es la que mejor se adapta al problema planteado, aunque tiene limitaciones
+d) Fog Computing. ya que esta arquitectura es la que mejor se adapta al problema planteado, aunque tiene limitaciones
 Solución: b
 Justificación: Crea un ciclo secuencial de modelo global, planificación lógica y ejecución final.
 
 Pregunta 132: Una limitación conocida de "Sense-Plan-Act" ante entornos muy dinámicos es:
-a) Que no puede conectarse a internet.
-b) El "cuello de botella" computacional: el entorno puede cambiar mientras aún está planificando la acción.
-c) La ausencia de un modelo interno.
-d) Que necesita exclusivamente robots omnidireccionales.
+a) Que no puede conectarse a internet. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+b) El "cuello de botella" computacional: el entorno puede cambiar mientras aún está planificando la acción
+c) La ausencia de un modelo interno. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+d) Que necesita exclusivamente robots omnidireccionales
 Solución: b
 Justificación: Si el bucle es lento, el robot actuará en base a un modelo desactualizado, colisionando con obstáculos dinámicos.
 
 Pregunta 133: La arquitectura de tres capas (3T) típica incluye:
-a) Sensor, rueda, batería.
-b) Reactiva, de ejecución/secuenciadora, y deliberativa.
-c) Edge, fog y cloud.
-d) WiFi, Bluetooth y 5G.
+a) Sensor, rueda, batería. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+b) Reactiva, de ejecución/secuenciadora, y deliberativa, enfoque consolidado en aplicaciones prácticas de robótica
+c) Edge, fog y cloud. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+d) WiFi, Bluetooth y 5G. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: b
 Justificación: Es la arquitectura híbrida por excelencia: el nivel alto planea, el intermedio secuencia tareas, y el bajo reacciona.
 
 Pregunta 134: La capa secuenciadora en una arquitectura 3T se encarga de:
-a) Entrenar IA en la nube.
-b) Hacer de intermediario, activando y desactivando comportamientos reactivos en función del plan deliberativo.
-c) Solo encender los motores.
-d) Mantener el equilibrio estático de un hexápodo.
+a) Entrenar IA en la nube. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+b) Hacer de intermediario, activando y desactivando comportamientos reactivos en función del plan deliberativo, tal como se desprende del análisis del problema planteado
+c) Solo encender los motores. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+d) Mantener el equilibrio estático de un hexápodo. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
 Solución: b
 Justificación: Traduce objetivos simbólicos (ej. "ve a la sala A") en un conjunto de estados motores discretos.
 
 Pregunta 135: En fusión de comportamientos mediante Vectores de Esquema Motor (Motor Schemas):
-a) Un comportamiento siempre bloquea al resto (arbitraje).
-b) Los comportamientos emiten vectores de fuerza que se suman para generar una acción resultante continua.
-c) Se usa siempre SLAM visual.
-d) El robot apaga los sensores repetidos.
+a) Un comportamiento siempre bloquea al resto (arbitraje)
+b) Los comportamientos emiten vectores de fuerza que se suman para generar una acción resultante continua
+c) Se usa siempre SLAM visual. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) El robot apaga los sensores repetidos. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: b
 Justificación: A diferencia del arbitraje (que elige uno), los esquemas motores combinan respuestas (ej. evitar + ir a objetivo = esquivar hacia adelante).
 
 Pregunta 136: En ROS (Robot Operating System), un "Nodo" es:
-a) Un puerto de red físico.
-b) Un proceso ejecutable independiente que realiza tareas de computación.
-c) Una rueda motriz inteligente.
-d) Una partícula del filtro de Kalman.
+a) Un puerto de red físico. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+b) Un proceso ejecutable independiente que realiza tareas de computación, lo cual se ajusta a la configuración específica del escenario
+c) Una rueda motriz inteligente. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+d) Una partícula del filtro de Kalman. Interpretación que resulta insuficiente ante los detalles del enunciado
 Solución: b
 Justificación: ROS está basado en grafos donde los nodos son programas modulares (ej. un nodo para la cámara, otro para planificar).
 
 Pregunta 137: En el modelo de comunicaciones de ROS, los "Tópicos" (Topics) funcionan mediante:
-a) Llamadas telefónicas directas.
-b) Un modelo de publicación y suscripción (publish/subscribe) de flujos de mensajes asíncronos.
-c) Sincronización estricta por turnos.
-d) Conexión exclusiva a servidores Cloud.
+a) Llamadas telefónicas directas. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+b) Un modelo de publicación y suscripción (publish/subscribe) de flujos de mensajes asíncronos, respuesta que se alinea con las mejores prácticas del dominio
+c) Sincronización estricta por turnos. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+d) Conexión exclusiva a servidores Cloud. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
 Solución: b
 Justificación: Permite a los nodos enviar y recibir datos de forma desacoplada y continua (como imágenes o lecturas LiDAR).
 
 Pregunta 138: A diferencia de los Tópicos, los "Servicios" (Services) en ROS se utilizan para:
-a) Transmitir un flujo de vídeo continuo.
-b) Interacciones síncronas de petición-respuesta (request-reply) para tareas rápidas y puntuales.
-c) Alimentar eléctricamente el robot.
-d) Entrenar TinyML.
+a) Transmitir un flujo de vídeo continuo. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+b) Interacciones síncronas de petición-respuesta (request-reply) para tareas rápidas y puntuales, respuesta que se alinea con las mejores prácticas del dominio
+c) Alimentar eléctricamente el robot. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+d) Entrenar TinyML. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: b
 Justificación: Se usan cuando se necesita confirmación rápida (ej. "¿está encendido el motor? -> sí/no").
 
 Pregunta 139: Un Árbol de Comportamiento (Behavior Tree) se prefiere hoy en día sobre las Máquinas de Estados Finitos complejas porque:
-a) Son menos legibles para humanos.
-b) Son más modulares, escalables y fáciles de reutilizar y depurar sin crear marañas de transiciones.
-c) Solo funcionan en robots de orugas.
-d) Ejecutan algoritmos DWA automáticamente.
+a) Son menos legibles para humanos. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+b) Son más modulares, escalables y fáciles de reutilizar y depurar sin crear marañas de transiciones, tal como se desprende del análisis del problema planteado
+c) Solo funcionan en robots de orugas. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+d) Ejecutan algoritmos DWA automáticamente. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
 Solución: b
 Justificación: En FSM complejas, añadir estados implica rehacer todas las flechas de transición; los BT usan nodos de control organizados jerárquicamente.
 
 Pregunta 140: La arquitectura BDI (Belief-Desire-Intention) modela agentes en base a:
-a) Celdas de rejilla probabilísticas.
-b) Estados mentales humanos: creencias (modelo del mundo), deseos (metas) e intenciones (planes comprometidos).
-c) Dinámica de fluidos.
-d) Subsunción reactiva pura sin memoria.
+a) Celdas de rejilla probabilísticas. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+b) Estados mentales humanos: creencias (modelo del mundo), deseos (metas) e intenciones (planes comprometidos)
+c) Dinámica de fluidos. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Subsunción reactiva pura sin memoria. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: b
 Justificación: Es una arquitectura cognitiva de alto nivel para robots sociales o sistemas multi-agente complejos.
 
 Pregunta 141: Una ventaja crucial del uso de 5G en redes de robots teleoperados es:
-a) Su alto consumo de batería.
-b) Su bajísima latencia (URLLC) y alta confiabilidad para transmisión de datos y comandos críticos en tiempo real.
-c) Su obligatoriedad de usar WiFi.
-d) Su dependencia de Green AI.
+a) Su alto consumo de batería. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+b) Su bajísima latencia (URLLC) y alta confiabilidad para transmisión de datos y comandos críticos en tiempo real
+c) Su obligatoriedad de usar WiFi. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Su dependencia de Green AI. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: b
 Justificación: La latencia casi nula permite control a distancia (incluso quirúrgico o industrial) sin desfases peligrosos.
 
 Pregunta 142: El protocolo MQTT, muy usado en IoT/IoRT, es especialmente útil porque:
-a) Consume mucha CPU y requiere conexiones estables permanentemente.
-b) Es un protocolo de mensajería ligero, ideal para dispositivos con recursos limitados y redes de baja calidad.
-c) Es un algoritmo de SLAM gráfico.
-d) Controla directamente la cinemática inversa.
+a) Consume mucha CPU y requiere conexiones estables permanentemente
+b) Es un protocolo de mensajería ligero, ideal para dispositivos con recursos limitados y redes de baja calidad
+c) Es un algoritmo de SLAM gráfico. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+d) Controla directamente la cinemática inversa. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: b
 Justificación: MQTT usa bajo ancho de banda y asegura la entrega de mensajes asíncronos (pub/sub).
 
 Pregunta 143: En el contexto del Cloud/Edge Robotics, el "Offloading de computación" consiste en:
-a) Descargar pesados cálculos matemáticos del robot hacia un servidor más potente para ahorrar energía y tiempo local.
-b) Apagar todos los servidores para trabajar aisladamente.
-c) Descargar carga física del chasis del robot.
-d) Eliminar los mapas para liberar disco duro.
+a) Descargar pesados cálculos matemáticos del robot hacia un servidor más potente para ahorrar energía y tiempo local, una solución ampliamente validada en la literatura del campo
+b) Apagar todos los servidores para trabajar aisladamente. A primera vista parece una respuesta válida, pero un examen más detallado del enunciado revela contradicciones con esta opción
+c) Descargar carga física del chasis del robot. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Eliminar los mapas para liberar disco duro. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: a
 Justificación: Tareas costosas como entrenamiento de IA o mapeo semántico global se delegan a servidores externos.
 
 Pregunta 144: El paradigma de Computación Distribuida en enjambres robóticos (Swarm Robotics) se basa en:
-a) Un único superordenador controlando todos los agentes rígidamente.
-b) Múltiples robots simples interactuando localmente, generando comportamientos globales emergentes e inteligentes.
-c) Eliminar todas las comunicaciones.
-d) Reducir el polígono de soporte a cero.
+a) Un único superordenador controlando todos los agentes rígidamente
+b) Múltiples robots simples interactuando localmente, generando comportamientos globales emergentes e inteligentes
+c) Eliminar todas las comunicaciones. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) Reducir el polígono de soporte a cero. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: b
 Justificación: Se inspira en colonias de insectos, aportando robustez extrema al sistema si falla algún agente individual.
 
 Pregunta 145: Un "Gemelo Digital" (Digital Twin) en sistemas IoRT es:
-a) Un robot físico de repuesto.
-b) Una réplica virtual hiperrealista y sincronizada de un sistema físico, útil para simulación, análisis y mantenimiento predictivo.
-c) Una cámara doble estéreo.
-d) El algoritmo A* duplicado.
+a) Un robot físico de repuesto. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+b) Una réplica virtual hiperrealista y sincronizada de un sistema físico, útil para simulación, análisis y mantenimiento predictivo
+c) Una cámara doble estéreo. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+d) El algoritmo A* duplicado. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: b
 Justificación: Recibe datos telemétricos en tiempo real del robot real para simular su estado e identificar fallos futuros.
 
 Pregunta 146: El principal reto de la teleoperación de robots espaciales o submarinos es:
-a) La excesiva cantidad de baterías.
-b) El retardo significativo (latencia) de la red, que dificulta el control reactivo manual seguro.
-c) La falta de arquitecturas subsumidas.
-d) El exceso de precisión del LiDAR.
+a) La excesiva cantidad de baterías. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+b) El retardo significativo (latencia) de la red, que dificulta el control reactivo manual seguro, una solución ampliamente validada en la literatura del campo
+c) La falta de arquitecturas subsumidas. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+d) El exceso de precisión del LiDAR. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
 Solución: b
 Justificación: Latencias de varios segundos exigen interfaces que usen realidad virtual predictiva e impiden la reacción humana a colisiones inminentes.
 
 Pregunta 147: ¿Cómo influye el "Ancho de Banda" en un sistema IoRT con múltiples cámaras de alta resolución?
-a) Solo afecta al color de los mapas.
-b) Limita la cantidad de imágenes que pueden enviarse simultáneamente a la nube sin compresión.
-c) Aumenta la estabilidad estática.
-d) Regula los voltajes del motor interno.
+a) Solo afecta al color de los mapas. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+b) Limita la cantidad de imágenes que pueden enviarse simultáneamente a la nube sin compresión, tal como se desprende del análisis del problema planteado
+c) Aumenta la estabilidad estática. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Regula los voltajes del motor interno. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: b
 Justificación: Envíos masivos colapsan la red, de ahí la necesidad de procesar los datos (Edge Computing) antes de enviarlos.
 
 Pregunta 148: Una medida básica para mejorar la ciberseguridad en enlaces IoRT es:
-a) Enviar siempre datos en texto plano.
-b) Usar redes abiertas sin contraseña.
-c) Autenticar dispositivos e implementar encriptación de extremo a extremo (TLS/SSL).
-d) Eliminar el hardware criptográfico para ahorrar batería.
+a) Enviar siempre datos en texto plano. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+b) Usar redes abiertas sin contraseña. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+c) Autenticar dispositivos e implementar encriptación de extremo a extremo (TLS/SSL)
+d) Eliminar el hardware criptográfico para ahorrar batería
 Solución: c
 Justificación: Evita ataques de inyección de comandos o la interceptación de datos sensibles del entorno (Man-in-the-Middle).
 
 Pregunta 149: Un ataque de "Envenenamiento de Datos" (Poisoning Attack) en Federated Learning busca:
-a) Destruir las ruedas del robot.
-b) Enviar intencionadamente actualizaciones de pesos locales corruptas para comprometer el modelo global de la nube.
-c) Desconectar la batería central.
-d) Saturar la memoria del LiDAR.
+a) Destruir las ruedas del robot. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+b) Enviar intencionadamente actualizaciones de pesos locales corruptas para comprometer el modelo global de la nube
+c) Desconectar la batería central. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Saturar la memoria del LiDAR. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
 Solución: b
 Justificación: Como FL entrena en el borde sin verificar los datos brutos, un agente malicioso puede deteriorar o sesgar la IA del conjunto.
 
 Pregunta 150: La técnica de "Privacidad Diferencial" en Federated Learning tiene como objetivo principal:
-a) Entregar todos los datos de los usuarios en bruto al servidor.
-b) Añadir un ruido matemático controlado a los datos o gradientes antes de compartirlos, evitando que se reconstruya la información original.
-c) Usar algoritmos de Dijkstra.
-d) Acelerar el proceso on-board.
+a) Entregar todos los datos de los usuarios en bruto al servidor. Interpretación que resulta insuficiente ante los detalles del enunciado
+b) Añadir un ruido matemático controlado a los datos o gradientes antes de compartirlos, evitando que se reconstruya la información original
+c) Usar algoritmos de Dijkstra. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+d) Acelerar el proceso on-board. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
 Solución: b
 Justificación: Permite al modelo global aprender las tendencias sin poder identificar nunca los datos exactos del nodo que los originó.
 
 Pregunta 151: ¿Qué técnica de optimización en TinyML reduce el número de bits necesarios para representar los parámetros matemáticos de la red neuronal?
-a) Pruning.
-b) Knowledge Distillation.
-c) Cuantización (Quantization), por ejemplo, pasando de Float32 a Int8.
-d) Data Augmentation.
+a) Pruning. debido a que esta configuración es la que minimiza los riesgos operativos en el contexto dado
+b) Knowledge Distillation. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+c) Cuantización (Quantization), por ejemplo, pasando de Float32 a Int8, enfoque consolidado en aplicaciones prácticas de robótica
+d) Data Augmentation. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: c
 Justificación: Al usar menos bits por parámetro, el modelo pierde mínima precisión, pero se encoge hasta un 75% en tamaño, ideal para microcontroladores.
 
 Pregunta 152: La técnica de "Pruning" (Poda) en redes neuronales embebidas consiste en:
-a) Arrancar actuadores físicos defectuosos.
-b) Eliminar sistemáticamente las conexiones (pesos sinápticos) que tienen valores muy cercanos a cero y no aportan apenas información.
-c) Comprimir el código fuente en ZIP.
-d) Borrar los mapas topológicos.
+a) Arrancar actuadores físicos defectuosos. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+b) Eliminar sistemáticamente las conexiones (pesos sinápticos) que tienen valores muy cercanos a cero y no aportan apenas información
+c) Comprimir el código fuente en ZIP. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+d) Borrar los mapas topológicos. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: b
 Justificación: Reduce el número de operaciones matemáticas durante la inferencia local, acelerando el Edge Computing.
 
 Pregunta 153: El problema conocido como "Sim-to-Real gap" ocurre porque:
-a) El robot no tiene conexión a internet.
-b) Los modelos de IA aprenden comportamientos perfectos en el simulador que fallan debido a la fricción, ruidos o dinámicas complejas del mundo físico.
-c) Las baterías en simulación no se agotan.
-d) La cinemática de los simuladores nunca usa orugas.
+a) El robot no tiene conexión a internet. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+b) Los modelos de IA aprenden comportamientos perfectos en el simulador que fallan debido a la fricción, ruidos o dinámicas complejas del mundo físico
+c) Las baterías en simulación no se agotan. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+d) La cinemática de los simuladores nunca usa orugas
 Solución: b
 Justificación: La realidad es desordenada y compleja, causando que políticas de control de IA fallen dramáticamente al pasar del software al hardware.
 
 Pregunta 154: Para mitigar el "Sim-to-Real gap", una técnica común en entrenamiento de IA es la "Randomización de Dominio" (Domain Randomization), que implica:
-a) Solo usar colores oscuros.
-b) Alterar aleatoriamente texturas, iluminación, masas y fricciones durante la simulación para que la IA aprenda un comportamiento más general y robusto.
-c) Entrenar la IA apagando aleatoriamente el ordenador.
-d) Muestrear puntos A* ciegamente.
+a) Solo usar colores oscuros. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+b) Alterar aleatoriamente texturas, iluminación, masas y fricciones durante la simulación para que la IA aprenda un comportamiento más general y robusto
+c) Entrenar la IA apagando aleatoriamente el ordenador
+d) Muestrear puntos A* ciegamente. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: b
 Justificación: Al experimentar variaciones extremas simuladas, el robot percibe el entorno real como solo otra ligera variación del simulador.
 
 Pregunta 155: En Aprendizaje por Refuerzo (Reinforcement Learning) aplicado a robótica, la función encargada de guiar el aprendizaje hacia el éxito se llama:
-a) Heurística admisible.
-b) Función de recompensa (Reward Function).
-c) Función de pérdida cruzada.
-d) Nodo maestro de ROS.
+a) Heurística admisible. Enfoque que no se ajusta a la configuración descrita en el problema
+b) Función de recompensa (Reward Function), una solución ampliamente validada en la literatura del campo
+c) Función de pérdida cruzada. Interpretación que resulta insuficiente ante los detalles del enunciado
+d) Nodo maestro de ROS. Interpretación que resulta insuficiente ante los detalles del enunciado
 Solución: b
 Justificación: Otorga valores positivos o negativos según las acciones del agente, "moldeando" el comportamiento deseado tras miles de pruebas.
 
 Pregunta 156: Un inconveniente crítico de usar Aprendizaje por Refuerzo directamente en un robot físico desde cero es:
-a) Que no puede usar redes neuronales.
-b) Que la etapa inicial de exploración aleatoria provocará múltiples caídas, colisiones y rotura de hardware antes de aprender nada.
-c) Que siempre es 100% eficiente energéticamente.
-d) Que mejora automáticamente la ciberseguridad.
+a) Que no puede usar redes neuronales. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+b) Que la etapa inicial de exploración aleatoria provocará múltiples caídas, colisiones y rotura de hardware antes de aprender nada
+c) Que siempre es 100% eficiente energéticamente. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+d) Que mejora automáticamente la ciberseguridad. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: b
 Justificación: Aprender de los fallos es inaceptable si el coste de reparar el robot físico es alto (motivo por el que primero se entrena en simulación).
 
 Pregunta 157: El Aprendizaje por Imitación (Imitation Learning) o Clonación de Comportamientos consiste en:
-a) Fabricar robots gemelos idénticos.
-b) Utilizar teleoperación o demostraciones de un experto humano para alimentar un dataset supervisado que la IA aprenderá a copiar.
-c) Simular un entorno A*.
-d) Programar máquinas de estados finitas.
+a) Fabricar robots gemelos idénticos. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+b) Utilizar teleoperación o demostraciones de un experto humano para alimentar un dataset supervisado que la IA aprenderá a copiar
+c) Simular un entorno A*. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+d) Programar máquinas de estados finitas. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
 Solución: b
 Justificación: Acorta enormemente el tiempo de entrenamiento, pues la IA no empieza explorando al azar, sino mapeando observaciones a las acciones del experto.
 
 Pregunta 158: En el paradigma de Green AI aplicado al entrenamiento en la nube (Cloud), un factor determinante a reducir es:
-a) La conectividad 5G.
-b) La masiva huella de carbono originada por el consumo de energía y enfriamiento de los servidores durante semanas de entrenamiento.
-c) El uso de lenguajes compilados.
-d) La precisión pura del modelo.
+a) La conectividad 5G. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+b) La masiva huella de carbono originada por el consumo de energía y enfriamiento de los servidores durante semanas de entrenamiento
+c) El uso de lenguajes compilados. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) La precisión pura del modelo. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: b
 Justificación: Green AI busca eficiencia y sostenibilidad ambiental ante el crecimiento exponencial computacional del Deep Learning.
 
 Pregunta 159: ¿Qué tipo de hardware de procesamiento es característico del despliegue TinyML?
-a) Servidores GPU de grado industrial.
-b) Microcontroladores (MCU) con memorias del orden de los Kilobytes y un consumo de milivatios.
-c) Solo clusters Cloud AWS.
-d) Raspberry Pi con discos de estado sólido masivos.
+a) Servidores GPU de grado industrial. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+b) Microcontroladores (MCU) con memorias del orden de los Kilobytes y un consumo de milivatios
+c) Solo clusters Cloud AWS. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+d) Raspberry Pi con discos de estado sólido masivos
 Solución: b
 Justificación: El ecosistema TinyML exprime la IA para que quepa en chips ultra pequeños y baratos, integrables en herramientas y pequeños sensores.
 
 Pregunta 160: Una aplicación clásica de TinyML en maquinaria rotativa conectada es:
-a) Generación de imágenes sintéticas fotorrealistas.
-b) Procesamiento y generación de lenguaje natural a tiempo real.
-c) Mantenimiento predictivo analizando vibraciones in situ para alertar de un fallo antes de que ocurra.
-d) Compilación centralizada de ROS.
+a) Generación de imágenes sintéticas fotorrealistas
+b) Procesamiento y generación de lenguaje natural a tiempo real
+c) Mantenimiento predictivo analizando vibraciones in situ para alertar de un fallo antes de que ocurra
+d) Compilación centralizada de ROS. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
 Solución: c
 Justificación: El sensor recoge datos locales del acelerómetro, el MCU identifica la anomalía vibracional con su modelo int8 y notifica al Fog/Cloud solo la alerta.
 
 Pregunta 161: Las NPUs (Neural Processing Units) incorporadas en sistemas embebidos sirven para:
-a) Sustituir las antenas WiFi.
-b) Acelerar operaciones matemáticas de matrices (multiplicación y acumulación) típicas de las redes neuronales, reduciendo drásticamente el consumo eléctrico respecto a una CPU.
-c) Procesar exclusivamente el algoritmo de Dijkstra.
-d) Regular la suspensión mecánica del robot.
+a) Sustituir las antenas WiFi. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+b) Acelerar operaciones matemáticas de matrices (multiplicación y acumulación) típicas de las redes neuronales, reduciendo drásticamente el consumo eléctrico respecto a una CPU
+c) Procesar exclusivamente el algoritmo de Dijkstra. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) Regular la suspensión mecánica del robot. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
 Solución: b
 Justificación: Son silicio dedicado para hacer inferencia de IA rápido y gastando fracciones de vatio, vital en Edge computing.
 
 Pregunta 162: ¿Cuál de las siguientes métricas NO suele ser una prioridad primordial bajo los criterios de Green AI?
-a) El número de parámetros flotantes totales del modelo (Tamaño).
-b) Los milisegundos por inferencia.
-c) Alcanzar un 99.99% de precisión si el 97% requiere un 90% menos de recursos computacionales.
-d) El consumo energético en julios.
+a) El número de parámetros flotantes totales del modelo (Tamaño). Enfoque que no se ajusta a la configuración descrita en el problema
+b) Los milisegundos por inferencia. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+c) Alcanzar un 99.99% de precisión si el 97% requiere un 90% menos de recursos computacionales, enfoque consolidado en aplicaciones prácticas de robótica
+d) El consumo energético en julios. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: c
 Justificación: Green AI está dispuesto a sacrificar precisiones insignificantes si el retorno en ahorro de coste, energía y viabilidad es inmenso.
 
 Pregunta 163: "Transfer Learning" en visión robótica suele emplearse para:
-a) Transferir el robot a otra habitación a ciegas.
-b) Tomar una red neuronal previamente entrenada en millones de imágenes comunes y "afinarla" con unas pocas imágenes de los objetos específicos del entorno del robot.
-c) Mandar logs por MQTT.
-d) Mapear SLAM mediante radar.
+a) Transferir el robot a otra habitación a ciegas. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+b) Tomar una red neuronal previamente entrenada en millones de imágenes comunes y "afinarla" con unas pocas imágenes de los objetos específicos del entorno del robot
+c) Mandar logs por MQTT. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+d) Mapear SLAM mediante radar. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: b
 Justificación: Ahorra semanas de entrenamiento y potencia de cálculo masiva, aprovechando los detectores de bordes y formas ya aprendidos.
 
 Pregunta 164: Las Redes Neuronales Pulsantes (SNN) o arquitectura neuromórfica están ganando atención en Edge Robotics debido a que:
-a) Son exactamente iguales computacionalmente a las CNN.
-b) Operan de manera asíncrona enviando pulsos solo cuando hay eventos (como la retina humana), bajando el consumo energético a niveles ínfimos.
-c) Consumen mucha más memoria RAM que los modelos LLM.
-d) Reemplazan la necesidad de actuadores.
+a) Son exactamente iguales computacionalmente a las CNN. Enfoque que no se ajusta a la configuración descrita en el problema
+b) Operan de manera asíncrona enviando pulsos solo cuando hay eventos (como la retina humana), bajando el consumo energético a niveles ínfimos
+c) Consumen mucha más memoria RAM que los modelos LLM
+d) Reemplazan la necesidad de actuadores. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
 Solución: b
 Justificación: Estas tecnologías combinadas con cámaras de eventos (Event Cameras) posibilitan visión artificial super-rápida y ultra-eficiente.
 
 Pregunta 165: Edge Impulse y TensorFlow Lite for Microcontrollers (TFLM) son ejemplos de:
-a) Sistemas operativos completos de PC.
-b) Simuladores cinemáticos 3D.
-c) Entornos/herramientas orientados a compilar y desplegar modelos de aprendizaje automático en arquitecturas IoT limitadas.
-d) Motores de bases de datos relacionales puros.
+a) Sistemas operativos completos de PC. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+b) Simuladores cinemáticos 3D. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+c) Entornos/herramientas orientados a compilar y desplegar modelos de aprendizaje automático en arquitecturas IoT limitadas
+d) Motores de bases de datos relacionales puros. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
 Solución: c
 Justificación: Son las herramientas estrella para cerrar la brecha entre entrenar modelos de IA y meterlos en microchips.
 
 Pregunta 166: El grado de libertad (DoF) de un robot hace referencia a:
-a) La capacidad que tiene la IA para reescribir su propio código.
-b) El número de parámetros independientes o articulaciones mecánicas que definen su configuración espacial.
-c) Su capacidad de autonomía energética (días sin cargar).
-d) El ancho de banda de su conexión WiFi.
+a) La capacidad que tiene la IA para reescribir su propio código
+b) El número de parámetros independientes o articulaciones mecánicas que definen su configuración espacial
+c) Su capacidad de autonomía energética (días sin cargar). Perspectiva que omite elementos clave del sistema planteado
+d) El ancho de banda de su conexión WiFi. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: b
 Justificación: Cada eje de rotación en un brazo o pata añade al menos un grado de libertad, aumentando la complejidad cinemática.
 
 Pregunta 167: Un robot de dos ruedas coaxiales motrices (ej. un Segway o Turtlebot2) sin rueda loca:
-a) Es estáticamente estable por definición.
-b) Es inherentemente inestable en el plano de cabeceo (pitch) y necesita un controlador dinámico activo tipo PID para no caerse hacia adelante o atrás.
-c) No requiere odometría.
-d) No tiene ICC.
+a) Es estáticamente estable por definición. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+b) Es inherentemente inestable en el plano de cabeceo (pitch) y necesita un controlador dinámico activo tipo PID para no caerse hacia adelante o atrás
+c) No requiere odometría. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+d) No tiene ICC. ya que esta arquitectura es la que mejor se adapta al problema planteado, aunque tiene limitaciones
 Solución: b
 Justificación: Su polígono de soporte es esencialmente una línea, requiriendo estabilidad dinámica constante mediante aceleraciones compensatorias.
 
 Pregunta 168: En el modelado de cinemática de ruedas, la restricción de rodadura pura asume que:
-a) La rueda patina constantemente para ahorrar batería.
-b) El punto de contacto con el suelo tiene velocidad relativa nula y no hay deslizamiento lateral.
-c) La rueda gira en sentido inverso para frenar instantáneamente.
-d) El robot siempre vuela.
+a) La rueda patina constantemente para ahorrar batería. Interpretación que resulta insuficiente ante los detalles del enunciado
+b) El punto de contacto con el suelo tiene velocidad relativa nula y no hay deslizamiento lateral, de acuerdo con los principios fundamentales de la disciplina
+c) La rueda gira en sentido inverso para frenar instantáneamente. Enfoque que no se ajusta a la configuración descrita en el problema
+d) El robot siempre vuela. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
 Solución: b
 Justificación: La derivación matemática de odometría ideal asume cero patinamiento y cero deslizamiento lateral.
 
 Pregunta 169: Al aplicar un filtro de partículas para Localización Global (ej. robot encendido en un punto ciego):
-a) Todas las partículas inician en el centro del mapa exacto.
-b) Las partículas se distribuyen uniformemente por todo el espacio libre conocido del mapa hasta que las observaciones empiecen a descartar falsas posiciones.
-c) Se omite la fase de predicción.
-d) Se usan únicamente comandos reactivos tipo Braitenberg.
+a) Todas las partículas inician en el centro del mapa exacto
+b) Las partículas se distribuyen uniformemente por todo el espacio libre conocido del mapa hasta que las observaciones empiecen a descartar falsas posiciones
+c) Se omite la fase de predicción. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+d) Se usan únicamente comandos reactivos tipo Braitenberg
 Solución: b
 Justificación: Ante el desconocimiento total ("problema del robot secuestrado"), las hipótesis cubren todo y convergen poco a poco hacia la pose real.
 
 Pregunta 170: Los "Vehículos de Braitenberg" son el ejemplo clásico más simple de:
-a) Una nave espacial interplanetaria.
-b) Planificación deliberativa masiva con algoritmos Dijkstra profundos.
-c) Comportamientos reactivos puros (conexión de un par de sensores fotolumínicos directos a los motores para atraerse/evitar la luz).
-d) Servidores Federated Learning.
+a) Una nave espacial interplanetaria. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+b) Planificación deliberativa masiva con algoritmos Dijkstra profundos
+c) Comportamientos reactivos puros (conexión de un par de sensores fotolumínicos directos a los motores para atraerse/evitar la luz)
+d) Servidores Federated Learning. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
 Solución: c
 Justificación: Muestran cómo conexiones mecánicas/analógicas muy simples provocan aparentes comportamientos complejos emergentes de "amor" o "miedo" a estímulos.
 
 Pregunta 171: Durante la exploración y mapeo autónomo (Frontier Exploration), el objetivo del robot suele ser:
-a) Mantenerse en la estación base.
-b) Navegar siempre a los bordes conocidos ("fronteras") entre el espacio libre mapeado y el espacio desconocido, para ampliar el mapa eficientemente.
-c) Generar obstáculos virtuales infinitos.
-d) Evitar el Edge Computing.
+a) Mantenerse en la estación base. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+b) Navegar siempre a los bordes conocidos ("fronteras") entre el espacio libre mapeado y el espacio desconocido, para ampliar el mapa eficientemente
+c) Generar obstáculos virtuales infinitos. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+d) Evitar el Edge Computing. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
 Solución: b
 Justificación: La técnica busca puntos que maximicen la ganancia de nueva información hasta completar todo el recinto.
 
 Pregunta 172: Las marcas fiduciarias (ej. códigos AprilTag, ArUco, códigos QR) en robótica se utilizan principalmente para:
-a) Estimar la postura (posición y orientación 6D) extremadamente precisa y robusta de objetos frente a una cámara.
-b) Reemplazar el motor del chasis diferencial.
-c) Mejorar la latencia 5G.
-d) Entrenar TinyML a bajo nivel.
+a) Estimar la postura (posición y orientación 6D) extremadamente precisa y robusta de objetos frente a una cámara
+b) Reemplazar el motor del chasis diferencial. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+c) Mejorar la latencia 5G. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+d) Entrenar TinyML a bajo nivel. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: a
 Justificación: Al ser geométricamente conocidas, los algoritmos de visión identifican rápidamente su patrón y derivan la perspectiva, ideal para docking y anclaje.
 
 Pregunta 173: "V-SLAM" hace referencia a:
-a) SLAM donde los mapas topológicos no se utilizan nunca.
-b) Algoritmos de SLAM que utilizan predominante o exclusivamente cámaras (Visión) en lugar de LiDAR como sensor exteroceptivo.
-c) Virtual SLAM, hecho sin sensores físicos.
-d) SLAM Vectorial.
+a) SLAM donde los mapas topológicos no se utilizan nunca
+b) Algoritmos de SLAM que utilizan predominante o exclusivamente cámaras (Visión) en lugar de LiDAR como sensor exteroceptivo
+c) Virtual SLAM, hecho sin sensores físicos. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+d) SLAM Vectorial. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: b
 Justificación: Utiliza descriptores visuales de esquinas o texturas (features) de la cámara para realizar la odometría visual y el mapeo.
 
 Pregunta 174: Al programar controladores de seguimiento de trayectoria, un controlador PID (Proporcional-Integral-Derivativo) regula:
-a) El encendido del LiDAR.
-b) El error de la ruta, actuando sobre la posición actual, la acumulación pasada del error y la tasa de cambio de dicho error para suavizar la llegada al setpoint.
-c) La política de privacidad del Fog server.
-d) Los pesos de la red neuronal.
+a) El encendido del LiDAR. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+b) El error de la ruta, actuando sobre la posición actual, la acumulación pasada del error y la tasa de cambio de dicho error para suavizar la llegada al setpoint
+c) La política de privacidad del Fog server. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+d) Los pesos de la red neuronal. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
 Solución: b
 Justificación: El PID es el lazo de control industrial básico para conseguir que un motor logre una posición/velocidad reduciendo oscilaciones.
 
 Pregunta 175: Los sensores ultrasónicos son económicos y comunes en robots reactivos, sin embargo, su limitación física conocida incluye:
-a) Funcionan perfectamente sin restricciones de rango angular.
-b) Tienen mala resolución angular (su cono de emisión es muy amplio) y sufren interferencias de reflexiones especulares en superficies lisas inclinadas.
-c) Son imposibles de usar en microcontroladores.
-d) Consumen enormes recursos en Cloud.
+a) Funcionan perfectamente sin restricciones de rango angular
+b) Tienen mala resolución angular (su cono de emisión es muy amplio) y sufren interferencias de reflexiones especulares en superficies lisas inclinadas
+c) Son imposibles de usar en microcontroladores. No obstante, esta aproximación omite aspectos fundamentales de la arquitectura robótica descrita
+d) Consumen enormes recursos en Cloud. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: b
 Justificación: El sonido rebota en diagonal al golpear esquinas planas, no devolviendo el eco y engañando al sensor de que hay vía libre.
 
 Pregunta 176: Cuando se dice que un robot "pierde odometría" típicamente se refiere a que:
-a) Las cámaras se han fundido.
-b) Ha sufrido un deslizamiento notable (ej. resbalón de la rueda o levantamiento) alterando por completo su estimación de posición interna, requiriendo que los sensores exteroceptivos (ej. láser) salven su localización.
-c) La batería se agotó.
-d) Está usando Dijkstra.
+a) Las cámaras se han fundido. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+b) Ha sufrido un deslizamiento notable (ej. resbalón de la rueda o levantamiento) alterando por completo su estimación de posición interna, requiriendo que los sensores exteroceptivos (ej. láser) salven su localización
+c) La batería se agotó. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción. Perspectiva que omite elementos clave del sistema planteado
+d) Está usando Dijkstra. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: b
 Justificación: Los encoders cuentan rotaciones de motor, no avance físico; si la rueda gira en el aire, el robot creerá falsamente haber avanzado metros.
 
 Pregunta 177: En el algoritmo de navegación VFH (Vector Field Histogram), para calcular comandos libres de choque:
-a) Se ignoran las dinámicas físicas del robot.
-b) Se transforma la nube de obstáculos en un histograma polar 1D para elegir la mejor abertura o "valle" que dirija hacia el objetivo.
-c) Se entrenan pesos por imitación.
-d) Se hace una llamada API al servidor Cloud.
+a) Se ignoran las dinámicas físicas del robot. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+b) Se transforma la nube de obstáculos en un histograma polar 1D para elegir la mejor abertura o "valle" que dirija hacia el objetivo
+c) Se entrenan pesos por imitación. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) Se hace una llamada API al servidor Cloud. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: b
 Justificación: Es una evolución de Campos de Potencial menos propensa a oscilaciones en pasillos estrechos al modelar zonas libres direccionales.
 
 Pregunta 178: El término "Actuación Física" en la Robótica de IoT (IoRT) es el punto crítico que la diferencia del IoT normal porque:
-a) Impide el acceso al Cloud.
-b) Modifica activamente el estado del entorno real (ej. abrir una llave, mover cajas, cortar material), introduciendo riesgos de seguridad y daño mecánico no presentes en sensores puramente de lectura.
-c) Oculta la latencia del servidor Fog.
-d) Permite baterías infinitas.
+a) Impide el acceso al Cloud. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+b) Modifica activamente el estado del entorno real (ej. abrir una llave, mover cajas, cortar material), introduciendo riesgos de seguridad y daño mecánico no presentes en sensores puramente de lectura
+c) Oculta la latencia del servidor Fog. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Permite baterías infinitas. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
 Solución: b
 Justificación: Si un sensor térmico IoT falla, se pierde información; si un brazo IoRT en fábrica falla o recibe datos corruptos, puede lastimar a un operador.
 
 Pregunta 179: El "Grafo Topológico" de un recinto a veces se complementa con navegación geométrica local porque:
-a) Los mapas topológicos tienen un consumo energético extremadamente alto por sí mismos.
-b) El grafo dicta la secuencia lógica de estancias a seguir, mientras que el geométrico evita pisar una papelera física durante ese trayecto abstracto.
-c) Dijkstra requiere sensores láser y odometría inercial forzosamente.
-d) Cloud computing y Fog computing son excluyentes.
+a) Los mapas topológicos tienen un consumo energético extremadamente alto por sí mismos
+b) El grafo dicta la secuencia lógica de estancias a seguir, mientras que el geométrico evita pisar una papelera física durante ese trayecto abstracto
+c) Dijkstra requiere sensores láser y odometría inercial forzosamente
+d) Cloud computing y Fog computing son excluyentes. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
 Solución: b
 Justificación: La hibridación Topológico-Métrico permite planificación a gran escala ultrarrápida (nodos) reteniendo la capacidad de control bajo nivel anti-choques (Métrico).
 
 Pregunta 180: "Duty Factor" (Factor de Trabajo) en el ciclo de marcha de un robot de patas define:
-a) La fracción de tiempo durante todo el ciclo de zancada en el cual una pata determinada se encuentra en contacto con el suelo.
-b) El volumen del polígono de soporte en ZMP estático.
-c) La eficiencia de TinyML en su ejecución.
-d) Las vueltas por segundo de los motores eléctricos.
+a) La fracción de tiempo durante todo el ciclo de zancada en el cual una pata determinada se encuentra en contacto con el suelo, enfoque consolidado en aplicaciones prácticas de robótica
+b) El volumen del polígono de soporte en ZMP estático. A primera vista parece una respuesta válida, pero un examen más detallado del enunciado revela contradicciones con esta opción
+c) La eficiencia de TinyML en su ejecución. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Las vueltas por segundo de los motores eléctricos. A primera vista parece una respuesta válida, pero un examen más detallado del enunciado revela contradicciones con esta opción
 Solución: a
 Justificación: Si el Duty Factor es >0.5 para todas las patas, suele implicar marchas de caminata lentas y seguras (siempre hay más patas en el suelo que en el aire).
 
 Pregunta 181: A diferencia de la marcha en oleada (Wave gait), una marcha de "Galope" en cuadrúpedos o "Bounding" implica:
-a) Apoyo simultáneo siempre de todas las patas.
-b) Tiempos de vuelo donde el robot entero no toca el suelo, requiriendo un control de estabilidad dinámica extraordinariamente veloz y modelado tipo muelle (SLIP).
-c) Polígonos de soporte invariables.
-d) Ahorro total de las reservas energéticas de las articulaciones.
+a) Apoyo simultáneo siempre de todas las patas. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado
+b) Tiempos de vuelo donde el robot entero no toca el suelo, requiriendo un control de estabilidad dinámica extraordinariamente veloz y modelado tipo muelle (SLIP)
+c) Polígonos de soporte invariables. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
+d) Ahorro total de las reservas energéticas de las articulaciones. A primera vista parece una respuesta válida, pero un examen más detallado del enunciado revela contradicciones con esta opción
 Solución: b
 Justificación: Los movimientos atléticos rápidos introducen tiempos en el aire (vuelo balístico) perdiendo el polígono de soporte, obligando a reequilibrar al aterrizar.
 
 Pregunta 182: El concepto de "Agregación de Parámetros" (Parameter Aggregation) en arquitecturas Federated Learning para flotas robóticas es el momento en que:
-a) Todos los robots se acoplan físicamente.
-b) El nodo maestro fusiona mediante promedios (FedAvg u otros) los múltiples pesos locales enviados por las flotas, creando un solo modelo global actualizado e inteligente.
-c) Se fusionan sensores IMU y láser.
-d) Se borra el código TinyML defectuoso.
+a) Todos los robots se acoplan físicamente. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+b) El nodo maestro fusiona mediante promedios (FedAvg u otros) los múltiples pesos locales enviados por las flotas, creando un solo modelo global actualizado e inteligente
+c) Se fusionan sensores IMU y láser. Aunque en determinados escenarios podría ser válido, el contexto específico de la pregunta apunta en otra dirección
+d) Se borra el código TinyML defectuoso. Si bien esta perspectiva tiene cierto fundamento teórico, no es la más adecuada para el caso concreto
 Solución: b
 Justificación: Es el corazón matemático de FL, donde las experiencias separadas (gradientes/pesos) de todos los robots convergen en un cerebro maestro sin mover los datos originales.
 
 Pregunta 183: Un ejemplo paradigmático de Edge AI / Green AI aplicado a drones (robots aéreos) sería:
-a) Transmitir en vídeo 4K ininterrumpido cada vuelo a un servidor base, usando grandes potencias de transmisión de radio para encontrar objetos perdidos.
-b) Utilizar un acelerador NPU de 2 gramos acoplado a la cámara para identificar sobrevivientes directamente en el drone, mandando solo las coordenadas GPS al rescatista.
-c) Mandar instrucciones motoras individuales por WiFi lejano.
-d) Utilizar algoritmos A* en mapas 1D.
+a) Transmitir en vídeo 4K ininterrumpido cada vuelo a un servidor base, usando grandes potencias de transmisión de radio para encontrar objetos perdidos
+b) Utilizar un acelerador NPU de 2 gramos acoplado a la cámara para identificar sobrevivientes directamente en el drone, mandando solo las coordenadas GPS al rescatista
+c) Mandar instrucciones motoras individuales por WiFi lejano
+d) Utilizar algoritmos A* en mapas 1D. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
 Solución: b
 Justificación: Maximiza la duración de batería de vuelo al cortar la pesada radiofrecuencia de vídeo continuo, siendo un sistema desplegable en misiones críticas.
 
 Pregunta 184: La representación de Celdas (Grid Mapping) tiene una debilidad clara frente a las representaciones geométricas (Features Map):
-a) Es imposible utilizar A* sobre Celdas de rejilla.
-b) El coste de memoria crece masivamente con la resolución o al ampliar enormemente el tamaño del mundo físico real.
-c) Son ilegibles para sistemas subsumidos.
-d) Los modelos TinyML no soportan coordenadas de mapas.
+a) Es imposible utilizar A* sobre Celdas de rejilla. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica
+b) El coste de memoria crece masivamente con la resolución o al ampliar enormemente el tamaño del mundo físico real, respuesta que se alinea con las mejores prácticas del dominio
+c) Son ilegibles para sistemas subsumidos. Sin embargo, esta visión parcial del sistema no considera elementos clave mencionados en la descripción
+d) Los modelos TinyML no soportan coordenadas de mapas. Si bien algunos sistemas operan bajo este paradigma, el caso descrito involucra componentes que contradicen esta interpretación
 Solución: b
 Justificación: Una rejilla milimétrica de un área de kilómetros requiere almacenar millones de celdas vacías, desperdiciando muchísima RAM, algo que Octrees o vectores evitan.
 
 Pregunta 185: Si un actuador de articulación de un robot cuadrúpedo presenta compliancia pasiva (añade elementos flexibles o resortes mecánicos en serie):
-a) Será más rígido, consumirá el doble y planificará peor con Dijkstra.
-b) Podrá absorber picos de choque contra el terreno, almacenar energía elástica e incrementar su eficiencia dinámica al mimetizar tendones animales.
-c) Inutilizará por completo su odometría interna, evitando la fase SLAM remuestreada.
-d) Estabilidad estática estricta durante trayectorias aéreas completas.
+a) Será más rígido, consumirá el doble y planificará peor con Dijkstra. Perspectiva que omite elementos clave del sistema planteado
+b) Podrá absorber picos de choque contra el terreno, almacenar energía elástica e incrementar su eficiencia dinámica al mimetizar tendones animales
+c) Inutilizará por completo su odometría interna, evitando la fase SLAM remuestreada
+d) Estabilidad estática estricta durante trayectorias aéreas completas. Interpretación que resulta insuficiente ante los detalles del enunciado
 Solución: b
 Justificación: Los Actuadores Elásticos en Serie (SEA) son clave en robótica patas/caminante para tolerar los golpes de pisada constantes y reusar energía.
 
 Pregunta 186: El modelo de datos basado en "Sujeto-Observación" de la arquitectura IoT (Internet de las Cosas), cuando lo adaptas a arquitecturas IoRT:
-a) Abandona el uso de sensores o actuadores en favor de solo cámaras 2D.
-b) Pasa a un bucle cerrado ("closed-loop") continuo de percibir-procesar-reaccionar-modificar el estado de origen de forma autónoma.
-c) Deshabilita siempre el protocolo MQTT por usar paquetes HTTP estáticos asíncronos.
-d) No tolera procesamiento de tipo Edge Computing de bajo voltaje.
+a) Abandona el uso de sensores o actuadores en favor de solo cámaras 2D
+b) Pasa a un bucle cerrado ("closed-loop") continuo de percibir-procesar-reaccionar-modificar el estado de origen de forma autónoma
+c) Deshabilita siempre el protocolo MQTT por usar paquetes HTTP estáticos asíncronos. Enfoque que no se ajusta a la configuración descrita en el problema
+d) No tolera procesamiento de tipo Edge Computing de bajo voltaje
 Solución: b
 Justificación: El robot genera un bucle de retroalimentación en la nube: afecta al entorno y el entorno le da nuevos datos para cambiar de plan sin mediación humana.
 
 Pregunta 187: El protocolo de comunicación y middleware de Data Distribution Service (DDS), que se utiliza en la nueva generación ROS 2, es muy destacable frente a anteriores porque:
-a) Introduce de forma predeterminada un servidor Cloud mandatorio para arbitrar los comportamientos subsumidos y SLAM.
-b) Es peer-to-peer real sin un "Nodo Maestro" único (evitando punto único de fallo) y proporciona perfiles de Calidad de Servicio (QoS) configurables para sistemas de tiempo real e IoRT industrial.
-c) Obliga a programar todo en hardware int8 bajo TinyML.
-d) No permite el modelo Publish/Subscribe ni telemetría exteroceptiva.
+a) Introduce de forma predeterminada un servidor Cloud mandatorio para arbitrar los comportamientos subsumidos y SLAM. Interpretación que resulta insuficiente ante los detalles del enunciado
+b) Es peer-to-peer real sin un "Nodo Maestro" único (evitando punto único de fallo) y proporciona perfiles de Calidad de Servicio (QoS) configurables para sistemas de tiempo real e IoRT industrial
+c) Obliga a programar todo en hardware int8 bajo TinyML. Esta visión, si bien es técnicamente correcta en abstracto, no se corresponde con la configuración particular del escenario planteado
+d) No permite el modelo Publish/Subscribe ni telemetría exteroceptiva. Aunque esta perspectiva tiene fundamento en ciertos contextos, el problema específico requiere un análisis más amplio de las capacidades del sistema
 Solución: b
 Justificación: ROS 2 fue creado exactamente para dar solidez comercial e industrial que ROS 1 no tenía, mediante estándares de telecomunicación resilientes.
 
 Pregunta 188: A la hora de calcular la cinemática inversa de un Brazo Robótico (Manipulador) a bordo de nuestro robot móvil:
-a) Puede haber múltiples soluciones (distintas posturas de los codos) válidas para que la garra alcance las mismas coordenadas espaciales.
-b) Solo existe una solución geométrica matemática única sin importar el número de ejes motores.
-c) Es un problema lineal y trivial sin implicaciones en el espacio de configuración ni colisiones posibles en la base móvil de soporte.
-d) Se usan siempre algoritmos de búsqueda grafos puramente A* o Dijkstra ignorando ángulos matemáticos directos del efector.
+a) Puede haber múltiples soluciones (distintas posturas de los codos) válidas para que la garra alcance las mismas coordenadas espaciales
+b) Solo existe una solución geométrica matemática única sin importar el número de ejes motores
+c) Es un problema lineal y trivial sin implicaciones en el espacio de configuración ni colisiones posibles en la base móvil de soporte
+d) Se usan siempre algoritmos de búsqueda grafos puramente A* o Dijkstra ignorando ángulos matemáticos directos del efector
 Solución: a
 Justificación: Cuantos más grados de libertad y redundancia tiene un brazo, de más formas diferentes puede curvarse para alcanzar el mismo punto "xyz".
 
 Pregunta 189: "A* Bidireccional" es una optimización del A* en planificaciones geométricas enormes que:
-a) Cancela la heurística en espacios tridimensionales para depender de odometría métrica pasiva.
-b) Lanza dos búsquedas simultáneas: una desde el nodo "Inicio" avanzando y otra desde el "Objetivo" retrocediendo, deteniéndose cuando sus fronteras se tocan.
-c) Utiliza mapas topológicos y Federated Learning exclusivamente en Edge.
-d) Obliga a que la suma de todos los pesos en las partículas predictivas sea igual a uno.
+a) Cancela la heurística en espacios tridimensionales para depender de odometría métrica pasiva. Interpretación que resulta insuficiente ante los detalles del enunciado
+b) Lanza dos búsquedas simultáneas: una desde el nodo "Inicio" avanzando y otra desde el "Objetivo" retrocediendo, deteniéndose cuando sus fronteras se tocan
+c) Utiliza mapas topológicos y Federated Learning exclusivamente en Edge
+d) Obliga a que la suma de todos los pesos en las partículas predictivas sea igual a uno
 Solución: b
 Justificación: Corta espectacularmente el tiempo de búsqueda en mapas enormes porque el área del círculo de nodos expandidos crece mucho más lento al dividirse en dos frentes simultáneos.
 
 Pregunta 190: En el ámbito del diseño TinyML, un método habitual de recopilación del dataset de un robot sería:
-a) Teleoperar el sensor embebido acoplado al robot físico por el recinto objetivo durante días y capturar millones de lecturas puras del MCU antes del preprocesamiento y entrenamiento ex-situ.
-b) Instalar una tarjeta gráfica (GPU Nvidia de última generación) encima del robot de patas para que su TinyML procese a una tasa ultrarrápida (1 ms) y de bajo consumo (Green AI) a la vez.
-c) Descargar solo bases de datos de imágenes satelitales en 2.5D de elevación geográfica de la nube para algoritmos de IA de manipulación local fina por ultrasonidos.
-d) No usar datasets empíricos, puesto que TinyML se basa en árboles reactivos BDI y heurísticas A* sin aprendizaje.
+a) Teleoperar el sensor embebido acoplado al robot físico por el recinto objetivo durante días y capturar millones de lecturas puras del MCU antes del preprocesamiento y entrenamiento ex-situ
+b) Instalar una tarjeta gráfica (GPU Nvidia de última generación) encima del robot de patas para que su TinyML procese a una tasa ultrarrápida (1 ms) y de bajo consumo (Green AI) a la vez
+c) Descargar solo bases de datos de imágenes satelitales en 2.5D de elevación geográfica de la nube para algoritmos de IA de manipulación local fina por ultrasonidos
+d) No usar datasets empíricos, puesto que TinyML se basa en árboles reactivos BDI y heurísticas A* sin aprendizaje
 Solución: a
 Justificación: El flujo real conlleva recuperar telemetría genuina del dispositivo terminal ("Edge Device"), usar una torre central para fabricar la IA, y luego flashear el cerebro microscópico en el robot físico terminal.
 
 Pregunta 191: Los métodos de Odometría Lidar (Lidar Odometry), usualmente apoyados en algoritmos como "ICP" (Iterative Closest Point):
-a) Tratan de alinear dos nubes de puntos de escaneos consecutivos minimizando matemáticamente el error de distancia entre los puntos solapados para deducir cuánto se movió el propio robot de manera precisa.
-b) Sirven para construir grafos de Voronoi puramente abstractos en los que ninguna coordenada final importa.
-c) Se usan estrictamente y de forma obligatoria dentro de capas de comportamiento asíncronas Subsumidas en evitación B3.
-d) Utilizan marcas semánticas ArUco puestas adrede a lo largo del pasillo a alturas equidistantes preestablecidas.
+a) Tratan de alinear dos nubes de puntos de escaneos consecutivos minimizando matemáticamente el error de distancia entre los puntos solapados para deducir cuánto se movió el propio robot de manera precisa
+b) Sirven para construir grafos de Voronoi puramente abstractos en los que ninguna coordenada final importa
+c) Se usan estrictamente y de forma obligatoria dentro de capas de comportamiento asíncronas Subsumidas en evitación B3
+d) Utilizan marcas semánticas ArUco puestas adrede a lo largo del pasillo a alturas equidistantes preestablecidas
 Solución: a
 Justificación: ICP escanea frame-a-frame de las reflexiones láser, emparejando paredes superpuestas de dos periodos de tiempo e infiriendo vectores cinemáticos del agente altísimamente certeros.
 
 Pregunta 192: Un reto clave de la escalabilidad horizontal en servidores de computación Fog intermedios dentro de una "Fábrica IoRT inteligente" conectada es:
-a) Asegurar que A* planifica diagonalmente usando la distancia de tipo Manhattan por defecto para ganar rendimiento a nivel logístico interno y ZMP.
-b) Gestionar el "handover" de conexión de un robot móvil (AGV) moviéndose rápidamente, pasando la gestión del control de baja latencia sin caídas desde un servidor o antena Fog a otro contiguo dentro del mismo galpón.
-c) Forzar que el polígono de apoyo de la transpaleta diferencial conectada permanezca siempre en contacto estático pasivo sin control dinámico en ningún servidor.
-d) Imponer filtros de partículas exclusivamente distribuidos en cada una de sus ruedas motrices puras independientes (Ackermann simulado).
+a) Asegurar que A* planifica diagonalmente usando la distancia de tipo Manhattan por defecto para ganar rendimiento a nivel logístico interno y ZMP
+b) Gestionar el "handover" de conexión de un robot móvil (AGV) moviéndose rápidamente, pasando la gestión del control de baja latencia sin caídas desde un servidor o antena Fog a otro contiguo dentro del mismo galpón
+c) Forzar que el polígono de apoyo de la transpaleta diferencial conectada permanezca siempre en contacto estático pasivo sin control dinámico en ningún servidor
+d) Imponer filtros de partículas exclusivamente distribuidos en cada una de sus ruedas motrices puras independientes (Ackermann simulado)
 Solución: b
 Justificación: El Edge o Fog local cubren zonas geográficamente delimitadas. Si el AGV cambia de sector logístico a otra red WiFi/5G interna, el "cerebro Fog" debe traspasar la sesión sin saltos ni cortes letales.
 
 Pregunta 193: La aproximación de diseño de comportamientos modulares en base a "Esquemas Perceptuales" y "Esquemas Motores" dictamina que:
-a) Cada subsistema de esquiva B3 en Subsunción apaga los sensores láser para reaccionar mediante topología de Voronoi.
-b) A un Esquema Motor particular (p.ej. ir hacia puerta) solo se le acopla un Esquema Perceptual particular encargado de extraer justo los features que requiere (p.ej. detector de marco), descartando el resto del procesamiento superfluo del mundo, haciéndolos ligeros de correr.
-c) Usa un filtro EKF unificado y masivo global que envía una rejilla estocástica métrica al Green AI en forma Cloud paralela y asíncrona.
-d) No soporta fusión de salidas.
+a) Cada subsistema de esquiva B3 en Subsunción apaga los sensores láser para reaccionar mediante topología de Voronoi. Si bien algunos sistemas operan bajo este paradigma, el caso descrito involucra componentes que contradicen esta interpretación
+b) A un Esquema Motor particular (p.ej. ir hacia puerta) solo se le acopla un Esquema Perceptual particular encargado de extraer justo los features que requiere (p.ej. detector de marco), descartando el resto del procesamiento superfluo del mundo, haciéndolos ligeros de correr
+c) Usa un filtro EKF unificado y masivo global que envía una rejilla estocástica métrica al Green AI en forma Cloud paralela y asíncrona. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
+d) No soporta fusión de salidas. A pesar de que esta opción suena técnicamente plausible, presenta deficiencias importantes en la práctica. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
 Solución: b
 Justificación: Representa un modelo altamente eficiente derivado del paradigma de la acción orientada. Solo "percibo lo que necesito para la acción concreta".
 
 Pregunta 194: Uno de los parámetros de configuración críticos de la Búsqueda Dinámica Espacial ("Dynamic Window Approach" o DWA local) es "Goal Cost" vs "Path Cost" u "Obstacle Cost". Un peso abusivamente elevado dado al término "Goal Cost" provocaría típicamente:
-a) El robot retrocederá de inmediato apagando toda la navegación de las rutinas de ZMP estático sin intentar siquiera levantar patas.
-b) Un comportamiento temerario, donde el robot "recorta esquinas" acercándose peligrosamente a los obstáculos con tal de mantener el vector de velocidad apuntando de manera agresiva hacia el final.
-c) Generar un árbol denso y globalizado que explora todo punto ciego aleatorio simulando un RRT de trayectoria divergente lejana antes del objetivo.
-d) Congelar el uso puro y simple del TinyML para inferir nubes RGB-D profundas.
+a) El robot retrocederá de inmediato apagando toda la navegación de las rutinas de ZMP estático sin intentar siquiera levantar patas
+b) Un comportamiento temerario, donde el robot "recorta esquinas" acercándose peligrosamente a los obstáculos con tal de mantener el vector de velocidad apuntando de manera agresiva hacia el final
+c) Generar un árbol denso y globalizado que explora todo punto ciego aleatorio simulando un RRT de trayectoria divergente lejana antes del objetivo
+d) Congelar el uso puro y simple del TinyML para inferir nubes RGB-D profundas. Pese a que suena razonable desde un punto de vista teórico, la práctica revela que esta solución presenta limitaciones significativas
 Solución: b
 Justificación: Las heurísticas del combinador de ventanas DWA premian distintas actitudes. Mucho premio a meta y poco a lejanía de obstáculo = recortes rozando muros.
 
 Pregunta 195: La característica de "Anytime Algorithms" (Algoritmos iterativos en cualquier momento) como el "RRT-Star" planificador significa que:
-a) Ejecutan su matemática exclusivamente una vez y luego colapsan el proceso.
-b) Son capaces de devolver siempre una solución inicial rápida, por sub-óptima que sea, si se interrumpe prematuramente, e ir refinando y mejorando ese camino hacia la ruta más directa de manera ininterrumpida si se les da margen temporal sobrante de computación en el procesador on-board.
-c) No garantizan absolutamente ningún camino posible hasta encontrar obligatoriamente e inevitablemente la línea recta.
-d) Excluyen totalmente los grafos de visibilidad en configuraciones cuadrúpedas puras mediante control reactivo asimétrico.
+a) Ejecutan su matemática exclusivamente una vez y luego colapsan el proceso. Interpretación que resulta insuficiente ante los detalles del enunciado
+b) Son capaces de devolver siempre una solución inicial rápida, por sub-óptima que sea, si se interrumpe prematuramente, e ir refinando y mejorando ese camino hacia la ruta más directa de manera ininterrumpida si se les da margen temporal sobrante de computación en el procesador on-board
+c) No garantizan absolutamente ningún camino posible hasta encontrar obligatoriamente e inevitablemente la línea recta. Sin embargo, este enfoque no aborda correctamente los requisitos de coordinación entre percepción y actuación que el enunciado establece
+d) Excluyen totalmente los grafos de visibilidad en configuraciones cuadrúpedas puras mediante control reactivo asimétrico. Esta visión, si bien es técnicamente correcta en abstracto, no se corresponde con la configuración particular del escenario planteado
 Solución: b
 Justificación: Esto es clave si la CPU local tiene cuellos de botella (Paradigma Deliberativo clásico). Entregan un plan "lo suficientemente bueno" a tiempo en lugar del "mejor" demasiado tarde.
 
 Pregunta 196: Una configuración cinemática "Sincro-Drive" o dirección síncrona en robots 2D móviles tiene de característica especial:
-a) Que tres o más de sus ruedas pueden orientarse pivotando a la par simultáneamente y todas traccionan con la misma potencia de motor exacto mediante cadenas de transmisión comunes, permitiendo avanzar en cualquier dirección sin cambiar la orientación ni la cara frontal (heading) original del chasis base.
-b) Operan un giro sobre el mismo eje similar exactamente a un diferencial tipo oruga desgastante (skid steer).
-c) Son imposibles mecánicamente por el fenómeno derivado de las inestabilidades ZMP puras dinámicas holonómicas locales.
-d) Son idénticas al Ackermann.
+a) Que tres o más de sus ruedas pueden orientarse pivotando a la par simultáneamente y todas traccionan con la misma potencia de motor exacto mediante cadenas de transmisión comunes, permitiendo avanzar en cualquier dirección sin cambiar la orientación ni la cara frontal (heading) original del chasis base
+b) Operan un giro sobre el mismo eje similar exactamente a un diferencial tipo oruga desgastante (skid steer). Pese a que suena razonable desde un punto de vista teórico, la práctica revela que esta solución presenta limitaciones significativas
+c) Son imposibles mecánicamente por el fenómeno derivado de las inestabilidades ZMP puras dinámicas holonómicas locales. Sin embargo, este enfoque no aborda correctamente los requisitos de coordinación entre percepción y actuación que el enunciado establece
+d) Son idénticas al Ackermann. Esta interpretación, aunque parece razonable a primera vista, no captura la totalidad del problema planteado en el enunciado. Sin embargo, este enfoque no aborda correctamente los requisitos de coordinación entre percepción y actuación que el enunciado establece
 Solución: a
 Justificación: Es una variante de alta movilidad industrial donde la rueda avanza pero el chasis mira al frente fijo. Menos desgaste odométrico que una omni Mecanum genuina.
 
 Pregunta 197: Para tareas avanzadas robóticas conectadas, una arquitectura híbrida de tipo Cloud Edge IoT distribuida puede dividir una red neuronal pesada de Deep Learning por "Split Computing", en la cual:
-a) El Fog Server reenvía las imágenes crudas LiDAR de nuevo al robot on-board sin procesamiento para garantizar seguridad y privacidad puramente de Green AI.
-b) Las capas primarias más rápidas (detector de bordes) del modelo inferencian velozmente en el MCU local del sensor y sus características resultantes reducidas y comprimidas se pasan por red 5G al clúster masivo backend Cloud para acabar de clasificar el resto de las capas profundas analíticas.
-c) Subsumir prioridades puramente por arbitraje en la base ZMP remuestreada.
-d) Excluye el Federated Learning y usa PRM asintóticos distribuidos forzosamente.
+a) El Fog Server reenvía las imágenes crudas LiDAR de nuevo al robot on-board sin procesamiento para garantizar seguridad y privacidad puramente de Green AI. Aunque conceptualmente podría defenderse, el contexto específico de la pregunta descarta esta posibilidad por las razones expuestas en el problema
+b) Las capas primarias más rápidas (detector de bordes) del modelo inferencian velozmente en el MCU local del sensor y sus características resultantes reducidas y comprimidas se pasan por red 5G al clúster masivo backend Cloud para acabar de clasificar el resto de las capas profundas analíticas
+c) Subsumir prioridades puramente por arbitraje en la base ZMP remuestreada. No obstante, esta interpretación pasa por alto la integración de sensores, comunicaciones y procesamiento que caracteriza al sistema descrito en el planteamiento
+d) Excluye el Federated Learning y usa PRM asintóticos distribuidos forzosamente. Sin embargo, este enfoque no aborda correctamente los requisitos de coordinación entre percepción y actuación que el enunciado establece
 Solución: b
 Justificación: Reparte el trabajo inteligentemente combinando ventajas latencia/ancho de banda del borde con la inmensa inteligencia del núcleo remoto de IA masivo.
 
 Pregunta 198: El componente clave subyacente que le otorga a un "A*" clásico una cota absoluta de garantía de "Completez" (garantía formal de encontrar un resultado siempre, en el caso en que sí exista camino logístico abierto) reside en que:
-a) Solo revisa partículas mediante ponderación estocástica sesgada por la vista previa local sin heurística de coste retrospectiva global en el grafo.
-b) Emplea listas formales de revisión y expansión retrospectiva exhaustiva en grafo cerrado sin quedarse atascado evaluando rutas infinitas ni mínimos locales, siempre y cuando el recinto y costes sean no-negativos finitos y su heurística sea estrictamente no-sobreestimante o admisible al nodo de cierre final.
-c) Obliga al robot móvil cuadrúpedo a estabilizar dinámicamente sus 4 apoyos sobre ZMP.
-d) Omite totalmente las medidas del láser inercial sobre SLAM en Fog remoto al ser reactivo BDI puro inercialmente.
+a) Solo revisa partículas mediante ponderación estocástica sesgada por la vista previa local sin heurística de coste retrospectiva global en el grafo. A primera vista parece una respuesta válida, pero un examen más detallado del enunciado revela contradicciones con esta opción
+b) Emplea listas formales de revisión y expansión retrospectiva exhaustiva en grafo cerrado sin quedarse atascado evaluando rutas infinitas ni mínimos locales, siempre y cuando el recinto y costes sean no-negativos finitos y su heurística sea estrictamente no-sobreestimante o admisible al nodo de cierre final
+c) Obliga al robot móvil cuadrúpedo a estabilizar dinámicamente sus 4 apoyos sobre ZMP. Si bien algunos sistemas operan bajo este paradigma, el caso descrito involucra componentes que contradicen esta interpretación
+d) Omite totalmente las medidas del láser inercial sobre SLAM en Fog remoto al ser reactivo BDI puro inercialmente. Sin embargo, este enfoque no aborda correctamente los requisitos de coordinación entre percepción y actuación que el enunciado establece
 Solución: b
 Justificación: Como buscador óptimo en un entorno discretizado finito (celdas y costes cerrados), eventualmente la búsqueda exhaustiva agotará todas las sub-rutas para asegurar matemáticamente el paso.
 
 Pregunta 199: Bajo parámetros de evaluación estrictamente de Robótica Ecológica eficiente ("Green AI"): ¿Qué arquitectura de inferencia (resolución final de toma de decisión ante obstáculo visual no planificado) debe recibir la puntuación general más desfavorable si el caso práctico ocurre sobrevolando áreas silvestres forestales desconectadas?
-a) Ejecución del procesamiento mediante TinyML comprimido por poda y aceleración de hardware neuronal en el dron local.
-b) Streaming constante por modem satelital de gran antena hacia clusters AWS para identificar ramas usando modelos visuales Transformers Giga-paramétricos y recibir el control directo cada vez que sale una rama.
-c) Un clasificador simple random-forest ejecutado local y subsumido mediante ultrasonido estático direccional y cámara de infrarrojos básica.
-d) Planificador híbrido de comportamientos con A* y ventana DWA dinámica puramente perimétrico en el onboard Fog interno aislado.
+a) Ejecución del procesamiento mediante TinyML comprimido por poda y aceleración de hardware neuronal en el dron local
+b) Streaming constante por modem satelital de gran antena hacia clusters AWS para identificar ramas usando modelos visuales Transformers Giga-paramétricos y recibir el control directo cada vez que sale una rama
+c) Un clasificador simple random-forest ejecutado local y subsumido mediante ultrasonido estático direccional y cámara de infrarrojos básica
+d) Planificador híbrido de comportamientos con A* y ventana DWA dinámica puramente perimétrico en el onboard Fog interno aislado
 Solución: b
 Justificación: Enviar datos enormes a un lugar remoto por enlace satelital de alta potencia consumirá masivamente batería en el dron y energía del datacenter enorme para resolver un problema evasivo simple trivial, volviéndolo ineficaz, lento por latencia e insostenible.
 
 Pregunta 200: Una característica de resiliencia final intrínseca a un modelo Robótico de "Federated Learning" descentralizado entre 200 robots trabajando de flota, frente a un sistema de un clúster de "Cloud Learning masivo centralizado único y gigante" resulta ser que:
-a) Al fallar las redes de conexión de internet o el gran servidor en la central (Single Point Of Failure), cada robot individual y aislado seguirá usando plenamente local el último modelo inteligente de peso que ya tuviese bajado y continuará su operación en edge independientemente sin bloquearse.
-b) Al caer el servidor centralizado maestro único, los robots reactivan obligatoriamente comportamientos aleatorios en base puramente DWA ciego de envenenamiento venenoso aleatorio por el protocolo MQTT subsumido.
-c) Los pesos y algoritmos dejan siempre de operar al estar centralizados pasivamente en cada rueda independientemente del LiDAR en TinyML cuantizado al extremo Int8 estático puro de ZMP.
-d) No puede existir tal cosa pues los pesos centrales impiden a los sensores exteroceptivos accionar los motores servomecánicos estables de la máquina.
+a) Al fallar las redes de conexión de internet o el gran servidor en la central (Single Point Of Failure), cada robot individual y aislado seguirá usando plenamente local el último modelo inteligente de peso que ya tuviese bajado y continuará su operación en edge independientemente sin bloquearse
+b) Al caer el servidor centralizado maestro único, los robots reactivan obligatoriamente comportamientos aleatorios en base puramente DWA ciego de envenenamiento venenoso aleatorio por el protocolo MQTT subsumido
+c) Los pesos y algoritmos dejan siempre de operar al estar centralizados pasivamente en cada rueda independientemente del LiDAR en TinyML cuantizado al extremo Int8 estático puro de ZMP. Enfoque que no se ajusta a la configuración descrita en el problema
+d) No puede existir tal cosa pues los pesos centrales impiden a los sensores exteroceptivos accionar los motores servomecánicos estables de la máquina. Aunque esta perspectiva tiene fundamento en ciertos contextos, el problema específico requiere un análisis más amplio de las capacidades del sistema
 Solución: a
 Justificación: Las arquitecturas de borde e IoT distribuido son resilientes por propia definición; su cerebro principal viaja embebido y listo para inferenciar "offline" en cuanto las comunicaciones vitales fallan, permitiéndoles seguir autónomos y funcionales a nivel de piso frente a catástrofes de servidor remoto o caídas momentáneas Cloud.

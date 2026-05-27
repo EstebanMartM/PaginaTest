@@ -1,0 +1,1534 @@
+Pregunta 1: En el analisis EVA, el indicador CV se calcula como:
+a) BCWP - ACWP
+b) BCWP - BWCS
+c) BCWP / BCWS
+d) BCWP / ACWP
+Solución: a
+Justificación: CV (Cost Variance) mide la desviación en costes como la diferencia entre el valor ganado (BCWP) y el coste real (ACWP). Un CV negativo indica sobrecoste.
+
+Pregunta 2: ¿Cual de las siguientes no es una tecnica de estimacion de costes de un proyecto?
+a) Todas son tecnicas de estimacion
+b) Juicio experto
+c) Modelado de algoritmos de costes
+d) Ley de parkingson
+Solución: a
+Justificación: El juicio experto es una técnica de estimación basada en la experiencia. El modelado algorítmico (COCOMO) y la Ley de Parkinson también se usan para estimar. Por tanto, todas las opciones listadas son técnicas válidas de estimación.
+
+Pregunta 3: Tenemos tres actividades: A, B y C. A precede a B. Las holguras totales son: HT(A) = 2, HT(B) = 4 y HT(C) = 3. Las holguras libres son: HL(A) = 3, HL(B) = 2, HL(C) = 3. Si A se retrasa 2 dias, ¿Que les ocurre a B y C?
+a) Las condiciones iniciales no se pueden dar
+b) B se convierte en critica
+c) Nada, ya que no sobrepasamos la holgura total de A
+d) La holgura total de B y C pasa a ser de 2 y 1 dia respectivamente
+Solución: a
+Justificación: La holgura libre HL(A)=3 indica cuánto puede retrasarse A sin afectar a sus sucesoras. Pero HL(A)=3 > HT(A)=2 es imposible, ya que la holgura libre nunca puede superar a la holgura total. Por tanto las condiciones iniciales son inconsistentes.
+
+Pregunta 4: ¿Cual de las siguientes es una causa legal para poder transmitir los derechos de Propiedad Intelectual?
+a) En virtud de relacion laboral
+b) Mortis causa
+c) Todas son ciertas
+d) Intervivos
+Solución: c
+Justificación: La LPI contempla la transmisión de derechos tanto por actos inter vivos (contratos, relación laboral) como mortis causa (herencia). Así, las tres vías son causas legales reconocidas.
+
+Pregunta 5: En el caso de que hayamos desarrollado un software de gestion de autonomos en forma de servicio web. ¿Quien deberia encargarse del cumplimiento del cumplimiento de la legislacion a nvel de proteccion de datos?
+a) No seria necesario al no tratarse de una aplicacion de escritorio
+b) Nosotros como desarrolladores de la aplicacion
+c) Los vendedores del servicio
+d) Los clientes suscritos a nuestro servicio
+Solución: c
+Justificación: En un modelo SaaS, quien comercializa el servicio actúa como responsable del tratamiento frente a los usuarios finales, ya que es quien determina los fines y medios del tratamiento de datos.
+
+Pregunta 6: Suponemos que en en un momento del desarrollo de un proyecto tenemos unos valores de SPI>1 y CPI<1. ¿Que podemos decir en esta situacion?
+a) Puede ser que nos sobre personal
+b) Deberiamos aumentar el ritmo de trabajo para ajustarnos a la agenda
+c) Puede ser que nos falte personal
+d) Esos dos valores son incompatibles
+Solución: a
+Justificación: SPI>1 indica que se avanza más rápido de lo planificado (sobra tiempo), mientras que CPI<1 indica que se gasta más de lo presupuestado. Esto es compatible con tener exceso de personal: se produce más rápido pero con mayor coste del necesario.
+
+Pregunta 7: Las versiones de un sistema:
+a) Superan en numero a las releases
+b) Incluyen documentacion tecnica
+c) Tienen un coste menor que las releases
+d) Todas son ciertas
+Solución: d
+Justificación: En gestión de configuraciones, las versiones son incrementos internos frecuentes que incluyen documentación técnica, superan en número a las releases (entregas al cliente) y tienen menor coste unitario. Las tres afirmaciones son correctas.
+
+Pregunta 8: El plan detallado de un proyecto
+a) Contiene todas las actividades incluidas en el plan general
+b) Solo corresponde a una fase del proyecto
+c) Todas son falsas
+d) Se hace siempre de dos en dos iteraciones
+Solución: c
+Justificación: El plan detallado no contiene necesariamente todas las actividades del plan general (se enfoca en una iteración), no se limita a una sola fase, ni se hace cada dos iteraciones de forma fija. Las tres afirmaciones son falsas.
+
+Pregunta 9: ¿En nuestras practicas, se que fase del mdelo UP ha sido objetivo la implementacion de la capa logica de negocio y acceso a datos?
+a) Construccion
+b) Inicio
+c) Transicion
+d) Elaboracion
+Solución: a
+Justificación: En UP, la fase de Construcción es donde se implementa la mayor parte del software, incluyendo la capa lógica de negocio y acceso a datos. La Elaboración define la arquitectura y la Transición despliega el producto.
+
+Pregunta 10: ¿Que aspecto ha sido el mas importante a la hora d establecer los objetivos de las fases de elaboracion y construccion en el modelo UP seguido para la planificacion del software de gestion de autonomos?
+a) El modelo de proceso
+b) Los recursos empleados
+c) La arquitectura elegida
+d) Los requerimientos funcionales y no funcionales
+Solución: c
+Justificación: En UP, la arquitectura es el eje vertebrador: la fase de Elaboración busca establecer una arquitectura estable y la Construcción se organiza en torno a ella para implementar el resto del sistema.
+
+Pregunta 11: Las caracteristicas del software libre son:
+a) Solo se pueden usar en la enseñanza e investigacion
+b) Tiene limitaciones de usuario
+c) Estan disponibles en una pagina web que se llama www.softlibre.com
+d) Se distribuyen libremente y son de codigo abierto
+Solución: d
+Justificación: El software libre se define por las cuatro libertades de la FSF: uso, estudio, distribución y mejora. Implica distribución libre y acceso al código fuente, no restricciones de uso ni limitación a ámbitos académicos.
+
+Pregunta 12: La cadena de actividades que determina la duracion global minima de un proyecto se conoce como :
+a) Cronograma
+b) Diagrama de Gantt
+c) Linea base
+d) Camino critico
+Solución: d
+Justificación: El camino crítico es la secuencia de actividades con holgura cero que determina la duración mínima del proyecto. Cualquier retraso en una actividad crítica retrasa todo el proyecto.
+
+Pregunta 13: En el analisis EVA, la tarea/proyecto esta por encima de lo presupuestado si:
+a) BCWP < BCWS
+b) BCWP > ACWP
+c) Todas son falsas
+d) BCWP > BCWS
+Solución: c
+Justificación: Estar por encima del presupuesto significa BCWP < ACWP (gastar más de lo producido). Las opciones a) y b) describen otras situaciones (retraso y ahorro respectivamente), por lo que todas son falsas para la pregunta planteada.
+
+Pregunta 14: ¿Cual de las siguientes afirmaciones es falsa?
+a) El conocimiento semantico se adquiere mediante memorizacion
+b) El conocimiento sintactico se adquiere mediante experiencia y aprendizaje activo
+c) Todas son falsas
+d) El nuevo conocimiento semantico puede interferir con conocimiento semantico ya existente
+Solución: c
+Justificación: El conocimiento sintáctico se adquiere por experiencia (no solo memorización) y el semántico por comprensión (no solo experiencia activa). Además, el nuevo conocimiento semántico sí puede interferir con el existente. Todas las afirmaciones dadas son falsas.
+
+Pregunta 15: La LOPDGDD no se aplicara en caso de:
+a) Datos de personas fallecidas
+b) Datos ya excluidos en el RGPD
+c) Materias consideradas clasificadas
+d) Todas son ciertas
+Solución: d
+Justificación: La LOPDGDD excluye de su ámbito datos de personas fallecidas, materias clasificadas y lo ya excluido por el RGPD. Por tanto, todas las exclusiones mencionadas son ciertas.
+
+Pregunta 16: ¿Cual de las siguientes licencias no es propia del software libre?
+a) Creative commons
+b) BSD
+c) OEM
+d) GPL
+Solución: c
+Justificación: OEM (Original Equipment Manufacturer) es un tipo de licencia de software privativo donde el software se preinstala en hardware. No es una licencia de software libre, a diferencia de GPL, BSD y Creative Commons.
+
+Pregunta 17: ¿Que importancia tiene el RGPD?
+a) Establece un marco para regular a las empresas sobre las llamadas que un ciudadano puede recibir para venderle productos
+b) Establece un marco para el registro de patentes de empresas
+c) Es una recomendacion europea que esta en estudio para su redaccion definitiva
+d) Establece un marco europeo relativo a la proteccion de las personas fisicas en lo que respecta al tratamiento de sus datos personales y a la libre circulacion de estos datos
+Solución: d
+Justificación: El RGPD (Reglamento UE 2016/679) es una norma europea de aplicación directa que regula el tratamiento de datos personales y su libre circulación, sustituyendo a las directivas anteriores y armonizando la normativa en toda la UE.
+
+Pregunta 18: Extra: ¿Como se calcula el CPI?
+a) BCWP - ACWP
+b) BCWP - BCWS
+c) BCWP / ACWP
+d) BCWP / BCWS
+Solución: c
+Justificación: CPI (Cost Performance Index) es la relación entre el valor ganado y el coste real: BCWP/ACWP. Si CPI>1 el proyecto está por debajo del presupuesto; si CPI<1 hay sobrecoste.
+
+Pregunta 19: Segun la LOPDGDD ¿A partir de que edad un menor puede expresar consentimiento en terminos de proteccion de datos?
+a) 12
+b) 14
+c) 18
+d) 16
+Solución: b
+Justificación: El artículo 7 de la LOPDGDD establece que el menor puede prestar consentimiento a partir de los 14 años. Por debajo de esa edad, el consentimiento deben darlo los titulares de la patria potestad.
+
+Pregunta 20: Extra: ¿Como se calcula el SV?
+a) BCWP - BCWS
+b) BCWP / ACWP
+c) BCWP / BCWS
+d) BCWP - ACWP
+Solución: a
+Justificación: SV (Schedule Variance) o Variación de Agenda se calcula como BCWP - BCWS. Un SV negativo indica retraso respecto al cronograma planificado.
+
+Pregunta 21: Extra: ¿Como se calcula el SPI?
+a) BCWP / ACWP
+b) BCWP - ACWP
+c) BCWP / BCWS
+d) BCWP - BCWS
+Solución: c
+Justificación: SPI (Schedule Performance Index) es el cociente BCWP/BCWS. SPI>1 indica que el proyecto va adelantado; SPI<1 indica retraso respecto a la agenda.
+
+Pregunta 22: Monitorizar una agenda tiene como objetivo fundamental
+a) Presentar al cliente las desviaciones producidas en el proyecto para que sea consciente de que se va a retrasar la entrega
+b) Consiste en comprobar si la agenda real se ajusta a la planificada
+c) Sirve para justificar las horas dedicadas a un proyecto
+d) Se usa como seguimiento interno
+Solución: b
+Justificación: Monitorizar la agenda consiste en comparar el progreso real con el planificado para detectar desviaciones. Su finalidad es el control, no la justificación de horas ni la presentación de desviaciones al cliente como mero aviso.
+
+Pregunta 23: En una iteracion del Plan detallado se establece una actividad de revision de los riesgosdel proyecto. Dicha actividad consiste en:
+a) Identificar mas riesgos para el proyecto
+b) Volver a analizar la probabilidad y los efectos de todos los riesgos del plan
+c) Revisar los identificadores potenciales que se marcaron en el plan de proyecto
+d) Revisar las estrategias establecidas en el plan de riesgos
+Solución: c
+Justificación: En la revisión de riesgos del plan detallado se examinan los indicadores (triggers) que se definieron en el plan general para determinar si algún riesgo está próximo a materializarse, no se trata de identificar nuevos riesgos ni rehacer el análisis completo.
+
+Pregunta 24: ¿Que podemos decir de una tarea si conocemos los valores BCWS = 1200 y BCWP = ACWP?
+a) Deberia haber comenzado
+b) Va retrasada
+c) Todas son ciertas
+d) No ha comenzado
+Solución: a
+Justificación: BCWS=1200 indica que según el plan la tarea ya debería haber acumulado un valor de 1200. BCWP=ACWP indica que se ha trabajado y gastado lo mismo, pero no sabemos cuánto. Lo único seguro es que la tarea debería haber comenzado según la agenda.
+
+Pregunta 25: Un documento de plan de proyecto:
+a) Proporciona un conjunto de actividades que tienen como objetivo el exito del proyecto
+b) Proporciona las estimaciones del proyecto
+c) Proporciona visibilidad al proceso de desarrollo de software
+d) Todas son ciertas
+Solución: d
+Justificación: El plan de proyecto integra los objetivos, estimaciones, actividades, recursos y seguimiento necesarios para el éxito. Las tres afirmaciones describen aspectos complementarios y todos ciertos del plan de proyecto.
+
+Pregunta 26: Extra: ¿Como se calcula el CV?
+a) BCWP - BCWS
+b) BCWP / BCWS
+c) BCWP - ACWP
+d) BCWP / ACWP
+Solución: c
+Justificación: CV (Cost Variance) = BCWP - ACWP. Si CV>0 el proyecto gasta menos de lo presupuestado; si CV<0 hay sobrecoste. Es la métrica hermana del SV para la dimensión de costes.
+
+Pregunta 27: ¿Que tecnica de estimacion de costes se basa en contabilizar pantallas, informes y modulos de calculo?
+a) Puntos funcion
+b) Puntos objeto
+c) Estimacion por analogia
+d) Pricing to win
+Solución: b
+Justificación: Puntos Objeto es una técnica de estimación que contabiliza pantallas, informes y módulos de cálculo (objetos software) para estimar el esfuerzo. A diferencia de Puntos Función que se basa en entradas, salidas, consultas, ficheros e interfaces.
+
+Pregunta 28: En el modelo UP:
+a) El numero de iteraciones es igual en todas las fases
+b) La fase de inicio consta siempre de una iteracion
+c) Todas son falsas
+d) Las iteraciones tienen siempre la misma duracion
+Solución: c
+Justificación: En UP, el número de iteraciones varía entre fases (Inicio suele tener 1, Elaboración 2, Construcción varias), la duración de iteraciones puede variar y la fase de Inicio no siempre tiene exactamente una iteración. Todas las afirmaciones son falsas.
+
+Pregunta 29: En el análisis EVA, la tarea/proyecto va con retraso según la agenda si:
+a) BCWP<ACWP
+b) BCWP<BCWS
+c) BCWP>ACWP
+d) BCWP>BCWS
+Solución: b
+Justificación: El retraso respecto a la agenda se detecta cuando el valor ganado es menor que el planificado: BCWP < BCWS. Esto significa que se ha completado menos trabajo del programado.
+
+Pregunta 30: Tenemos tres actividades: A, B y C. A precede a B. Las holguras totales son: HT(A)=4, HT(B)=2,  HT(C)=3,Las holguras libres son: HL(A)= 3, HL(B)=2, HL(C)=3,  Si A se retrasa 4 días, ¿qué les ocurre a B y C?
+a) La holgura total de B y C pasa a ser de 1 y 2 dias respectivamente
+b) Ninguna de las anteriores es cierta
+c) B se convierte en critica
+d) Nada, ya que no sobrepasamos la holgura total de A
+Solución: b
+Justificación: HL(A)=3 > HT(B)=2 es imposible porque si A precede a B, la holgura libre de A no puede exceder la holgura total de B. Al retrasar A 4 días (su HT completa), se consumiría la HT(B) y B se volvería crítica. Pero como las holguras iniciales son inconsistentes, ninguna opción es válida.
+
+Pregunta 31: Dado que un riesgo siempre va a existir hay que….
+a) Contar con un proceso de gestión de proyectos adecuado para reducir losriesgos en su totalidad
+b) Es falso, los riesgos no siempre existen
+c) Establecer mecanismos de seguimiento y prevención
+d) No es necesario tener planes de contingencia porque la experiencia demuestraque no es posible contener los riesgos en su totalidad
+Solución: c
+Justificación: Los riesgos son inherentes a cualquier proyecto; no se pueden eliminar totalmente. La estrategia correcta es establecer mecanismos de seguimiento y prevención continua, no confiar en que desaparecerán ni ignorarlos.
+
+Pregunta 32: En el análisis EVA, el indicador SV se calcula como:
+a) BCWP-BCWS
+b) BCWP/BCWS
+c) BCWP/ACWP
+d) BCWP-ACWP
+Solución: a
+Justificación: SV (Schedule Variance) = BCWP - BCWS. Indica la desviación en términos de valor monetario del trabajo planificado. Es la métrica complementaria al SPI para expresar el avance en unidades absolutas.
+
+Pregunta 33: ¿Cual de las siguientes no es una técnica de estimación de costes de un proyecto?
+a) Modelado algorítmico de costes
+b) Juicio Experto
+c) Ley de Parkinson
+d) Gantt
+Solución: d
+Justificación: El diagrama de Gantt es una herramienta de planificación y visualización temporal, no una técnica de estimación de costes. Las otras tres (modelado algorítmico, juicio experto y Ley de Parkinson) sí son técnicas de estimación.
+
+Pregunta 34: En Scrum, la gráfica “Burn-Down” indica:
+a) La velocidad de desarrollo del equipo.
+b) La cantidad de trabajo pendiente en un sprint
+c) Los posibles impedimentos del equipo.
+d) Todas son ciertas
+Solución: b
+Justificación: El gráfico Burn-Down muestra el trabajo restante en el sprint a lo largo del tiempo. La línea ideal desciende hasta cero al final del sprint; la línea real muestra si el equipo va al ritmo esperado.
+
+Pregunta 35: ¿Hasta que momento durante la ejecución de un proyecto, la contingencia debe serconsiderada?
+a) Hasta el fin del proyecto
+b) Hasta que el tiempo y los avances del proyecto demuestren que el riesgo se hareducido lo suficiente o desaparecido
+c) Hasta ejecutar un 70% del presupuesto asigando a la contingencia
+d) Hasta que el proyecto se dore de mas presupuesto
+Solución: b
+Justificación: La contingencia debe mantenerse mientras exista el riesgo que la justifica. Si el avance del proyecto demuestra que el riesgo ha disminuido significativamente o desaparecido, puede liberarse la contingencia correspondiente.
+
+Pregunta 36: El modelo basado en prototipos
+a) Permite reducir riesgos y costes de desarrollo
+b) El sistema resultante es un prototipo
+c) Reduce las horas de implementación
+d) Es posible utilizarlo sólo con lenguajes orientados a objetos
+Solución: a
+Justificación: El modelo de prototipos permite validar requisitos tempranamente, reduciendo riesgos de malentendidos y costes de retrabajo. El prototipo no es el sistema final ni se limita a lenguajes OO.
+
+Pregunta 37: El cono de la incertidumbre
+a) Dice que conforme avanza el proyecto menos errores de estimación tenemos.
+b) Todas las anteriores son falsas.
+c) Dice que conforme avanza el proyecto más errores de estimación descubrimos
+d) No puedo aplicarlo sino hago el seguimiento del proyecto.
+Solución: a
+Justificación: El cono de incertidumbre (McConnell) establece que al inicio las estimaciones pueden desviarse hasta 4x, pero conforme avanza el proyecto y se reduce la incertidumbre, los errores de estimación disminuyen progresivamente.
+
+Pregunta 38: ¿Cuál de los siguientes libros es el principal recomendado en la asignatura?
+a) Ingeniería del software" 7ª Edición. Ian Sommerville
+b) Ingeniería del Software: un enfoque práctico. 5º edición.Roger S. Pressman.
+c) "Desarrollo y Gestión de Proyectos Informáticos". Steve McConnell
+d) "Técnicas de Programación y Control de Proyectos". C.Romero López. Pirámide
+Solución: a
+Justificación: El libro de Sommerville (Ingeniería del Software, 7ª edición) es la referencia clásica en la asignatura por cubrir de forma integral tanto los aspectos técnicos como de gestión del desarrollo de software.
+
+Pregunta 39: Según el RGPD, el RAT (registro de Actividades de Tratamiento) es obligatorio para
+a) Solo para la Administración Publica
+b) Empresas de menos de 250 empleados y PYMES
+c) Cualquier empresa publica o privada
+d) Empresas de 250 empleados o más
+Solución: d
+Justificación: Según el RGPD (art. 30), el RAT es obligatorio para empresas de 250 o más empleados. Las de menos de 250 empleados solo están obligadas si el tratamiento entraña riesgo para los derechos de los interesados, no es ocasional o incluye categorías especiales de datos.
+
+Pregunta 40: En el análisis EVA, el indicador CPI se calcula como
+a) BCWP/ACWP
+b) BCWP-BCWS
+c) BCWP-ACWP
+d) BCWP/BCWS
+Solución: a
+Justificación: CPI (Cost Performance Index) = BCWP / ACWP. Es un indicador de eficiencia de costes: cada unidad monetaria gastada produce CPI unidades de valor. CPI=1 indica que se gasta exactamente lo presupuestado.
+
+Pregunta 41: ¿Cuál de los siguientes elementos NO es un elemento de configuración (EC)?
+a) La estructura de directorios
+b) Los ejecutables de la aplicación
+c) Todos los anteriores son elementos de configuración.
+d) La definición de las tablas de la BD de la aplicación
+Solución: a
+Justificación: La estructura de directorios es una convención de organización del proyecto, no un elemento de configuración. Los EC son artefactos sometidos a control de cambios como código fuente, ejecutables, esquemas de BD y documentación.
+
+Pregunta 42: En el registro de la propiedad intelectual de un software bajo una relación laboral,¿para qué sirve el documento de declaración de autor asalariado de un empleado?
+a) Para la cesión de los derechos de explotación del software de la empresa al empleado
+b) Para la cesión de los derechos de explotación del software del empleado a la empresa
+c) Para la cesión de los derechos de autoría del software del empleado a la empresa
+d) Para la cesión de los derechos de autoría del software de la empresa al empleado
+Solución: b
+Justificación: La declaración de autor asalariado formaliza la cesión de los derechos de explotación económica del software creado por el empleado hacia la empresa, en el marco de una relación laboral. Los derechos morales de autoría son irrenunciables.
+
+Pregunta 43: Señala cuál de las siguientes características corresponden a la metodología SCRUM
+a) Reuniones diarias, y trabajo individual.
+b) Es incremental, reuniones diarias y se basa en roles.
+c) Se basa en roles y pasa a segundo plano la calidad del proyecto
+d) Lo importante es el trabajo individual y la documentación que se realice sobre la aplicación.
+Solución: b
+Justificación: SCRUM se caracteriza por ser incremental (entregas en sprints), con reuniones diarias (daily stand-up) y basado en roles definidos (Product Owner, Scrum Master, Development Team).
+
+Pregunta 44: Muchas organizaciones fortalecen sus equipos de gestión de riesgos, para que estossean identificados a priori, pero lo que ocurre realmente es…
+a) Es imposible identificar los riesgos a priori
+b) Lo mas usual es identificar los riesgos de ejecución
+c) No se identifican a tiempo
+d) Identifican normalmente riegos muy poco probables
+Solución: b
+Justificación: Aunque se intente identificar riesgos a priori, la realidad es que la mayoría de los riesgos que realmente impactan se descubren durante la ejecución. El plan de riesgos debe ser un documento vivo que se actualiza continuamente.
+
+Pregunta 45: Los modelos de SCRUM y XP
+a) Tienen unos roles predefinidos.
+b) Ofrecen resultados al cliente al finalizar cada iteración
+c) Utilizan historias de usuario para definir requisitos.
+d) Todas son ciertas.
+Solución: d
+Justificación: Tanto SCRUM como XP definen roles específicos, entregan resultados al cliente al final de cada iteración y utilizan historias de usuario para capturar requisitos. Las tres características son compartidas por ambas metodologías.
+
+Pregunta 46: Indica cuál de las siguientes metodólogas son ágiles
+a) Kanban, Scrum, Extrem Programming
+b) Cobol, c++, Java.
+c) Uml , PPo,itil.
+d) Ninguna de las anteriores.
+Solución: a
+Justificación: Kanban, Scrum y Extreme Programming son metodologías ágiles ampliamente reconocidas. Las otras opciones mezclan metodologías ágiles con lenguajes de programación y frameworks de modelado.
+
+Pregunta 47: Tenemos la actividad A B y C. A precede a B. Las holguras totales sonHT(A)=2,HT(B)=4,HT(C)=3. Las holguras libres son HL(A)=3,HL(B)=2,HL(C)=3. Si A seretrasa 2 dias. ¿qué les ocurre a B y C?
+a) Nada, ya que no sobrepasamos la holgura total de A
+b) La holgura total de B y C pasa a ser de 2 y 1 dias respectivamente.
+c) B se convierte en critica
+d) Las condiciones iniciales no se pueden dar.
+Solución: d
+Justificación: HL(A)=3 implica que A puede retrasarse hasta 3 días sin afectar a B. HT(A)=2 indica que A solo puede retrasarse 2 días sin afectar al proyecto. HL(A)>HT(A) es matemáticamente imposible, por lo que los datos iniciales son inconsistentes.
+
+Pregunta 48: En el análisis EVA, la tarea/proyecto está por encima de lo presupuesto si:
+a) BCWP>BCWS
+b) BCWP>ACWP
+c) BCWP<ACWP
+d) BCWP-ACWP
+Solución: c
+Justificación: Estar por encima del presupuesto (sobrecoste) significa que el coste real supera al valor ganado: BCWP < ACWP. Se ha gastado más de lo que se ha producido.
+
+Pregunta 49: En el proceso unificado de desarrollo de software:
+a) La tarea de establecer los requisitos es más intensa en la primera fase aunque en las fasessiguientes los requisitos se pueden modificar
+b) El establecimiento de requisitos requiere del mismo esfuerzo en todas las fases.
+c) Los requisitos siempre se establecen a partir de prototipos.
+d) Los requisitos se establecen en la primera fase y no se permite ningún cambio en las fasessiguientes
+Solución: a
+Justificación: En UP, la fase de Inicio se centra en establecer el alcance y los requisitos principales, aunque estos pueden evolucionar en fases posteriores mediante control de cambios. No se congelan al final de Inicio.
+
+Pregunta 50: En la pirámide de jerarquia de necesidades donde se encuentran la mayoría de jefes de proyecto.
+a) No les afecta esta jerarquía, es sólo para empleados.
+b) Necesidades seguridad
+c) Necesidades autorrealización.
+d) Necesidades sociales,
+Solución: c
+Justificación: Según Maslow, los jefes de proyecto, al tener cubiertas sus necesidades básicas (salario, seguridad, afiliación), buscan la autorrealización profesional mediante la consecución exitosa de los proyectos y el desarrollo de su carrera.
+
+Pregunta 51: Ms Project es
+a) Una herramienta de seguimiento de proyectos
+b) Una herramienta de estimación de costes de proyectos
+c) Una herramienta de desarrollo de proyectos
+d) Una herramienta de modelado de proyectos
+Solución: a
+Justificación: MS Project es fundamentalmente una herramienta de planificación y seguimiento de proyectos. Permite definir tareas, asignar recursos, establecer dependencias y comparar el avance real con el planificado.
+
+Pregunta 52: Un impedimento en SCRUM
+a) Se refleja como una línea vertical en el gráfico burn-down.
+b) Ninguna de las anteriores.
+c) Se refleja como una línea discontinua en el gráfico burn-d.own.
+d) Se refleja como una línea horizontal en el gráfico burn-down.
+Solución: d
+Justificación: En el gráfico burn-down de SCRUM, un impedimento se representa como una línea horizontal (meseta) porque el trabajo pendiente deja de disminuir: el equipo está bloqueado y no puede completar tareas.
+
+Pregunta 53: ¿Cuál de estas características no es de la metodología SCRUM?
+a) Demo al cliente al final de cada iteración
+b) Metodología iterativa e incremental
+c) Reuniones diarias.
+d) Descanso cada 15 días para renovar las ideas
+Solución: d
+Justificación: SCRUM no prescribe descansos cada 15 días. Las iteraciones (sprints) duran típicamente de 1 a 4 semanas y al final de cada una se entrega un incremento, pero no hay pausas programadas entre sprints.
+
+Pregunta 54: ¿Cual de las siguientes afirmaciones es cierta?
+a) El conocimiento semántico se adquiere mediante memorización
+b) El conocimiento sintáctico se adquiere mediante experiencia y aprendizaje activo
+c) Ninguna de las anteriores
+d) El nuevo conocimiento semántico puede interferir con conocimiento semántico ya existente.
+Solución: c
+Justificación: El conocimiento semántico se adquiere por comprensión activa (no por memorización pasiva), el sintáctico se adquiere por práctica (no solo por experiencia). La interferencia con conocimiento existente ocurre en ambos tipos. Por tanto, ninguna afirmación es correcta.
+
+Pregunta 55: Las metodologías de desarrollo de software tienen como objetivo:
+a) Todas son ciertas
+b) Proporcionar sistemas que satisfagan a todas las personas afectadas por el mismo
+c) Desarrollar un sistema dentro de un tiempo apropiado y con unos costes aceptables
+d) Establecer los requisitos de un sistema.
+Solución: a
+Justificación: Las metodologías de desarrollo buscan simultáneamente satisfacer a los stakeholders, desarrollar en tiempo y coste aceptables, y establecer requisitos adecuados. Las tres son objetivos complementarios e interdependientes.
+
+Pregunta 56: Las metodologías ágiles se caracterizan
+a) Por hacer más énfasis en la documentación a entregar
+b) Por inventarse a finales del S XIX en la revolución industrial
+c) Ponen en el centro el proyecto a entregar no al cliente
+d) Simplificar la complejidad de otras metodologías
+Solución: d
+Justificación: Las metodologías ágiles surgieron como reacción a la complejidad burocrática de las metodologías tradicionales (cascada, RUP pesado), simplificando procesos mediante iteraciones cortas, comunicación directa y adaptación al cambio.
+
+Pregunta 57: ¿Qué podemos decir de una tarea si conocemos los valores BCWS=1200 y BCWP=ACWP?
+a) Todas son ciertas
+b) Va retrasada
+c) Debería haber comenzado
+d) No ha comenzado
+Solución: c
+Justificación: BCWS=1200 indica que según el plan la tarea ya debería haber comenzado (tiene trabajo planificado). BCWP=ACWP indica que el valor ganado iguala al coste real, pero no sabemos cuánto valen. Solo podemos afirmar que la tarea debería haber comenzado por el valor BCWS positivo.
+
+Pregunta 58: La LOPDGDD no será de aplicación en el caso de
+a) Materias consideras clasificadas
+b) Todas son ciertas
+c) Datos de personas fallecidas
+d) Datos ya excluidos en el RGPD
+Solución: b
+Justificación: La LOPDGDD no se aplica a datos de personas fallecidas (el RGPD solo protege a personas físicas vivas), materias clasificadas (seguridad nacional) ni datos excluidos por el propio RGPD (como el ámbito doméstico).
+
+Pregunta 59: La normativa vigente en España en materia de protección de datos es:
+a) Actualmente en nuestro Estado solo nos afecta la LOPD 3/2018
+b) RGDP UE de 2018 y LOPD 3/2018
+c) LOPD 15/1999 y RGPD UE de 2016
+d) RGDP UE de 2016 y LOPD 3/2018
+Solución: d
+Justificación: La normativa vigente en España es el RGPD (Reglamento UE 2016/679, aplicable desde mayo 2018) junto con la LOPDGDD (Ley Orgánica 3/2018), que adapta y complementa el reglamento europeo al ordenamiento español.
+
+Pregunta 60: Las releases de una sistema:
+a) Superan en numero a las versiones
+b) Incluyen documentación técnica
+c) Tienen un costo menor que las versiones
+d) Todas son ciertas
+Solución: b
+Justificación: Las releases son entregas formales al cliente que deben incluir documentación técnica, manuales de usuario y notas de versión. Las versiones internas pueden no documentarse tan exhaustivamente.
+
+Pregunta 61: En Scrum, un Sprint:
+a) Tiene la duración que el cliente indique.
+b) Tiene una duración prefijada
+c) Puede alargarse el tiempo necesario hasta acabar todas las tareas pendientes.
+d) Ninguna de las anteriores
+Solución: b
+Justificación: En SCRUM, el sprint tiene una duración fija (time-boxed) acordada al inicio, típicamente de 2 a 4 semanas. Una vez comenzado, no se modifica su duración aunque queden tareas pendientes.
+
+Pregunta 62: Según la LOPDGDD ¿A partir de qué edad puede un menor expresar el consentimiento en términos de protección de datos?
+a) 18 años
+b) 16 años
+c) 14 años
+d) El padre o tutor legal será el que lo haga en su nombre mientras forme parte de launidad familliar
+Solución: c
+Justificación: La LOPDGDD española fija en 14 años la edad mínima para que un menor pueda prestar consentimiento válido para el tratamiento de sus datos personales, elevando el estándar mínimo de 16 años del RGPD a 13-14 según decisión nacional.
+
+Pregunta 63: ¿Cuál es la distribución de tiempo dentro de un de desarrollo de equipo?
+a) 30% Trabajando sólo, 20% actividades de gestión, 50% Interactuando con otragente
+b) 30% Trabajando sólo, 20% actividades no productivas, 50% Interactuando conotra gente.
+c) 20% Implementando, 30% Interactuando con otra gente y 50% en actividadesde gestión
+d) 20% Trabajando sólo, 30% actividades no productivas, 50% Interactuando conotra gente.
+Solución: b
+Justificación: Estudios empíricos sobre trabajo en equipo de desarrollo muestran que aproximadamente el 30% del tiempo se trabaja individualmente, el 20% se pierde en actividades no productivas (interrupciones, reuniones ineficaces) y el 50% se interactúa con otros.
+
+Pregunta 64: En eXtreme programming:
+a) Cada iteración debe acabar con una versión lista para su producción.
+b) No es necesario que se escriban las pruebas antes de comenzar a programar
+c) Ninguna de las anteriores.
+d) No es necesario que el cliente esté in situ, ya que, se pueden utilizar especificaciones escritaspara la siguiente iteración.
+Solución: c
+Justificación: En XP, cada iteración debe producir una versión potencialmente desplegable pero no necesariamente lista para producción. Se requiere escribir pruebas antes del código (TDD) y se recomienda que el cliente esté in situ. Por tanto, ninguna afirmación es correcta tal cual.
+
+Pregunta 65: Un plan de proyecto…
+a) Es una representación abstracta de un proceso que proporciona informaciónparcial sobre el proceso software
+b) Es un conjunto de actividades que tienen como objetivo el desarrollo de unproducto software
+c) Todas las afirmaciones son falsas.
+d) Proporciona visibilidad al progreso del proyecto
+Solución: d
+Justificación: El plan de proyecto proporciona visibilidad al progreso al establecer líneas base contra las que comparar el avance real. Es más que una representación abstracta: es un documento vivo de gestión que guía la ejecución y el control.
+
+Pregunta 66: ¿Cuál de los siguientes tipos de licencia no es propia del software libre?
+a) Creative Commons
+b) OEM
+c) GPL
+d) BSD
+Solución: b
+Justificación: OEM es una licencia de software privativo asociada al hardware. Creative Commons, GPL y BSD son licencias propias del software libre o de contenido abierto.
+
+Pregunta 67: Cuando el desarrollo del plan del proyecto existen restricciones de tiempo y presupuestoestablecidas por el cliente, estos deben..
+a) Ser descartadas ya que no se podrán hacer ajustes en el presupuesto
+b) Deben ser consideradas evaluando su impacto en el proyecto
+c) Ser descartadas ya que hay que ignorar completamente al cliente
+d) Ser incluidas y ajustar el programa
+Solución: d
+Justificación: Las restricciones de tiempo y presupuesto impuestas por el cliente son condicionantes reales del proyecto que deben incorporarse a la planificación, ajustando el alcance y la estrategia para hacerlas viables. Ignorarlas conduce al fracaso.
+
+Pregunta 68: Una de las recomendaciones que se deben tener en cuenta durante la estimación derecursos y tiempo de un proyecto informático es:
+a) Planificar siempre como si los recursos estuvieran asignados al 100%
+b) Asignar varias tareas en el mismo periodo, así si una no se puede realizar se realizaraotra
+c) Todas las respuestas son válidas
+d) Identificar las tareas que consumen más recursos
+Solución: d
+Justificación: Identificar las tareas que consumen más recursos permite priorizar la planificación y asignación, detectar cuellos de botella y optimizar el uso de recursos críticos. Asignar al 100% o solapar tareas sin criterio genera sobrecarga y riesgos.
+
+Pregunta 69: ¿Qué es la refactorización en XP?
+a) La simplificación del código sin modificar su comportamiento
+b) Ninguna de las anteriores
+c) Las acciones que realizan los testers para definir los casos de prueba
+d) Las acciones que realizan los programadores para pasar las pruebas unitarias
+Solución: a
+Justificación: La refactorización en XP consiste en reestructurar el código internamente sin cambiar su comportamiento externo, eliminando duplicación, mejorando la legibilidad y facilitando cambios futuros. Las pruebas automáticas garantizan que no se introducen defectos.
+
+Pregunta 70: ¿Qué podemos decir de una tarea si conocemos los valores BCWS=BCWP=0 y ACWP=800?
+a) No debería haber comenzado, pero sí lo ha hecho
+b) Debería haber comenzado y no lo ha hecho
+c) El valor ACWP es erróneo
+d) El valor BCWP es erróneo
+Solución: a
+Justificación: BCWS=BCWP=0 indica que la tarea no debería haber comenzado según el plan ni ha producido valor. Pero ACWP=800 revela que se ha incurrido en coste real, es decir, la tarea ha comenzado de facto pese a no estar planificada todavía.
+
+Pregunta 71: ¿Cuál de las siguientes no es técnica de estimación de costes de un proyecto?
+a) Juicio Experto
+b) Gantt
+c) Modelado algorítmico de costes
+d) Ley de Parkinson
+Solución: b
+Justificación: El diagrama de Gantt es una herramienta de visualización y planificación temporal, no de estimación de costes. Juicio experto, modelado algorítmico y Ley de Parkinson son técnicas de estimación reconocidas en ingeniería del software.
+
+Pregunta 72: En el modelo UP…
+a) La fase de inicio siempre consta de una única iteración
+b) La fase de Transición suele ser la de mayor duración
+c) Las iteraciones pueden tener duraciones distintas
+d) El numero de iteraciones es igual en todas las fases
+Solución: c
+Justificación: En UP, las iteraciones pueden tener duraciones diferentes dentro de una misma fase o entre fases, adaptándose a las necesidades de cada ciclo. La fase de Inicio suele ser la más corta, y la de Construcción suele tener más iteraciones que las demás.
+
+Pregunta 73: De los siguientes derechos regulados en la LOPD, ¿Cuál es un derecho digital?
+a) Derecho de oposición
+b) Derecho de la intimidad en el ámbito laboral
+c) Derecho de supresión
+d) Derecho de rectificación
+Solución: b
+Justificación: La LOPDGDD incorpora derechos digitales novedosos, como el derecho a la intimidad en el ámbito laboral (uso de dispositivos digitales por el empleador). El resto (oposición, supresión, rectificación) son derechos ARCO tradicionales del RGPD.
+
+Pregunta 74: En la fase de exploración de eXtreme programming:
+a) El equipo de desarrollo establece la velocidad del proyecto.
+b) Se prueba la tecnología y se construye un prototipo.
+c) Se realizan tareas de soporte para el cliente.
+d) El cliente establece la prioridad de cada historia de usuario.
+Solución: b
+Justificación: La fase de exploración de XP tiene como objetivo probar la viabilidad técnica del proyecto: se investigan tecnologías, se construyen prototipos exploratorios y se validan decisiones arquitectónicas antes del desarrollo completo.
+
+Pregunta 75: En el análisis EVA la tarea/proyecto va adelantada según la agenda si:
+a) BCWP > ACWP
+b) BCWP < BCWS
+c) BCWP > BCWS
+d) BCWP < BCWS
+Solución: c
+Justificación: Ir adelantado respecto a la agenda significa que se ha completado más trabajo del planificado: BCWP > BCWS. El valor ganado supera al valor planificado para ese momento del cronograma.
+
+Pregunta 76: En el caso de producirse un retraso en una actividad, ¿cuál de las siguientes medidas seríala que menos afectaría a la agenda del proyecto?
+a) Reemplazar a los recursos asignados a la misma
+b) Eliminar alguna funcionalidad
+c) Retrasarla según su holgura libre
+d) Retrasarla según su holgura total
+Solución: c
+Justificación: Retrasar una actividad dentro de su holgura libre no afecta a ninguna actividad sucesora, por lo que el impacto en la agenda es mínimo o nulo. La holgura total, en cambio, puede consumir el margen de otras actividades de la cadena.
+
+Pregunta 77: ¿Qué multiplicador con valor alto reduciría el esfuerzo estimado en COCOMO?
+a) Fiabilidad de producto y complejidad
+b) Dificultad de la plataforma
+c) Experiencia del personal
+d) Fiabilidad de producto y complejidad
+Solución: c
+Justificación: En COCOMO, los multiplicadores de esfuerzo como la experiencia del personal (ACAP, PCAP) reducen el esfuerzo estimado cuando tienen valores altos, ya que reflejan un equipo más productivo. Los multiplicadores de producto/complejidad lo aumentan.
+
+Pregunta 78: El método de planificación PERT es:
+a) Una definición en base a una red (grafo dirigido) de dependencias de tareas que llevan al final del proyecto
+b) Una definición en forma de grafo no dirigido de tareas que ayudan a visualizar el Plan del Proyecto.
+c) Una definición en forma de barras que dan un aspecto visual temporal del Plan del Proyecto.
+Solución: a
+Justificación: El método PERT (Program Evaluation and Review Technique) se basa en un grafo dirigido que modela dependencias entre tareas, permitiendo calcular el camino crítico mediante tiempos early y last de cada nodo.
+
+Pregunta 79: ¿Cuál de los siguientes tipos de licencia no es propia del software privativo?
+a) Apache
+b) EULA
+c) PKC
+d) ROK
+Solución: a
+Justificación: Apache es una licencia de software libre (permisiva). EULA, PKC y ROK son tipos de licencias propias del software privativo, que restringen la copia, modificación y redistribución.
+
+Pregunta 80: ¿CuáI de las siguientes afirmaciones es CORRECTA?
+a) Los riesgos no cambian durante todo el proyecto
+b) Los riesgos se definen y se gestionan de cualquier manera
+c) Los riesgos de un proyecto están vivos durante todo el proyecto y hay que adaptar el plan de riesgos permanentemente
+Solución: c
+Justificación: Los riesgos evolucionan a lo largo del proyecto: algunos desaparecen, otros nuevos surgen, y su probabilidad e impacto cambian. Por ello, la gestión de riesgos debe ser continua y adaptativa, no un ejercicio puntual al inicio.
+
+Pregunta 81: Desarrollamos un software para jugar al ajedrez. Para proteger este programa de la mejor forma posible:
+a) Las dos anteriores son correctas, ya que ambas ofrecen igual grado de protección.
+b) Lo registramos mediante una Patente del Software.
+c) Lo registramos en el Registro de la Propiedad Intelectual
+Solución: c
+Justificación: El software (incluido un juego de ajedrez) se protege mediante derechos de autor en el Registro de la Propiedad Intelectual. Las patentes de software no son aceptadas en España ni en la mayoría de Europa al no considerarse invenciones técnicas patentables.
+
+Pregunta 82: ¿Cuál de las siguientes afirmaciones relativas a la EDT no es correcta?:
+a) La suma del trabajo de todos los niveles inferiores debe corresponder al trabajo total de sus niveles inmediatamente superiores.
+b) Lo que no aparece en la EDT no forma parte del proyecto y no se ejecuta salvo que se haya integrado y aprobado en el control de cambios del proyecto
+c) La EDT representa todo el trabajo que hay que realizar para ejecutar el proyecto y entregar el producto o servicio solicitado.
+d) La EDT incluye todas las tareas necesarias para realizar el proyecto salvo las relacionadas con la gestión del proyecto.
+Solución: d
+Justificación: La EDT (WBS) debe incluir TODO el trabajo del proyecto, incluyendo las tareas de gestión. Afirmar que excluye la gestión es incorrecto: el PMBOK establece que la EDT cubre el 100% del alcance del proyecto, incluida la dirección del mismo.
+
+Pregunta 83: En relación con la técnica PERT podemos afirmar que:
+a) Una actividad comprendida entre dos actividades no tiene por qué ser crítica.
+b) En una actividad cualquiera el tiempo last podría ser menor que el tiempo early de dicha actividad.
+c) En una actividad el tiempo early es el tiempo máximo en el que se puede iniciar las actividades siguientes sin que ello retrase la duración del proyecto.
+Solución: a
+Justificación: Una actividad entre dos actividades críticas no es necesariamente crítica: solo lo es si su holgura total es cero. Estar en el camino entre dos actividades críticas no garantiza holgura nula si existen caminos paralelos.
+
+Pregunta 84: Tras recoger los requisitos del producto y definir el alcance del proyecto procederás a hacer
+a) Un listado de los paquetes de trabajo que una vez realizados completen los entregables
+b) Una descomposición a nivel de actividades para estimar el coste del proyecto.
+c) La estructura desglosada de tiempo para estimar la duración del proyecto.
+d) Una organización del trabajo del equipo en paquetes de trabajo que ayudará en la comunicación con los interesados.
+Solución: d
+Justificación: Tras definir requisitos y alcance, el siguiente paso lógico es la EDT: descomponer el trabajo en paquetes gestionables que faciliten la estimación, asignación, comunicación con interesados y control del proyecto.
+
+Pregunta 85: El plazo de protección de los derechos de autor según la LPI es
+a) 20 años a partir de la fecha de registro
+b) 70 años a partir de la fecha de registro
+c) 70 años a partir del fallecimiento del autor
+d) 20 años a partir del fallecimiento del autor
+Solución: c
+Justificación: La Ley de Propiedad Intelectual española establece que los derechos de explotación duran toda la vida del autor más 70 años tras su fallecimiento, en línea con el Convenio de Berna y la normativa europea.
+
+Pregunta 86: Estudio de viabilidad en un proyecto software:
+a) Solo debe realizarse el estudio de viabilidad cuando el cliente lo solicita.
+b) Debe hacerse un estudio de viabilidad como una de las etapas iniciales del ciclo de vida.
+c) Debe hacerse el estudio de viabilidad cuando el coste supere el umbral Boehm
+Solución: b
+Justificación: El estudio de viabilidad es una etapa temprana e imprescindible del ciclo de vida que evalúa si el proyecto es técnica, económica, operativa y legalmente viable antes de comprometer recursos significativos.
+
+Pregunta 87: Una editorial solicita a una empresa de informática que desarrolle un software para un nuevo libro electrónico. El presidente de la empresa de informática asigna a un director de proyecto para que se haga cargo del desarrollo del proyecto. En este ámbito tenemos:
+a) Patrocinador: Director de Proyecto. Vendedor/Socio de Negocio: Editorial.
+b) Gerente de operaciones: Editorial. PMO: Presidente de la empresa de informática. Usuario: persona que compra el libro en el mercado.
+c) Patrocinador: Presidente de la empresa de informática. Cliente: Editorial. Usuario: Persona que compra el libro electrónico en el mercado.
+Solución: c
+Justificación: El presidente que asigna recursos y autoriza el proyecto es el patrocinador (sponsor). La editorial que contrata el desarrollo es el cliente. El comprador final del libro electrónico es el usuario del producto.
+
+Pregunta 88: Según la LPI, ¿Cuál de las siguientes figuras tiene un plazo de protección indefinido?
+a) Patentes
+b) Marcas
+c) Derechos de Autor
+d) Secretos comerciales
+Solución: d
+Justificación: Los secretos comerciales no tienen plazo de caducidad: se protegen indefinidamente mientras se mantengan como secreto. Patentes (20 años), marcas (10 años renovables) y derechos de autor (70 años post mortem) sí tienen plazo limitado.
+
+Pregunta 89: Tras la elaboración del correspondiente grafo PERT, una empresa sabe que las holguras de las 4 actividades de uno de sus proyectos son las siguientes: H(A)=3 ; H(B)=2; H(C)=0 ; H(D)=4. Con esa información indica cuál de las siguientes afirmaciones es correcta:
+a) El máximo retraso que puede experimentar la actividad A sin que se modifique la duración final del proyecto es 2
+b) Si la holgura de la actividad D se reduce en una unidad no se alteraría la duración final del proyecto.
+c) La duración final del proyecto será de 9.
+Solución: b
+Justificación: H(D)=4 significa que D puede retrasarse hasta 4 días sin afectar la duración total. Reducir su holgura en 1 unidad la deja en 3, que sigue siendo positiva, por lo que el proyecto no se retrasa.
+
+Pregunta 90: Una empresa está haciendo un esfuerzo por mejorar el rendimiento de sus proyectos y crear registros históricos de proyectos pasados ¿Cuál es la mejor manera de lograrlo?
+a) Crear informes de estado.
+b) Crear planes para la dirección de proyectos.
+c) Crear diagramas de red.
+d) Crear registros lecciones aprendidas.
+Solución: d
+Justificación: Las lecciones aprendidas capturan el conocimiento empírico de proyectos pasados (qué funcionó, qué no) y constituyen el mejor registro histórico para mejorar el rendimiento futuro de la organización.
+
+Pregunta 91: Durante la ejecución del proyecto, un miembro del equipo se acerca al PM porque no está seguro sobre qué trabajo debe realizar en el proyecto ¿Cuál de los siguientes documentos contiene descripción detallada de los paquetes de trabajo?:
+a) Diccionario de la EDT
+b) Lista de actividades
+c) Plan de gestión del Alcance
+d) Enunciado del alcance del proyecto
+Solución: a
+Justificación: El Diccionario de la EDT detalla cada paquete de trabajo: descripción, criterios de aceptación, recursos necesarios, hitos, costes y responsable. Es la referencia cuando un miembro del equipo necesita saber exactamente qué hacer.
+
+Pregunta 92: En un proyecto software:
+a) Los riesgos se establecen con precisión en la fase de planificación, ya que suelen ser estables a lo largo del mismo.
+b) Los riesgos identificados se suelen reducir sistemáticamente, es decir, se desarrollan acciones quepermitan aumentar la probabilidad de que un riesgo ocurra y/o disminuya el impacto negativo que produciría.
+c) Los riesgos suelen ir cambiando a los largo del mismo, por lo que en instancias predefinidas conviene rehacer lasevaluaciones de riesgos.
+Solución: c
+Justificación: Los riesgos son dinámicos: su probabilidad, impacto y existencia misma cambian con el avance del proyecto. Es necesario reevaluarlos periódicamente en hitos predefinidos del plan de gestión de riesgos.
+
+Pregunta 93: La estimación con puntos de función:
+a) Es una técnica de estimación empírica, al Igual que PERT
+b) No es un modelo adecuado para proyectos "tipo gestión"
+c) Es independiente del lenguaje de implementación.
+Solución: c
+Justificación: Los puntos de función miden la funcionalidad desde la perspectiva del usuario, basándose en entradas, salidas, consultas, ficheros lógicos e interfaces externos. Son independientes del lenguaje de programación y la tecnología de implementación.
+
+Pregunta 94: El estudio de viabilidad en un proyecto consiste en
+a) Estudio que garantice que el proyecto se puede integrar en otros sistemas de la empresa y sepuede hacer en plazo y coste
+b) Las dos anteriores son correctas.
+c) Estudio que garantice que el proyecto es factible y es la mejor solución
+Solución: b
+Justificación: El estudio de viabilidad debe garantizar tanto que el proyecto es factible (técnica y económicamente) y representa la mejor solución entre alternativas, como que es integrable en los sistemas existentes de la organización. Ambas perspectivas son necesarias.
+
+Pregunta 95: ¿Qué modelo COCOMO utilizarías si el proyecto a desarrollar es muy complejo, restrictivo e innovador?
+a) Semiacoplado
+b) Organico
+c) Empotrado
+Solución: c
+Justificación: En COCOMO, el modo Empotrado (Embedded) se aplica a proyectos con restricciones muy exigentes (hardware, software, normativas) y alto grado de innovación, lo que implica mayor esfuerzo y factores de ajuste más penalizadores.
+
+Pregunta 96: Propiedades que se pueden medir en un software para evaluar su calidad:
+a) Cumplimiento normativo, planificación temporal y adaptabilidad a nuevos entornos
+b) Características operativas, adaptabilidad a nuevos entornos y capacidad para soportar cambios
+c) Cumplimiento de la planificación temporal y de los requisitos funcionales del proyecto
+Solución: b
+Justificación: La calidad del software se evalúa en tres dimensiones: características operativas (corrección, fiabilidad, eficiencia), adaptabilidad a nuevos entornos (portabilidad, interoperabilidad) y capacidad para soportar cambios (mantenibilidad, flexibilidad).
+
+Pregunta 97: En un grafo de actividades (PERT):
+a) No se consideran relaciones de precedencia entre las actividades.
+b) La holgura total de una actividad indica cuánto se puede atrasar su comienzo sin afectar la duración total del proyecto.
+c) El fin más tardío de una actividad es lo más tarde que puede comenzar una actividad, afectando con su retraso a laduración total del proyecto.
+Solución: b
+Justificación: En PERT, la holgura total de una actividad es el tiempo que puede retrasarse su inicio sin afectar la fecha de finalización del proyecto. Se calcula como la diferencia entre su inicio tardío e inicio temprano.
+
+Pregunta 98: Como resultado de la Revisión Técnica Formal
+a) Se obtendrá un informe sobre consideraciones vistas únicamente en la codificación del software, ya quees la parte que realmente condiciona el funcionamiento de la aplicación.
+b) Se obtendrá una lista con los sucesos de la revisión y un informe sumarial de dicha revisión
+c) No se obtendrá ningún documento, únicamente se aprobará o no la salida del producto.
+Solución: b
+Justificación: La Revisión Técnica Formal (RTF) produce dos documentos: una lista de sucesos (issues) detectados durante la revisión y un informe sumarial que resume el resultado, participantes, defectos encontrados y decisión final.
+
+Pregunta 99: ¿Cuál de los siguientes modelos de proceso es evolutivo?
+a) Espiral
+b) Cascada
+c) Unificado
+d) Unificado y Espiral
+Solución: d
+Justificación: Tanto el modelo Espiral como el Unificado (UP) son evolutivos: producen versiones incrementales del sistema a lo largo de iteraciones sucesivas. El modelo Cascada es secuencial, no evolutivo.
+
+Pregunta 100: Según el modelo de estimación de “Puntos de función”, ¿Cuál de las siguientes afirmaciones es incorrecta?
+a) Depende del lenguaje de programación.
+b) Realiza la estimación a partir de los requisitos.
+c) Es un modelo adecuado para proyectos de gestión
+Solución: a
+Justificación: Los Puntos de Función son independientes del lenguaje de programación: miden funcionalidad lógica, no líneas de código. La afirmación de que dependen del lenguaje es incorrecta; de hecho, esa ventaja permite comparar proyectos en distintos lenguajes.
+
+Pregunta 101: Un PM ha sido asignado a un nuevo proyecto del que dispone de poca experiencia y es bastante más grande de otros proyectos en los que ha trabajado. El PM conoce a un amigo que ya ha dirigido proyectos similares ¿Qué debería hacer el PM?:
+a) Esperar a la ejecución del proyecto para ver si necesitará ayuda.
+b) Asegurarse de que todos los interesados acepten el alcance del proyecto
+c) Obtener registros históricos desde la oficina de gestión de proyectos
+d) Contactar con el PM del proyecto anterior y pedirle consejos.
+Solución: c
+Justificación: La buena práctica en dirección de proyectos dicta consultar los registros históricos (activos de los procesos de la organización) antes que depender de consejos informales. Los registros históricos contienen datos objetivos de proyectos similares.
+
+Pregunta 102: En su proyecto ya se ha finalizado con la identificación de los interesados agregando información sobre sus roles, áreas de conocimiento, necesidades, intereses y expectativas ¿Cuál debería ser el siguiente paso a realizar?:
+a) Evaluar cómo podrían influir los interesados en el proyecto.
+b) Controlar la participación de los interesados en el proyecto.
+c) Clasificar a los interesados según su influencia e intereses.
+d) Definir la mejor estrategia de comunicaciones con cada grupo de interesados.
+Solución: c
+Justificación: Tras identificar a los interesados y recopilar información sobre ellos, el siguiente paso es clasificarlos según su nivel de influencia e interés (matriz poder/interés) para priorizar las estrategias de gestión de cada grupo.
+
+Pregunta 103: En el modelo UP.
+a) Hay una versión por iteración.
+b) Tenemos una release por fase.
+c) Todas las anteriores son ciertas.
+d) Puede haber más de una versión por iteración.
+Solución: d
+Justificación: En UP, una iteración puede generar múltiples versiones (builds internos). No hay exactamente una versión por iteración; se pueden producir varias compilaciones incrementales dentro de una misma iteración.
+
+Pregunta 104: Los tipos básicos de relaciones entre fases de un proyecto son:
+a) Relación secuencial, relación de superposición y relación iterativa.
+b) Relación de gobernabilidad, relación con los stakeholders y relación bilateral.
+c) Relación secuencial, relación bilateral y relación de superposición
+Solución: a
+Justificación: Los tres tipos básicos de relaciones entre fases son: secuencial (una tras otra), de superposición (solapamiento parcial) e iterativa (ciclos repetidos de refinamiento). Son los patrones fundamentales de organización de fases.
+
+Pregunta 105: Tenemos una tarea en MicrosoftProject de 2 días de duración con un recurso asignado a tiempo completo ¿Qué ocurre si le asignamos otro recurso adicional también a tiempo completo?
+a) El trabajo necesario para realizar la tarea se duplicará al ser dos recursos
+b) La duración de la tarea se reducirá a la mitad
+c) Depende del tipo de tarea que tenga establecido
+d) Nada, simplemente tiene en cuenta que la tarea la realizan 2 recursos
+Solución: c
+Justificación: En MS Project, al asignar un segundo recurso, el comportamiento depende del tipo de tarea: si es de duración fija la duración no cambia y el trabajo se reparte; si es de trabajo fijo la duración se reduce; si es de unidades fijas, depende de la configuración.
+
+Pregunta 106: Indica cuál de las siguientes afirmaciones sobre dirección de proyectos es FALSA:
+a) La dirección de proyectos no es la encargada de equilibrar las restricciones contrapuestas del proyecto.
+b) Los cinco grupos de procesos en la dirección de proyectos son: iniciación, planificación, ejecución, seguimiento y control y cierre.
+c) El objetivo principal de la dirección de proyectos es cumplir con los requisitos del proyecto
+Solución: a
+Justificación: Es falso que la dirección de proyectos no equilibra restricciones. Precisamente, una de sus funciones principales es equilibrar las restricciones contrapuestas de alcance, tiempo, coste, calidad, recursos y riesgos.
+
+Pregunta 107: Sobre la gestión de riesgos:
+a) Para todo riesgo se debe determinar un conjunto de acciones para reducir o eliminar el riesgo
+b) En la detección de riesgos, solo se deben identificar y atacar todos los riesgos específicos del proceso
+c) Los riegos y las decisiones se registran en un plan de gestión de riesgos al comienzo del proyecto, que se debeactualizar y monitorear a lo largo del mismo
+Solución: c
+Justificación: La gestión de riesgos es un proceso continuo: el plan de gestión de riesgos se crea al inicio pero debe actualizarse y monitorizarse durante todo el proyecto porque los riesgos cambian, surgen nuevos y se mitigan otros.
+
+Pregunta 108: La holgura de una tarea:
+a) Siempre es cero
+b) Es el tiempo máximo que puede durar una tarea en caso de comenzar en su inicio temprano y concluir en su fin tardío
+c) Es el tiempo que disponemos para jugar con el inicio de una tarea sin afectar al proyecto
+Solución: c
+Justificación: La holgura es el margen temporal disponible para retrasar el inicio de una actividad sin comprometer la fecha final del proyecto. No es el tiempo máximo de duración (eso depende de la duración estimada más la holgura).
+
+Pregunta 109: Indica cuál de las siguientes características aplican al modelo Canvas de negocio.
+a) Se puede dejar apartados sin rellenar, al menos con rellenar el 50 por ciento es válido.
+b) Se utiliza solo para proyectos de robótica
+c) Es una herramienta nueva que surge después de la segunda guerra mundial
+d) Se basa en existencia de una propuesta de valor que tenemos que comunicar al cliente mediante un modelo canvas y rellenando todos los apartados
+Solución: d
+Justificación: El modelo Canvas se articula en torno a la propuesta de valor y exige rellenar los nueve bloques (socios, actividades, recursos, propuesta de valor, relaciones, canales, segmentos, costes e ingresos) para tener una visión completa del negocio.
+
+Pregunta 110: ¿Cuál de los siguientes NO es un modelo de estimación del software?
+a) COCOMO
+b) Técnica Delphi
+c) WBS (Work Breakdown Structure)
+Solución: c
+Justificación: WBS (Work Breakdown Structure) o EDT es una técnica de descomposición del trabajo, no un modelo de estimación. COCOMO y la técnica Delphi sí son modelos/técnicas de estimación de costes y esfuerzo.
+
+Pregunta 111: El objetivo básico del estudio de viabilidad es:
+a) Incorporar el proyecto con las metas estratégicas de la empresa
+b) Determinar las actividades principales dentro del proyecto y desglosarlas en paquetes de trabajo componentes
+c) Determinar si la organización cuenta con los recursos y capacidades requeridas para llevar a cabo el proyecto
+Solución: c
+Justificación: El estudio de viabilidad determina si la organización dispone de los recursos (humanos, técnicos, financieros) y capacidades necesarias para ejecutar el proyecto con éxito. Es una evaluación de factibilidad organizacional.
+
+Pregunta 112: Los diagramas de GANTT
+a) se usan para la planificación temporal
+b) se usan para la estimación
+c) son unos diagramas de red que permiten calcularles camines y tiempos límite
+Solución: a
+Justificación: Los diagramas de Gantt representan visualmente las tareas en una línea temporal, mostrando duraciones, dependencias e hitos. Son herramientas de planificación y seguimiento temporal, no de estimación.
+
+Pregunta 113: Ms Project es ...
+a) Una herramienta de modelado de proyectos
+b) Una herramienta de desarrollo de proyectos
+c) Una herramienta de estimación de costes de proyectos
+d) Una herramienta de seguimiento de proyectos
+Solución: d
+Justificación: MS Project es una herramienta de la suite Microsoft Office diseñada específicamente para la planificación, seguimiento y control de proyectos, permitiendo gestionar cronogramas, recursos y costes.
+
+Pregunta 114: COCOMO versus PUNTOS DE FUNCIÓN:
+a) Ninguna de las anteriores es correcta
+b) Son dos técnicas distintas pero persiguen exactamente los mismos objetivos: dimensionar proyectos, plazos y costes.
+c) COCOMO estima costes, PUNTOS DE FUNCIÓN no aporta directamente una estimación de costes.
+Solución: c
+Justificación: COCOMO produce directamente una estimación de costes y esfuerzo en personas-mes. Puntos de Función dimensiona el tamaño funcional del software; para convertirlo en coste se necesita un factor de productividad adicional que depende del contexto.
+
+Pregunta 115: ¿Cuándo tienen los interesados una mayor influencia en el proyecto?
+a) A lo largo del proyecto.
+b) Al final.
+c) Al inicio.
+d) En la mitad.
+Solución: c
+Justificación: Los interesados tienen máxima influencia al inicio del proyecto, cuando se definen alcance, objetivos y requisitos. Conforme avanza, el coste de los cambios aumenta y la capacidad de influir disminuye (curva de influencia vs coste de cambios).
+
+Pregunta 116: El estudio de viabilidad del proyecto se realiza desde cuatro perspectivas diferentes:
+a) Económico, técnico, operativo y legal
+b) Económico, normativo, legal y social
+c) Económico, técnico, operativo y social
+Solución: a
+Justificación: El estudio de viabilidad se evalúa desde cuatro perspectivas: económica (coste-beneficio), técnica (tecnología disponible), operativa (capacidad organizativa) y legal (cumplimiento normativo).
+
+Pregunta 117: ¿Quién debe cumplir la Ley Orgánica de Protección de Datos?
+a) El responsable del fichero y quien decide sobre la finalidad, contenido y uso del tratamiento
+b) Persona o personas responsables de los ficheros.
+c) El responsable del fichero y el encargado del tratamiento.
+Solución: c
+Justificación: La LOPD obliga tanto al responsable del fichero (quien decide fines y medios) como al encargado del tratamiento (quien procesa los datos por cuenta del responsable). Ambos tienen obligaciones legales diferenciadas.
+
+Pregunta 118: En el análisis EVA, la tarea/proyecto está por debajo de lo presupuesto si:
+a) BCWP>ACWP
+b) BCWP>BCWS
+c) BCWP<ACWP
+d) BCWS<ACWP
+Solución: a
+Justificación: Estar por debajo del presupuesto significa que el valor ganado supera al coste real: BCWP > ACWP. Se ha producido más valor del que se ha gastado, indicando eficiencia de costes positiva.
+
+Pregunta 119: ¿Cuál de los siguientes parámetros EVA nos informa de la cantidad de trabajo planificado al final del proyecto/tarea?
+a) BCWP
+b) BAC
+c) ACWP
+d) BCWS
+Solución: b
+Justificación: BAC (Budget At Completion) es el presupuesto total planificado para el proyecto/tarea al finalizar. BCWS es el valor planificado hasta la fecha actual. BCWP es el valor ganado y ACWP el coste real incurrido.
+
+Pregunta 120: Indique cual de las siguientes sentencias es falsa:
+a) Entre las actividades de la SQA no se encuentra la realización de las revisiones técnicas formales
+b) La SQA es una actividad de protección que se aplica en todo el proceso de ingeniería del software
+c) Entre las actividades de la SQA se encuentra el control de cambios
+Solución: a
+Justificación: Es falso afirmar que la SQA no incluye la realización de revisiones técnicas formales. Las RTF son precisamente una de las actividades centrales de la Garantía de Calidad del Software, junto con auditorías, testing y control de cambios.
+
+Pregunta 121: Usted está trabajando en un proyecto de investigación y desarrollo para lanzar un nuevo producto al mercado. Le quedan pocos días para finalizar el proyecto y está teniendo muchos problemas con los usuarios, el cliente, el patrocinador y los miembros del equipo, entre otros ¿Qué debería haber realizado primero para mitigar este tipo de problemas?
+a) Identificar a todos los interesados.
+b) Crear una matriz para la gestión de conflictos.
+c) Determinar los requisitos y expectativas de los interesados.
+d) Mantener una comunicación fluida con los interesados.
+Solución: a
+Justificación: El primer paso fundamental en la gestión de interesados es identificarlos a todos. Sin una identificación completa, no se pueden gestionar expectativas, comunicar adecuadamente ni anticipar conflictos.
+
+Pregunta 122: Indica cual de las siguientes afirmaciones es VERDADERA:
+a) La Garantía de Calidad del Software (SQA) es una actividad que se aplica en todo el proceso de ingeniería delsoftware.
+b) Como resultado de una Revisión Técnica Formal se obtiene un informe sobre consideraciones vistas únicamente en la codificación del software, ya que es la parte que condiciona realmente el funcionamiento de la aplicación.
+c) Uno de los grandes inconvenientes de las revisiones técnicas formales es que fomentan la inseguridad en el proyecto.
+Solución: a
+Justificación: La SQA es una actividad paraguas que se aplica a lo largo de todo el proceso de ingeniería del software, no solo en fases específicas. Las otras afirmaciones son incorrectas por limitar las RTF a la codificación o por atribuirles efectos negativos.
+
+Pregunta 123: En relación a la patente software en España se protege:
+a) En España no se aceptan las patentes de software.
+b) El código fuente, el código objeto y los manuales de instrucciones.
+c) En España solo se protege el código fuente mediante patentes.
+Solución: a
+Justificación: En España (y en la UE bajo el Convenio de Múnich) el software como tal no es patentable, pues las patentes protegen invenciones técnicas con carácter industrial. El software se protege mediante derechos de autor (LPI).
+
+Pregunta 124: La Ley Orgánica 15/1999, de Protección de Datos de Carácter Personal (en adelante LOPDCP) tiene por objeto garantizar yproteger, en lo que concierne al tratamiento de los datos personales:
+a) Las libertades públicas de las personas físicas
+b) Las libertades públicas y los derechos fundamentales de las personas físicas.
+c) Las libertades públicas y los derechos fundamentales de las personas físicas y jurídicas.
+Solución: b
+Justificación: La LOPD 15/1999 tenía por objeto proteger las libertades públicas y los derechos fundamentales de las personas físicas. Las personas jurídicas no estaban amparadas por esta ley (su protección se deriva de otras normas como la LO 1/1983).
+
+Pregunta 125: La estimación con puntos de función:
+a) Es una técnica de estimación empírica, al igual que PERT
+b) Es un modelo adecuado para proyectos “Tipo Gestión”
+c) Es dependiente del lenguaje de implementación
+Solución: b
+Justificación: Los Puntos de Función son especialmente adecuados para proyectos de tipo gestión (MIS), donde la funcionalidad se traduce bien en entradas, salidas y consultas. Para sistemas de tiempo real o embebidos existen extensiones como Puntos de Función de Características.
+
+Pregunta 126: La representación gráfica del WBS:
+a) Nos muestra un grafo no ordenado donde los nodos son las tareas
+b) Nos muestra un árbol en que las hojas son las tareas
+c) Ninguna de las dos anteriores es correcta
+Solución: b
+Justificación: La WBS/EDT se representa como un árbol jerárquico donde las hojas son los paquetes de trabajo (tareas). Los nodos intermedios son agrupaciones lógicas (entregables, fases) hasta alcanzar 100% del alcance en la raíz.
+
+Pregunta 127: Respecto a la protección de datos del software de gestión de autónomos, indica cuál de las siguientes sería una acción obligatoria para cumplir con la legislación actual en el caso de desarrollaría como aplicación web
+a) Ninguna de las otras respuestas es correcta
+b) Nombrar un delegado de protección de datos
+c) Incluir un apartado de aviso legal en la web
+d) Resgitrar los ficheros con los datos de carácter personal en la AEPD
+Solución: c
+Justificación: Para una aplicación web en España, es obligatorio incluir un aviso legal con información sobre el responsable del tratamiento, finalidad, derechos ARCO y política de privacidad. El delegado de protección de datos solo es obligatorio en ciertos supuestos.
+
+Pregunta 128: Rol del gerente funcional:
+a) Persona relacionada con la producción y el mantenimiento de los productos o servicios que vende la empresa
+b) Responsable de la gestión coordinada de proyectos relacionados.
+c) Persona clave que desempeña el rol de gestor en un área de la empresa, como recursos humanos, finanzas,contabilidad o adquisiciones.
+Solución: c
+Justificación: El gerente funcional gestiona un área administrativa de la empresa (RRHH, finanzas, compras). No gestiona proyectos directamente, sino que proporciona recursos y soporte funcional a los proyectos desde su departamento.
+
+Pregunta 129: La Deontología Profesional:
+a) Está recogida en normas y códigos deontológicos.
+b) Está regulada por el Estado.
+c) No son exigibles a los profesionales de un determinado colectivo.
+Solución: a
+Justificación: La Deontología Profesional se recoge en códigos deontológicos elaborados por los propios colegios y asociaciones profesionales. No emana del Estado directamente (aunque puede tener reconocimiento legal) sino de la autorregulación del colectivo.
+
+Pregunta 130: Obligaciones de las empresas respecto a los datos personales:
+a) Desarrollar un Reglamento de Medidas de Seguridad e informar al Registro General de Protección de Datos sobre los datos de carácter personal sensible
+b) Proteger los ficheros para preservar la confidencialidad, legitimar los datos personales y declarar los ficheros con datos de carácter personal a la Agencia de Protección de Datos
+c) Proteger los ficheros para preservar la confidencialidad e implantar un responsable de seguridad junto con una Auditoría interna o externa.
+Solución: b
+Justificación: Las empresas deben proteger los ficheros garantizando la confidencialidad de los datos, legitimar su tratamiento (base jurídica) y declarar los ficheros ante la AEPD (o realizar una evaluación de impacto si procede).
+
+Pregunta 131: Durante una reunión con algunos de los interesados del proyecto, se le pide al PM añadir más trabajo al alcance del proyecto. El PM revisó la correspondencia con el patrocinador antes que se firmara el acta de constitución y éste se negó aportar más financiación para el trabajo que supone modificar el alcance mencionado por los interesados. Lo mejor que el PM puede hacer es:
+a) Evaluar el impacto sobre el proyecto antes de añadir más trabajo al alcance
+b) Decirle a los interesados que no se puede modificar ese aspecto del alcance
+c) Añadir el trabajo si el cronograma del proyecto lo permite
+d) Dejar que el patrocinador se entere de la solicitud de los interesados
+Solución: a
+Justificación: Ante una solicitud de cambio de alcance sin financiación adicional aprobada, el PM debe primero evaluar el impacto (en tiempo, coste, calidad, riesgos) para presentar datos objetivos al patrocinador antes de tomar cualquier decisión.
+
+Pregunta 132: ¿Cuál de las siguientes no es una causa legal para poder transmitir los derechos de propiedad intelectual?
+a) En virtud de relación mercantil
+b) En virtud de relación laboral
+c) mortis causa
+d) inter vivos
+Solución: a
+Justificación: La LPI reconoce la transmisión de derechos por relación laboral, mortis causa e inter vivos. La relación mercantil entre empresas no es una causa legal automática de transmisión de derechos de propiedad intelectual.
+
+Pregunta 133: Analizando los valores EVA de la imagen...¿que podemos decir de la tarea 4? https://i.imgur.com/co7DiE0.png \n![Figura](/resources/images/co7DiE0.png){width=615 height=184}
+a) El valor BCWP es erroneo
+b) Debería haber comenzado y no lo ha hecho
+c) El valor ACWP es erroneo
+d) Estamos Gucci
+Solución: c
+Justificación: En la imagen de referencia, la Tarea 4 muestra BCWS=0 (no debería haber comenzado), BCWP=0 (no ha producido valor), pero ACWP>0 (tiene coste incurrido). Por tanto el valor ACWP es erróneo: no puede haber coste sin trabajo.
+
+Pregunta 134: Cuales son las tres claves de una buena gestión en un proyecto informático
+a) Agenda, Control y Personal
+b) Diseño, Agenda y Transición
+c) Problema, Personal y Proceso
+d) Diseño, Implementación y Feedback
+Solución: c
+Justificación: McConnell identifica tres claves interdependientes para la buena gestión: el Problema (entender qué se construye), el Personal (equipo adecuado y motivado) y el Proceso (metodología que guíe el desarrollo).
+
+Pregunta 135: Analizando los valores EVA de la imagen...¿que podemos decir de la tarea 2? https://i.imgur.com/co7DiE0.png \n![Figura](/resources/images/co7DiE0.png){width=615 height=184}
+a) Todas son ciertas
+b) Va retrasada
+c) No ha comenzado
+d) Debería haber comenzado
+Solución: a
+Justificación: La Tarea 2 de la imagen muestra BCWS positivo (debería haber comenzado), BCWP=0 (no ha producido valor: va retrasada o no ha comenzado). Como BCWS>0 y BCWP=0, tanto 'debería haber comenzado' como 'va retrasada' y 'no ha comenzado' son ciertas simultáneamente.
+
+Pregunta 136: En la pirámide de Maslow ¿donde se encuentran la mayoría de jefes de proyecto?
+a) Necesidades de estima
+b) No les afecta esta jerarquía, es solo para empleados.
+c) Necesidades de seguridad
+d) Necesidades de autorrealización
+Solución: d
+Justificación: En la pirámide de Maslow, los jefes de proyecto (al igual que otros profesionales con necesidades básicas cubiertas) se sitúan en la cúspide: necesidades de autorrealización, buscando el desarrollo personal y profesional a través de los proyectos.
+
+Pregunta 137: Analizando los valores EVA que tenemos en la foto...¿que podemos decir del proyecto en su conjunto? https://i.imgur.com/co7DiE0.png \n![Figura](/resources/images/co7DiE0.png){width=615 height=184}
+a) El proyecto va adelantado y su productividad es alta
+b) El proyecto va adelantado y su productividad es baja
+c) El proyecto va atrasado y su productividad es baja
+d) El proyecto va atrasado y su productividad es alta
+Solución: c
+Justificación: Según los datos de la tabla, el proyecto en conjunto tiene BCWS total > BCWP total (va atrasado) y BCWP total < ACWP total (productividad baja, gasta más de lo que produce). Ambas desviaciones son negativas.
+
+Pregunta 138: Ms Project es...
+a) Una herramienta de desarrollo de proyectos
+b) Una herramienta de seguimiento de proyectos
+c) Una herramienta de modelado de proyectos
+d) Una herramienta de estimación de costes de proyectos
+Solución: b
+Justificación: MS Project es una herramienta de planificación y seguimiento de proyectos de la familia Microsoft Office. No es una herramienta de desarrollo software ni de modelado UML; su función principal es gestionar cronogramas, recursos y costes.
+
+Pregunta 139: ¿Que ocurriría si en un proyecto el valor EVA de CPTR supera al valor CPTP?
+a) El proyecto va atrasado
+b) Es una situación indeseable
+c) El proyecto va adelantado
+d) Necesitamos contratar más personal
+Solución: c
+Justificación: CPTR corresponde al BCWP (valor ganado) y CPTP al BCWS (valor planificado). Si BCWP > BCWS, el proyecto ha producido más valor del planificado, es decir, va adelantado respecto a la agenda.
+
+Pregunta 140: Somos una empresa desarrolladora de una aplicación que recoge datos de análisis médicos del usuario(tensión arterial, nivel de glucosa, nivel de colesterol, etc.). Si recurrimos a la herramienta gratuita de Facilita 2.0 ...¿qué datos hay que completar o indicar que vamos a recolectar?
+a) Hay que indicar que nos dedicamos al sector de la sanidad, teniendo que indicar después en que provincia nos situamos para que nos genere los documentos necesarios para situar al pie de nuestra aplicación y así cumplir la LGPD al 100%
+b) Datos médicos, DNI de los pacientes, Procedencia médica del paciente y otros datos biométricos
+c) Al indicar que nos dedicamos al sector de sanidad, la herramienta Facilita 2.0 no nos permite seguir
+d) Nada, no funciona la herramienta, no está activa actualmente
+Solución: c
+Justificación: La herramienta Facilita 2.0 de la AEPD tiene limitaciones para ciertos sectores como el sanitario, donde la recogida de datos médicos está sujeta a requisitos adicionales del RGPD que la herramienta gratuita no puede gestionar por su complejidad.
+
+Pregunta 141: Analizando los valores EVA de la imagen...¿qué podemos decir de la tarea 1?  https://i.imgur.com/co7DiE0.png \n![Figura](/resources/images/co7DiE0.png){width=615 height=184}
+a) Ha gastado menos de lo previsto
+b) Va adelantada respecto a la agenda
+c) Va atrasada respecto a la agenda
+d) No podemos saber si ha terminado
+Solución: d
+Justificación: La Tarea 1 tiene BCWS=600 y BCWP=600, pero desconocemos su BAC. Aunque BCWP=BCWS>0 (parece ir según lo planificado), sin conocer el BAC no podemos saber si la tarea ha terminado o está al 50%.
+
+Pregunta 142: ¿Cuales son las diferencias principales entre un presupuesto y un documento de estimación de costes?
+a) El presupuesto es un documento que se entrega al cliente y el documento de estimación de costes es interno de la empresa
+b) El presupuesto es un documento interno de la empresa, usado para .. bueno que esta no es, sigue leyendo anda
+c) El documento de estimación de costes se usa para discutirlo con el cliente y que él nos indique nuevos requisitos y el presupuesto es un documento que se entrega al cliente para informarle de tiempos de entrega, precios de venta etc...
+d) El presupuesto tiene precios fijos conseguidos mediante técnicas de estimación como la Ley de parkinson, Pricing to Win etc... y el documento de estimación de costes es un draft del presupuesto incluyendo en él, tiempos de entrega e información relevante a la venta del proyecto.
+Solución: a
+Justificación: El presupuesto es un documento formal que se presenta al cliente con precios de venta. El documento de estimación de costes es un análisis interno que calcula el coste real para la empresa (sin márgenes comerciales), usado para elaborar el presupuesto.
+
+Pregunta 143: ¿Que pasos sigue la gestión de riesgos en un proyecto informático? (En orden →)
+a) Análisis, Desarrollo, Planificación y Monitorización
+b) Identificación, Análisis, Planificación y Monitorización
+c) Reestructuración, Análisis, Desarrollo y Planificación
+d) Desarrollo, Análisis, Planificación y Evaluación
+Solución: b
+Justificación: El proceso de gestión de riesgos sigue la secuencia: Identificación (detectar riesgos), Análisis (evaluar probabilidad e impacto), Planificación (definir estrategias de respuesta) y Monitorización (seguimiento continuo y revisión).
+
+Pregunta 144: ¿Cuál es la distribución de tiempo dentro de un equipo de desarrollo?
+a) 50% trabajando solo, 30% interactuando con otra gente, 20% actividades no productivas
+b) 20% trabajando solo, 30% actividades no productivas, 50% interactuando con otra gente
+c) 30% trabajando solo, 20% actividades no productivas, 50% interactuando con otra gente
+d) 50% actividades no productivas, 30% interactuando con otra gente, 20% trabajando solo
+Solución: c
+Justificación: Los estudios sobre productividad en desarrollo software indican que aproximadamente el 30% del tiempo se dedica al trabajo individual, el 50% a interacción con otros (reuniones, coordinación, pair programming) y el 20% a actividades no productivas.
+
+Pregunta 145: Make es una herramienta case que soporta...
+a) La gestión de versiones y releases
+b) La planificación de una gestión de configuraciones
+c) Control de cambios
+d) La construcción del sistema
+Solución: d
+Justificación: Make es una herramienta de automatización de construcción (build) que determina qué partes del sistema necesitan recompilarse y ejecuta las órdenes necesarias. No gestiona versiones, configuraciones ni cambios a nivel de proceso.
+
+Pregunta 146: ¿Que son los hitos en un proyecto informático?
+a) Es una tarea para asignar recursos a las actividades de un proyecto
+b) Marcan el final de una actividad en proceso de desarrollo
+c) Son resultados del proyecto que se entregan a los clientes
+d) Un hito es comunmente conocido como welwitschia mirabilis, descubierto en 1922 por Howard Carter, oriundo de Maryland, EEUU
+Solución: b
+Justificación: Un hito (milestone) marca el final de una actividad o fase relevante del proyecto. Es un punto de control con fecha pero sin duración que sirve para verificar el progreso. No es un entregable al cliente (eso es un deliverable).
+
+Pregunta 147: Tenemos tres actividades: A,B y C. A precede a B. Las holguras son: HT(A)=4,HL(A)=3; HT(B)=2,HL(B)=2;HT(C)=3,HL(C)=3. Si A se retrasa 4 días, ¿que ocurre con B y C?
+a) La HT de B y C pasa a ser de 1 y 2 días respectivamente
+b) Nada
+c) Ninguna de las anteriores es cierta
+d) B se convierte en crítica
+Solución: d
+Justificación: Si A se retrasa 4 días, consume toda su holgura total HT(A)=4. Dado que A precede a B, la holgura total de B se reduce. HT(B) original era 2, y como A consumió toda su holgura, B pierde su margen y su HT pasa a ser 0, volviéndose crítica.
+
+Pregunta 148: ¿Que ocurriría si en un proyecto el valor EVA de BCWS supera al valor CPTR?
+a) El proyecto va atrasado
+b) Tenemos que abortar el proyecto, puesto que estamos en la situación "inaceptable"
+c) El proyecto va con márgen de tiempo
+d) Nos indica que tenemos que prescindir de personal ya que estamos gastando más de lo previsto
+Solución: a
+Justificación: BCWS (valor planificado) es equivalente a CPTP. Si BCWS > CPTR (que equivale a BCWP), significa que el valor planificado supera al valor ganado, por tanto el proyecto va atrasado (se ha producido menos de lo planificado).
+
+Pregunta 149: ¿Cuales son las ventajas de usar la Ley de Parkinson para estimar los costes de un proyecto?
+a) La empresa desarrolladora consigue el contrato.
+b) Es preciso si se dispone de los datos adecuados
+c) No realiza presupuestos abultados
+d) Método barato, además la estimación puede ser bastante precisa si se dispone de los expertos adecuados.
+Solución: c
+Justificación: La Ley de Parkinson ('el trabajo se expande hasta llenar el tiempo disponible') aplicada a estimaciones produce presupuestos ajustados porque se basa en el trabajo real necesario. Su ventaja es que no infla artificialmente el presupuesto ni el esfuerzo.
+
+Pregunta 150: Analizando los valores EVA de la imagen...¿que podemos decir de la tarea 3? https://i.imgur.com/co7DiE0.png \n![Figura](/resources/images/co7DiE0.png){width=615 height=184}
+a) Está gastando menos de lo previsto
+b) Va retrasada
+c) No ha comenzado
+d) Todas son falsas
+Solución: a
+Justificación: La Tarea 3 muestra BCWP > ACWP (1200 > 800): el valor producido supera al coste incurrido. BCWP > BCWS (1200 > 1000) también indica que va adelantada. Específicamente, gasta menos de lo previsto para el trabajo realizado.
+
+Pregunta 151: La gestión de proyectos ...
+a) Tiene como objetivo determinar qué hay que hacer, cómo hay que hacerlo y quién tiene que hacerlo
+b) Está fuertemente condicionada por la implementación del sistema
+c) Está fuertemente condicionada el diseño del sistema
+d) Tiene como objetivo el confeccionar una agenda del proyecto
+Solución: a
+Justificación: La gestión de proyectos abarca la planificación integral: definir qué hacer (alcance), cómo hacerlo (metodología, proceso) y quién lo hace (asignación de recursos y responsabilidades). La agenda es solo uno de los productos de esta gestión.
+
+Pregunta 152: En el siguiente diagrama Gantt ¿qué modelo de proceso se está siguiendo? https://i.imgur.com/VlfaZSK.png \n![Figura](/resources/images/VlfaZSK.png){width=1156 height=672}
+a) Desarrollo Rápido de aplicaciones
+b) Cascada
+c) Prototipado
+d) Todos los anteriores
+Solución: d
+Justificación: El diagrama Gantt mostrado presenta fases solapadas y ciclos iterativos, lo que corresponde a múltiples modelos de proceso simultáneamente: Cascada con solapamiento, Prototipado iterativo y Desarrollo Rápido de Aplicaciones, por lo que todos aplican.
+
+Pregunta 153: ¿Qué tarea no podemos realizar en Microsoft Project?
+a) Todas las tareas de estas contestaciones se pueden realizar en Microsoft Project
+b) La planificación detallada de todo el proyecto
+c) La estimación del proyecto
+d) El seguimiento del proyecto
+Solución: c
+Justificación: MS Project es una herramienta de planificación y seguimiento; no realiza estimaciones automáticas de costes ni esfuerzo. La estimación requiere juicio experto y técnicas como COCOMO o Puntos de Función, que son externas a la herramienta.
+
+Pregunta 154: En el análisis EVA, la tarea/proyecto está por debajo de lo presupuestado si:ç
+a) BCWP < ACWP
+b) BCWP > ACWS
+c) BCWP > ACWP
+d) BCWP < ACWP
+Solución: c
+Justificación: Estar por debajo del presupuesto significa que el coste real es menor que el valor ganado: BCWP > ACWP. El proyecto ha producido más valor del dinero gastado, situación favorable para el CPI.
+
+Pregunta 155: ¿Cuál es la distribución de tiempo dentro de un desarrollo de proyecto?
+a) 30% Trabajando solo, 20% actividades de gestión, 50% interactuando con otra gente
+b) 30% Trabajando solo, 20% actividades no productivas, 50% interactuando con otra gente
+c) 20% Trabajando solo, 30% actividades no productivas, 50% interactuando con otra gente
+d) 20% Implementando, 30% interactuando con otra gente, 50% en actividades de gestión
+Solución: b
+Justificación: La distribución temporal en equipos de desarrollo muestra que el 30% se trabaja en solitario, el 20% en actividades no productivas (cambios de contexto, interrupciones) y el 50% en interacción con compañeros (coordinación, revisiones, reuniones).
+
+Pregunta 156: ¿Qué podemos decir de una tarea si conocemos los valores BCWS=BCWP=600 y ACWP=1000?
+a) Va adelantada respecto a la agenda
+b) Ha gastado menos de lo previsto
+c) Va atrasada respecto a la agenda
+d) No podemos saber si ha terminado sin conocer su BAC
+Solución: d
+Justificación: BCWS=BCWP=600 indica que la tarea va según lo planificado (ni adelantada ni atrasada). ACWP=1000 indica que gasta más de lo presupuestado. Sin embargo, sin conocer el BAC no podemos saber el porcentaje de avance ni si ha terminado.
+
+Pregunta 157: El Plan detallado de un proyecto… Seleccione una:
+a) Contiene todas las actividades incluidas en el plan general
+b) Todas son falsas
+c) Se hace siempre de dos en dos iteraciones
+d) Solo corresponde a una fase del proyecto
+Solución: a
+Justificación: El Plan Detallado se elabora al inicio de cada iteración y contiene todas las actividades que se realizarán en esa iteración concreta, con estimaciones detalladas de esfuerzo, recursos y dependencias.
+
+Pregunta 158: Tenemos un proyecto con los siguientes datos del modelo EVA. ¿Cuál de las siguientes afirmaciones es falsa? ```+-------+------+------+------+------+ \n| Tarea | BCWS | BCWP | ACWP | BAC  | \n+-------+------+------+------+------+ \n| Tarea0| 2800 | 1800 | 1800 | 2600 | \n+-------+------+------+------+------+ \n| Tarea1| 600  | 600  | 600  | 1200 | \n+-------+------+------+------+------+ \n| Tarea2| 1200 | 0    | 600  | 2600 | \n+-------+------+------+------+------+ \n| Tarea3| 1000 | 1200 | 800  | 2000 | \n+-------+------+------+------+------+ \n| Tarea4| 0    | 0    | 0    | 600  | \n+-------+------+------+------+------+ \n```
+a) La tarea 1 ha comenzado y está realizada al 50%, va desarrollándose en el tiempo previsto y gastando también lo previsto
+b) La tarea 3 va adelantada y consumiendo menos de lo previsto
+c) La tarea 4 aún no ha comenzado
+d) La tarea 0 va retrasada y consumiendo más de lo previsto
+Solución: d
+Justificación: La opción d) es falsa: Tarea0 tiene BCWS=2800, BCWP=1800 y ACWP=1800. BCWP=ACWP indica CPI=1 (ni gasta más ni menos). BCWP<BCWS (1800<2800) indica retraso, pero ACWP=BCWP indica que no consume más de lo previsto para lo producido.
+
+Pregunta 159: ¿Qué beneficios tiene las metodologías agiles?
+a) Rapidez, documentación muy completa y trabajar de forma intensa la última semana antes de la entrega
+b) Eficiencia, rapidez y visión cliente
+c) Cliente, proveedores y cumplir el presupuesto
+d) Individualismo
+Solución: b
+Justificación: Las metodologías ágiles aportan eficiencia (eliminando desperdicio), rapidez (entregas frecuentes) y visión centrada en el cliente (feedback continuo). La documentación exhaustiva y el trabajo intensivo de última hora son anti-patrones ágiles.
+
+Pregunta 160: ¿Qué tarea no hemos realizado en Microsoft Project?
+a) La planificación detallada de todo el proyecto
+b) El seguimiento del proyecto
+c) La estimación del proyecto
+d) No hemos realizado ninguna de las anteriores en Microsoft Project
+Solución: c
+Justificación: En MS Project no se realiza estimación de costes del proyecto; esta tarea corresponde a técnicas externas como COCOMO o Puntos de Función. MS Project registra y hace seguimiento de costes, pero no los estima automáticamente.
+
+Pregunta 161: Según la LPI, ¿Cual de los siguientes figuras tienen un plazo de protección indefinido?
+a) Marcas
+b) Secretos comerciales
+c) Patentes
+d) Derecho de autor
+Solución: b
+Justificación: Los secretos comerciales se protegen sin límite temporal mientras se mantengan en secreto. Marcas (10 años renovables), patentes (20 años) y derechos de autor (vida + 70 años) tienen plazos legales definidos.
+
+Pregunta 162: ¿ Que podemos decir del proyecto en su conjunto? https://i.imgur.com/co7DiE0.png \n![Figura](/resources/images/co7DiE0.png){width=615 height=184}
+a) El proyecto va adelantado y su productividad es baja
+b) El proyecto va atrasado y su productividad es alta
+c) El proyecto va adelantado y su productividad es alta
+d) El proyecto va atrasado y su productividad es baja
+Solución: d
+Justificación: En el proyecto conjunto, el BCWS total supera al BCWP total (retraso) y el ACWP total supera al BCWP total (productividad baja). Ambas métricas son desfavorables, por lo que el proyecto va atrasado y con baja productividad.
+
+Pregunta 163: ¿Qué podemos decir de la tarea 1? https://i.imgur.com/co7DiE0.png \n![Figura](/resources/images/co7DiE0.png){width=615 height=184}
+a) No podemos saber si ha terminado sin conocer su BAC
+b) Ha gastado menos de lo previsto
+c) Va adelantada respecto a la agenda
+d) Va atrasada respecto a la agenda
+Solución: a
+Justificación: La Tarea 1 tiene BCWS=600 y BCWP=600 (va según lo planificado en cuanto a avance). Pero sin conocer el BAC (presupuesto total de la tarea), no podemos determinar si esos 600 representan el 100% (terminada) o un porcentaje parcial.
+
+Pregunta 164: ¿Qué podemos decir de la tarea 2? https://i.imgur.com/co7DiE0.png \n![Figura](/resources/images/co7DiE0.png){width=615 height=184}
+a) No ha comenzado
+b) Debería haber comenzado
+c) Va retrasada
+d) Todas son ciertas
+Solución: d
+Justificación: Para la Tarea 2, BCWS=1200>0 (debería haber comenzado), BCWP=0 (no ha comenzado realmente, no ha producido valor) y ACWP=600 (ha incurrido en coste sin producir). Las tres afirmaciones son simultáneamente ciertas.
+
+Pregunta 165: ¿Qué podemos decir de la tarea 3? https://i.imgur.com/co7DiE0.png \n![Figura](/resources/images/co7DiE0.png){width=615 height=184}
+a) No ha comenzado
+b) Va retrasada
+c) Está gastando menos de lo provisto
+d) Todas son falsas
+Solución: c
+Justificación: La Tarea 3 tiene BCWP=1200 > ACWP=800, lo que indica que está gastando menos de lo previsto (CPI>1). BCWP>BCWS también indica que va adelantada. La opción correcta es que gasta menos de lo presupuestado.
+
+Pregunta 166: ¿Qué podemos decir de la tarea 4? https://i.imgur.com/co7DiE0.png \n![Figura](/resources/images/co7DiE0.png){width=615 height=184}
+a) Debería haber comenzado y no lo ha hecho
+b) El valor BCWP es erróneo
+c) El valor ACWP es erróneo
+d) No debería haber comenzado per si lo ha hecho
+Solución: c
+Justificación: La Tarea 4 muestra BCWS=0, BCWP=0 pero ACWP=800. No debería haber comenzado (BCWS=0), no ha producido valor (BCWP=0), pero tiene coste real (ACWP=800). Esto es contradictorio: el valor ACWP es erróneo o la tarea no debería haber comenzado pero lo ha hecho.
+
+Pregunta 167: Analizando los valores de los parámetros EVA de la imagen... ```+-------+------+------+------+ \n| Tarea | BCWS | BCWP | ACWP | \n+-------+------+------+------+ \n|TareaR | 2800 | 1800 | 2600 | \n+-------+------+------+------+ \n| Tarea1| 600  | 600  | 1000 | \n+-------+------+------+------+ \n| Tarea2| 1200 | 0    | 0    | \n+-------+------+------+------+ \n| Tarea3| 1000 | 1200 | 800  | \n+-------+------+------+------+ \n| Tarea4| 0    | 0    | 800  | \n+-------+------+------+------+ \n``` ¿Qué podemos decir del proyecto en su conjunto?
+a) El proyecto va adelantado y su productividad es baja
+b) El proyecto va atrasado y su productividad es alta
+c) El proyecto va adelantado y su productividad es alta
+d) El proyecto va atrasado y su productividad es baja
+Solución: d
+Justificación: Sumando los BCWS=5600, BCWP=3600 y ACWP=5200: BCWP<BCWS indica retraso en agenda y BCWP<ACWP indica productividad baja. El proyecto va atrasado y gasta más de lo que produce.
+
+Pregunta 168: Analizando los valores de los parámetros EVA de la imagen... ```+-------+------+------+------+ \n| Tarea | BCWS | BCWP | ACWP | \n+-------+------+------+------+ \n|TareaR | 2800 | 1800 | 2600 | \n+-------+------+------+------+ \n| Tarea1| 600  | 600  | 1000 | \n+-------+------+------+------+ \n| Tarea2| 1200 | 0    | 0    | \n+-------+------+------+------+ \n| Tarea3| 1000 | 1200 | 800  | \n+-------+------+------+------+ \n| Tarea4| 0    | 0    | 800  | \n+-------+------+------+------+ \n``` ¿Qué podemos decir de la tarea 1?
+a) No podemos saber si ha terminado sin conocer su BAC
+b) Ha gastado menos de lo previsto
+c) Va adelantada respecto a la agenda
+d) Va atrasada respecto a la agenda
+Solución: a
+Justificación: La Tarea1 tiene BCWS=600 y BCWP=600. Sin conocer su BAC, no podemos afirmar si ha terminado. ACWP=1000 indica que ha gastado más de lo previsto, pero sin BAC ignoramos el % de progreso.
+
+Pregunta 169: Analizando los valores de los parámetros EVA de la imagen... ```+-------+------+------+------+ \n| Tarea | BCWS | BCWP | ACWP | \n+-------+------+------+------+ \n|TareaR | 2800 | 1800 | 2600 | \n+-------+------+------+------+ \n| Tarea1| 600  | 600  | 1000 | \n+-------+------+------+------+ \n| Tarea2| 1200 | 0    | 0    | \n+-------+------+------+------+ \n| Tarea3| 1000 | 1200 | 800  | \n+-------+------+------+------+ \n| Tarea4| 0    | 0    | 800  | \n+-------+------+------+------+ \n``` ¿Qué podemos decir de la tarea 2?
+a) No ha comenzado
+b) Debería haber comenzado
+c) Va retrasada
+d) Todas son cierta
+Solución: d
+Justificación: La Tarea2 muestra BCWS=1200 (debería haber comenzado), BCWP=0 (no ha comenzado), ACWP=0 (no ha gastado). No ha comenzado pero debería: las tres afirmaciones 'no ha comenzado', 'debería haber comenzado' y 'va retrasada' son ciertas.
+
+Pregunta 170: Analizando los valores de los parámetros EVA de la imagen... ```+-------+------+------+------+ \n| Tarea | BCWS | BCWP | ACWP | \n+-------+------+------+------+ \n|TareaR | 2800 | 1800 | 2600 | \n+-------+------+------+------+ \n| Tarea1| 600  | 600  | 1000 | \n+-------+------+------+------+ \n| Tarea2| 1200 | 0    | 0    | \n+-------+------+------+------+ \n| Tarea3| 1000 | 1200 | 800  | \n+-------+------+------+------+ \n| Tarea4| 0    | 0    | 800  | \n+-------+------+------+------+ \n``` ¿Qué podemos decir de la tarea 3?
+a) No ha comenzado
+b) Va retrasada
+c) Está gastando menos de lo previsto
+d) Todas son falsas
+Solución: c
+Justificación: La Tarea3 tiene BCWP=1200 > ACWP=800, por lo que está gastando menos de lo previsto. No está sin comenzar (BCWP>0) ni va retrasada (BCWP>BCWS). La única opción correcta es que gasta menos de lo presupuestado.
+
+Pregunta 171: Analizando los valores de los parámetros EVA de la imagen... ```+-------+------+------+------+ \n| Tarea | BCWS | BCWP | ACWP | \n+-------+------+------+------+ \n|TareaR | 2800 | 1800 | 2600 | \n+-------+------+------+------+ \n| Tarea1| 600  | 600  | 1000 | \n+-------+------+------+------+ \n| Tarea2| 1200 | 0    | 0    | \n+-------+------+------+------+ \n| Tarea3| 1000 | 1200 | 800  | \n+-------+------+------+------+ \n| Tarea4| 0    | 0    | 800  | \n+-------+------+------+------+ \n``` ¿Qué podemos decir de la tarea 4?
+a) Debería haber comenzado y no lo ha hecho
+b) El valor BCWP es erróneo
+c) El valor ACWP es erróneo
+d) No debería haber comenzado pero sí lo ha hecho
+Solución: c
+Justificación: La Tarea4 tiene BCWS=0, BCWP=0 pero ACWP=800>0. No hay trabajo planificado ni valor producido, pero hay coste. Esto indica que el valor ACWP es erróneo o la tarea no debería haber comenzado pero incurrió en costes.
+
+Pregunta 172: La necesidad de ........ es una de las mayores razones para la comunicación en un proyecto.
+a) Optimización
+b) Integridad
+c) Integración
+d) Diferenciación
+Solución: b
+Justificación: La necesidad de integridad en la comunicación del proyecto es fundamental: la información debe ser completa, precisa y fiable para que las decisiones se tomen sobre bases sólidas y se mantenga la confianza entre los interesados.
+
+Pregunta 173: Un proyecto está lleno de modificaciones al acta de constitución ¿Quién tiene la responsabilidad principal de decidir si estos cambios son necesarios?
+a) El PM
+b) El equipo del proyecto
+c) El patrocinador
+d) Los interesados
+Solución: c
+Justificación: El patrocinador (sponsor) es quien autoriza el proyecto y aprueba cambios al acta de constitución. El PM gestiona el proyecto pero no tiene autoridad para modificar el acta de constitución unilateralmente.
+
+Pregunta 174: El patrocinador está por comenzar el proceso de inicio de un proyecto. Todos los siguientes ítems son necesarios antes de comenzar este proceso, a excepción de:
+a) El enunciado del trabajo.
+b) Estándares de la industria.
+c) El director del proyecto.
+d) Requisitos del negocio.
+Solución: b
+Justificación: Los estándares de la industria no son un prerrequisito para iniciar un proyecto. El enunciado del trabajo, la designación del PM y los requisitos de negocio sí son entradas necesarias para el proceso de inicio según el PMBOK.
+
+Pregunta 175: ¿Por qué es tan importante que los interesados participen en los distintos procesos de un proyecto?:
+a) Evita cambios en el alcance.
+b) Mejora la probabilidad de un cliente satisfecho.
+c) Definen las restricciones del alcance.
+d) Sirve para una comunicación más fluida.
+Solución: b
+Justificación: La participación de los interesados en los procesos del proyecto mejora la comprensión de sus expectativas y necesidades, lo que se traduce en mayor probabilidad de satisfacción del cliente al recibir un producto alineado con sus intereses.
+
+Pregunta 176: El PM y su equipo estuvieron dos meses involucrados en el proceso de inicio del proyecto. Después de identificar a los interesados, dieron por finalizado el proceso de inicio. Indique qué se acaba de finalizar y qué está a punto de comenzar:
+a) Plan para la dirección del proyecto/La ejecución del proyecto.
+b) Acta de constitución/Planificación del proyecto
+c) Ejecución del proyecto/Seguimiento y Control.
+d) Acta de constitución/Ejecución del proyecto.
+Solución: b
+Justificación: El proceso de inicio culmina con el acta de constitución del proyecto aprobada. El siguiente proceso es la planificación, donde se desarrolla el plan para la dirección del proyecto. No se salta directamente a ejecución.
+
+Pregunta 177: ¿Cuál de las siguientes opciones es verdadera sobre el desarrollo del acta de constitución del proyecto?
+a) El patrocinador crea el acta de constitución del proyecto y el director la aprueba
+b) El equipo del proyecto crea el acta de constitución y la Oficina de proyectos la aprueba
+c) El gerente ejecutivo crea el acta de constitución y el gerente funcional la aprueba
+d) El director del proyecto crea el acta de constitución y el patrocinador la aprueba
+Solución: d
+Justificación: Según el PMBOK, el director del proyecto elabora el acta de constitución y el patrocinador la aprueba formalmente. El patrocinador no la crea, la revisa, autoriza y firma dando inicio formal al proyecto.
+
+Pregunta 178: ¿Cuál de los siguientes se incluye en el acta de constitución del proyecto?
+a) Una estrategia de gestión de los riesgos
+b) Una estimación de los diferentes paquetes de trabajo
+c) Una estimación detallada de los recursos
+d) El caso de negocio del proyecto
+Solución: d
+Justificación: El acta de constitución incluye el caso de negocio que justifica el proyecto. Las estimaciones detalladas de recursos, paquetes de trabajo y estrategias de riesgos pertenecen al plan para la dirección del proyecto, no al acta.
+
+Pregunta 179: Has creado el acta de constitución del proyecto, pero no se pudo aprobar. Tu director y su jefe pidieron que el proyecto se iniciara inmediatamente ¿Cuál de las siguientes es la mejor opción?
+a) Crear un proceso de control de cambios integrados
+b) Mostrarle a tu director el impacto de proceder sin una aprobación
+c) Comenzar el trabajo solo con las actividades de la ruta crítica
+d) No comenzar el proyecto
+Solución: b
+Justificación: Iniciar sin acta aprobada es una mala práctica. El PM debe comunicar el impacto de esta decisión (riesgos legales, de presupuesto, de alcance) a su director para que tome una decisión informada.
+
+Pregunta 180: El PM tiene por primera vez un problema con uno de los miembros del equipo. ¿Cuál es la mejor forma de comunicación para abordar el problema?
+a) Comunicación formal escrita
+b) Comunicación formal verbal
+c) Comunicación informal escrita
+d) Comunicación informal verbal
+Solución: d
+Justificación: El primer problema con un miembro del equipo debe abordarse mediante comunicación informal verbal, que es más directa, personal y menos amenazante. Escalar a comunicación formal prematuramente puede dañar la relación y crear hostilidad.
+
+Pregunta 181: El resultado más probable de la falta de comunicación en un proyecto es:
+a) El proyecto se retrase
+b) Aumente el nivel de confianza
+c) Se produzcan conflictos
+d) La gerencia se disguste
+Solución: c
+Justificación: La falta de comunicación genera malentendidos, expectativas no alineadas y descoordinación, cuyo resultado más probable es la aparición de conflictos entre los miembros del equipo y los interesados del proyecto.
+
+Pregunta 182: El sistema de numeración de una EDT permite al equipo del proyecto:
+a) Estimar de forma sistemática los costes de los elementos de la EDT
+b) Proporcionar la justificación del proyecto
+c) Identificar el nivel en el que se encuentra cada actividad
+d) Usarlo en una herramienta software para la dirección de proyectos
+Solución: c
+Justificación: El sistema de numeración jerárquica de la EDT (ej: 1.2.3) permite identificar inmediatamente el nivel y la posición de cada elemento dentro de la estructura de descomposición del trabajo, facilitando la navegación y referenciación.
+
+Pregunta 183: ¿Cuál de las siguientes es una salida clave del proceso de verificar el alcance?
+a) Un plan para la gestión del alcance más complejo
+b) La aceptación del cliente de los entregables del proyecto
+c) Disponer de estimaciones del cronograma mejorada
+d) Un sistema de información para la mejora de la dirección de proyectos
+Solución: b
+Justificación: La verificación del alcance consiste en obtener la aceptación formal del cliente sobre los entregables completados. Es la validación externa de que el producto cumple los requisitos acordados.
+
+Pregunta 184: ¿Cuándo debería realizarse el proceso de verificar el alcance?:
+a) Al final del proyecto
+b) Al inicio del proyecto
+c) Al final de cada fase del proyecto
+d) Durante los procesos de planificación
+Solución: c
+Justificación: La verificación del alcance debe realizarse al final de cada fase del proyecto, no solo al final. Esto permite detectar desviaciones tempranamente y obtener aceptaciones parciales que reducen riesgos.
+
+Pregunta 185: Después de varios años de trabajar en proyectos, te acabas de integrar en la oficina de la dirección de proyectos. Una de las cosas que quieres introducir en tu organización es el valor de la creación y utilización de EDT. Algunos de los directores de proyectos están en desacuerdo porque les entienden que les supondrá un trabajo añadido más. ¿Cuál de las siguientes sería la mejor de las respuestas posibles a dichos directores para convencerlos de usar EDT?:
+a) LAS EDT evitarán que el trabajo se omita
+b) Las EDT sólo son necesarias en proyectos grandes
+c) Las EDT sólo serán necesarias si el proyecto conlleva más de un contrato
+d) Las EDT son la única manera de identificar los riesgos del proyecto
+Solución: a
+Justificación: El principal valor de la EDT es que evita la omisión de trabajo: al descomponer sistemáticamente todo el alcance, se garantiza que no queden actividades sin planificar. Es aplicable a proyectos de cualquier tamaño.
+
+Pregunta 186: Un PM nuevo te ha pedido un consejo sobre la creación de una EDT. Después de explicarle el proceso, te pregunta qué software debe usar para crear la EDT y que debe hacer con la EDT cuando esté completada. Quizás responda que la imagen no es el resultado más valioso de crear una EDT, sino que es:
+a) Un diagrama de barra
+b) La aceptación del equipo
+c) Las definición de las actividades
+d) Disponer de una lista de riesgos
+Solución: c
+Justificación: El resultado más valioso de crear una EDT no es el diagrama en sí, sino la definición de las actividades (paquetes de trabajo) que resulta del proceso de descomposición. Es lo que permite estimar, asignar y controlar el trabajo.
+
+Pregunta 187: Un PM acaba de ser asignado a un nuevo proyecto y se le ha entregado el acta de constitución del proyecto aprobada. Lo primero que el PM debe hacer es:
+a) Crear el enunciado del alcance del proyecto
+b) Confirmar que todos los interesados conocen y aceptan el alcance
+c) Analizar los riesgos del proyecto
+d) Iniciar el proyecto en base a un plan para la dirección del proyecto
+Solución: a
+Justificación: Con el acta de constitución aprobada, el siguiente paso en el proceso de planificación es desarrollar el enunciado del alcance del proyecto, que detalla los objetivos, entregables, límites y criterios de aceptación.
+
+Pregunta 188: ¿Cuál de las siguientes puede crear el mayor malentendido en el enunciado de la definición del alcance del proyecto?:
+a) Utilizar un lenguaje impreciso
+b) Utilizar una estructura y un orden cronológico deficiente
+c) Pequeñas variaciones en el tamaño de los paquetes de trabajo
+d) Demasiado detalle
+Solución: a
+Justificación: El lenguaje impreciso en el enunciado del alcance genera ambigüedad y diferentes interpretaciones entre los interesados, siendo la principal fuente de malentendidos y disputas sobre lo que está incluido o no en el proyecto.
+
+Pregunta 189: El cliente ha entregado el enunciado del alcance del proyecto ¿Cuál será el próximo paso?:
+a) Ejecutar los paquetes de trabajo.
+b) Realizar el Plan para la dirección del proyecto.
+c) Completar la verificación del alcance.
+d) Realizar el control integrado de cambios.
+Solución: b
+Justificación: Tras recibir y aprobar el enunciado del alcance, el siguiente paso es desarrollar el plan para la dirección del proyecto, que integrará todas las áreas de conocimiento (tiempo, coste, calidad, riesgos, etc.).
+
+Pregunta 190: Tras la elaboración del correspondiente grafo PERT, una empresa calcula que el camino crítico de uno de sus proyectos es A-F-G. Si la duración de las actividades del camino crítico es 10, 19 y 10 semanas respectivamente, podemos asegurar que:
+a) La duración total del proyecto es de 39 semanas
+b) La duración total del proyecto es de 19 semanas, ya que es la máxima duración de una de las actividades del camino crítico
+c) Estas actividades son las únicas que pueden retrasarse sin que se retrase la entrega final del proyecto
+Solución: a
+Justificación: La duración total del proyecto por el método PERT es la suma de las duraciones de las actividades del camino crítico: 10 + 19 + 10 = 39 semanas. Las actividades críticas no pueden retrasarse sin afectar la duración total.
+
+Pregunta 191: La duración del proyecto es de 15 semanas, la varianza del camino crítico es 3,11 y su desviación estándar 1,76 semanas. La probabilidad de que el proyecto termine en 16 semanas es:
+a) 62,5%
+b) 71,2%
+c) 77,3%
+Solución: b
+Justificación: Para calcular la probabilidad: Z = (16-15)/1,76 = 0,568. Buscando en la tabla normal estándar, P(Z≤0,568) ≈ 0,715 ≈ 71,5%. Redondeando: 71,2%.
+
+Pregunta 192: Tu empresa está evaluando tres proyectos de inversión mutuamente excluyentes entre sí. El proyecto A tiene un 70% de probabilidad de ganar 5.000€ y un 30% de ganar 10.000€. El proyecto B tiene un 50% de probabilidad de ganar 70.000€ y un 50% de perder 10.000€. El proyecto C tiene un 25% de probabilidad de ganar 20.000€ y un 75% de perder 35.000€. En base al valor monetario esperado, ¿Qué proyecto es el mejor para tu empresa?
+a) Proyecto A
+b) Proyecto B
+c) Proyecto C
+Solución: b
+Justificación: VME(A) = 0,7×5000 + 0,3×10000 = 6500€. VME(B) = 0,5×70000 + 0,5×(-10000) = 30000€. VME(C) = 0,25×20000 + 0,75×(-35000) = -21250€. El proyecto B tiene el mayor valor monetario esperado.
+
+Pregunta 193: El código de ética y práctica profesional de la ACM-IEEE los ingenieros de software se adhieren a los ocho principios siguientes:
+a) Sociedad, cliente, producto, empresario, juicio, administración, profesión y personal.
+b) Cliente y empresario, producto, gestión, compañeros, juicio, administración, personal y computadores.
+c) Sociedad, cliente y empresario, producto, valoración, gestión, profesión, compañeros y personal
+Solución: c
+Justificación: Los ocho principios del código ACM-IEEE son: Sociedad (interés público), Cliente y Empresario, Producto (calidad profesional), Valoración (juicio independiente), Gestión, Profesión, Compañeros y Personal (aprendizaje continuo).
+
+Pregunta 194: Tu empresa está evaluando tres proyectos de inversión mutuamente excluyentes entre sí. El proyecto A tiene un 50% de probabilidad de ganar 50.000€ y un 50% de perder 10.000€. El proyecto B tiene un 30% de probabilidad de ganar 40.000€ y un 70% de ganar 10.000€. El proyecto C tiene un 45% de probabilidad de ganar 50.000€ y un 55% de perder 5.000€. En base al valor monetario esperado, ¿Qué proyecto es el peor para tu empresa?
+a) Proyecto A
+b) Proyecto B
+c) Proyecto C
+Solución: b
+Justificación: VME(A) = 0,5×50000 + 0,5×(-10000) = 20000€. VME(B) = 0,3×40000 + 0,7×10000 = 19000€. VME(C) = 0,45×50000 + 0,55×(-5000) = 19750€. El proyecto B tiene el menor VME (19000€), por tanto es el peor.
+
+Pregunta 195: La ACM y la IEEE ha cooperado para crear un código de ética y práctica profesional. Este código se basa en ocho principios, uno de estos principios es la Valoración, el cual hace referencia a:
+a) El ingeniero de software mantendrá la valoración de su juicio personal y profesional a lo largo de todo el proyecto.
+b) El ingeniero de software mantendrá la integridad e independencia en sus valoraciones profesionales
+c) El ingeniero de software tiene la obligación de informar al cliente, teniendo en cuenta sus valoraciones personales.
+Solución: b
+Justificación: El principio de Valoración del código ACM-IEEE se refiere a que el ingeniero de software debe mantener la integridad e independencia en su juicio profesional, evitando conflictos de intereses y presiones externas.
+
+Pregunta 196: Usted trabaja como responsable de un proyecto en una empresa con una estructura funcional. Su nivel de autoridad en el proyecto será:
+a) Alto.
+b) Medio.
+c) Muy alto.
+d) Bajo.
+Solución: d
+Justificación: En una estructura organizacional funcional, el director de proyecto tiene autoridad baja porque los recursos pertenecen a los gerentes funcionales, quienes mantienen el control sobre el personal y el presupuesto del proyecto.
+
+Pregunta 197: Indica cuál de las siguientes afirmaciones sobre dirección de proyectos es incorrecta:
+a) El objetivo principal de la dirección de proyectos es cumplir con los requisitos del proyecto.
+b) Los cinco grupos de procesos en la dirección de proyectos son: iniciación, planificación, ejecución, seguimiento y control y cierre.
+c) La dirección de proyectos no es la encargada de equilibrar las restricciones contrapuestas del proyecto.
+Solución: c
+Justificación: Es incorrecto afirmar que la dirección de proyectos no equilibra restricciones. Precisamente, equilibrar las restricciones contrapuestas (alcance, tiempo, coste, calidad) es una de las responsabilidades fundamentales del director de proyecto.

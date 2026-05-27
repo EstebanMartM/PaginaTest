@@ -33,6 +33,7 @@
     { id: "Redes", label: "Redes", url: "./baterias/Redes.txt" },
     { id: "TAR", label: "TAR", url: "./baterias/TAR.txt" },
     { id: "ADA", label: "ADA", url: "./baterias/Ada.txt" },
+    { id: "GPI", label: "GPI", url: "./baterias/GPI.txt" },
   ];
 
   const EXAM_SOURCE_ID = "Redes";

@@ -131,7 +131,7 @@
           <select id="modeSelect" class="select">
             <option value="random" selected>Aleatorio (20)</option>
             <option value="srs">Repaso SRS</option>
-            <option value="exam" disabled>Examen (35 · 1h10)</option>
+            <option value="exam" disabled>Examen (elige cantidad · 1h10)</option>
             <option value="examlist">Examen (elige)</option>
             <option value="block">Bloque completo</option>
             <option value="single">Pregunta concreta</option>
@@ -155,6 +155,36 @@
             <option value="">—</option>
           </select>
           <div class="field-hint" id="examHint">—</div>
+        </div>
+
+        <div class="field field-card" id="examCountField" style="display:none;">
+          <label class="label" for="examCountInput">Preguntas examen</label>
+          <input
+            id="examCountInput"
+            class="input"
+            type="number"
+            min="1"
+            max="2000"
+            step="1"
+            inputmode="numeric"
+            value="35"
+          />
+          <div class="field-hint" id="examCountHint">Cantidad a practicar</div>
+        </div>
+
+        <div class="field field-card" id="wrongPenaltyField">
+          <label class="label" for="wrongPenaltyInput">Resta por fallo</label>
+          <input
+            id="wrongPenaltyInput"
+            class="input"
+            type="number"
+            min="0"
+            max="1"
+            step="0.05"
+            inputmode="decimal"
+            value="0.333"
+          />
+          <div class="field-hint" id="wrongPenaltyHint">0.5 = mitad de un acierto</div>
         </div>
 
         <div class="field field-card">

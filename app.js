@@ -1,7 +1,7 @@
 /* Quiz tipo test · SPA local (sin build)
    - Lee TXT (File API)
    - Modo Aleatorio (20) o Bloque completo
-   - Penalización: fallo = -1/3 del acierto
+   - Penalización configurable: fallo = -x del acierto
    - Historial + revisión por pregunta (qué fallaste / acertaste)
    - Matemáticas: TeX suelto (\alpha_1, \frac{a}{b}, \Sigma, ...) con MathJax
    - Opciones reordenadas por pregunta, evitando repetir siempre la misma posición de la correcta
@@ -266,7 +266,7 @@
     return loadJSON(KEY_PREFS, {});
   }
   function savePrefs(prefs) {
-    saveJSON(KEY_PREFS, prefs);
+    saveJSON(KEY_PREFS, { ...loadPrefs(), ...prefs });
   }
 
   function loadLastPos() {
@@ -534,6 +534,8 @@
     block: "", // select value
     exam: "", // select value
     questionNumber: "",
+    examQuestionCount: EXAM_QUESTIONS,
+    wrongPenalty: 1 / 3,
     review: { open: false, attemptIndex: null },
     markedSet: new Set(),
     marked: { open: false, ids: [], selectedIndex: null },
@@ -568,6 +570,12 @@
     blockHint: $("#blockHint"),
     examHint: $("#examHint"),
     questionHint: $("#questionHint"),
+    examCountField: $("#examCountField"),
+    examCountInput: $("#examCountInput"),
+    examCountHint: $("#examCountHint"),
+    wrongPenaltyField: $("#wrongPenaltyField"),
+    wrongPenaltyInput: $("#wrongPenaltyInput"),
+    wrongPenaltyHint: $("#wrongPenaltyHint"),
 
     libSelect: $("#libSelect"),
     btnLibLoad: $("#btnLibLoad"),
@@ -631,8 +639,8 @@
     if (!option) return;
     option.disabled = !state.examUnlocked;
     option.textContent = state.examUnlocked
-      ? `Examen (${EXAM_QUESTIONS} · 1h10)`
-      : `Examen (${EXAM_QUESTIONS} · 1h10) - bloqueado`;
+      ? "Examen (elige cantidad · 1h10)"
+      : "Examen (elige cantidad · 1h10) - bloqueado";
   }
 
   function updateExamListOption() {
@@ -1208,7 +1216,7 @@
   // =========================
   // Scoring
   // =========================
-  function computeScore(answers, total) {
+  function computeScore(answers, total, wrongPenalty = getWrongPenalty()) {
     let correct = 0,
       wrong = 0,
       blank = 0;
@@ -1217,7 +1225,7 @@
       else if (a.result === "wrong") wrong++;
       else blank++;
     }
-    const score = correct - wrong / 3;
+    const score = correct - wrong * wrongPenalty;
     const denom = Math.max(1, total || answers.length || 1);
     const effectivePercent = clamp((score / denom) * 100, 0, 100);
     return { correct, wrong, blank, score, effectivePercent };
@@ -1238,6 +1246,34 @@
     return num;
   }
 
+  function getExamQuestionCount(max = Infinity) {
+    const raw = el.examCountInput
+      ? el.examCountInput.value
+      : state.examQuestionCount;
+    const parsed = parseInt(String(raw ?? "").trim(), 10);
+    const fallback = Number.isFinite(state.examQuestionCount)
+      ? state.examQuestionCount
+      : EXAM_QUESTIONS;
+    const requested = Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+    const limit = Number.isFinite(max) ? Math.max(1, max) : 2000;
+    return clamp(requested, 1, limit);
+  }
+
+  function getWrongPenalty() {
+    const raw = el.wrongPenaltyInput
+      ? el.wrongPenaltyInput.value
+      : state.wrongPenalty;
+    const parsed = Number(String(raw ?? "").replace(",", "."));
+    if (!Number.isFinite(parsed) || parsed < 0) return 0;
+    return Math.min(parsed, 10);
+  }
+
+  function formatPenalty(value) {
+    return Number(value || 0).toLocaleString("es-ES", {
+      maximumFractionDigits: 3,
+    });
+  }
+
   function updateStartAvailability() {
     if (!el.btnStart) return;
 
@@ -1247,6 +1283,10 @@
     // Show/hide SRS count field based on mode
     if (el.srsCountField) {
       el.srsCountField.style.display = state.mode === "srs" ? "" : "none";
+    }
+    if (el.examCountField) {
+      el.examCountField.style.display =
+        state.mode === "exam" || state.mode === "examlist" ? "" : "none";
     }
 
     const isExam = state.mode === "exam";
@@ -1274,10 +1314,10 @@
       if (el.blockSelect) el.blockSelect.disabled = true;
       if (el.examSelect) el.examSelect.disabled = true;
       if (el.questionInput) el.questionInput.disabled = true;
-      const canStart =
-        state.examUnlocked && state.pool.length >= EXAM_QUESTIONS;
+      const examTake = getExamQuestionCount(state.pool.length || 1);
+      const canStart = state.examUnlocked && state.pool.length >= 1;
       el.btnStart.disabled = !canStart;
-      el.btnStart.textContent = `Nuevo examen (${EXAM_QUESTIONS} · 1h10)`;
+      el.btnStart.textContent = `Nuevo examen (${examTake} · 1h10)`;
       updateFieldHints();
       return;
     }
@@ -1290,9 +1330,10 @@
       const count = examKey
         ? state.pool.filter((q) => (q.exam || "") === examKey).length
         : 0;
+      const examTake = count ? getExamQuestionCount(count) : 0;
       el.btnStart.disabled = !(examKey && count >= 1);
       el.btnStart.textContent = examKey
-        ? `Examen · ${count} preguntas`
+        ? `Examen · ${examTake} de ${count}`
         : "Examen";
       updateFieldHints();
       return;
@@ -1375,6 +1416,10 @@
     const examCount = examKey
       ? state.pool.filter((q) => (q.exam || "") === examKey).length
       : 0;
+    const examAvailable =
+      state.mode === "examlist" ? examCount : state.pool.length;
+    const examTake = examAvailable ? getExamQuestionCount(examAvailable) : 0;
+    const wrongPenalty = getWrongPenalty();
     const qNum = getManualQuestionNumber();
     const qExists = qNum && state.poolById.has(String(qNum));
 
@@ -1393,10 +1438,10 @@
         el.modeHint.textContent =
           "Selecciona un bloque para practicarlo completo.";
       } else if (state.mode === "exam") {
-        el.modeHint.textContent = "Examen cronometrado (solo batería oficial).";
+        el.modeHint.textContent = `Examen cronometrado con ${examTake} preguntas.`;
       } else if (state.mode === "examlist") {
         el.modeHint.textContent = examKey
-          ? `${examCount} preguntas en el examen seleccionado.`
+          ? `Practicarás ${examTake} de ${examCount} preguntas.`
           : "Elige un examen de la lista.";
       } else {
         el.modeHint.textContent = "Escribe el número exacto de la pregunta.";
@@ -1417,6 +1462,23 @@
         : state.mode === "examlist"
           ? "Elige un examen."
           : "—";
+    }
+
+    if (el.examCountHint) {
+      if (state.mode === "exam" || state.mode === "examlist") {
+        el.examCountHint.textContent = examAvailable
+          ? `Se usarán ${examTake} de ${examAvailable}.`
+          : "Carga una batería con preguntas.";
+      } else {
+        el.examCountHint.textContent = "Cantidad a practicar";
+      }
+    }
+
+    if (el.wrongPenaltyHint) {
+      el.wrongPenaltyHint.textContent =
+        wrongPenalty === 0
+          ? "Los fallos no restan; blancas 0."
+          : `Cada fallo resta ${formatPenalty(wrongPenalty)}; blancas 0.`;
     }
 
     if (el.questionHint) {
@@ -1459,6 +1521,7 @@
       const { correct, wrong, blank, score, effectivePercent } = computeScore(
         state.quiz.answers,
         Math.max(1, asked),
+        state.quiz.wrongPenalty,
       );
       el.scoreInline.textContent = `Puntuación: ${score.toFixed(2)} (Aciertos ${correct} · Fallos ${wrong} · Blancas ${blank}) · ${effectivePercent.toFixed(1)}%`;
       el.countInline.textContent = `${state.quiz.idx + 1}/infinito`;
@@ -1469,6 +1532,7 @@
     const { correct, wrong, blank, score } = computeScore(
       state.quiz.answers,
       total,
+      state.quiz.wrongPenalty,
     );
     el.scoreInline.textContent = `Puntuación: ${score.toFixed(2)} (Aciertos ${correct} · Fallos ${wrong} · Blancas ${blank})`;
     el.countInline.textContent = `${Math.min(state.quiz.idx + 1, total)}/${total}`;
@@ -1910,6 +1974,7 @@
             ${h.mode === "block" ? `Bloque: ${esc(h.blockLabel || h.block)} · ` : ""}
             ${h.mode === "examlist" ? `Examen: ${esc(h.examLabel || h.exam)} · ` : ""}
             Aciertos ${h.correct} · Fallos ${h.wrong} · Blancas ${h.blank} · puntuación ${Number(h.score).toFixed(2)}
+            · fallo −${esc(formatPenalty(h.wrongPenalty ?? 1 / 3))}
             · <span class="muted">click para revisar</span>
           </div>
         </div>
@@ -1993,6 +2058,7 @@
       ? el.seedInput.value.trim().toUpperCase()
       : "";
     const activeSeed = seedInput && seedInput.length >= 4 ? seedInput : "";
+    const wrongPenalty = getWrongPenalty();
 
     if (infinite) {
       let basePool = getBasePoolForQuiz();
@@ -2025,6 +2091,7 @@
         examLabel,
         infinite: true,
         durationMs,
+        wrongPenalty,
         basePool,
         seed: quizSeed,
         deckCycle: 0,
@@ -2066,14 +2133,18 @@
         selectedQuestions = due.slice(0, Math.min(srsMax, 100));
         modeLabel = `Repaso SRS (${selectedQuestions.length})`;
       } else if (state.mode === "exam") {
-        if (!state.examUnlocked || state.pool.length < EXAM_QUESTIONS) return;
+        if (!state.examUnlocked || state.pool.length < 1) return;
+        const examTake = getExamQuestionCount(state.pool.length);
         if (activeSeed) {
           const seedBase = sortPoolForSeed(state.pool);
-          selectedQuestions = seededShuffle(seedBase, `${activeSeed}::0`).slice(0, EXAM_QUESTIONS);
+          selectedQuestions = seededShuffle(seedBase, `${activeSeed}::0`).slice(
+            0,
+            examTake,
+          );
           modeLabel = `Examen (Seed: ${activeSeed})`;
         } else {
-          selectedQuestions = sample(state.pool, EXAM_QUESTIONS);
-          modeLabel = `Examen (${EXAM_QUESTIONS} · 1h10)`;
+          selectedQuestions = sample(state.pool, examTake);
+          modeLabel = `Examen (${examTake} · 1h10)`;
         }
         durationMs = EXAM_DURATION_MS;
       } else if (state.mode === "examlist") {
@@ -2081,12 +2152,14 @@
         examLabel = examKey || "(Sin examen)";
         const examPool = state.pool.filter((q) => (q.exam || "") === examKey);
         if (!examPool.length) return;
+        const examTake = getExamQuestionCount(examPool.length);
         selectedQuestions = activeSeed
           ? seededShuffle(sortPoolForSeed(examPool), `${activeSeed}::0`)
           : shuffleArray(examPool);
+        selectedQuestions = selectedQuestions.slice(0, examTake);
         modeLabel = activeSeed
-          ? `Examen · ${examLabel} (Seed: ${activeSeed})`
-          : `Examen · ${examLabel}`;
+          ? `Examen · ${examLabel} (${examTake}, Seed: ${activeSeed})`
+          : `Examen · ${examLabel} (${examTake})`;
       } else if (state.mode === "single") {
         const num = getManualQuestionNumber();
         const picked = num ? state.poolById.get(String(num)) : null;
@@ -2125,6 +2198,7 @@
         examLabel,
         infinite: false,
         durationMs,
+        wrongPenalty,
       };
     }
 
@@ -2421,7 +2495,9 @@
     const { correct, wrong, blank, score, effectivePercent } = computeScore(
       state.quiz.answers,
       Math.max(1, total),
+      state.quiz.wrongPenalty,
     );
+    const wrongPenalty = Number(state.quiz.wrongPenalty ?? getWrongPenalty());
 
     updatePerQuestionStats(state.quiz.answers);
 
@@ -2452,6 +2528,7 @@
       correct,
       wrong,
       blank,
+      wrongPenalty,
       score: Number(score.toFixed(3)),
       effectivePercent: Number(effectivePercent.toFixed(2)),
       items,
@@ -2488,7 +2565,7 @@
               : state.mode === "random"
                 ? "Nuevo test (20)"
                 : state.mode === "exam"
-                  ? `Nuevo examen (${EXAM_QUESTIONS} · 1h10)`
+                  ? `Nuevo examen (${state.quiz.questions.length} · 1h10)`
                   : state.mode === "examlist"
                     ? "Repetir examen"
                     : state.mode === "single"
@@ -2502,7 +2579,7 @@
     const res = `
 Modo: ${attempt.modeLabel}${attempt.mode === "block" ? ` · ${attempt.blockLabel}` : ""}${attempt.mode === "examlist" ? ` · ${attempt.examLabel}` : ""}
 \n\nCorrectas: ${correct} · Incorrectas: ${wrong} · Omitidas: ${blank}
-\nPuntuación neta: ${score.toFixed(2)} / ${total} (fallo = −1/3)
+\nPuntuación neta: ${score.toFixed(2)} / ${total} (fallo = −${formatPenalty(wrongPenalty)})
 \nPorcentaje: ${effectivePercent.toFixed(2)}%${extra}
     `.trim();
 
@@ -3056,6 +3133,24 @@ Modo: ${attempt.modeLabel}${attempt.mode === "block" ? ` · ${attempt.blockLabel
     });
   }
 
+  if (el.examCountInput) {
+    el.examCountInput.addEventListener("input", () => {
+      state.examQuestionCount = getExamQuestionCount();
+      savePrefs({ examQuestionCount: state.examQuestionCount });
+      updateStartAvailability();
+    });
+  }
+
+  if (el.wrongPenaltyInput) {
+    el.wrongPenaltyInput.addEventListener("input", () => {
+      state.wrongPenalty = getWrongPenalty();
+      if (state.quiz) state.quiz.wrongPenalty = state.wrongPenalty;
+      savePrefs({ wrongPenalty: state.wrongPenalty });
+      updateStartAvailability();
+      updateFooterInline();
+    });
+  }
+
   // Seed Challenge button
   if (el.btnSeedGen) {
     el.btnSeedGen.addEventListener("click", () => {
@@ -3106,12 +3201,25 @@ Modo: ${attempt.modeLabel}${attempt.mode === "block" ? ` · ${attempt.blockLabel
   state.infinite = !!prefs.infinite || !!prefs.continuous;
   state.questionNumber =
     prefs.questionNumber != null ? String(prefs.questionNumber) : "";
+  state.examQuestionCount =
+    Number.isFinite(Number(prefs.examQuestionCount)) &&
+    Number(prefs.examQuestionCount) > 0
+      ? Number(prefs.examQuestionCount)
+      : EXAM_QUESTIONS;
+  state.wrongPenalty =
+    Number.isFinite(Number(prefs.wrongPenalty)) && Number(prefs.wrongPenalty) >= 0
+      ? Number(prefs.wrongPenalty)
+      : 1 / 3;
 
   if (el.modeSelect) el.modeSelect.value = state.mode;
   if (el.blockSelect) el.blockSelect.value = state.block;
   if (el.examSelect) el.examSelect.value = state.exam;
   if (el.toggleContinuous) el.toggleContinuous.checked = state.infinite;
   if (el.questionInput) el.questionInput.value = state.questionNumber;
+  if (el.examCountInput) el.examCountInput.value = state.examQuestionCount;
+  if (el.wrongPenaltyInput) {
+    el.wrongPenaltyInput.value = Number(state.wrongPenalty.toFixed(3));
+  }
 
   updateStartAvailability();
 })();

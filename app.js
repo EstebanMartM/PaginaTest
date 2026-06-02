@@ -36,8 +36,6 @@
     { id: "GPI", label: "GPI", url: "./baterias/GPI.txt" },
   ];
 
-  const EXAM_SOURCE_ID = "Redes";
-  const EXAM_SOURCE_FILE = "Redes.txt";
   const EXAM_QUESTIONS = 35;
   const EXAM_DURATION_MS = 70 * 60 * 1000;
 
@@ -526,7 +524,6 @@
     locked: false,
     selected: null,
     infinite: false,
-    examUnlocked: false,
     currentSource: "",
     timerId: null,
 
@@ -620,27 +617,15 @@
   // =========================
   // Exam + timer helpers
   // =========================
-  const normalizeSource = (value) =>
-    String(value ?? "")
-      .trim()
-      .toLowerCase();
-
-  function isExamSource(value) {
-    const normalized = normalizeSource(value);
-    return (
-      normalized === normalizeSource(EXAM_SOURCE_ID) ||
-      normalized === normalizeSource(EXAM_SOURCE_FILE)
-    );
-  }
-
   function updateExamOption() {
     if (!el.modeSelect) return;
     const option = el.modeSelect.querySelector('option[value="exam"]');
     if (!option) return;
-    option.disabled = !state.examUnlocked;
-    option.textContent = state.examUnlocked
+    const available = state.pool.length > 0;
+    option.disabled = !available;
+    option.textContent = available
       ? "Examen (elige cantidad · 1h10)"
-      : "Examen (elige cantidad · 1h10) - bloqueado";
+      : "Examen (sin datos)";
   }
 
   function updateExamListOption() {
@@ -655,7 +640,7 @@
   function ensureModeAllowed() {
     updateExamOption();
     updateExamListOption();
-    if (!state.examUnlocked && state.mode === "exam") {
+    if (state.pool.length === 0 && state.mode === "exam") {
       state.mode = "random";
       if (el.modeSelect) el.modeSelect.value = state.mode;
       savePrefs({
@@ -685,7 +670,6 @@
     if (state.currentSource)
       localStorage.setItem(KEY_SOURCE, state.currentSource);
     else localStorage.removeItem(KEY_SOURCE);
-    state.examUnlocked = isExamSource(state.currentSource);
     ensureModeAllowed();
   }
 
@@ -1315,7 +1299,7 @@
       if (el.examSelect) el.examSelect.disabled = true;
       if (el.questionInput) el.questionInput.disabled = true;
       const examTake = getExamQuestionCount(state.pool.length || 1);
-      const canStart = state.examUnlocked && state.pool.length >= 1;
+      const canStart = state.pool.length >= 1;
       el.btnStart.disabled = !canStart;
       el.btnStart.textContent = `Nuevo examen (${examTake} · 1h10)`;
       updateFieldHints();
@@ -2133,7 +2117,7 @@
         selectedQuestions = due.slice(0, Math.min(srsMax, 100));
         modeLabel = `Repaso SRS (${selectedQuestions.length})`;
       } else if (state.mode === "exam") {
-        if (!state.examUnlocked || state.pool.length < 1) return;
+        if (state.pool.length < 1) return;
         const examTake = getExamQuestionCount(state.pool.length);
         if (activeSeed) {
           const seedBase = sortPoolForSeed(state.pool);

@@ -10913,3 +10913,285 @@ c) El protocolo IGMP permite conocer a qué segmentos de red será retransmitido
 d) El paquete es procesado por todos los routers de la red que emplean el protocolo OSPF.
 Solución: c
 Justificación: IGMP gestiona la pertenencia a grupos multicast y permite decidir donde reenviar.
+
+### Examen Enero 2026
+
+Pregunta 1362: Sobre el funcionamiento de una red de conmutación de paquetes con datagramas es cierto que:
+a) Los paquetes siempre emplean el mismo camino entre un origen y un destino
+b) Es necesario un mecanismo para reordenar los paquetes que llegan al destino
+c) Cada intercambio de datos entre dos equipos se identifica con un identificador de camino
+d) Siempre se producen errores en el intercambio de paquetes entre dos equipos
+Solución: b
+Justificación: La red de datagramas no garantiza la entrega ordenada. Si los datos deben reconstruirse en su orden original, algún protocolo o aplicación del extremo tiene que identificar los paquetes, detectar que han llegado desordenados y ordenarlos.
+
+Pregunta 1363: ¿En qué tipo de redes la multidifusión se lleva a cabo con la transmisión física de UN SOLO paquete?
+a) Redes conmutación de paquetes con datagramas
+b) Redes conmutación de paquetes con circuitos virtuales
+c) Redes de difusión
+d) Redes punto a punto
+Solución: c
+Justificación: En una red de difusión todos los equipos comparten el mismo medio físico. El emisor transmite una única trama con una dirección de multidifusión, que identifica a un grupo de receptores.
+
+Pregunta 1364: ¿Qué característica NO es propia de las redes de conmutación de paquetes?
+a) Colisiones en el medio físico compartido entre todos los equipos
+b) Congestión en el encaminamiento de paquetes
+c) Empleo de routers para encaminar paquetes entre un origen y un destino
+d) Tolerancia a fallos en el medio físico en el intercambio de paquetes entre los equipos
+Solución: a
+Justificación: Las colisiones son propias de las redes de difusión con medio compartido donde varios equipos pueden transmitir simultáneamente sobre el mismo medio.
+
+Pregunta 1365: En una arquitectura de red, cada capa n define:
+a) Al menos un protocolo de comunicación con la capa adyacente n-1
+b) Al menos un protocolo de comunicación con la capa adyacente n+1
+c) Al menos un protocolo de comunicación con la capa par n+1
+d) Al menos un protocolo de comunicación con la capa par n
+Solución: d
+Justificación: Un protocolo establece las reglas de comunicación entre entidades del mismo nivel en equipos diferentes.
+
+Pregunta 1366: Sobre los paquetes generados en la capa n de una arquitectura de red es cierto que:
+a) Todos los paquetes incorporan siempre la cabecera de la capa n
+b) Todos los paquetes incorporan siempre la cabecera de la capa n+1
+c) Todos los paquetes incorporan siempre la cabecera de la capa n-1
+d) Todas las respuestas anteriores son falsas
+Solución: a
+Justificación: Cuando la capa n recibe información de la capa superior, la encapsula añadiendo su propia información de control, normalmente una cabecera.
+
+Pregunta 1367: Si en un protocolo de la capa n el tamaño máximo de datos es X, la fragmentación de la información procedente de la capa n+1 se realiza:
+a) Cuando la cabecera de la capa n+1 excede del valor X
+b) Cuando el paquete procedente de la capa n+1 excede el valor X
+c) Cuando los datos en el paquete de la capa n+1 exceden del valor X
+d) Cuando el tamaño del paquete generado en el nivel n excede del valor X
+Solución: b
+Justificación: Para la capa n, el paquete completo recibido de n+1 constituye sus datos.
+
+Pregunta 1368: ¿Qué organismo lleva a cabo la definición de las normas RFC de Internet?
+a) IRTF
+b) IETF
+c) IAB
+d) IANA
+Solución: b
+Justificación: Desarrolla y normaliza los protocolos estándares de Internet, publicados mediante documentos RFC.
+
+Pregunta 1369: ¿Qué dispositivo de interconexión emplea las direcciones físicas de los equipos para el reenvío de paquetes entre segmentos de red?
+a) Repetidor
+b) Puente
+c) Encaminador
+d) Ningún dispositivo de interconexión emplea las direcciones físicas para el reenvío de paquetes
+Solución: b
+Justificación: Un puente funciona en la capa de enlace y reenvía tramas entre segmentos utilizando las direcciones físicas, es decir, las direcciones MAC.
+
+Pregunta 1370: Sobre la transmisión de señales de datos a través de un medio físico es cierto que:
+a) Todos los medios físicos transmiten igual una misma señal de datos
+b) Las señales transmitidas a diferentes velocidades siempre sufren los mismos errores
+c) Las señales siempre presentarán errores en los datos si existe ruido en el medio físico
+d) La existencia de errores en los datos depende de la velocidad de transmisión empleada
+Solución: d
+Justificación: Al aumentar la velocidad de transmisión, cada bit dura menos tiempo y el receptor dispone de menos margen para distinguir correctamente la señal. Para un medio físico y un nivel de ruido determinados, una velocidad excesiva aumenta la probabilidad de error.
+
+Pregunta 1371: El valor del ancho de banda disponible en un medio físico depende de:
+a) La velocidad de transmisión empleada en las señales transmitidas
+b) El nivel de ruido presente en el medio físico
+c) Las características físicas del propio medio físico
+d) Los datos existentes en las señales transmitidas
+Solución: c
+Justificación: El ancho de banda indica el intervalo de frecuencias que un medio puede transmitir adecuadamente.
+
+Pregunta 1372: ¿Qué tipo de señalización en banda base con codificación binaria emplea más niveles de tensión?
+a) Codificación binaria con retorno a cero unipolar
+b) Codificación binaria con retorno a cero bipolar
+c) Codificación binaria sin retorno a cero bipolar
+d) Todas las codificaciones binarias emplean el mismo número de niveles de tensión
+Solución: d
+Justificación: Según la clasificación empleada en el temario, una codificación binaria asigna los dos valores lógicos a dos niveles de tensión. El retorno a cero modifica la evolución temporal de la señal, no el número de valores binarios codificados.
+
+Pregunta 1373: ¿En qué situación se emplea la modulación en la transmisión de datos?
+a) Siempre que la información sean bits digitales
+b) Cuando se emplea un medio físico analógico
+c) Cuando las principales componentes frecuenciales de una señal están fuera del ancho de banda del medio físico
+d) Cuando sea necesario transmitir señales de datos a una velocidad superior al teorema de Nyquist
+Solución: c
+Justificación: La modulación desplaza el espectro de la señal de información alrededor de una frecuencia portadora que sí se encuentra dentro del ancho de banda soportado por el medio.
+
+Pregunta 1374: ¿Qué tipo de modulación permite su empleo en la multiplexión por división en el tiempo?
+a) Modulación ASK
+b) Modulación PSK
+c) Modulación FSK
+d) Modulación PCM
+Solución: d
+Justificación: PCM muestrea, cuantifica y codifica una señal analógica como una secuencia de bits. Las muestras digitales de varias fuentes pueden intercalarse en ranuras temporales mediante TDM.
+
+Pregunta 1375: ¿En qué tipo de cable par trenzado tiene menos efecto el ruido de impulso?
+a) Cable STP
+b) Cable UTP categoría 5
+c) Cable UTP categoría 6
+d) Cable UTP categoría 7
+Solución: a
+Justificación: STP incorpora una pantalla conductora que reduce la interferencia provocada por campos eléctricos externos y, por tanto, el efecto del ruido de impulso.
+
+Pregunta 1376: ¿Qué tipo de fibra óptica presenta mayor limitación en la distancia máxima?
+a) Fibra monomodo
+b) Fibra multimodo de índice de salto
+c) Fibra multimodo de índice gradual
+d) Todas las fibras ópticas están normalizadas para su funcionamiento a 100 km de distancia
+Solución: b
+Justificación: Los distintos haces recorren trayectorias de longitudes diferentes y llegan desfasados. Esta elevada dispersión intermodal ensancha los pulsos y limita especialmente la distancia.
+
+Pregunta 1377: ¿Con qué técnica se combinan varios haces de luz de datos en una fibra óptica?
+a) Multiplexión intermodal
+b) Multiplexión intramodal
+c) Multiplexión WDM
+d) Multiplexión FTTH
+Solución: c
+Justificación: WDM combina en una misma fibra varios haces portadores con diferentes longitudes de onda y los separa de nuevo en el receptor.
+
+Pregunta 1378: ¿En qué tipo de comunicación inalámbrica se emplean señales portadoras de mayor valor de frecuencia?
+a) Redes Wi-Fi
+b) Redes satelitales
+c) Transmisión de televisión
+d) Transmisión de radio FM
+Solución: b
+Justificación: Las comunicaciones por satélite emplean bandas de microondas de varios GHz y pueden utilizar frecuencias superiores a las habituales en Wi-Fi, televisión terrestre y radio FM.
+
+Pregunta 1379: ¿Qué mecanismo detector de errores permite identificar la posición de 20 bits erróneos en un paquete?
+a) Código CRC-16
+b) Código CRC-32
+c) Paridad impar
+d) Ningún mecanismo detector de errores puede identificar los 20 bits erróneos en un paquete
+Solución: d
+Justificación: Los mecanismos propuestos son detectores: permiten saber que existe un error en ciertos casos, pero localizar y corregir bits requiere un código corrector con redundancia suficiente.
+
+Pregunta 1380: Sobre los formatos de paquetes Ethernet IEEE 802.3 y Ethernet DIX es cierto que:
+a) Ambos formatos emplean la misma secuencia de sincronización
+b) El formato Ethernet DIX permite paquetes Ethernet de mayor tamaño
+c) El formato Ethernet IEEE 802.3 detecta errores en ráfaga de mayor longitud que Ethernet DIX
+d) Ambos formatos de paquete emplean la cabecera LLC en los datos
+Solución: a
+Justificación: IEEE 802.3 utiliza 7 bytes de preámbulo y 1 byte SFD; Ethernet DIX emplea una secuencia equivalente formada por preámbulo más delimitador.
+
+Pregunta 1381: Sobre el procedimiento de aprendizaje de un conmutador Ethernet es cierto que:
+a) Analiza la dirección MAC origen en los paquetes recibidos en un puerto del conmutador
+b) Analiza la dirección MAC origen en los paquetes transmitidos en un puerto del conmutador
+c) Analiza la dirección MAC destino en los paquetes recibidos en un puerto del conmutador
+d) Analiza la dirección MAC destino en los paquetes transmitidos en un puerto del conmutador
+Solución: a
+Justificación: Al recibir una trama, el conmutador asocia su MAC origen con el puerto de entrada y guarda o actualiza esa relación en la tabla CAM.
+
+Pregunta 1382: ¿Qué puertos de un conmutador están habilitados para el aprendizaje de la tabla CAM si se emplea el algoritmo Spanning Tree?
+a) Solo el puerto raíz
+b) Solo los puertos designados
+c) Solo los puertos raíces y los puertos designados
+d) Todos los puertos activos del conmutador
+Solución: d
+Justificación: El aprendizaje CAM está habilitado en los puertos activos. Los puertos bloqueados por Spanning Tree permanecen inactivos para reenvío y aprendizaje.
+
+Pregunta 1383: ¿En qué capa se define el tipo de señalización para transmitir los bits de los paquetes Ethernet?
+a) MAC 802.3
+b) MAC DIX
+c) PMD
+d) CS
+Solución: c
+Justificación: La subcapa Physical Medium Dependent define la codificación y señalización que se utiliza sobre el medio físico concreto.
+
+Pregunta 1384: ¿Qué normativa Ethernet permite emplear el multiplexado por longitud de onda (WDM)?
+a) Ethernet 10GBase-T
+b) Ethernet 2.5GBase-T
+c) Ethernet 40GBase-XX
+d) La normativa Ethernet no emplea la multiplexión por longitud de onda
+Solución: c
+Justificación: Las variantes Ethernet de 40/100 Gbit/s sobre fibra pueden combinar varios haces de distintas longitudes de onda mediante WDM.
+
+Pregunta 1385: ¿Cuál es el uso de los puertos troncales en los conmutadores VLAN?
+a) La conexión de dispositivos que emplean el formato Ethernet DIX
+b) Solamente para hacer el reenvío de paquetes de difusión a otros puertos troncales del mismo conmutador
+c) La conexión de un router para tener conectividad con varias VLAN
+d) La conexión de dispositivos que emplean el formato Ethernet IEEE 802.3
+Solución: c
+Justificación: Un enlace troncal 802.1Q puede transportar tramas etiquetadas de varias VLAN hasta un router, que realiza el encaminamiento entre ellas.
+
+Pregunta 1386: ¿Qué mecanismo permite que un AP pueda detectar cualquier transmisión de cualquier equipo de una red inalámbrica?
+a) CSMA-CD
+b) CSMA-CA
+c) CSMA-CA con RTS/CTS
+d) CSMA-CA con polling
+Solución: c
+Justificación: Antes de transmitir datos, el emisor envía RTS al AP y este responde CTS. Así se reserva el canal y se informa a las estaciones que puedan oír al emisor o al AP, evitando transmisiones ocultas simultáneas.
+
+Pregunta 1387: ¿Qué tecnología Ethernet NO añade bits adicionales de sincronización en la transmisión de paquetes?
+a) Ethernet 1000BaseT
+b) Ethernet 1000BaseLX
+c) Ethernet 100BaseTX
+d) Ethernet 100BaseFX
+Solución: a
+Justificación: Utiliza codificación 4D-PAM5 sobre los cuatro pares. No aplica un código de bloque que sustituya grupos de datos por grupos mayores con bits adicionales de sincronización.
+
+Pregunta 1388: ¿Qué mecanismo de autenticación Wi-Fi es más resistente a ataques de fuerza bruta?
+a) WPA-PSK
+b) WPA2-PSK
+c) WPA3-PSK
+d) Los ataques de fuerza bruta no pueden determinar nunca la clave de autenticación
+Solución: c
+Justificación: WPA3 mejora la autenticación con clave precompartida y dificulta los ataques de diccionario y fuerza bruta, especialmente los intentos realizados fuera de línea.
+
+Pregunta 1389: ¿Qué algoritmo de cifrado emplean las redes Wi-Fi WPA2-Enterprise?
+a) AES
+b) PEAP
+c) TLS
+d) TKIP
+Solución: a
+Justificación: WPA2, definido a partir de IEEE 802.11i, emplea AES para proteger la confidencialidad de los datos.
+
+Pregunta 1390: ¿Qué característica indica que una red está sufriendo congestión?
+a) La dedicación de la CPU de un router para el encaminamiento alcanza el valor del 50%
+b) La red presenta numerosos mensajes ICMP Source Quench
+c) El flujo de salida de paquetes en la red aumenta conforme aumenta el flujo de entrada de paquetes en la red
+d) La red presenta numerosos mensajes ICMP Host Unreachable
+Solución: b
+Justificación: En el modelo explicado en el temario, estos mensajes indican que un router no puede procesar el flujo recibido y solicita al emisor que reduzca la velocidad.
+
+Pregunta 1391: Si un router está conectado directamente a 3 redes y tiene conectividad a Internet, el número de entradas en su tabla de encaminamiento será:
+a) Como mínimo 1 entrada
+b) Como mínimo 3 entradas
+c) Como mínimo 4 entradas
+d) Nunca superior a 3 entradas
+Solución: c
+Justificación: Debe existir una entrada para cada una de las tres redes conectadas directamente y, como mínimo, una ruta por defecto para los destinos de Internet.
+
+Pregunta 1392: Sobre el funcionamiento de un router frontera de un sistema autónomo (AS) es cierto que:
+a) Establece conexiones UDP con otros routers frontera de otros sistemas autónomos
+b) No es posible suplantar un mensaje BGP emitido por un router frontera de Internet
+c) Emplea el protocolo BGP para determinar la ruta con mejor métrica a cualquier destino de Internet
+d) Un router frontera solo informa de las redes existentes dentro de su sistema autónomo
+Solución: b
+Justificación: Según el temario, los paquetes BGP se autentican para preservar la validez de la información, por lo que un atacante externo no puede suplantar directamente un mensaje de un router frontera.
+
+Pregunta 1393: ¿Qué protocolo de gestión de tablas de encaminamiento emplea un algoritmo de vector de distancia para determinar la ruta óptima a un destino?
+a) BGP
+b) RIP
+c) OSPF
+d) Todos los protocolos de gestión de tablas de encaminamiento emplean el algoritmo de Dijkstra
+Solución: b
+Justificación: RIP aplica un algoritmo de vector de distancia y utiliza el número de saltos como métrica para seleccionar rutas.
+
+Pregunta 1394: ¿Qué algoritmo de encaminamiento actualiza con mayor rapidez una ruta óptima que ha modificado su coste?
+a) RIPv1
+b) RIPv2
+c) OSPF
+d) BGP
+Solución: c
+Justificación: OSPF difunde cambios en el estado de los enlaces y cada router recalcula el camino de menor coste con Dijkstra, por lo que converge más rápido ante cambios.
+
+Pregunta 1395: Sobre el protocolo IPv6 es cierto que:
+a) Emplea direcciones IP compatibles con la versión IPv4
+b) Define una dirección de difusión en cada red IPv6
+c) Emplea un tamaño de cabecera igual que en la versión IPv4
+d) Ningún interfaz de red puede emplear una dirección IPv6 previamente asignada a otro interfaz de red
+Solución: d
+Justificación: Las direcciones IPv6 se asignan a interfaces y deben ser únicas; un interfaz no puede utilizar simultáneamente una dirección ya asignada a otro.
+
+Pregunta 1396: Sobre el algoritmo de Inicio Lento en el control de la congestión que realiza el protocolo TCP es cierto que:
+a) El valor de la ventana de emisión se incrementa en el tamaño del MSS cada vez que se recibe un ACK
+b) El valor de la ventana de congestión se incrementa en el tamaño del MSS cada vez que se recibe un ACK
+c) El valor de la ventana de recepción se incrementa en el tamaño del MSS cada vez que se recibe un ACK
+d) El valor de la ventana de recepción siempre es el valor mínimo de la ventana de emisión y la ventana de congestión
+Solución: b
+Justificación: Durante Inicio Lento, TCP incrementa la ventana de congestión Wc en un MSS por cada ACK recibido, produciendo aproximadamente un crecimiento exponencial por cada RTT.

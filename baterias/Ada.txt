@@ -5906,3 +5906,325 @@ b) El valor de la mochila continua correspondiente.
 c) El valor de la mochila discreta que se obtiene usando un algoritmo voraz basado en el valor específico de los objetos.
 Solución: c
 Justificación: Una cota pesimista para maximización debe ser un valor alcanzable o, al menos, no superior al óptimo real. La alternativa c) usa El valor de la mochila discreta que se obtiene usando un algoritmo voraz basado en el valor específico de los objetos: eso proporciona una referencia inferior útil para comparar soluciones, a diferencia de cotas optimistas que relajan restricciones y pueden sobreestimar.
+
+### Examen 2026:
+
+ID: 790
+Pregunta 1: El peor caso del algoritmo Quickselect para encontrar el k-ésimo mínimo se produce cuando:
+a) Nunca se da el caso de que k = p, siendo p la posición ocupada por el pivote tras un particionado.
+b) Tras cada particionado, el pivote p queda en un extremo del vector.
+c) Se dan simultáneamente las dos condiciones anteriores.
+Solución: c
+Justificación: El peor caso de Quickselect se produce cuando el pivote queda siempre en un extremo y además no coincide con la posición buscada k. Así, tras cada particionado solo se descarta el pivote y el problema se reduce de n a n-1, dando coste cuadrático en el peor caso.
+
+ID: 791
+Pregunta 2: Sea un algoritmo divide y vencerás cuya ecuación de recurrencia tiene la forma T(n) = hT(n/b) + 1. ¿Cuál de las siguientes afirmaciones sobre su complejidad temporal asintótica es cierta?:
+a) Si h = 16, la complejidad asintótica es la misma para b = 2 y para b = 4.
+b) Si b = 4, la complejidad asintótica es la misma para h = 1 y para h = 2.
+c) Si h = b, la complejidad asintótica está en Θ(n).
+Solución: c
+Justificación: Aplicando el Teorema Maestro, T(n)=hT(n/b)+1 tiene coste Θ(n^(log_b h)) cuando h>1. Si h=b, entonces log_b h = 1, por lo que T(n)=Θ(n).
+
+ID: 792
+Pregunta 3: El mejor caso del algoritmo Quickselect se produce cuando:
+a) Se dan simultáneamente las dos condiciones anteriores.
+b) k = p, siendo p la posición ocupada por el pivote, tras el primer particionado.
+c) Tras cada particionado, el pivote p queda en el centro de vector.
+Solución: b
+Justificación: El mejor caso ocurre cuando, tras el primer particionado, el pivote queda exactamente en la posición buscada. Aunque el particionado cuesta Θ(n), no se realizan llamadas recursivas posteriores.
+
+ID: 793
+Pregunta 4: En la resolución de la versión general del problema del laberinto mediante ramificación y poda, guardar en el nodo una matriz booleana con las casillas ya visitadas en ese camino parcial:
+a) Puede hacer que la solución mediante ramificación y poda sea más lenta que la de vuelta atrás debido al coste de copiar la matriz.
+b) Las dos respuestas anteriores son ciertas.
+c) Permite evitar caminos con ciclos.
+Solución: b
+Justificación: Guardar la matriz de visitados permite evitar ciclos, pero copiar esa matriz en cada nodo puede aumentar mucho el coste. Por tanto, ambas afirmaciones son ciertas.
+
+ID: 794
+Pregunta 5: ¿Qué papel puede tener la mochila continua en ramificación y poda para resolver la mochila discreta?:
+a) Puede usarse para obtener una cota optimista, porque al permitir fraccionar objetos se obtiene un valor al menos tan bueno como el de la mochila discreta.
+b) Sustituye completamente a la mochila discreta, porque ambas tienen siempre la misma solución óptima.
+c) Puede usarse como cota pesimista, porque al permitir fraccionar objetos siempre obtiene un valor menor que cualquier solución discreta.
+Solución: a
+Justificación: En maximización, la mochila continua relaja la restricción de no fraccionar objetos. Por eso puede alcanzar un valor mayor o igual que la mochila discreta, funcionando como cota optimista.
+
+ID: 795
+Pregunta 6: En el problema del corte de tubos visto en clase, supongamos ahora que cada corte realizado tiene un coste fijo c. ¿Cómo debería modificarse la formulación mediante Programación Dinámica para tener en cuenta este nuevo coste?:
+a) El problema dejaría de tener subestructura óptima y, por tanto, no podría resolverse mediante Programación Dinámica.
+b) Podría continuar resolviéndose igual que hasta ahora, aunque evidentemente la solución podría cambiar.
+c) El problema continuaría teniendo subestructura óptima, pero el almacén necesario pasaría a ser bidimensional.
+Solución: b
+Justificación: El coste fijo por corte puede incorporarse restándolo en la recurrencia cuando se divide el tubo. La estructura del problema no cambia de forma esencial, aunque la solución óptima sí puede variar.
+
+ID: 796
+Pregunta 7: ¿Cuál de las siguientes listas recoge técnicas o variantes habituales al aplicar Programación Dinámica?:
+a) Fuerza bruta, ordenación rápida, recorrido en anchura, vuelta atrás y búsqueda binaria.
+b) Cota optimista, cota pesimista, podas, heurística admisible y cola de prioridad.
+c) Recursiva ingenua, memoización, iterativa, iterativa con reducción espacial y extracción de la solución óptima.
+Solución: c
+Justificación: En Programación Dinámica se estudian versiones recursivas ingenuas, memoización, implementación iterativa, reducción espacial y reconstrucción de la solución óptima desde el almacén.
+
+ID: 797
+Pregunta 8: Si el coste temporal de un algoritmo pertenece a O(n^2), ¿qué estamos indicando?:
+a) Que su coste está acotado superiormente por una función proporcional a n^2 para tallas suficientemente grandes.
+b) Que su coste está acotado inferiormente por una función proporcional a n^2 para cualquier talla.
+c) Que su coste exacto es siempre n^2 operaciones elementales.
+Solución: a
+Justificación: La notación O representa una cota superior asintótica. No indica coste exacto, sino que el crecimiento queda acotado por una función proporcional a n^2 para tamaños suficientemente grandes.
+
+ID: 798
+Pregunta 9: La poda por memoria, es decir, descartar una solución parcial que lleva, con un coste peor, al mismo estado que otra solución parcial explorada anteriormente, reduce significativamente el tiempo de cómputo en el siguiente problema:
+a) Mochila con pesos continuos y objetos no fraccionables.
+b) Viajante de comercio.
+c) Función compuesta mínima.
+Solución: c
+Justificación: En la función compuesta mínima pueden alcanzarse los mismos valores mediante distintas secuencias de funciones. Si se llega al mismo estado con más coste o profundidad, se puede podar esa rama.
+
+ID: 799
+Pregunta 10: En un algoritmo voraz, ¿cuál es la función del criterio voraz?:
+a) Elegir, en cada paso, la alternativa que parece más prometedora según una regla local, con el objetivo de construir una solución óptima.
+b) Calcular la complejidad temporal del algoritmo, sin influir en las decisiones tomadas.
+c) Garantizar que cualquier decisión local conduce siempre a una solución óptima, independientemente del problema.
+Solución: a
+Justificación: El criterio voraz decide qué alternativa local se toma en cada paso. Que esa estrategia garantice el óptimo depende del problema, no ocurre siempre.
+
+ID: 800
+Pregunta 11: ¿Qué expresa una cota inferior asintótica del coste de un algoritmo?:
+a) Una función que limita por encima el crecimiento del coste del algoritmo para tallas suficientemente grandes.
+b) Una función que limita por debajo el crecimiento del coste del algoritmo para tallas suficientemente grandes.
+c) Una función que calcula exactamente el espacio ocupado por todas las variables del programa.
+Solución: b
+Justificación: Una cota inferior se expresa con Ω y limita por debajo el crecimiento del coste. Indica que el algoritmo necesita al menos ese orden de crecimiento asintótico.
+
+ID: 801
+Pregunta 12: Si un algoritmo A tiene complejidad O(√n) y otro B tiene complejidad O(log_m n), donde m > 1 puede ser cualquier número natural, ¿cuál es la afirmación correcta?:
+a) A es asintóticamente más eficiente que B.
+b) Para determinar cuál es asintóticamente más eficiente es necesario disponer de más información.
+c) B es asintóticamente más eficiente que A.
+Solución: c
+Justificación: Para cualquier base m > 1 válida, log_m n pertenece a Θ(log n). El crecimiento logarítmico es menor que √n, por lo que B es asintóticamente más eficiente.
+
+ID: 802
+Pregunta 13: ¿Qué es una cota optimista en un problema de maximización?:
+a) Una estimación mayor o igual que el mejor valor que podría alcanzarse desde un nodo.
+b) Una función que necesariamente calcula exactamente el valor de la solución óptima.
+c) Una estimación menor o igual que el valor de cualquier solución factible alcanzable desde un nodo.
+Solución: a
+Justificación: En maximización, una cota optimista estima por arriba el mejor valor alcanzable. Sirve para decidir si una rama todavía podría mejorar la mejor solución conocida.
+
+ID: 803
+Pregunta 14: ¿Qué condición debería cumplirse para poder garantizar una complejidad temporal O(log n) en Quickselect?:
+a) Que tras particionar el vector, el elemento buscado coincida con la posición del pivote.
+b) Que se cumpla el teorema de reducción.
+c) Eso no es posible.
+Solución: c
+Justificación: Quickselect necesita al menos un particionado, y particionar un vector cuesta Θ(n). Por tanto, no se puede garantizar O(log n).
+
+ID: 804
+Pregunta 15: ¿Qué añade ramificación y poda al resolver un laberinto respecto a una búsqueda con vuelta atrás?:
+a) Permite establecer un criterio para priorizar los nodos factibles a explorar.
+b) Permite atravesar casillas bloqueadas si con ello se llega antes a la salida.
+c) Evita tener que comprobar si una casilla ya ha sido visitada, reduciendo el coste espacial del algoritmo.
+Solución: a
+Justificación: Ramificación y poda añade una estrategia de exploración basada en nodos vivos y cotas, normalmente usando una prioridad para expandir antes los nodos más prometedores.
+
+ID: 805
+Pregunta 16: Un repartidor tiene que repartir n paquetes de gran tamaño. Solo le cabe un paquete en el camión, por lo que tiene que volver al almacén tras cada reparto. El reparto del paquete i-ésimo tarda ti minutos. Se desea minimizar la suma de los tiempos de espera de todos los clientes. El criterio voraz que encuentra la solución óptima es:
+a) No existe criterio voraz que garantice encontrar la solución óptima.
+b) Repartir primero los paquetes con tiempo de reparto más bajo.
+c) Repartir primero los paquetes con tiempo de reparto más alto.
+Solución: b
+Justificación: Para minimizar la suma de tiempos de espera, conviene hacer primero las tareas más cortas. Es el criterio voraz clásico de ordenar por tiempo creciente.
+
+ID: 806
+Pregunta 17: ¿Qué problema aparece al intentar aplicar Programación Dinámica directamente a un laberinto en versión general?:
+a) Que el laberinto deja de tener casillas accesibles e inaccesibles.
+b) Que pueden aparecer ciclos entre casillas, dificultando definir un orden de resolución de subproblemas sin dependencias circulares.
+c) Que Programación Dinámica no permite almacenar resultados parciales.
+Solución: b
+Justificación: En la versión general del laberinto pueden aparecer ciclos porque se permiten más movimientos. Eso impide definir fácilmente una tabla de subproblemas con orden acíclico simple.
+
+ID: 807
+Pregunta 18: ¿Cuándo decimos que un problema tiene subestructura óptima?:
+a) Cuando cualquier solución factible del problema puede construirse a partir de soluciones no óptimas de sus subproblemas.
+b) Cuando el problema puede dividirse en subproblemas más pequeños.
+c) Cuando una solución óptima del problema puede construirse eficientemente a partir de soluciones óptimas de sus subproblemas.
+Solución: c
+Justificación: La subestructura óptima significa que la solución óptima global se obtiene combinando soluciones óptimas de subproblemas.
+
+ID: 808
+Pregunta 19: ¿Qué es una cota optimista en un problema de minimización?:
+a) Una estimación mayor o igual que el coste de una solución factible alcanzable desde un nodo.
+b) Una estimación menor o igual que el menor coste que podría alcanzarse desde un nodo.
+c) Una función que necesariamente calcula exactamente el valor de la solución óptima.
+Solución: b
+Justificación: En minimización, la cota optimista es un límite inferior. No puede superar el coste mínimo real que podría obtenerse desde ese nodo.
+
+ID: 809
+Pregunta 20: Respecto a las versiones recursiva con memoización e iterativa del esquema de Programación Dinámica:
+a) Dependiendo del problema, la versión recursiva puede realizar menos cálculos que la iterativa.
+b) La versión recursiva siempre realiza menor cantidad de cálculos que la iterativa, pero la iterativa es la única opción para lenguajes de programación que no soportan la recursividad.
+c) Ambas versiones siempre realizan la misma cantidad de cálculos.
+Solución: a
+Justificación: La memoización puede resolver solo los subproblemas que realmente se necesitan, mientras que la versión iterativa suele rellenar sistemáticamente la tabla.
+
+ID: 810
+Pregunta 21: ¿Cuál de las siguientes afirmaciones es correcta respecto a Prim y Kruskal?:
+a) Ambos algoritmos tienen siempre la misma complejidad temporal.
+b) Kruskal suele ser preferible en grafos muy densos.
+c) Prim suele ser preferible cuando el grafo es muy denso.
+Solución: c
+Justificación: Kruskal ordena aristas y suele ser adecuado en grafos dispersos. Prim suele ser mejor opción en grafos densos, especialmente con representaciones apropiadas.
+
+ID: 811
+Pregunta 22: En un algoritmo de Ramificación y Poda para resolver el problema del viajante de comercio, una posible cota optimista para un nodo del árbol de búsqueda puede obtenerse:
+a) Calculando un recorrido completo factible mediante un algoritmo voraz.
+b) Calculando el coste de un árbol de recubrimiento de coste mínimo sobre los vértices aún no visitados.
+c) Suponiendo que todas las aristas restantes tienen coste cero.
+Solución: b
+Justificación: Un árbol de recubrimiento mínimo sobre los vértices pendientes da una estimación inferior del coste necesario para completar el recorrido, por lo que funciona como cota optimista en minimización.
+
+ID: 812
+Pregunta 23: Si representamos un montículo binario en un vector indexado desde la posición 0, ¿cuáles son las expresiones correctas para determinar las posiciones del hijo izquierdo y del hijo derecho de un nodo en el índice i?:
+a) Hijo izquierdo: 2i + 1, hijo derecho: 2i + 2.
+b) Hijo izquierdo: 2i - 1, hijo derecho: 2i + 1.
+c) Hijo izquierdo: i/2, hijo derecho: 2i.
+Solución: a
+Justificación: En un heap almacenado desde índice 0, los hijos del nodo i están en 2i+1 y 2i+2. El padre está en floor((i-1)/2).
+
+ID: 813
+Pregunta 24: Sea a > 1 una constante cualquiera. ¿Cuál de las siguientes afirmaciones es necesariamente cierta?:
+a) n! ∈ O(a^n).
+b) Ninguna de las otras dos opciones es correcta.
+c) a^n ∈ O(n!).
+Solución: c
+Justificación: Si a es una constante fija mayor que 1, el factorial termina creciendo más rápido que cualquier exponencial de base constante. Por tanto, a^n queda acotada superiormente por n!.
+
+ID: 814
+Pregunta 25: En el problema del laberinto, elegir el orden en el que se generan los nodos para los 8 posibles movimientos:
+a) Tiene impacto en el tiempo de ejecución en la solución mediante vuelta atrás.
+b) Las dos respuestas anteriores son ciertas.
+c) Tiene impacto en el tiempo de ejecución en la solución mediante Ramificación y Poda cuando se emplea la cota optimista como criterio para priorizar nodos.
+Solución: b
+Justificación: El orden de generación afecta a cuándo aparecen soluciones buenas y a cuántas ramas se podan. Esto influye tanto en vuelta atrás como en ramificación y poda.
+
+ID: 815
+Pregunta 26: Un vehículo debe recorrer una carretera de longitud conocida. A lo largo del recorrido existen estaciones de servicio situadas en posiciones conocidas. El depósito permite recorrer una distancia limitada con un llenado completo. Se desea minimizar el número de repostajes necesarios para llegar al destino. ¿Qué técnica algorítmica es la más apropiada para resolver este problema?:
+a) Un algoritmo voraz que, cuando sea necesario repostar, seleccione la estación más lejana que pueda alcanzarse con el combustible disponible.
+b) Un algoritmo de ramificación y poda que evalúe todas las secuencias posibles de repostaje.
+c) Un algoritmo de programación dinámica que evalúe todas las secuencias posibles de repostaje.
+Solución: a
+Justificación: Para minimizar repostajes, la estrategia óptima es avanzar siempre hasta la estación más lejana alcanzable antes de repostar. Es un caso típico de algoritmo voraz.
+
+ID: 816
+Pregunta 27: ¿Qué papel puede tener una solución factible de la mochila discreta en ramificación y poda?:
+a) Puede usarse para obtener una cota pesimista, porque proporciona un valor alcanzable que ya cumple las restricciones del problema discreto.
+b) Puede usarse para obtener una cota optimista, porque permite fraccionar objetos y superar cualquier solución discreta.
+c) Sustituye a la cota optimista, porque una solución factible siempre coincide con la solución óptima.
+Solución: a
+Justificación: En maximización, una solución factible proporciona un valor real alcanzable. Por eso actúa como cota pesimista o mejor solución en curso.
+
+ID: 817
+Pregunta 28: ¿Qué permite hacer la técnica de extracción de decisiones óptimas a partir del almacén?:
+a) Reducir siempre la complejidad temporal del algoritmo a Θ(1).
+b) Reconstruir la secuencia de decisiones que conduce al valor óptimo calculado por Programación Dinámica.
+c) Evitar recalcular el valor óptimo de cada subproblema.
+Solución: b
+Justificación: Una vez calculado el almacén de Programación Dinámica, la extracción permite reconstruir qué decisiones producen el valor óptimo.
+
+ID: 818
+Pregunta 29: ¿Los algoritmos voraces encuentran siempre la mejor solución posible de forma rápida?:
+a) No, los algoritmos voraces nunca pueden encontrar soluciones óptimas, solo soluciones aproximadas.
+b) Sí, siempre encuentran la solución óptima porque toman en cada paso la mejor decisión local.
+c) No necesariamente; son rápidos, pero solo garantizan la solución óptima cuando el problema cumple las condiciones adecuadas para aplicar una estrategia voraz.
+Solución: c
+Justificación: Un algoritmo voraz toma decisiones locales, pero solo es óptimo en problemas donde se puede demostrar que esa elección local conduce a una solución global óptima.
+
+ID: 819
+Pregunta 30: Al implementar un algoritmo de Vuelta Atrás para el problema de la mochila discreta, ¿qué ventaja fundamental aporta inicializar la variable del mejor valor con el resultado de un algoritmo voraz para la mochila discreta en lugar de con el valor mínimo representable?:
+a) Permite el uso de cotas pesimistas para los nodos internos del árbol de búsqueda.
+b) Permite reducir la complejidad temporal del algoritmo en el peor de los casos.
+c) Permite realizar podas por cota optimista desde el primer nivel del árbol de exploración.
+Solución: c
+Justificación: Si ya tenemos una solución factible inicial, podemos comparar desde el principio las cotas optimistas de los nodos con esa mejor solución conocida y podar antes.
+
+ID: 820
+Pregunta 31: ¿Qué técnica encaja mejor con la versión general del laberinto?:
+a) Algoritmo voraz, porque elegir en cada paso la casilla aparentemente más cercana a la salida garantiza siempre el camino óptimo.
+b) Vuelta atrás, porque permite explorar sistemáticamente las alternativas de movimiento y retroceder cuando un camino parcial no conduce a una solución válida.
+c) Programación dinámica iterativa directa, porque con 8 movimientos siempre existe un orden simple de cálculo de las casillas.
+Solución: b
+Justificación: En la versión general hay ciclos y múltiples caminos posibles. Vuelta atrás permite explorar alternativas y retroceder cuando una rama no sirve.
+
+ID: 821
+Pregunta 32: ¿Cuál es la diferencia principal entre aplicar el Teorema Maestro y resolver una recurrencia por reducción?:
+a) El Teorema Maestro solo sirve para algoritmos iterativos, mientras que la reducción solo sirve para algoritmos recursivos.
+b) La reducción siempre da una solución exacta, mientras que el Teorema Maestro solo puede dar cotas inferiores.
+c) El Teorema Maestro se aplica directamente a recurrencias de la forma T(n)=aT(n/b)+f(n), mientras que la reducción transforma la recurrencia para obtener una forma más sencilla de resolver.
+Solución: c
+Justificación: El Teorema Maestro se aplica a una familia concreta de recurrencias. La reducción consiste en transformar una recurrencia hasta una forma más manejable.
+
+ID: 822
+Pregunta 33: ¿Cuál de las siguientes NO es una cota optimista válida para el problema del viajante de comercio?:
+a) El coste del árbol de recubrimiento de coste mínimo que se construye partiendo del camino parcial.
+b) El coste del camino parcial actual más el de la arista que va de la última ciudad del camino parcial a la primera.
+c) El coste del camino parcial actual, asumiendo que no se va a pasar por más ciudades.
+Solución: b
+Justificación: En TSP, cerrar directamente el camino parcial con la arista de la última ciudad a la primera puede sobreestimar el coste real de completar pasando por ciudades intermedias. Por eso no es una cota optimista válida en general.
+
+ID: 823
+Pregunta 34: ¿Qué relación tiene la técnica de vuelta atrás con el espacio de soluciones?:
+a) Explora una solución elegida al azar y la acepta si es factible. Luego vuelve atrás y explora otra solución al azar.
+b) Explora sistemáticamente el espacio de soluciones, descartando ramas cuando puede determinar que no conducen a soluciones válidas o mejores.
+c) Explora únicamente la primera rama del árbol de soluciones, sin retroceder nunca.
+Solución: b
+Justificación: Vuelta atrás recorre sistemáticamente el árbol de soluciones y usa podas para evitar ramas que no pueden conducir a soluciones válidas u óptimas.
+
+ID: 824
+Pregunta 35: En vuelta atrás, ¿es necesario explorar siempre todo el espacio de soluciones completo?:
+a) No necesariamente; pueden evitarse ramas mediante podas cuando se sabe que no pueden conducir a una solución válida o mejor.
+b) No, porque vuelta atrás solo funciona con una única solución candidata.
+c) Sí, siempre deben generarse todas las combinaciones posibles, aunque se sepa que no son factibles.
+Solución: a
+Justificación: La poda es precisamente lo que permite evitar partes del espacio de soluciones que no pueden mejorar o no pueden ser factibles.
+
+ID: 825
+Pregunta 36: El empleo de la cota pesimista parcial en algoritmos de Ramificación y Poda:
+a) Facilita extraer las decisiones que conducen al valor óptimo.
+b) Permite actualizar la mejor solución en curso antes de llegar a una hoja.
+c) Garantiza tiempos de ejecución más bajos.
+Solución: b
+Justificación: Una cota pesimista parcial puede proporcionar una solución factible alcanzable desde un nodo, permitiendo mejorar la mejor solución conocida antes de llegar a una hoja.
+
+ID: 826
+Pregunta 37: El tamaño de una instancia de problema se define como:
+a) El número de elementos almacenados en memoria.
+b) El número de instrucciones simples que realiza el algoritmo que la procesa.
+c) El número de bits necesarios para codificarla.
+Solución: c
+Justificación: En análisis de algoritmos, el tamaño de una instancia es la cantidad de bits necesarios para representar o codificar dicha instancia.
+
+ID: 827
+Pregunta 38: En el problema de la mochila con pesos continuos y sin fraccionamiento, utilizamos como cota la suma de los valores de los objetos que ya se han seleccionado, es decir, que tienen un 1 en el vector x. Se trata de una cota:
+a) Pesimista.
+b) Ninguna de las dos.
+c) Optimista.
+Solución: a
+Justificación: La suma de los valores ya seleccionados corresponde a un valor alcanzable por una solución parcial factible. En maximización, eso actúa como cota pesimista.
+
+ID: 828
+Pregunta 39: En el problema del laberinto, ¿cuándo tendría más sentido usar ramificación y poda en lugar de solo vuelta atrás?:
+a) Cuando se quiere elegir siempre el movimiento que parece mejor localmente, sin retroceder ni comparar soluciones.
+b) Cuando el laberinto no tiene salida y, por tanto, no existe ningún espacio de soluciones que explorar.
+c) Cuando no basta con encontrar un camino válido, sino que se quiere encontrar el mejor camino según un criterio, como el de menor coste o menor longitud.
+Solución: c
+Justificación: Ramificación y poda es especialmente útil en problemas de optimización, cuando no solo buscamos una solución válida, sino la mejor según una función objetivo.
+
+ID: 829
+Pregunta 40: ¿Cuántas aristas tiene un árbol de recubrimiento de un grafo conexo con n vértices?:
+a) n
+b) n - 1
+c) n + 1
+Solución: b
+Justificación: Todo árbol con n vértices tiene exactamente n - 1 aristas. Un árbol de recubrimiento conserva todos los vértices del grafo, por lo que también tiene n - 1 aristas.

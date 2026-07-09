@@ -6188,3 +6188,1699 @@ b) n - 1
 c) n + 1
 Solución: b
 Justificación: Todo árbol con n vértices tiene exactamente n - 1 aristas. Un árbol de recubrimiento conserva todos los vértices del grafo, por lo que también tiene n - 1 aristas.
+
+###Examen Junio 2025
+
+Pregunta 870: Dada la siguiente función: int exa (string & cad, int pri, int ult){ if (pri>=ult) return 1; else if (cad[pri]==cad[ult]) return exa(cad, pri+1, ult-1); else return 0; } ¿Cuál es su complejidad temporal asintótica en función de n = ult - pri + 1?:
+a) O(log n)
+b) O(n^2)
+c) O(n)
+Solución: c
+Justificación:
+
+Pregunta 871: Al resolver el problema del "Viajante de comercio" mediante vuelta atrás, ¿cuál de estas cotas optimistas se espera que pode mejor el árbol de búsqueda?:
+a) Se ordenan las aristas restantes de menor a mayor distancia y se calcula la suma de las k aristas más cortas, donde k es el número de saltos que nos quedan por dar.
+b) Se multiplica k por la distancia de la arista más corta que nos queda por considerar, donde k es el número de saltos que nos quedan por dar.
+c) Se resuelve el resto del problema usando un algoritmo voraz que añade cada vez al camino el vértice más cercano al último añadido.
+Solución: a
+Justificación:
+
+Pregunta 872: ¿Cuál de las siguientes formulaciones expresa mejor el coste temporal asintótico de la siguiente función? int f(int n) { int count = 0; for (int i = n; i > 0; i /= 2) for (int j = 0; j < 2 * i; j++) count += 1; return count; }:
+a) f(n) = sum_{i=1}^{log n} 4n · (1/2)^i
+b) f(n) = sum_{i=0}^{n/2} sum_{j=0}^{2i} 1
+c) Ninguna de las otras dos opciones es correcta
+Solución: a
+Justificación:
+
+Pregunta 873: Con respecto a la versión general (sin restricciones adicionales) del problema de la mochila sin fraccionamiento, de las siguientes afirmaciones dos son verdaderas y una es falsa, o viceversa. Señala la que difiere de las otras dos.:
+a) ... cumple la propiedad de subestructura óptima y por lo tanto se puede plantear una solución de divide y vencerás
+b) ... no se conoce ninguna reducción en subproblemas que cumpla el teorema de reducción
+c) ... tiene una solución eficiente utilizando programación dinámica
+Solución: c
+Justificación:
+
+Pregunta 874: En un algoritmo de vuelta atrás, ¿se podrían priorizar las expansiones de los nodos con mejor cota optimista de manera que el algoritmo siga siendo de vuelta atrás?:
+a) No, ya no sería de vuelta atrás
+b) Sí, pero a costa de aumentar considerablemente su complejidad temporal
+c) Sí, basta con cambiar la estrategia del búsqueda
+Solución: a
+Justificación:
+
+Pregunta 875: ¿Cuál es el propósito principal de un Heap en el algoritmo de ordenación HeapSort?:
+a) Permitir la extracción repetida del elemento máximo o mínimo de manera eficiente
+b) Lograr una ordenación parcial del vector, es decir, que algunos elementos queden en la posición correcta pero otros no.
+c) Facilitar la inserción eficiente de elementos en el nuevo vector ordenado.
+Solución: a
+Justificación:
+
+Pregunta 876: Si un algoritmo de ramificación y poda utiliza una cola de prioridad con un criterio inadecuado, ¿qué ocurrirá muy probablemente?:
+a) Aumentará considerablemente el número de instancias que están en el caso peor.
+b) Seguirá siendo más eficiente que la vuelta atrás gracias al uso de la cola de prioridad.
+c) Las otras dos opciones son correctas.
+Solución: a
+Justificación:
+
+Pregunta 877: Si el coste temporal de un algoritmo es T(n), ¿cuál de las siguientes situaciones es imposible?:
+a) T(n) ∈ O(n) y T(n) ∈ Θ(n)
+b) T(n) ∈ Ω(n) y T(n) ∈ Θ(n^2)
+c) T(n) ∈ Θ(n) y T(n) ∈ Ω(n^2)
+Solución: c
+Justificación:
+
+Pregunta 878: Asumiendo un modelo de computación en el que los números enteros pueden ser arbitrariamente grandes ¿Cuál es la complejidad temporal asintótica de la siguiente función (en función del tamaño del problema)? unsigned factorial(unsigned n) { if (n == 0 || n == 1) return 1; else return n * factorial(n - 1); }:
+a) Ninguna de las otras dos opciones es cierta
+b) Θ(n)
+c) Θ(log n)
+Solución: a
+Justificación:
+
+Pregunta 879: Decid cuál de estas tres afirmaciones es cierta:
+a) El valor óptimo de la mochila discreta es una cota superior del valor óptimo de la mochila continua correspondiente
+b) El valor óptimo de la mochila continua es una cota superior del valor óptimo de la mochila discreta correspondiente
+c) las otras dos afirmaciones son falsas
+Solución: b
+Justificación:
+
+Pregunta 880: Estamos resolviendo el problema del laberinto (versión general) mediante ramificación y poda empleando una estrategia dirigida de priorización de nodos basada en una cola de prioridad. Recuerda que cada iteración del bucle principal consiste en extraer el nodo de máxima prioridad de la cola, expandirlo, y, para cada nodo expandido: comprobar si es factible, actualizar la solución en curso con la cota pesimista parcial, y añadirlo a la cola si es prometedor. La mejor complejidad asintótica que se puede conseguir para una iteración del bucle principal es::
+a) O(1).
+b) O(log n), siendo n el número de nodos en la cola.
+c) O(n), siendo n el número de nodos en la cola.
+Solución: b
+Justificación:
+
+Pregunta 881: En el algoritmo de Kruskal, ¿qué se selecciona en cada paso?:
+a) El vértice con menor grado en el grafo
+b) La arista de menor peso que conecta un vértice visitado con otro sin visitar
+c) La arista de menor peso que no forma ciclos
+Solución: c
+Justificación:
+
+Pregunta 882: Se pretende obtener la complejidad temporal en el caso más desfavorable de la siguiente función. int exa(vector<int>& v) { int i, sum = 0, n = v.size(); if (n > 0) { int j = n; while (j > 0 && sum < 100) { j = j / 2; sum = 0; for (i = j; i < n; i++) sum += v[i]; } return j; } else return -1; } ¿Cuál de las siguientes formulaciones expresa dicho coste?:
+a) c_s(n) = n · sum_{j=1}^{log n} sum_{i=1}^{j} (1/2)^i ∈ O(n log n)
+b) Las otras dos opciones son ciertas
+c) c_s(n) = sum_{k=1}^{log n + 1} (n - n/2^k) ∈ O(n log n)
+Solución: c
+Justificación:
+
+Pregunta 883: ¿Cuál es la complejidad temporal de la aproximación voraz a la solución de la versión restringida del problema del laberinto?:
+a) O(n + m)
+b) Las otras dos opciones son ambas ciertas
+c) O(max(n, m))
+Solución: b
+Justificación:
+
+Pregunta 884: Respecto a los algoritmos de vuelta atrás, ¿cuál de las siguientes afirmaciones es correcta?:
+a) Siempre encuentran una solución, aunque no siempre sea óptima.
+b) Siempre hallan la mejor solución, aunque requieren mucho tiempo al explorar todas las posibilidades.
+c) Las otras dos afirmaciones son falsas.
+Solución: c
+Justificación:
+
+Pregunta 885: Dado el siguiente programa recursivo: int f( unsigned n ) { if( n == 0 || n == 1 ) return n; return f(n-1) + f(n-2); } si quisiéramos reescribirlo para usar programación dinámica ¿cuál la complejidad espacial más ajustada del algoritmo?:
+a) O(1)
+b) O(n^2)
+c) O(n)
+Solución: a
+Justificación:
+
+Pregunta 886: Estamos resolviendo el problema del laberinto mediante un algoritmo de búsqueda y enumeración. Supongamos que el mejor camino de salida encontrado hasta el momento es de longitud 100. Más adelante, tenemos que decidir acerca de un nodo n del que hemos obtenido una cota optimista que ha resultado ser 80 y una pesimista con valor 90. ¿Cuál de las siguientes afirmaciones es siempre cierta?:
+a) Algo está mal pues la cota pesimista recién calculada no puede ser inferior a 100
+b) Algo está mal pues la cota optimista recién calculada no puede ser inferior a 100
+c) El nodo n podría formar parte de la solución y además, tenemos la certeza de que su cota pesimista es la mejor encontrada hasta el momento
+Solución: c
+Justificación:
+
+Pregunta 887: En la resolución del problema de la función compuesta mínima mediante vuelta atrás, ¿qué ocurriría si no se limitara la profundidad del árbol de llamadas recursivas con valor máximo M?:
+a) El programa acabaría encontrando la solución óptima, pero a costa de una complejidad temporal prohibitiva.
+b) Se podría conseguir que el programa siempre encontrara solución poniendo un 1 en el vector solución antes que un 0.
+c) Salvo en casos muy raros, el programa nunca acabaría.
+Solución: c
+Justificación:
+
+Pregunta 888: Cuál es el coste temporal asintótico de la siguiente función? int f(int n) { int count = 0; for (int i = n; i > 0; i -= 2) for (int j = i; j >0 ; j /= 2) count += 1; return count; }:
+a) O(n)
+b) O(n log n)
+c) O(log^2 n)
+Solución: b
+Justificación:
+
+Pregunta 889: Dada la versión restringida del problema del laberinto m x n, estamos interesados, no solo en obtener la longitud del camino de salida más corto; también nos interesa la longitud del camino más corto entre el origen y cualquier casilla accesible del laberinto ¿Con qué complejidad temporal, en función de n y m, podría obtenerse?:
+a) Θ(m · n)
+b) Ninguna de las otras dos opciones es correcta.
+c) Θ(3^(m+n))
+Solución: a
+Justificación:
+
+Pregunta 890: Respecto a los algoritmos voraces, ¿cuál de las siguientes afirmaciones es correcta?:
+a) Siempre encuentran una solución, aunque no siempre sea óptima.
+b) Siempre hallan la mejor solución, aunque requieren mucho tiempo al explorar todas las posibilidades.
+c) Las otras dos afirmaciones son falsas.
+Solución: c
+Justificación:
+
+Pregunta 891: Sobre el esquema de programación dinámica, dos afirmaciones son verdaderas y una falsa, o viceversa. Señala la que difiere de las otras dos.:
+a) Se apoya en el esquema de divide y vencerás, siendo una mejora de éste en términos de eficiencia.
+b) Es recomendable, aunque no imprescindible, que el problema cumpla con la condición de estructura óptima.
+c) Solo se refiere a la conversión de un algoritmo recursivo en iterativo para mejorar su eficiencia.
+Solución: a
+Justificación:
+
+Pregunta 892: Asumiendo un modelo de computación en el que el número de bits utilizados para representar enteros está acotado, ¿Cuál es la complejidad temporal asintótica de la siguiente función (en función del tamaño del problema)? unsigned factorial(unsigned n) { if (n == 0 || n == 1) return 1; else return n * factorial(n - 1); }:
+a) En este caso no tiene sentido hablar de complejidad temporal asintótica
+b) Θ(n)
+c) Θ(log n)
+Solución: a
+Justificación:
+
+Pregunta 893: La búsqueda binaria puede considerarse una instancia del esquema::
+a) Divide y vencerás.
+b) Programación dinámica.
+c) Algoritmo voraz.
+Solución: a
+Justificación:
+
+Pregunta 894: En la resolución del problema del laberinto (versión general), el uso de una cota pesimista parcial sirve para::
+a) Evitar ciclos.
+b) Descartar nodos cuando se llega a una posición del mapa mediante un camino más largo que el mejor camino para llegar a esa posición.
+c) Mejorar la solución en curso antes de llegar a una hoja.
+Solución: c
+Justificación:
+
+Pregunta 895: Indica cuál de estos criterios para ordenar la lista de nodos vivos permite resolver más rápido el problema de la función compuesta mínima::
+a) Búsqueda en anchura.
+b) Búsqueda en profundidad.
+c) Ambos criterios son válidos y no afectan al tiempo de ejecución.
+Solución: a
+Justificación:
+
+Pregunta 896: Respecto a la estrategia de ramificación y poda...:
+a) Siempre produce algoritmos más eficientes que la de vuelta atrás.
+b) La principal diferencia con la de vuelta atrás es el uso de estrategias Least Cost.
+c) Las otras dos afirmaciones son ciertas.
+Solución: b
+Justificación:
+
+Pregunta 897: Dada la versión restringida del problema del laberinto resuelto mediante programación dinámica iterativa comenzando en la entrada al laberinto. ¿Qué representa el contenido de cada casilla (i, j) del almacén?:
+a) La longitud del camino más corto desde esa casilla hasta el destino.
+b) La longitud del camino más corto que llega a esa casilla desde el origen.
+c) La longitud del camino más corto desde esa casilla hasta el destino pero solo si la casilla forma parte del camino óptimo.
+Solución: b
+Justificación:
+
+Pregunta 898: Estamos resolviendo el problema del laberinto mediante un algoritmo de búsqueda y enumeración. Supongamos que nos encontramos en un nodo interno n situado en un nivel x del árbol de estados posibles. ¿Qué podemos decir acerca del valor de x?:
+a) Es una cota pesimista de n
+b) Es una cota optimista de n
+c) Por sí solo, x no es cota, ni optimista ni pesimista
+Solución: b
+Justificación:
+
+Pregunta 899: En cuanto al problema del cambio, que consiste en formar una suma M con el mínimo número de monedas posibles, extraídas (con repetición) de un conjunto C::
+a) Es posible diseñar una solución basada en el esquema divide y vencerás que siempre encuentra el valor óptimo.
+b) Es posible diseñar una solución voraz que siempre encuentra el valor óptimo.
+c) Las otras dos opciones son correctas.
+Solución: a
+Justificación:
+
+Pregunta 900: Dada la versión general del problema del laberinto m x n, la distancia de Manhattan entre las casillas (i, j) y (m, n) viene dada por la suma del número movimientos del tipo horizontal que quedan hasta llegar al extremo derecho del laberinto (n - j) y los del tipo vertical que quedan hasta llegar al extremo inferior del laberinto (m - i). ¿Para qué puede resultar útil esta distancia? (d_manhattan(i, j) = n - j + m - i):
+a) Para obtener cotas optimistas
+b) Para obtener cotas pesimistas
+c) Ninguna de las otras dos opciones es válida
+Solución: c
+Justificación:
+
+Pregunta 901: Indica cuál de estas posibles cotas pesimistas para el problema del laberinto (versión general) sería la más ajustada::
+a) La longitud del camino actual más la de su continuación hasta el final del mapa mediante un algoritmo voraz que sólo considera movimientos hacia E, SE o S.
+b) La longitud del camino actual.
+c) La longitud del camino actual más la de su continuación hasta el final del mapa mediante un algoritmo de programación dinámica que sólo considera movimientos hacia E, SE o S.
+Solución: c
+Justificación:
+
+Pregunta 902: En la resolución del problema de corte de tubos mediante programación dinámica::
+a) La programación dinámica recursiva (memoización) siempre resuelve menos subproblemas que la programación dinámica iterativa.
+b) La programación dinámica recursiva (memoización), dependiendo de la instancia del problema, puede resolver menos subproblemas que la programación dinámica iterativa.
+c) La programación dinámica recursiva (memoización) y la programación dinámica iterativa siempre resuelven los mismos subproblemas.
+Solución: b
+Justificación:
+
+Pregunta 903: Disponemos de dos funciones de coste f(n) y g(n) tal que f ∈ O(g). ¿Puede existir un valor x para el que f(x) > g(x)?:
+a) Sí, pero también existirá un valor n0 tal que @n>=n0 f(n) <= g(n).
+b) Sí, y además es posible que el valor n0 tal que @n>=n0 f(n) <= g(n) no exista.
+c) No, no puede existir ese valor x.
+Solución: b
+Justificación:
+
+Pregunta 904: Di cuál de estos resultados de coste temporal asintótico es falsa:
+a) La ordenación de un vector usando el algoritmo Quicksort requiere en el peor caso un tiempo en Ω(n^2).
+b) La ordenación de un vector usando el algoritmo Mergesort requiere en el peor caso un tiempo en Ω(n^2).
+c) La búsqueda binaria en un vector ordenado requiere en el peor caso un tiempo en O(log n).
+Solución: b
+Justificación:
+
+Pregunta 905: Sea g(n) = sum_{j=0}^{log_2 n} n · 4^j. Suponiendo n -> ∞, di cuál de las siguientes afirmaciones es cierta:
+a) g(n) ∈ O(n^2 log n^2)
+b) g(n) ∈ Ω(n^2)
+c) g(n) ∈ Θ(n^2)
+Solución: b
+Justificación:
+
+Pregunta 906: En un problema de minimización mediante ramificación y poda::
+a) La cota pesimista parcial de un nodo tiene que ser siempre mayor o igual que la cota pesimista del nodo inicial.
+b) La cota pesimista parcial de un nodo tiene que ser siempre menor o igual que la mejor solución en curso.
+c) Ninguna de las otras dos opciones es correcta.
+Solución: c
+Justificación:
+
+Pregunta 907: Sobre el problema del "Viajante de comercio" resuelto mediante vuelta atrás, dos afirmaciones son verdaderas y una falsa, o viceversa. Señala la que difiere de las otras dos.:
+a) Aún con una implementación sin cotas, es un problema con complejidad temporal abordable.
+b) El cálculo incremental del recorrido y el uso de cotas (pesimistas y optimistas) reducen notablemente la complejidad temporal en el peor caso.
+c) Las otras dos afirmaciones son falsas.
+Solución: c
+Justificación:
+
+Pregunta 908: En un algoritmo de ramificación y poda, conforme se va completando un nodo, ¿qué ocurre con sus cotas?:
+a) Su cota pesimista debería aproximarse a la mejor solución que puede obtenerse a partir de ese nodo.
+b) Su cota optimista debería aproximarse a la mejor solución que puede obtenerse a partir de ese nodo.
+c) Las otras dos afirmaciones son ciertas.
+Solución: c
+Justificación:
+
+Pregunta 909: La solución voraz del problema de la mochila continua, es decir, con objetos fraccionables, tiene una complejidad temporal asintótica de::
+a) O(log n)
+b) O(n)
+c) O(n log n)
+Solución: c
+Justificación:
+
+
+###Examen Julio 2025
+
+Pregunta 910: En algoritmos de optimización basados en búsqueda, ¿cuál es el objetivo principal de calcular cotas pesimistas?:
+a) Disponer de una solución factible que permita comparar y podar nodos futuros con peores cotas optimistas.
+b) Estimar el mejor coste posible alcanzable desde ese nodo, y así decidir si vale la pena seguir explorándolo.
+c) Determinar de antemano qué nodos alcanzarán la solución óptima sin necesidad de explorarlos.
+Solución: a
+Justificación:
+
+Pregunta 911: En el contexto de los algoritmos de búsqueda mediante la exploración de árboles de estados posibles, ¿qué se entiende por estrategia de búsqueda?:
+a) El criterio que garantiza explorar todos los nodos con posibilidades de formar parte de la solución óptima.
+b) El criterio por el que se descartan nodos mediante podas o cotas.
+c) El criterio que determina el orden en que se exploran los nodos del espacio de soluciones.
+Solución: c
+Justificación:
+
+Pregunta 912: Las soluciones factibles a un problema de optimización deben cumplir dos restricciones y queremos resolver el problema mediante vuelta atrás o ramificación y poda. ¿Cuál de las siguientes afirmaciones es cierta?:
+a) La cota optimista usada para podar se puede basar en relajar una cualquiera de las dos restricciones.
+b) La cota optimista usada para podar se debe basar en relajar ambas restricciones simultáneamente.
+c) La cota optimista usada para podar nunca se puede basar en la relajación de ninguna de las restricciones que deben cumplir las soluciones factibles.
+Solución: a
+Justificación:
+
+Pregunta 913: ¿Cuál de las siguientes formulaciones expresa mejor el número de llamadas recursivas que hace Quicksort en el mejor de los casos?:
+a) sum_{i=0}^{n} log n
+b) sum_{i=0}^{log n} 2^i
+c) sum_{i=0}^{log n} 1
+Solución: b
+Justificación:
+
+Pregunta 914: De las siguientes afirmaciones, o bien dos son verdaderas y una es falsa, o bien dos son falsas y una es verdadera. Marca la que (en este sentido) es distinta a las otras dos.:
+a) O(n^n) ⊂ O(n!)
+b) La complejidad temporal de Quicksort tomando como pivote un elemento al azar, es O(n^2) y Ω(n log n)
+c) O(3^n) ⊂ O(2^n)
+Solución: b
+Justificación:
+
+Pregunta 915: Si lim_{n->∞} g(n)/f(n) = 0, ¿cuál de las siguientes expresiones NO puede darse?:
+a) f(n) ∉ Θ(g(n))
+b) g(n) ∉ Θ(f(n))
+c) g(n) ∈ Ω(f(n))
+Solución: c
+Justificación:
+
+Pregunta 916: ¿Qué hace la siguiente función? void f( vector<int>&A ) { priority queue<int>pq; for( auto a : A ) pq.push(a); A.clear(); while( !pq.empty() ) { A.push_back(pq.top()); pq.pop(); } }:
+a) Nada, deja el vector como estaba
+b) Ordena el vector A
+c) Invierte el vector A (el último elemento quedará el primero)
+Solución: b
+Justificación:
+
+Pregunta 917: Con respecto al tamaño del problema, al que llamaremos n, ¿qué complejidad temporal tiene la siguiente función? (priority queue<int>pq( begin(A), end(A) ) construye un heap a partir de los datos que hay en el vector A. ) void f( vector<int>&A ) { priority queue<int>pq( begin(A), end(A) ); A.clear(); while( !pq.empty() ) { A.push_back(pq.top()); pq.pop(); } }:
+a) Θ(n log n)
+b) Θ(n^2)
+c) Ninguna de las otras dos opciones es correcta
+Solución: a
+Justificación:
+
+Pregunta 918: Con respecto estas dos versiones Quicksort, la que escoge como pivote el primer elemento del vector y la que toma el que ocupa la posición central, ¿cuál es la afirmación correcta?:
+a) Ambas versiones tienen la misma complejidad temporal en el peor de los casos, lo que cambia es el caso mejor.
+b) Ambas versiones tienen las mismas complejidades temporales en el mejor y peor de los casos.
+c) La versión que toma como pivote el primer elemento del vector tiene peor complejidad temporal en el caso peor que la que toma como pivote el elemento central.
+Solución: b
+Justificación:
+
+Pregunta 919: Queremos aplicar la técnica de memoización a la siguiente función recursiva: double f( double x ) { if( x <= 2 ) return x; return f(sqrt(x - 1)) + f(sqrt(x - 2)); } ¿Cuál sería un buen candidato para el almacén? (La función sqrt() obtiene la raíz cuadrada; xMax es el valor de x en la primera llamada):
+a) vector<double>M(xMax + 1);
+b) Ninguna de las otras dos opciones es correcta
+c) vector<double, double>M(xMax + 1, xMax + 1);
+Solución: b
+Justificación:
+
+Pregunta 920: Respecto a la complejidad espacial de los algoritmos de búsqueda, ¿cuál de las siguientes afirmaciones es correcta al comparar backtracking con ramificación y poda?:
+a) Los algoritmos de ramificación y poda siempre consumen menos memoria que los de backtracking, ya que podan más soluciones.
+b) Ambos algoritmos requieren memoria exponencial en todos los casos, ya que exploran el mismo árbol de estados posibles.
+c) Los algoritmos de ramificación y poda pueden requerir más memoria que los de backtracking, ya que suelen implementar estrategias de búsqueda.
+Solución: c
+Justificación:
+
+Pregunta 921: Respecto a la eficiencia temporal de los algoritmos de búsqueda, ¿cuál de las siguientes afirmaciones es correcta al comparar backtracking con ramificación y poda?:
+a) El algoritmo de ramificación y poda siempre encuentra una solución óptima más rápido que el de backtracking.
+b) Si se utilizan exactamente los mismos mecanismos de poda, ambos algoritmos recorrerán exactamente las mismas ramas del árbol de búsqueda en todos los casos.
+c) Las otras dos opciones son ambas falsas.
+Solución: c
+Justificación:
+
+Pregunta 922: Sea T(n) una función de complejidad temporal. ¿Cuál de las siguientes combinaciones es contradictoria según la definición de notación asintótica?:
+a) T(n) ∈ Θ(n log n) => T(n) ∈ O(n log^2 n)
+b) T(n) ∈ O(n^3) y T(n) ∈ Ω(n^2) ?
+c) T(n) ∈ Θ(n) y T(n) ∈ O(sqrt(n))
+Solución: c
+Justificación:
+
+Pregunta 923: De las siguientes afirmaciones, o bien dos son verdaderas y una es falsa, o bien dos son falsas y una es verdadera. Marca la que (en este sentido) es distinta a las otras dos.:
+a) Θ(n log n) ⊂ O(n^2)
+b) O(n) ∩ Ω(n^2) = ∅
+c) Si T(n) ∈ Ω(n log n), entonces T(n) ∈ O(n log n)
+Solución: c
+Justificación:
+
+Pregunta 924: Dado un vector con n elementos que representa un árbol binario completo, ¿cuál es la complejidad temporal del mejor algoritmo que puede escribirse para comprobar si los elementos están dispuestos formando un montículo (heap)?:
+a) Θ(n)
+b) Θ(log n)
+c) Θ(n log n)
+Solución: a
+Justificación:
+
+Pregunta 925: En un algoritmo de programación dinámica, ¿cómo se indexan habitualmente los elementos del almacén (tabla)?:
+a) Según el orden en que se visitan los nodos del árbol de llamadas recursivas.
+b) A partir de los parámetros que definen cada subproblema relevante del problema original.
+c) Mediante los valores concretos de los parámetros del problema que identifican unívocamente cada subproblema.
+Solución: c
+Justificación:
+
+Pregunta 926: En una implementación iterativa de programación dinámica, ¿por qué es importante el orden en que se rellenan las celdas del almacén?:
+a) Porque determina la cantidad de memoria que se necesita reservar para la tabla.
+b) Porque cada celda puede depender de otras, y deben haberse calculado previamente.
+c) Porque se requiere seguir el mismo orden que tendría una ejecución recursiva con o sin memoización.
+Solución: b
+Justificación:
+
+Pregunta 927: En algunos algoritmos de programación dinámica es posible reducir el uso de memoria. ¿Cómo se consigue esto normalmente?:
+a) Conservando únicamente las posiciones que contienen la solución de los suproblemas que forman parte de la solución del problema original.
+b) Conservando únicamente las posiciones del almacén que contienen soluciones óptimas.
+c) Conservando solo las posiciones necesarias en función de las dependencias entre subproblemas.
+Solución: c
+Justificación:
+
+Pregunta 928: En programación dinámica, ¿cuál de las siguientes afirmaciones describe correctamente una diferencia entre la versión recursiva con memoización y la versión iterativa (bottom-up)?:
+a) La versión iterativa no necesita almacenar todos los resultados parciales.
+b) La versión con memoización solo resuelve los subproblemas que realmente necesita, según la instancia.
+c) La versión iterativa siempre es más eficiente que la versión con memoización.
+Solución: b
+Justificación:
+
+Pregunta 929: ¿Cuál de las siguientes condiciones debe cumplirse para que un algoritmo voraz garantice encontrar una solución óptima?:
+a) Que la mejor solución global se pueda construir a partir de decisiones óptimas locales.
+b) Que el número de subproblemas posibles sea polinómico.
+c) Que el problema pueda dividirse recursivamente en subproblemas independientes.
+Solución: a
+Justificación:
+
+Pregunta 930: ¿Cuál de las siguientes situaciones indica que un problema probablemente no se puede resolver correctamente con un algoritmo voraz?:
+a) Cuando el problema establece que las decisiones no son irreversibles.
+b) Cuando el problema puede expresarse como una secuencia de decisiones.
+c) Cuando tomar siempre la mejor decisión local no garantiza una solución global óptima.
+Solución: c
+Justificación:
+
+Pregunta 931: ¿Cuál de las siguientes afirmaciones describe correctamente la diferencia entre la versiones continua y la discreta del problema de la mochila?:
+a) Ambas versiones pueden resolverse con un algoritmo voraz obteniendo soluciones óptimas.
+b) La versión continua puede resolverse con un algoritmo voraz, pero la versión discreta requiere programación dinámica para garantizar la optimalidad siempre que los valores de los pesos sean también discretos.
+c) La versión discreta se resuelve con algoritmo voraz siempre que los valores de los pesos sean también discretos.
+Solución: b
+Justificación:
+
+Pregunta 932: En la versión general del problema del laberinto, ¿por qué la distancia de Manhattan no es válida como cota optimista? (d_manhattan(i, j) = n - j + m - i, donde (i, j) es la casilla actual y (n, m) es la casilla destino):
+a) Porque no tiene por qué existir un camino válido con esa longitud.
+b) Porque podría existir un camino válido de longitud menor.
+c) Porque podría existir un camino válido de longitud mayor.
+Solución: b
+Justificación:
+
+Pregunta 933: Tenemos un vector con una gran cantidad de valores numéricos distintos y desordenados. Queremos guardar en otro vector no necesariamente ordenado, el 5 % de los valores más pequeños. Para llevarlo a cabo tenemos tres alternativas: (1) ordenar el vector con quicksort; (2) construir un heap y extraer los valores requeridos; (3) hacer uso del algoritmo quickselect. Las siguientes opciones tratan de ordenar, de mejor a peor en cuanto a eficiencia promedio, las tres posibilidades. ¿Cuál de ellas contiene el orden correcto?:
+a) (1), (2), (3)
+b) (2), (3), (1)
+c) (3), (2), (1)
+Solución: c
+Justificación:
+
+Pregunta 934: Sea un problema de optimización por selección discreta, con restricciones, en el que se deben tomar n decisiones booleanas para optimizar un indicador, y se abordará mediante un método de búsqueda y enumeración (vuelta atrás, ramificación y poda). ¿Cuál de las siguientes afirmaciones es correcta?:
+a) La complejidad temporal será como mucho O(n log n) porque en general basta con ordenar adecuadamente las decisiones para convertir cualquier problema de este tipo en un problema de complejidad temporal lineal.
+b) La complejidad temporal en el peor caso será O(n^2) ya que se toman n decisiones binarias.
+c) Puede haber problemas para los que la complejidad será exponencial o peor; ninguna estrategia de poda puede garantizar que esto no va a ocurrir.
+Solución: c
+Justificación:
+
+Pregunta 935: Tengo que sumar una larga lista de n cantidades diferentes y se me ha ocurrido que una manera de ganar tiempo es la siguiente estrategia recursiva: parto la lista en dos sublistas iguales, calculo su suma por separado usando la misma técnica y luego sumo las dos cantidades. Cuando al partir una lista me quedo con una cantidad sólo, la suma es esa cantidad, y si me quedan cero cantidades, la suma es cero. ¿Gano tiempo, es decir, hago menos sumas?:
+a) No, en este caso el coste temporal es Θ(n log n).
+b) Sí, ya que en este caso el coste temporal se reduce a Θ(log n).
+c) No, ya que la complejidad temporal del método propuesto es la misma que la de sumar una a una las cantidades.
+Solución: c
+Justificación:
+
+Pregunta 936: En la estrategia de ramificación y poda se suele usar una cola de prioridad para decidir en qué orden se expanden los nodos. Imaginemos un problema de optimización. ¿Puede ser que el valor por el cual se ordenan los nodos sea una cota pesimista del nodo?:
+a) No, porque para podar necesitamos una cota optimista.
+b) No, porque una cota pesimista es típicamente el valor que se encuentra en una de las hojas que cuelga del nodo.
+c) Sí.
+Solución: c
+Justificación:
+
+Pregunta 937: Uno de estos tres algoritmos de ordenación no opera directamente sobre el vector, y necesita almacenamiento adicional para los elementos del mismo. ¿Cuál es?:
+a) Mergesort
+b) Heapsort
+c) Quicksort
+Solución: a
+Justificación:
+
+Pregunta 938: Tenemos un "superprocesador" que tiene una instrucción que permite la ordenación de 100 elementos en un tiempo constante. Para este superprecesador, adaptamos el algoritmo Mergesort de forma que cada vez que queremos ordenar menos de 100 elementos, en lugar de hacer las llamadas recursivas, llama a esta instrucción. ¿cuál sería la complejidad de este algoritmo?:
+a) O(n log n)
+b) O(n)
+c) O(1)
+Solución: a
+Justificación:
+
+Pregunta 939: La complejidad temporal del algoritmo Mergesort cuando se aplica a un vector de tamaño n es. . . (selecciona la más ajustada):
+a) . . . Ω(n log n) y O(n^2).
+b) . . . Θ(n log n).
+c) . . . Ω(n) y O(n^2).
+Solución: b
+Justificación:
+
+Pregunta 940: ¿Se puede resolver mediante ramificación y poda un problema de selección discreta en el que cada una de las n decisiones se toman de un conjunto finito diferente?:
+a) Sí, siempre .
+b) No. Las decisiones deben ser todas de la misma naturaleza.
+c) Sí, pero sólo si las decisiones son todas binarias.
+Solución: a
+Justificación:
+
+Pregunta 941: ¿Puede utilizarse relaciones de recurrencia para analizar la complejidad de un algoritmo de vuelta atrás?:
+a) No, ya que siempre saldría una complejidad exponencial
+b) No, las relaciones de recurrencia no se pueden aplicar en este caso.
+c) Sí.
+Solución: c
+Justificación:
+
+Pregunta 942: Sea el vector v[8] = {8, 6, 4, 5, 4, 3, 2, 2}. Indica cuál de las siguientes opciones es cierta. (se asume la notación del lenguaje C/C++ en la que el primer elemento del vector está en la posición 0, es decir, en v[0]).:
+a) El vector v no es un montículo máximo porque el elemento v[3]=5 debe ser "flotado" (desplazado hacia la izquierda).
+b) El vector v es un montículo máximo.
+c) El vector v no es un montículo máximo porque el elemento v[2]=4 debe ser "hundido" (desplazado hacia la derecha).
+Solución: b
+Justificación:
+
+Pregunta 943: Tenemos un conjunto de n enteros positivos y queremos encontrar el subconjunto de tamaño m de suma mínima.:
+a) Lo más adecuado sería usar una técnica de ramificación y poda, aunque en el peor caso el coste temporal asintótico (o complejidad temporal) sería exponencial.
+b) Para encontrar la solución habría que probar con todas las combinaciones posibles de m enteros, con lo que la técnica de ramificación y poda no aporta nada con respecto a vuelta atrás.
+c) Una técnica voraz daría una solución óptima.
+Solución: c
+Justificación:
+
+Pregunta 944: Un algoritmo recursivo basado en el esquema divide y vencerás ...:
+a) ... alcanza su máxima eficiencia cuando el problema de tamaño n se divide en a problemas de tamaño n/a.
+b) ... nunca tendrá un coste temporal asintótico exponencial.
+c) Las dos anteriores son verdaderas.
+Solución: a
+Justificación:
+
+Pregunta 945: En el esquema de vuelta atrás, los mecanismos de poda basados en la mejor solución hasta el momento...:
+a) ... pueden eliminar vectores que representan posibles soluciones factibles.
+b) ... garantizan que no se va a explorar todo el espacio de soluciones posibles.
+c) Las dos anteriores son verdaderas.
+Solución: a
+Justificación:
+
+Pregunta 946: ¿Cuál es el caso peor del algoritmo de ordenación Quicksort que toma el primer elemento como pivote?:
+a) Cuando tras particionar el vector, el elemento pivote queda siempre en medio.
+b) Cuando debemos hundir el pivote hasta el fondo del montículo.
+c) Cuando tras particionar el elemento pivote queda siempre en uno de los dos extremos.
+Solución: c
+Justificación:
+
+Pregunta 947: En un algoritmo de búsqueda exhaustiva, ¿Qué ocurre si la cota pesimista de un nodo se corresponde con una solución que no es factible?:
+a) Que podría descartarse un nodo que conduce a la solución óptima.
+b) Nada especial, las cotas pesimistas no tienen por qué corresponderse con soluciones factibles.
+c) Que el algoritmo sería más lento pues se explorarían más nodos de los necesarios.
+Solución: a
+Justificación:
+
+Pregunta 948: El esquema voraz . . .:
+a) Puede que no encuentre una solución pero si lo hace se garantiza que es la óptima.
+b) Las otras dos opciones son ambas falsas.
+c) Garantiza encontrar una solución a cualquier problema, aunque puede que no sea óptima.
+Solución: b
+Justificación:
+
+Pregunta 949: En un algoritmo de optimización resuelto mediante ramificación y poda ¿Podría encontrarse la solución óptima sin haber alcanzado nunca un nodo hoja?:
+a) Sí, pero esto solo podría ocurrir si se hace uso de cotas pesimistas.
+b) Sí, esto puede ocurrir incluso si no se hace uso de cotas pesimistas.
+c) No, los nodos hojas son los nodos completados y por lo tanto hay que visitar al menos uno de ellos para almacenarlo como la mejor solución hasta el momento.
+Solución: a
+Justificación:
+
+###Examen Junio 2024
+
+Pregunta 950: ¿De qué clase de complejidad es la solución de la siguiente relación de recurrencia? f(n) = 1 + f(n/b) si n > 1; f(1) = 1, con b ∈ N, b > 1:
+a) Depende del valor de b
+b) f(n) ∈ Θ(log n)
+c) f(n) ∈ Θ(n)
+Solución: b
+Justificación:
+
+Pregunta 951: El uso de funciones de cota en ramificación y poda . . .:
+a) . . . transforma en polinómicas complejidades que antes eran exponenciales
+b) . . . puede reducir el número de instancias del problema que pertenecen al caso peor
+c) . . . garantiza que el algoritmo va a ser más eficiente ante cualquier instancia del problema
+Solución: b
+Justificación:
+
+Pregunta 952: Si un problema de optimización lo es para una función que toma valores continuos . . .:
+a) Divide y vencerás puede resultar más eficiente que la programación dinámica iterativa en cuanto al uso de memoria
+b) La programación dinámica iterativa siempre es mucho más eficiente que divide y vencerás en cuanto al uso de memoria
+c) El uso de memoria de la programación dinámica iterativa y de divide y vencerás es el mismo independientemente de si el dominio es discreto o continuo
+Solución: a
+Justificación:
+
+Pregunta 953: La solución voraz al problema de la mochila con objetos no fraccionables::
+a) Siempre encuentra la solución óptima al problema
+b) No siempre encuentra la solución óptima al problema, pero sí una muy buena aproximación, a partir de la cual se puede obtener el óptimo en tiempo constante
+c) No siempre encuentra la solución óptima al problema, pero puede emplearse como cota pesimista en algoritmos de búsqueda y enumeración
+Solución: c
+Justificación:
+
+Pregunta 954: El algoritmo de ordenación Quicksort divide el problema en dos subproblemas. ¿Cuál es la complejidad temporal asintótica de realizar esa división?:
+a) O(log n)
+b) O(n)
+c) O(n log n)
+Solución: b
+Justificación:
+
+Pregunta 955: ¿Cuál es la complejidad temporal asintótica de la función f ? (en la primera llamada, el parámetro i toma valor n - 1; el tamaño de los vectores w y v es n) float f(vector <float>&w, vector<unsigned>&v, unsigned P, int i){ float S1=0, S2; if (i>=0){ if (w[i] <= P) S1= v[i] + f(w,v,P-w[i],i-1); S2= f(w,v,P,i-1); return max(S1,S2); } return 0; }:
+a) Ω(n) y O(n^2)
+b) Ω(n) y O(2^n)
+c) Θ(2^n)
+Solución: b
+Justificación:
+
+Pregunta 956: Dada la siguiente función: void f(vector <int>&v){ int i=1, n=v.size(); bool swaped=true; while (swaped){ swaped=false; for (int j=n-1; j>=i; j--) if (v[j] < v[j-1]){ swap(v[j],v[j-1]); swaped=true; } i++; } } De las siguientes afirmaciones, o bien dos son ciertas y una es falsa, o bien al contrario, una es cierta y dos son falsas. Marca la que en este sentido es diferente a las otras dos.:
+a) El peor de los casos ocurre cuando el primer elemento del vector es estrictamente mayor que los restantes sin importar el orden de los demás
+b) La complejidad temporal en el peor de los casos viene dada por la expresión sum_{i=1}^{n-1} (n - i)
+c) La complejidad temporal en el mejor de los casos ocurre cuando el vector está vacío
+Solución: c
+Justificación:
+
+Pregunta 957: Disponemos de dos algoritmos que queremos comparar. Hemos calculado la función de complejidad del algoritmo A contando operaciones elementales, y del algoritmo B contando pasos de programa. ¿Podemos comparar ambas funciones para decidir qué algoritmo es mejor?:
+a) No, porque al contar operaciones elementales, podríamos obtener una complejidad asintótica mayor que si contamos pasos de programa.
+b) Sí, pero sólo podremos comparar sus clases de notación asintótica
+c) Sí, ambos métodos son totalmente equivalentes. El mejor algoritmo será aquel con la menor función
+Solución: b
+Justificación:
+
+Pregunta 958: Tenemos un vector ordenado y queremos comprobar si contiene un elemento dado. ¿Cuál sería la complejidad temporal mas ajustada para hacerlo?:
+a) El tamaño del vector
+b) El logaritmo del tamaño del vector
+c) Constante con el tamaño del vector
+Solución: b
+Justificación:
+
+Pregunta 959: En la resolución mediante ramificación y poda del problema del camino de coste mínimo, obtenemos para un nodo determinado, una cota pesimista parcial estrictamente menor que su cota optimista. ¿Qué quiere decir esto?:
+a) Que el nodo debe expandirse
+b) Que el nodo no debe expandirse
+c) Que hay un error en alguna de las dos cotas
+Solución: c
+Justificación:
+
+Pregunta 960: ¿Qué expresión refleja mejor la complejidad asintótica respecto a n del siguiente fragmento de código? int k=0; for( int a = 1; a <n; a*=2 ) for( int b = 0; b <a; b+=1 ) k++;:
+a) sum_{a=1}^{log n} 2^a
+b) sum_{a=1}^{n-1} sum_{b=0}^{a-1} 1
+c) n
+Solución: a
+Justificación:
+
+Pregunta 961: ¿Se puede reducir el coste temporal de un algoritmo recursivo almacenando los resultados devueltos por las llamadas recursivas?:
+a) No, ello no reduce el coste temporal ya que las llamadas recursivas se deben realizar de cualquier manera
+b) No, sólo se puede reducir el coste convirtiendo el algoritmo recursivo en iterativo
+c) Sí, si se repiten llamadas a la función con los mismos argumentos
+Solución: c
+Justificación:
+
+Pregunta 962: Resolviendo el problema de la composición de funciones mediante Ramificación y Poda, declaramos el nodo y la cola de prioridad como sigue: using Node = tuple<short, int>; priority queue<Node >pq; Cada nodo contiene, en este orden, el número de veces que se ha aplicado una función y el resultado obtenido. ¿Qué se puede afirmar sobre el orden en el que se extraen los nodos de la cola de prioridad?:
+a) No podemos afirmar nada, pues no hemos definido ningún criterio para la ordenación de la cola
+b) Que se extraerán en un orden que permite encontrar pronto la solución óptima
+c) Que se extraerán en un orden que dificulta encontrar pronto la solución óptima
+Solución: c
+Justificación:
+
+Pregunta 963: Dada la versión general del problema del camino de coste mínimo, ¿cuál de las estrategias siguientes proveería de una cota optimista para ramificación y poda?:
+a) Suponer que solo nos vamos a mover en tres direcciones (como en el caso restringido).
+b) Suponer que ya no se van a realizar más movimientos.
+c) Las otras dos estrategias son ambas válidas.
+Solución: b
+Justificación:
+
+Pregunta 964: Queremos utilizar el algoritmo heapsort para ordenar un vector de manera descendente (de mayor a menor). ¿Cómo serían las complejidades temporales asintóticas de construir el heap en estos dos supuestos: (1) el vector que recibe está ordenado ascendente; (2) el vector que recibe está ordenado descendente?:
+a) Iguales
+b) La del primer supuesto mayor que la del segundo
+c) La del segundo supuesto mayor que la del primero
+Solución: a
+Justificación:
+
+Pregunta 965: Queremos resolver el problema general del camino de coste mínimo. Supón que estamos usando una función f como cota optimista y funciona correctamente. ¿Qué pasaría si, en el fuente, multiplicamos esta función por 1,1. Marca la falsa.:
+a) Podría perderse la solución óptima pero la que obtendríamos no se alejará mucho de ella
+b) El programa terminaría mas rápido
+c) Seguiría funcionando bien pero sería más lento
+Solución: c
+Justificación:
+
+Pregunta 966: Si f ∈ Ω(g1 q y f ∈ Ω(g2 q entonces siempre se cumplirá: de las siguientes conclusiones, o bien dos son ciertas y una es falsa, o bien al contrario, una es cierta y dos son falsas. Marca la que en este sentido es diferente a las otras dos.:
+a) f ∈ Ω(mín(g1 , g2 qq
+b) f ∈ Ω(g1 · g2)
+c) f ∈ Ω(g1 + g2)
+Solución: b
+Justificación:
+
+Pregunta 967: ¿Qué estructura de datos se suele utilizar para almacenar el árbol de búsqueda completo en un algoritmo de ramificación y poda?:
+a) Una cola de prioridad
+b) Ninguna, no se almacena
+c) Un árbol cuya aridad depende del problema
+Solución: b
+Justificación:
+
+Pregunta 968: En clase vimos una demostración que justificaba que el esquema voraz es adecuado para resolver el problema de la mochila continua (con fraccionamiento). Entre otros posibles motivos ¿Por qué esa misma demostración no sirve para el problema de la mochila discreta seleccionando objetos de la misma manera?:
+a) Las otras dos opciones son ambas ciertas.
+b) Porque no hay garantía de que la solución esté formada por una secuencia compuesta únicamente de unos y, a continuación, otra secuencia compuesta únicamente de ceros
+c) Porque no hay garantía de que la mochila se llene
+Solución: a
+Justificación:
+
+Pregunta 969: Dada la solución por programación dinámica recursiva de la versión restringida del problema del camino de coste mínimo, en general, ¿cuántas veces se llega al caso base de la recursión (la casilla inicial)?:
+a) Solo una
+b) Un valor que es O(2^n), donde n es el tamaño del mapa
+c) Un valor que es O(n), donde n es el tamaño del mapa
+Solución: a
+Justificación:
+
+Pregunta 970: Garantiza la estrategia de divide y vencerás una solución de complejidad temporal polinómica a cualquier problema?:
+a) No, la complejidad temporal puede ser incluso peor que cualquier función polinómica
+b) Sí, en cualquier caso
+c) Sí, pero siempre que la complejidad temporal conjunta de las operaciones de descomposición del problema y la combinación de las soluciones sea polinómica
+Solución: a
+Justificación:
+
+Pregunta 971: ¿Cuál de estas estrategias para calcular el n-ésimo elemento de la serie de Fibonacci (f(n) = f(n - 1) + f(n - 2), f(1) = f(2) = 1) es más eficiente?:
+a) La estrategia divide y vencerás
+b) Para este problema, las dos estrategias citadas serían similares en cuanto a eficiencia
+c) Programación dinámica
+Solución: c
+Justificación:
+
+Pregunta 972: Queremos resolver la versión general del problema del camino de coste mínimo por ramificación y poda. Para ello se usa una estrategia que consiste en priorizar las expansiones de los nodos que contienen un camino explorado de menor coste. ¿Qué podemos decir del algoritmo resultante?:
+a) Que la primera hoja a la que se llegue es la solución del problema y por lo tanto ya no será necesario explorar más nodos de la lista de nodos vivos, aunque no esté vacía.
+b) Que el recorrido en el árbol de búsqueda será equivalente a un recorrido por niveles, por lo que no es necesario utilizar una cola de prioridad.
+c) Las otras dos opciones son ambas ciertas.
+Solución: a
+Justificación:
+
+Pregunta 973: Si comparamos la cota pesimista y la optimista de un mismo nodo. ¿Qué podríamos saber?:
+a) Si el nodo debe ser descartado
+b) El intervalo en el que se encuentra la mejor solución que se puede obtener con ese nodo
+c) Si el nodo es prometedor
+Solución: b
+Justificación:
+
+Pregunta 974: Cuando se usa un algoritmo voraz para abordar la resolución de un problema de optimización por selección discreta (es decir, un problema para el cual la solución consiste en encontrar un subconjunto del conjunto de elementos que optimiza una determinada función), ¿cuál de estas tres cosas es imposible que ocurra?:
+a) Que se reconsidere la decisión ya tomada anteriormente respecto a la selección de un elemento a la vista de la decisión que se debe tomar en un instante
+b) Que el algoritmo no encuentre ninguna solución
+c) Que la solución no sea la óptima
+Solución: a
+Justificación:
+
+Pregunta 975: ¿Qué tienen en común el algoritmo que obtiene el k-ésimo elemento más pequeño de un vector (estudiado en clase) y el algoritmo de ordenación Quicksort?:
+a) La combinación de las soluciones a los subproblemas
+b) La división del problema en subproblemas
+c) El número de llamadas recursivas que se hacen
+Solución: b
+Justificación:
+
+Pregunta 976: Cuando se resuelve el problema de la mochila discreta usando la estrategia de vuelta atrás, ¿puede ocurrir que se tarde menos en encontrar la solución óptima si se prueba primero a meter cada objeto antes de no meterlo?:
+a) Sí, pero sólo si se usan cotas optimistas para podar el árbol de búsqueda
+b) Sí, tanto si se usan cotas optimistas para podar el árbol de búsqueda como si no
+c) No, ya que en cualquier caso se deben explorar todas las soluciones factibles
+Solución: a
+Justificación:
+
+Pregunta 977: ¿Cuál es la relación de recurrencia asociada a la complejidad temporal de la siguiente función? void f(unsigned n){ if (n==0) return 1; return 2*f(n-1); }:
+a) T(n) = 1 + 2 · T(n - 1); T(0) = 1
+b) T(n) = 2 · T(n - 1); T(0) = 1
+c) T(n) = 1 + T(n - 1); T(0) = 1
+Solución: c
+Justificación:
+
+Pregunta 978: El siguiente programa resuelve el problema de cortar un tubo de longitud n en segmentos de longitud entera entre 1 y n de manera que se maximice el precio de acuerdo con una tabla p que da el precio para cada longitud, pero falta un trozo. ¿Qué debería ir en lugar de XXXXXXX? int tube cut( const vector<int>&p, const int n) { if( n == 0 ) return 0; int q = numeric limits<int>::lowest(); for( int i = 1; i <= n; i++ ) q = max( q, p[i] + tube cut(XXXXXXX)); return q; }:
+a) p,n-1
+b) p,n-i
+c) p,i
+Solución: b
+Justificación:
+
+Pregunta 979: Usando la técnica de programación dinámica con ahorro de memoria ¿podría acelerarse el programa usando tres vectores en vez de dos?:
+a) Sí, pero sería a expensas de usar más memoria
+b) Sí, pero la complejidad temporal seguiría siendo la misma
+c) No
+Solución: c
+Justificación:
+
+Pregunta 980: En un problema de minimización mediante Vuelta Atrás, empleamos una cota optimista que es mucho mayor que la mejor solución que podría alcanzarse desde un nodo determinado. Como consecuencia::
+a) Es posible que no encontremos el óptimo
+b) El programa será más lento que con otra cota optimista
+c) Dicha decisión tendrá un impacto mínimo en el tiempo de ejecución del programa, puesto que es más importante elegir una buena cota pesimista inicial
+Solución: a
+Justificación:
+
+Pregunta 981: Un problema tiene subestructura óptima cuando ...:
+a) ... su solución se puede construir eficientemente a partir de soluciones de subproblemas suyos
+b) ... es posible escribir una solución voraz para el problema
+c) ... es posible dividir su tamaño de forma equitativa para construir cada uno de los subproblemas
+Solución: a
+Justificación:
+
+Pregunta 982: En el esquema de vuelta atrás, el orden en el que se van asignando los distintos valores a las componentes del vector que contendrá la solución...:
+a) ... es irrelevante si no se utilizan mecanismos de poda basados en la mejor solución hasta el momento
+b) ... puede ser relevante si se utilizan mecanismos de poda basados en estimaciones optimistas
+c) Las otras dos opciones son ambas ciertas
+Solución: c
+Justificación:
+
+Pregunta 983: En la solución de ramificación y poda del problema del camino de coste mínimo, ¿para qué puede resultar útil la técnica de poda con memoria?:
+a) Para obtener cotas pesimistas
+b) Para evitar la formación de ciclos
+c) Para ambas cosas
+Solución: c
+Justificación:
+
+Pregunta 984: En un algoritmo de ramificación y poda se puede usar una cota optimista para estimar el coste restante desde el nodo actual hasta el objetivo. ¿Qué propiedad debe cumplir esta cota para asegurar que siempre se encontrará la solución óptima?:
+a) Nunca sobreestimar el coste real
+b) Debe disminuir a medida que se acerca al objetivo
+c) Las dos anteriores son ciertas
+Solución: a
+Justificación:
+
+Pregunta 985: ¿Cuál es la mejor complejidad temporal y espacial, en función de n, que se puede obtener en la solución de programación dinámica para el problema (visto en clase) de cortar un tubo de longitud n en segmentos de longitud entera entre 1 y n de manera que se maximice el precio de acuerdo con una tabla que da el precio para cada longitud?:
+a) Temporal Θ(n^2) y espacial Θ(n)
+b) Temporal y espacial Θ(n)
+c) Temporal y espacial Θ(n^2)
+Solución: a
+Justificación:
+
+Pregunta 986: En un algoritmo de ramificación y poda, el orden escogido para priorizar los nodos en la lista de nodos vivos . . .:
+a) . . . nunca afecta al tiempo necesario para encontrar la solución óptima
+b) . . . determina la complejidad temporal en el peor de los casos del algoritmo
+c) . . . puede influir en el número de nodos que se descartan sin llegar a expandirlos
+Solución: c
+Justificación:
+
+Pregunta 987: Queremos resolver la versión general del problema del camino de coste mínimo mediante ramificación y poda. Para obtener la cota optimista de un nodo cualquiera procedemos así: calculamos el número de casillas que quedan, por la diagonal derecha–abajo, hasta llegar a una pared del mapa. A ese valor le sumamos el número de casillas que podrían quedar desde esa pared hasta la salida utilizando únicamente movimientos del tipo abajo o derecha, según corresponda (distancia de Chebishev). ¿Qué podemos decir acerca de la cota optimista que se obtendría?:
+a) Que solo será una cota optimista válida si se asegura que todas las casillas tengan un coste mínimo de 1.
+b) Que solo será una cota optimista válida si se asegura que todas las casillas tengan un coste mínimo de 0.
+c) Que solo será una cota optimista válida si las casillas contienen valores reales mayores que 0.0.
+Solución: a
+Justificación:
+
+Pregunta 988: ¿Cuál de los siguientes algoritmos de ordenación funciona más rápido para ordenar vectores muy grandes que ya están casi ordenados?:
+a) Quicksort empleando el primer elemento como pivote
+b) Heapsort
+c) Ambos por igual
+Solución: b
+Justificación:
+
+Pregunta 989: ¿A qué esquema de entre los estudiados pertenece la siguiente función? void g(vector <unsigned> &v, unsigned j) { if (j==v.size()) return; for (unsigned i=j; i <v.size(); i++){ swap(v[j],v[i]); g(v,j+1); swap(v[j],v[i]); } }:
+a) Programación dinámica
+b) Ramificación y poda
+c) Vuelta atrás
+Solución: c
+Justificación:
+
+
+###Examen Julio 2024
+
+Pregunta 990: Una de estas tres afirmaciones es falsa. ¿Cuál?:
+a) Un algoritmo voraz puede no encontrar la solución óptima de un problema de selección discreta.
+b) El esquema de ramificación y poda no garantiza que la complejidad temporal de resolución de un problema de selección discreta no sea exponencial.
+c) Los algoritmos voraces no sirven para resolver problemas de selección discreta.
+Solución: c
+Justificación:
+
+Pregunta 991: En general ¿cuál de los siguientes problemas tiene solución eficiente utilizando alguno de los esquemas algorítmicos estudiados durante el curso?:
+a) La mochila discreta (0/1) sin restricciones adicionales
+b) La mochila discreta (0/1) con pesos discretos
+c) La mochila discreta (0/1) con valores discretos
+Solución: b
+Justificación:
+
+Pregunta 992: Si f(n) ∈ Θ(2^n), ¿podemos decir siempre que f(n) ∈ O(n!)?:
+a) Sí, ya que 2n ∈ O(n!)
+b) Sí, ya que 2^n ∈ Ω(n!)
+c) No, ya que 2n ∉ O(n!)
+Solución: a
+Justificación:
+
+Pregunta 993: Dada la versión general del problema del camino de coste mínimo, ¿cuál de las estrategias siguientes proveería de una cota optimista para ramificación y poda?:
+a) Tomar la dificultad del camino parcial (hasta el nodo en cuestión) y sumarle la dificultad del camino que, desde el nodo en cuestión, se completa siguiendo un algoritmo voraz que solo toma los movimientos de la versión restringida
+b) Tomar la dificultad del camino parcial (hasta el nodo en cuestión) y nada más
+c) Las otras dos estrategias son ambas válidas.
+Solución: b
+Justificación:
+
+Pregunta 994: En cuanto al cálculo de la complejidad temporal en función de n de la siguiente función: void f(unsigned n){ if (n>1){ for (unsigned i=0; i<4; i++) f(n/2); } } De las siguientes afirmaciones, o bien dos son ciertas y una es falsa, o bien al contrario, una es cierta y dos son falsas. Marca la que en este sentido es diferente a las otras dos.:
+a) El tamaño del problema viene dado por el valor que toma n
+b) El mejor de los casos ocurre cuando n = 0 y su complejidad temporal está en Ω(1)
+c) La complejidad temporal asintótica está en Θ(n^2)
+Solución: b
+Justificación:
+
+Pregunta 995: Dada la versión general del problema mcp, en cuanto al valor de una cota pesimista de un nodo cualquiera... de las siguientes afirmaciones, o bien dos son ciertas y una es falsa, o bien al contrario, una es cierta y dos son falsas. Marca la que en este sentido es diferente a las otras dos.:
+a) ... debe corresponder con la dificultad de un camino completado, es decir, que comienza en (0, 0) y termina en (n - 1, m - 1)
+b) ... debe ser inferior al de una cota optimista de cualquier otro nodo
+c) ... debe ser superior al de una cota optimista de cualquier otro nodo
+Solución: a
+Justificación:
+
+Pregunta 996: Sobre estas dos alternativas para la programación dinámica: recursiva con memoización, e iterativa, podemos afirmar lo siguiente::
+a) Ambas calculan siempre todos los valores del almacén
+b) Según el problema, la iterativa puede calcular menos valores del almacén que la recursiva
+c) Según el problema, la recursiva puede calcular menos valores del almacén que la iterativa
+Solución: c
+Justificación:
+
+Pregunta 997: En un algoritmo de ramificación y poda, el orden escogido para priorizar los nodos en la lista de nodos vivos . . .:
+a) . . . nunca afecta al tiempo necesario para encontrar la solución óptima
+b) . . . determina la complejidad temporal en el peor de los casos del algoritmo
+c) . . . puede influir en el número de nodos que se descartan sin llegar a expandirlos
+Solución: c
+Justificación:
+
+Pregunta 998: De las siguientes tres afirmaciones, una es cierta y dos falsas, o bien una es falsa y dos son ciertas. Marca la que en ese sentido es diferente a las otras dos.:
+a) El problema de la mochila continua no se puede resolver de forma análoga a como se resuelve el problema de la mochila discreta
+b) El problema de la mochila continua no se puede resolver mediante la técnica de ramificación y poda pues se podría producir un número infinito de ramas
+c) El problema de la mochila discreta no se puede resolver mediante la técnica de divide y vencerás
+Solución: a
+Justificación:
+
+Pregunta 999: Resolviendo el problema de la composición de funciones mediante Ramificación y Poda, declaramos el nodo y la cola de prioridad como sigue: using Node = tuple<short, int>; priority queue<Node >pq; Cada nodo contiene, en este orden, el número de veces que se ha aplicado una función y el resultado obtenido. ¿Qué se puede afirmar sobre el orden en el que se extraen los nodos de la cola de prioridad?:
+a) No podemos afirmar nada, pues no hemos definido ningún criterio para la ordenación de la cola
+b) Que se extraerán en un orden que permite encontrar pronto la solución óptima
+c) Que se extraerán en un orden que dificulta encontrar pronto la solución óptima
+Solución: c
+Justificación:
+
+Pregunta 1000: ¿Qué tienen en común el algoritmo que obtiene el k-ésimo elemento más pequeño de un vector (estudiado en clase) y el algoritmo de ordenación Quicksort?:
+a) La combinación de las soluciones a los subproblemas
+b) La división del problema en subproblemas
+c) El número de llamadas recursivas que se hacen
+Solución: b
+Justificación:
+
+Pregunta 1001: ¿Cuál de las siguiente técnicas NO resuelve la versión general del problema del camino de coste mínimo? (según lo visto en clase):
+a) Ramificación y poda
+b) Programación dinámica
+c) Vuelta atrás
+Solución: b
+Justificación:
+
+Pregunta 1002: ¿Qué expresión refleja mejor la complejidad asintótica respecto a n del siguiente fragmento de código? int k=0; for( int a = 1; a <n; a*=2 ) for( int b = 0; b <a; b++ ) k++;:
+a) sum_{a=1}^{log n} 2^a
+b) sum_{a=1}^{n-1} sum_{b=0}^{a-1} 1
+c) n
+Solución: a
+Justificación:
+
+Pregunta 1003: La solución voraz al problema de la mochila con objetos no fraccionables::
+a) Siempre encuentra la solución óptima al problema
+b) Ninguna de las otras dos opciones es cierta
+c) No siempre encuentra la solución óptima al problema, pero puede emplearse como cota optimista en algoritmos de búsqueda y enumeración
+Solución: b
+Justificación:
+
+Pregunta 1004: Dados dos vectores ordenados de n elementos, ¿cuál es el coste del mejor algoritmo que se puede escribir para obtener un vector ordenado que contenga todos los elementos de los dos vectores?:
+a) Θ(log n)
+b) Θ(n)
+c) Θ(n^2)
+Solución: b
+Justificación:
+
+Pregunta 1005: Garantiza la estrategia de divide y vencerás una solución de complejidad temporal polinómica a cualquier problema?:
+a) No, la complejidad temporal puede ser incluso peor que cualquier función polinómica
+b) Sí, en cualquier caso
+c) Sí, pero siempre que la complejidad temporal conjunta de las operaciones de descomposición del problema y la combinación de las soluciones sea polinómica
+Solución: a
+Justificación:
+
+Pregunta 1006: Queremos resolver un problema parecido la versión restringida del problema del camino de coste mínimo pero ahora permitimos (además) movimientos de dos pasos en las mismas direcciones. ¿Cómo se podría resolver este problema?:
+a) Usando programación dinámica, de una forma muy parecida al original
+b) Ya no se podría resolver usando programación dinámica y habría que recurrir a la vuelta atrás
+c) No se puede resolver ni usando programación dinámica ni vuelta atrás
+Solución: a
+Justificación:
+
+Pregunta 1007: Entre dos algoritmos para solucionar el mismo problema, siempre debemos elegir::
+a) Aquel con menor complejidad asintótica en el mejor caso
+b) Aquel con menor complejidad asintótica en el peor caso
+c) Si conocemos la talla máxima del problema que pretendemos resolver, es posible que un algoritmo con mayor complejidad asintótica se comporte mejor para nuestro problema
+Solución: c
+Justificación:
+
+Pregunta 1008: Dado el siguiente programa recursivo: int f( int n ) { // Se asume que n >= 0 if( n == 0 ) return 1; return f(n-1) + f(n-2); } si quisiéramos mejorarlo haciendo uso de la técnica de programación dinámica, ¿cuales serían las complejidades temporal y espacial más ajustadas del algoritmo resultante?:
+a) Respectivamente, O(n) y O(1)
+b) Ambas complejidades serían O(1)
+c) Ambas complejidades serían O(n)
+Solución: a
+Justificación:
+
+Pregunta 1009: ¿Cuál es la mejor complejidad temporal y espacial, en función de n, que se puede obtener en la solución de programación dinámica para el problema (visto en clase) de cortar un tubo de longitud n en segmentos de longitud entera entre 1 y n de manera que se maximice el precio de acuerdo con una tabla que da el precio para cada longitud?:
+a) Temporal Θ(n^2) y espacial Θ(n)
+b) Temporal y espacial Θ(n)
+c) Temporal y espacial Θ(n^2)
+Solución: a
+Justificación:
+
+Pregunta 1010: El algoritmo de ordenación Mergesort divide el problema en dos subproblemas. ¿Cuál es la complejidad temporal asintótica de realizar esa división?:
+a) O(log n)
+b) O(n)
+c) O(1)
+Solución: b
+Justificación:
+
+Pregunta 1011: Dada la versión restringida del problema mcp resuelto mediante programación dinámica iterativa, ¿cuál es la complejidad temporal del fragmento de código que cumplimenta únicamente las celdas del almacén que corresponden a su contorno (caso base)? (suponiendo que el caso base corresponde a los casos n " 0 o m " 0):
+a) Θ(mq
+b) Θ(máxtn, muq
+c) Θ(míntn, muq
+Solución: b
+Justificación:
+
+Pregunta 1012: Cuando se resuelve el problema de la mochila discreta usando la estrategia de vuelta atrás, ¿puede ocurrir que se tarde menos en encontrar la solución óptima si se prueba primero a meter cada objeto antes de no meterlo?:
+a) Sí, pero sólo si se usan cotas optimistas para podar el árbol de búsqueda
+b) Sí, tanto si se usan cotas optimistas para podar el árbol de búsqueda como si no
+c) No, ya que en cualquier caso se deben explorar todas las soluciones factibles
+Solución: a
+Justificación:
+
+Pregunta 1013: Queremos resolver la versión restringida del problema del camino de coste mínimo usando una técnica de vuelta atrás.:
+a) Eso no se puede hacer, ese problema no se puede resolver usando vuelta atrás
+b) La técnica de vuelta atrás se podría aplicar, pero siempre sería más lento que si usamos programación dinámica
+c) La técnica de vuelta atrás se podría aplicar, incluso en algunos raros casos podría ir más rápido que usando programación dinámica
+Solución: c
+Justificación:
+
+Pregunta 1014: Dada la versión restringida del problema mcp, queremos listar todos los caminos posibles (sean o no los óptimos). ¿qué técnica deberíamos utilizar?:
+a) Memoización
+b) Divide y vencerás
+c) Programación dinámica iterativa
+Solución: b
+Justificación:
+
+Pregunta 1015: Dada la versión general del problema mcp ¿cuál es la mejor complejidad temporal (de entre las indicadas) con la que podría obtenerse una cota pesimista para el nodo inicial del árbol de búsqueda?:
+a) Ω(n + m)
+b) Ω(nm)
+c) Ω(1)
+Solución: a
+Justificación:
+
+Pregunta 1016: Decid cuál de estas tres es la cota pesimista más ajustada al valor óptimo de la mochila discreta::
+a) El valor de la mochila continua correspondiente
+b) El valor de la mochila discreta que se obtiene usando un algoritmo voraz basado en el valor específico de los objetos
+c) El valor de una mochila que contiene todos los objetos restantes aunque se pase del peso máximo permitido
+Solución: b
+Justificación:
+
+Pregunta 1017: Si en el problema del camino de coste mínimo, estudiado en prácticas, permitiéramos casillas con coste 0, ¿cuál de las siguientes distancias sería una cota optimista válida si se la sumamos al coste del camino actual? (i, j) es la posición actual y (n, m) el número de filas y columnas, respectivamente, del mapa.:
+a) max(n - 1 - i, m - 1 - j)
+b) (n - 1 - i) + (m - 1 - j)
+c) Ninguna de las anteriores
+Solución: c
+Justificación:
+
+Pregunta 1018: Si el coste espacial de un algoritmo viene dado por la recurrencia T(n) = n + T(n/2) siendo T(0) = 1, donde n es el tamaño del problema, ¿a qué clase de complejidad pertenece?:
+a) O(n)
+b) O(n log n)
+c) O(n^2)
+Solución: a
+Justificación:
+
+Pregunta 1019: El uso de funciones de cota en ramificación y poda . . .:
+a) . . . transforma en polinómicas complejidades del peor de los casos que antes eran exponenciales
+b) . . . puede reducir el número de instancias del problema que pertenecen al caso peor
+c) . . . garantiza que el algoritmo va a ser más eficiente ante cualquier instancia del problema
+Solución: b
+Justificación:
+
+Pregunta 1020: Queremos resolver la versión general del problema del camino de coste mínimo por ramificación y poda. Para ello se usa una estrategia que consiste en priorizar las expansiones de los nodos que contienen un camino explorado de menor coste. ¿Qué podemos decir del algoritmo resultante?:
+a) Que la primera hoja a la que se llegue es la solución del problema y por lo tanto ya no será necesario explorar más nodos de la lista de nodos vivos, aunque no esté vacía.
+b) Que el recorrido en el árbol de búsqueda será equivalente a un recorrido por niveles, por lo que no es necesario utilizar una cola de prioridad.
+c) Las otras dos opciones son ambas ciertas.
+Solución: a
+Justificación:
+
+Pregunta 1021: Indica cuál de las siguientes afirmaciones es cierta::
+a) Si un esquema de ramificación y poda encuentra la solución óptima a un problema, un esquema de vuelta atrás también la encuentra siempre.
+b) Si un esquema de ramificación y poda encuentra la solución óptima a un problema, un esquema de vuelta atrás podría no encontrarla.
+c) Si un esquema de ramificación y poda encuentra la solución óptima a un problema, un esquema de vuelta atrás siempre es mas ineficiente.
+Solución: a
+Justificación:
+
+Pregunta 1022: En un algoritmo de ramificación y poda, si la lista de nodos vivos no está ordenada de forma apropiada . . .:
+a) . . . podría ocurrir que se descarten nodos factibles
+b) . . . podría ocurrir que se pode el nodo que conduce a la solución óptima
+c) . . . podría ocurrir que se exploren nodos de forma innecesaria
+Solución: c
+Justificación:
+
+Pregunta 1023: Para resolver el problema del árbol de recubrimiento mínimo en un grafo con pesos no negativos, ¿qué algoritmo es más eficiente en términos de complejidad temporal si el grafo es denso? (tiene muchos arcos con respecto a los vértices):
+a) Algoritmo de Kruskal
+b) Algoritmo de Prim
+c) Da igual
+Solución: b
+Justificación:
+
+Pregunta 1024: En el esquema de vuelta atrás, el orden en el que se van asignando los distintos valores a las componentes del vector que contendrá la solución...:
+a) ... es irrelevante si no se utilizan mecanismos de poda basados en la mejor solución hasta el momento
+b) ... puede ser relevante si se utilizan mecanismos de poda basados en estimaciones optimistas
+c) Las otras dos opciones son ambas ciertas
+Solución: c
+Justificación:
+
+Pregunta 1025: ¿Qué se necesita para realizar la poda basada en la mejor solución hasta el momento?:
+a) Un almacén donde se guarda el mejor valor con el que se llega a cada nodo del árbol de búsqueda
+b) Una manera de calcular una cota optimista para cada nodo, además de la propia mejor solución hasta el momento
+c) Una manera de calcular una cota optimista para cada nodo y una manera de calcular una cota pesimista del mismo nodo, además de la propia mejor solución hasta el momento
+Solución: b
+Justificación:
+
+Pregunta 1026: Estamos ante un nodo del árbol de búsqueda de ramificación y poda y hemos decidido no explorarlo. ¿Qué podría haber ocurrido?:
+a) Que sus cotas, optimista y pesimista, han coincidido en el mismo valor
+b) Que su cota pesimista no mejora la mejor solución encontrada hasta el momento
+c) Podría haber ocurrido cualquiera de las otras dos alternativas
+Solución: a
+Justificación:
+
+Pregunta 1027: En la resolución mediante ramificación y poda del problema del camino de coste mínimo, ordenamos ascendentemente las casillas del mapa por coste. Dado un nodo parcial (o nodo incompleto), sumamos al coste del camino que llevamos hasta el momento, la suma de las k casillas con menor coste, siendo k = max(n - 1 - i, m - 1 - j). (i, j) es la posición actual y (n, m) el número de filas y columnas del mapa. El valor obtenido es::
+a) Una cota optimista
+b) Una cota pesimista
+c) Ninguna de las anteriores
+Solución: a
+Justificación:
+
+Pregunta 1028: En la solución de ramificación y poda del problema del camino de coste mínimo, ¿para qué puede resultar útil la técnica de poda con memoria?:
+a) Para obtener cotas pesimistas
+b) Para evitar la formación de ciclos
+c) Para ambas cosas
+Solución: c
+Justificación:
+
+Pregunta 1029: Una de estas tres situaciones no es posible. ¿Cuál es?.:
+a) f(n) ∈ O(n) y f(n) ∈ Ω(1)
+b) f(n) ∈ Ω(n^2) y f(n) ∈ O(n)
+c) f(n) ∈ O(n) y f(n) ∈ O(n^2)
+Solución: b
+Justificación:
+
+
+###Examen Junio 2023
+
+Pregunta 1030: Se pretende resolver la versión general del problema del laberinto mediante ramificación y poda. Para obtener la cota optimista de un nodo cualquiera procedemos así: calculamos el número de casillas que quedan, por la diagonal derecha–abajo, hasta llegar a una pared del laberinto. A ese valor le sumamos el número de casillas que podrían quedar desde esa pared hasta la salida utilizando únicamente movimientos del tipo abajo o derecha, según corresponda. ¿Que podemos decir acerca de la cota optimista que se obtendría?:
+a) Que no cumple la condición para ser una cota optimista correcta.
+b) Que no sería eficiente con respecto a otras cotas optimistas, ya que su cálculo requiere una complejidad temporal que no es constante.
+c) Que es una cota optimista correcta y además puede obtenerse con complejidad temporal constante.
+Solución: a
+Justificación:
+
+Pregunta 1031: ¿Cuál de los siguientes enfoques es más eficiente para resolver la versión restringida del problema del laberinto?:
+a) Enfoque voraz.
+b) Enfoque de programación dinámica.
+c) Enfoque de vuelta atrás.
+Solución: b
+Justificación:
+
+Pregunta 1032: Con respecto a la técnica poda con memoria, solo una de las siguientes afirmaciones es cierta. ¿Cuál es?:
+a) No resulta eficaz para resolver la versión general del problema del laberinto mediante ramificación y poda.
+b) No se puede aplicar para resolver la versión restringida del problema del laberinto.
+c) En una solución de vuelta atrás para la versión general del problema del laberinto, sirve también para descartar ciclos.
+Solución: c
+Justificación:
+
+Pregunta 1033: Queremos aplicar la técnica de memoización a la siguiente función recursiva: double f( double x ) { if( x <= 2 ) return x; return f(sqrt(x-1)) + f(sqrt(x-2)); } ¿Cuál sería un buen candidato para el almacén? (La función sqrt() obtiene la raíz cuadrada; xMax es el valor de x en la primera llamada.):
+a) vector< vector<double> > M(xMax+1,vector<double>(xMax+1))
+b) vector<double> M(xMax+1)
+c) Ninguna de las otras dos opciones es válida.
+Solución: c
+Justificación:
+
+Pregunta 1034: ¿Cuál es la complejidad temporal en función de n, del siguiente fragmento: for( int i = 0; i < n; i++ ) { A[i] = 0; for( int j = 0; j < 20; j++ ) A[i] += B[j]; }:
+a) Θ(n log n)
+b) Θ(n^2)
+c) Θ(n)
+Solución: c
+Justificación:
+
+Pregunta 1035: Sea el vector v = {1, 3, 2, 7, 4, 6, 8} cuyos elementos están dispuestos formando un montículo de mínimos. Posteriormente añadimos en la última posición del vector un elemento nuevo con valor 5. ¿Qué operación, de entre las que son válidas, hay que hacer para que el vector siga representando un montículo de mínimos?:
+a) Intercambiar el 7 con el 5.
+b) Intercambiar el 8 con el 5.
+c) No hay que hacer nada pues el vector v = {1, 3, 2, 7, 4, 6, 8, 5} también es un montículo de mínimos.
+Solución: a
+Justificación:
+
+Pregunta 1036: Con los valores numéricos almacenados en un fichero, queremos construir un heap (montículo). ¿cuál es la forma más eficiente de proceder?:
+a) Almacenar esos valores en un vector y después, reorganizar sus elementos para que estén dispuestos en forma de heap.
+b) Almacenar esos valores directamente en un heap que inicialmente está vacío y va creciendo por cada uno de los valores insertados.
+c) Ambas formas de proceder son equivalentes en cuanto a eficiencia.
+Solución: a
+Justificación:
+
+Pregunta 1037: ¿Cuál es la complejidad, en función de n, del siguiente fragmento: (suponed que A está definido como vector<int>A(n) y sort() es la función de ordenación de la librería estándar de C++, que tiene la mejor complejidad, temporal y espacial, posible para un algoritmo de ordenación de propósito general.) std::sort(begin(A), end(A)); int acc = 0; for( auto i : A ) acc += i;:
+a) Θ(n log n)
+b) Θ(n^2)
+c) Θ(n)
+Solución: a
+Justificación:
+
+Pregunta 1038: ¿Cuál es el coste de monticulizar (heapify) un vector de tamaño N ?:
+a) O(N log N) y Ω(N)
+b) Θ(N)
+c) O(N) y Ω(1)
+Solución: b
+Justificación:
+
+Pregunta 1039: Una empresa de transportes dispone de M vehículos para repartir N paquetes, todos al mismo destino. Cada paquete i tiene un peso Pi y se tiene que entregar antes de que transcurra un tiempo TPi . Por otro lado, cada vehículo j puede transportar una carga máxima Cj , tarda un tiempo TVj para llegar al destino y consume una cantidad Lj de litros de combustible, independientemente de la carga que transporta. Imaginad un algoritmo de vuelta atrás que obtenga la manera en que se tienen que transportar los objetos (en qué vehículo j tiene que ir cada objeto i) para que el consumo sea el mínimo. ¿Cuál sería una buena cota optimista?:
+a) La solución voraz del problema de cargar cada paquete en el camión de menor consumo donde cada paquete llega a tiempo, sin tener en cuenta si el camión se sobrecarga o no.
+b) La solución voraz del problema de cargar cada paquete en el camión de menor consumo, sin sobrecargarlo, sin tener en cuenta si el paquete llega a tiempo o no.
+c) Ambas son cotas optimistas válidas.
+Solución: c
+Justificación:
+
+Pregunta 1040: Dada la versión restringida del problema del laberinto, si solo se desea conocer la longitud del camino de salida más corto, ¿cuál es la mejor complejidad temporal y espacial que se puede conseguir si se aplica programación dinámica?:
+a) Temporal Θ(nm) y espacial Θ(min{n, m})
+b) Ninguna de las otras dos opciones es cierta.
+c) Temporal Θ(nm) y espacial Θ(nm)
+Solución: a
+Justificación:
+
+Pregunta 1041: Se pretende resolver la versión general del problema del laberinto mediante un algoritmo de búsqueda y enumeración. Para reducir el número de nodos explorados, ¿qué mecanismo de los relacionados garantiza encontrar la solución y resulta a priori más eficaz?:
+a) Usar una matriz de booleanos para descartar caminos que llegan a una casilla ya visitada. Cada casilla (i, j) de la matriz se inicializa con el valor false.
+b) Usar una matriz de enteros donde se almacena la longitud del mejor camino encontrado hasta el momento que llega a cada casilla del laberinto. Cada casilla (i, j) de la matriz se inicializa con el valor infinito.
+c) Usar una matriz de enteros donde se almacena la longitud del mejor camino encontrado hasta el momento que llega a cada casilla del laberinto. Cada casilla (i, j) de la matriz se inicializa con la solución de programación dinámica para la versión restringida del problema asumiendo que el destino es (i, j).
+Solución: c
+Justificación:
+
+Pregunta 1042: Dada la versión general del problema del laberinto ¿Qué ocurre si la cota optimista de un nodo resulta ser el valor que se obtiene de una solución factible pero que no es la mejor en el subárbol generado por ese nodo?:
+a) Nada especial, las cotas optimistas se corresponden con soluciones factibles que no tienen por qué ser las mejores.
+b) Que el algoritmo sería incorrecto pues podría descartarse el nodo que conduce a la solución óptima.
+c) Que el algoritmo sería más lento pues se explorarían más nodos de los necesarios.
+Solución: b
+Justificación:
+
+Pregunta 1043: ¿Qué inconveniente presenta la siguiente función? void maze(const Maze &maze, vector<vector<bool>> &visited, Point &currentPoint, size_t currentLength, size_t &currentBestLength) { if (currentPoint == maze.exit()) { currentBestLength = min(currentBestLength, currentLength); return; } for (auto step : allSteps) { Point next = currentPoint.next(step); if (maze.is_valid(next) && !visited[next.x()][next.y()] && currentLength < currentBestLength) { visited[next.x()][next.y()] = true; maze(maze, visited, next, currentLength + 1, currentBestLength); visited[next.x()][next.y()] = false; } } return; }:
+a) Que no detecta todos los subproblemas repetidos que pueden aparecer.
+b) Que la poda basada en la mejor solución hasta el momento se puede mejorar fácilmente.
+c) Las otras dos opciones son ambas ciertas.
+Solución: c
+Justificación:
+
+Pregunta 1044: Dada la versión restringida del problema del laberinto, ¿cuál de las estrategias siguientes proveería de una cota optimista para ramificación y poda?:
+a) Suponer que en adelante todas las casillas del laberinto son accesibles.
+b) Las otras dos estrategias son ambas válidas.
+c) Suponer que ya no se van a realizar más movimientos.
+Solución: b
+Justificación:
+
+Pregunta 1045: Indica cuál es la complejidad temporal en función de n, donde A es un vector de enteros y k es una constante que no depende de n, del fragmento siguiente: for( int i = k; i < n - k; i++){ A[i] = 0; for( int j = i - k; j < i + k; j++ ) A[i] += B[j]; }:
+a) Θ(k)
+b) Θ(n^2)
+c) Θ(n)
+Solución: c
+Justificación:
+
+Pregunta 1046: Se pretende resolver la versión general del problema del laberinto mediante ramificación y poda y para ello se usa una estrategia que consiste en priorizar las expansiones de los nodos que contienen un camino explorado más corto. ¿Qué podemos decir del algoritmo resultante?:
+a) Que la primera hoja a la que se llegue es la solución del problema y por lo tanto, ya no será necesario explorar más nodos de la lista de nodos vivos, aunque no esté vacía.
+b) Que el recorrido en el árbol de búsqueda será equivalente a un recorrido por niveles, por lo que no es necesario utilizar una cola de prioridad.
+c) Las otras dos opciones son ambas ciertas.
+Solución: a
+Justificación:
+
+Pregunta 1047: Dada la versión general del problema del laberinto, se pretende resolver mediante vuelta atrás haciendo uso de un mecanismo de poda basado en la mejor solución encontrada hasta el momento. ¿Cuándo se podaría un nodo?:
+a) Cuando el valor de su cota optimista supere al valor de la mejor cota pesimista encontrada hasta el momento.
+b) Cuando el valor de su cota pesimista supere al valor de su cota optimista.
+c) Cuando el valor de su cota optimista supere al valor de su cota pesimista.
+Solución: a
+Justificación:
+
+Pregunta 1048: Dada la versión general del problema del laberinto, tratamos de completar un nodo cualquiera del árbol de búsqueda con el camino que, en caso de existir, obtendríamos asumiendo solo los tres movimientos de la versión restringida. ¿Qué obtendríamos en el caso de completar el nodo?:
+a) Una cota optimista para ese nodo.
+b) Un nodo hoja del subárbol generado por aquel nodo.
+c) Nada de interés, puesto que el camino resultante no contemplaría todos los movimientos permitidos.
+Solución: b
+Justificación:
+
+Pregunta 1049: ¿Cómo se utiliza la cola de prioridad en el algoritmo de ramificación y poda para resolver el problema del laberinto?:
+a) Se agregan los nodos a la cola de prioridad en orden aleatorio para explorar todas las posibilidades.
+b) Los nodos se agregan a la cola de prioridad según una estimación heurística para priorizar los caminos más prometedores.
+c) Los nodos se extraen de la cola de prioridad según se vayan obteniendo.
+Solución: b
+Justificación:
+
+Pregunta 1050: Se dispone de un conjunto de n valores numéricos dispuestos en forma de montículo y se desea obtener el valor de la suma de todos los que al menos tienen un hijo (es decir, no son nodos hoja). ¿Cuál es la complejidad temporal del mejor algoritmo que se puede escribir?:
+a) O(n)
+b) O(log n)
+c) O(n log n)
+Solución: a
+Justificación:
+
+Pregunta 1051: Se dispone de un conjunto de n valores numéricos dispuestos en un vector sin orden preestablecido. Se desea escribir una función que reciba ese vector y un valor k (n/2 <= k <= n) y que devuelva los k valores más pequeños dispuestos en otro vector de manera ordenada. ¿Cuál es la complejidad temporal del mejor algoritmo que se puede escribir?:
+a) O(kn)
+b) Ninguna de las otras dos opciones es cierta.
+c) O(k log n)
+Solución: b
+Justificación:
+
+Pregunta 1052: Para resolver la versión general del problema de la mochila con n objetos y carga máxima W , hemos escrito un algoritmo de divide y vencerás que, sucesivamente, divide el problema en dos subproblemas; cada uno de ellos toma la mitad de los objetos y la mitad de la carga máxima de la mochila. El caso base ocurre cuando solo hay un objeto que se añade a la solución si cabe en la fracción de carga máxima que corresponde a ese subproblema, y si no cabe se descarta. Asumiendo que n y W son potencias exactas de 2, ¿qué podemos decir de esta solución?:
+a) Que con los resultados de los subproblemas no siempre se puede componer la solución del problema original.
+b) Que no cumple el teorema de reducción.
+c) Que, aunque con los resultados de los subproblemas se puede componer la solución del problema original, esta formulación no mejora la solución estudiada en clase.
+Solución: a
+Justificación:
+
+Pregunta 1053: Dada la solución naive de la versión restringida del problema del laberinto, en general, ¿cuántas veces se llega al caso base de la recursión?:
+a) Solo una.
+b) Un valor que puede crecer exponencialmente con el tamaño del laberinto.
+c) Un valor que a lo sumo es n · m.
+Solución: b
+Justificación:
+
+Pregunta 1054: Se pretende resolver el problema del viajante de comercio (travelling salesman problem) mediante el esquema de vuelta atrás. ¿Cuál de los siguientes valores se espera que se comporte mejor como cota optimista para un nodo?:
+a) La suma de los pesos de las k aristas restantes más cortas, donde k es el número de ciudades que quedan por visitar.
+b) El valor que se obtiene de multiplicar k por el peso de la arista más corta de entre las restantes, donde k es el número de ciudades que quedan por visitar.
+c) La suma de los pesos de las aristas que completan la solución paso a paso visitando el vértice más cercano al último visitado.
+Solución: a
+Justificación:
+
+Pregunta 1055: La distancia de Manhattan (d) entre dos puntos (x1, y1) y (x2, y2) viene dada por la expresión d = |x1 - x2| + |y1 - y2|. ¿Podría utilizarse como cota optimista para resolver la versión general de problema del laberinto?:
+a) No, puesto que incumple la condición para ser una cota optimista correcta.
+b) Sí, pero hay otros estimadores que se suelen comportar mejor ante este problema.
+c) Sí, y además tiene la ventaja de que se puede calcular con complejidad temporal constante.
+Solución: a
+Justificación:
+
+Pregunta 1056: Estamos resolviendo la versión restringida del problema del laberinto. Ya hemos obtenido el almacén de resultados parciales. ¿Con qué complejidad temporal podemos obtener un camino de salida de longitud mínima si es que existe?:
+a) Θ(m + n)
+b) Ω(mín(n, m)q y O(mn)
+c) Θ(mn)
+Solución: a
+Justificación:
+
+Pregunta 1057: Dados dos nodos cualesquiera del árbol de búsqueda de ramificación y poda, en general, ¿se puede saber con certeza cuál está más cerca de la solución óptima del problema a resolver?:
+a) Sí, el que tiene mejor cota optimista.
+b) Sí, el que tiene mejor cota pesimista.
+c) Sí, pero solo si ambos nodos son hoja.
+Solución: c
+Justificación:
+
+Pregunta 1058: De las siguientes expresiones, o bien dos son ciertas y una es falsa, o bien al contrario, una es cierta y dos son falsas. Marca la que en este sentido es diferente a las otras dos:
+a) sum_{i=1}^{n} sum_{j=1}^{i} 2^j ∈ O(n log n)
+b) sum_{i=1}^{log n} sum_{j=1}^{i} 2^j ∈ O(n^2)
+c) sum_{i=1}^{n} sum_{j=1}^{log n} 2^j ∈ O(n log n)
+Solución: b
+Justificación:
+
+Pregunta 1059: Dada la versión restringida del problema del laberinto, ¿se podría modificar la solución naive de divide y vencerás para que obtenga el número total de caminos diferentes, de cualquier longitud, que conducen a la salida desde el origen?:
+a) No se puede, ya que no se trataría de un problema de optimización.
+b) No se puede, puesto que se trata de un nuevo problema que no cumple las condiciones de aplicación de divide y vencerás.
+c) Sí, pero puesto que se trata de un nuevo problema, hay que cambiar la recurrencia matemática inicial.
+Solución: c
+Justificación:
+
+Pregunta 1060: Con respecto a los algoritmos estudiados durante el curso que encuentran el árbol de recubrimiento de mínimo coste, de las afirmaciones siguientes, o bien dos son verdaderas y una es falsa, o bien dos son falsas y una es verdadera. Marca la que (en este sentido) es diferente de las otras dos.:
+a) El algoritmo de Kruskal va construyendo un bosque de árboles que va uniendo hasta que acaba con un árbol de recubrimiento de coste mínimo.
+b) El algoritmo de Prim se puede acelerar notablemente si los vértices se organizan en una estructura union-find.
+c) La complejidad temporal del algoritmo de Prim es cúbica con respecto al número de vértices del grafo.
+Solución: a
+Justificación:
+
+Pregunta 1061: ¿Qué hace la siguiente función? void f( vector<int>&A ) { priority queue<int>pq; for( auto i : A ) pq.push(A[i]); A.clear(); while( !pq.empty() ) { A.push_back(pq.top()); pq.pop(); } }:
+a) Invierte el vector A (el último elemento quedará el primero).
+b) Nada, deja el vector A como estaba.
+c) Ordena el vector A.
+Solución: c
+Justificación:
+
+Pregunta 1062: ¿De qué clase de complejidad es la solución de la siguiente relación de recurrencia? f(n) = n(n - 1) + f(n - 1) si n > 0; f(0) = 1 si n = 0:
+a) f(n) ∈ Θ(n^2)
+b) f(n) ∈ Θ(n^3)
+c) Ninguna de las otras dos opciones es cierta.
+Solución: b
+Justificación:
+
+Pregunta 1063: Un fontanero tiene una jornada de Q cuartos de hora (es así como se organiza la agenda) y tiene C clientes. El trabajo del cliente i tarda qi cuartos de hora y el fontanero le cobra un precio pi . Es posible que no pueda atender todos los clientes en la jornada, que nunca puede alargar. Este problema tiene una solución bien conocida que permite elegir qué clientes visitar para que la suma cobrada al final de la jornada sea la máxima. ¿Qué podemos decir de esta solución?:
+a) Que se ha de implementar forzosamente con un algoritmo de búsqueda y enumeración como el de vuelta atrás.
+b) Que la organización de la agenda en cuartos de hora permite obtener una solución de complejidad temporal Θ(QC) y complejidad espacial Θ(Q).
+c) Que no se puede implementar con una solución de "divide y vencerás" con memoización.
+Solución: b
+Justificación:
+
+Pregunta 1064: ¿Cuál es la característica principal de un algoritmo voraz aplicado al problema del laberinto?:
+a) Explora exhaustivamente todas las posibles soluciones del laberinto.
+b) Toma decisiones locales óptimas en cada paso sin considerar el panorama general.
+c) Utiliza una estrategia basada en estimaciones heurísticas para encontrar la solución óptima.
+Solución: b
+Justificación:
+
+Pregunta 1065: Dada la versión restringida del problema del laberinto, estamos interesados en obtener, para cada casilla accesible del laberinto, el camino más corto entre el origen y esa casilla. ¿Qué esquema es el más apropiado en este caso?:
+a) La versión iterativa de programación dinámica.
+b) Memoización.
+c) Ambas técnicas resultan equivalentes.
+Solución: a
+Justificación:
+
+Pregunta 1066: El problema de la moneda consiste a formar una suma M con el número mínimo de monedas tomadas (con repetición) de un conjunto C donde hay una cantidad suficientemente grande de monedas con cada posible valor facial C = {c1, c2, ..., c|C|}, con c1 = 1. ¿Cuál de estas afirmaciones sobre un algoritmo recursivo de la forma nopt(M) = 1 + min_{1<=i<=|C|} nopt(M - c_i); nopt(0) = 0; nopt(x) = ∞ para x < 0 es falsa?:
+a) Dependiendo de cuáles sean los valores faciales y la suma, puede ser que el algoritmo recursivo no encuentre solución.
+b) Tiene un coste temporal prohibitivo, ya que puede calcular nopt (x) para el mismo valor de x más de una vez.
+c) Encuentra siempre la solución óptima.
+Solución: a
+Justificación:
+
+Pregunta 1067: ¿Qué obtenemos con la siguiente declaración de C++: priority queue<nodo> pq; ?:
+a) Un heap o montículo de máximos.
+b) Un heap o montículo de mínimos.
+c) Un heap o montículo sin orden establecido ya que no se ha definido la función de comparación.
+Solución: a
+Justificación:
+
+Pregunta 1068: En un algoritmo de búsqueda y enumeración, ¿qué podemos decir acerca de la heurística que se utiliza para determinar si un nodo debe expandirse o no?:
+a) Que puede equivocarse, por eso se le llama heurística.
+b) Que también puede usarse como estrategia de búsqueda.
+c) Las otras dos opciones son ambas ciertas.
+Solución: c
+Justificación:
+
+Pregunta 1069: En cuanto a la posibilidad de aplicar la técnica de programación dinámica iterativa para resolver un problema::
+a) Se debe conocer de antemano todos los posibles subproblemas y además, se debe disponer de una ordenación entre todos ellos según tamaño.
+b) No necesariamente ha de conocerse de antemano todos los posibles subproblemas pero sí debe saberse, dados dos de ellos cualesquiera, cuál es más pequeño.
+c) Se debe conocer de antemano todos los posibles subproblemas pero no necesariamente se debe disponer de una ordenación entre todos ellos según tamaño.
+Solución: a
+Justificación:
+
+
+###Examen Julio 2023
+
+Pregunta 1070: Dada la siguiente relación de recurrencia, ¿qué cota es verdadera? f(n) = 1 si n = 1; f(n) = n^2 + 2f(n/4) si n > 1:
+a) f(n) ∈ Θ(n^2)
+b) f(n) ∈ Θ(n^2 log n)
+c) f(n) ∈ Θ(n^3)
+Solución: a
+Justificación:
+
+Pregunta 1071: De las siguientes igualdades, o bien dos son ciertas y una es falsa, o bien una es cierta y dos son falsas. Marca la que es diferente a las otras dos.:
+a) Θ(n) = O(n) ∪ Ω(n)
+b) Θ(n) = O(n) ∩ Θ(n)
+c) O(n) = O(n) ∩ Θ(n)
+Solución: b
+Justificación:
+
+Pregunta 1072: ¿Cuál es la condición base para terminar la recursión en la implementación por divide y vencerás del problema restringido del laberinto?:
+a) Llegar al inicio del laberinto (fila 0 columna 0) o al final del laberinto (fila m - 1, columna n - 1), según cómo se establezca la recursión.
+b) Llegar a una celda con valor 0 en el laberinto.
+c) Las otras dos opciones son ambas ciertas.
+Solución: a
+Justificación:
+
+Pregunta 1073: En la implementación naive de la versión restringida del problema del laberinto, en el caso de que las tres direcciones sean posibles ¿qué hay que hacer con las longitudes de los caminos obtenidos con las llamadas recursivas?:
+a) Elegir la más grande y sumarle uno.
+b) Elegir la más pequeña y sumarle uno.
+c) Elegir la más cercana y sumarle uno.
+Solución: b
+Justificación:
+
+Pregunta 1074: ¿Qué estructuras de datos utilizaste en la implementación naive de la versión restringida del problema del laberinto? (excluyendo el laberinto):
+a) Una cola de prioridad.
+b) Una matriz bidimensional.
+c) Ninguna de las otras dos opciones es cierta.
+Solución: c
+Justificación:
+
+Pregunta 1075: ¿En qué parte de los algoritmos que hacen uso de la memoización se realiza la verificación de si un subproblema ha sido ya resuelto?:
+a) Al inicio del algoritmo.
+b) Antes de realizar la llamada recursiva.
+c) Después de realizar la llamada recursiva.
+Solución: a
+Justificación:
+
+Pregunta 1076: Queremos conocer el camino de mínima longitud en el problema restringido del laberinto usando un algoritmo de programación dinámica con la técnica de complejidad espacial mejorada (con dos vectores). ¿Cómo se puede obtener?:
+a) Ninguna de las otras dos opciones es válida.
+b) Recorriendo el primer vector, empezando por la casilla de salida y buscando los resultados de los subproblemas accesibles a partir de ella.
+c) Recorriendo el primer vector, empezando por la casilla de entrada y buscando los resultados de los subproblemas accesibles a partir de ella.
+Solución: a
+Justificación:
+
+Pregunta 1077: ¿Qué estrategia es mejor en los algoritmos voraces para resolver el problema restringido del laberinto?:
+a) Elegir siempre la dirección hacia la salida más cercana que no esté bloqueada.
+b) Elegir la dirección con menos obstáculos en cada paso.
+c) Elegir aleatoriamente una dirección en cada paso.
+Solución: a
+Justificación:
+
+Pregunta 1078: ¿Qué estrategia se sigue para realizar la exploración del laberinto con la técnica de vuelta atrás?:
+a) Realizar una búsqueda en profundidad siguiendo un orden predefinido de movimientos.
+b) Utilizar una búsqueda en amplitud para explorar todas las posibles soluciones en paralelo.
+c) Realizar una búsqueda heurística utilizando una función de evaluación para guiar la exploración hacia la solución óptima.
+Solución: a
+Justificación:
+
+Pregunta 1079: En la aplicación al problema general del laberinto del algoritmo de ramificación y poda utilizando una cola de prioridad, ¿qué función cumple la cola de prioridad en el proceso de exploración del laberinto?:
+a) Ordenar los caminos explorados en función de un criterio de evaluación para seleccionar el siguiente camino a explorar.
+b) Almacenar todos los caminos explorados para su posterior análisis y comparación.
+c) Realizar una búsqueda en amplitud de todos los caminos posibles antes de tomar una decisión.
+Solución: a
+Justificación:
+
+Pregunta 1080: Si estamos procesando la casilla (i, j) y la casilla de salida del laberinto es la (m, n), ¿cuál de las siguientes opciones será una buena cota pesimista al camino que queda por recorrer?:
+a) máxp|m - i|, |n - j|q
+b) |m - i| + |m - j|
+c) Ninguna de las otras dos opciones es cierta.
+Solución: c
+Justificación:
+
+Pregunta 1081: Decid cuál de estas tres afirmaciones sobre el problema de la mochila sin división de los objetos y con pesos discretos es cierta.:
+a) El algoritmo de programación dinámica iterativa que lo resuelve calcula el mismo número de subproblemas que un algoritmo de programación dinámica recursiva (del tipo "divide y vencerás" que gestiona un almacén de memoización).
+b) El algoritmo de programación dinámica iterativa que lo resuelve precisa como mucho un espacio del orden de Θ(n) donde n es el número de objetos.
+c) El algoritmo de programación dinámica iterativa que lo resuelve precisa como mucho un espacio del orden de Θ(P) donde P es el peso máximo de la mochila.
+Solución: c
+Justificación:
+
+Pregunta 1082: ¿Qué estructura de datos es la más eficiente en la programación dinámica iterativa para almacenar los subproblemas resueltos del problema de la mochila sin división de los objetos y con pesos discretos?:
+a) Una cola de prioridad.
+b) Una matriz unidimensional.
+c) Un árbol binario.
+Solución: b
+Justificación:
+
+Pregunta 1083: Di cuál de estas tres afirmaciones sobre las soluciones basadas en algoritmos de búsqueda y enumeración (vuelta atrás, ramificación y poda) para el problema de la mochila sin división de los objetos es cierta.:
+a) No requieren que los pesos sean discretos o discretizables.
+b) Requieren que los pesos sean discretos o discretizables para definir los niveles del árbol de búsqueda.
+c) Deben visitar obligatoriamente todas las soluciones factibles para determinar cuál es la solución óptima.
+Solución: a
+Justificación:
+
+Pregunta 1084: ¿Cuál de estos tres algoritmos de ordenación de vectores tiene una complejidad temporal en el caso peor que es cuadrática con la longitud del vector?:
+a) Quicksort
+b) Mergesort
+c) Heapsort
+Solución: a
+Justificación:
+
+Pregunta 1085: ¿Cuál de estos tres algoritmos de ordenación de vectores tiene la peor complejidad temporal en el caso mejor?:
+a) Mergesort
+b) Ordenación por inserción.
+c) Quicksort.
+Solución: a
+Justificación:
+
+Pregunta 1086: Indica cuál de estos tres algoritmos necesita espacio adicional para ordenar el vector.:
+a) Heapsort
+b) Quicksort
+c) Mergesort
+Solución: c
+Justificación:
+
+Pregunta 1087: Indica para cuál de estos tres algoritmos de ordenación el coste temporal asintótico en el caso peor es peor que el coste temporal asintótico en el caso mejor.:
+a) Heapsort
+b) Quicksort
+c) Mergesort
+Solución: b
+Justificación:
+
+Pregunta 1088: ¿Cuál es la complejidad temporal (en función de n) del fragmento siguiente de C++? for (int i = n; i > 0; i/=2) for (int j = 0; j < n; j++) cout << ‘‘*’’;:
+a) Θ(n log n)
+b) Θ(n^2)
+c) Θ(n)
+Solución: a
+Justificación:
+
+Pregunta 1089: El algoritmo de ordenación por selección y heapsort son similares en que obtienen el máximo de los n elementos, lo ponen al final, y después hacen lo mismo con n - 1 elementos, así hasta que sólo les queda un elemento. Di cuál de estas afirmaciones es cierta::
+a) Por ello, la complejidad temporal asintótica en el caso peor de heapsort y del algoritmo de ordenación por inserción es la misma.
+b) La complejidad temporal asintótica en el caso peor del algoritmo de ordenación por selección es peor porque, al contrario que heapsort, debe realizar necesariamente k operaciones para determinar cuál es el máximo de los primeros k elementos del vector.
+c) La complejidad temporal asintótica en el caso mejor del algoritmo de ordenación por selección es mejor que la de heapsort porque la gestión la estructura de heap lo encarece.
+Solución: b
+Justificación:
+
+Pregunta 1090: ¿Tiene sentido usar el método de ramificación y poda para encontrar la solución (o una solución) de un problema que no es de optimización?:
+a) No, porque al no ser un problema de optimización, no es posible usar cotas optimistas y pesimistas.
+b) No, porque al no ser un problema de optimización, no tiene sentido usar ramificación y poda: se debe usar el método vuelta atrás.
+c) Sí, porque se puede usar alguna propiedad de las soluciones parciales para ordenar la búsqueda y reducir el tiempo de cómputo, al evitar visitar partes del espacio de soluciones.
+Solución: c
+Justificación:
+
+Pregunta 1091: ¿Cuál de los siguientes tres problemas de optimización posee una solución voraz exacta?:
+a) El problema del cambio (formar una suma entera M con el número mínimo de monedas tomadas (con repetición) de un conjunto donde existe una cantidad suficientemente grande de monedas con cada posible valor facial, asumiendo que existen siempre monedas de valor facial unidad y que los contenedores de monedas están previamente ordenados por valor facial.
+b) El problema de determinar cómo usar la mínima longitud de línea telefónica para conectar las n casas de una isla.
+c) El problema de unir las n casas de una isla con la mínima longitud de línea telefónica, pero formando un ciclo; es decir, de manera que todas las casas están unidas únicamente a otras dos casas de la isla, ni una más ni una menos.
+Solución: b
+Justificación:
+
+Pregunta 1092: En el caso más favorable, ¿cuál es la complejidad temporal que se puede conseguir con una solución de ramificación y poda para el problema del laberinto?:
+a) Ω(m · n)
+b) Ω(máx(m, n)q
+c) Ω(mín(m, n)q
+Solución: b
+Justificación:
+
+Pregunta 1093: Se pretende resolver la versión general del problema del laberinto mediante un algoritmo de búsqueda y enumeración. Para reducir los nodos visitados, utilizamos un almacén de resultados parciales obtenido mediante la técnica de programación dinámica iterativa aplicándola a la versión restringida del mismo problema. El almacén se rellena hacia atrás comenzando en la casilla de salida del laberinto. ¿de qué poda se trata?:
+a) De una poda basada en la cota optimista.
+b) De una poda basada en la cota pesimista.
+c) Ninguna de las otras dos opciones es cierta.
+Solución: b
+Justificación:
+
+Pregunta 1094: Dada la versión restringida del problema del laberinto, ¿se podría obtener el camino de salida de longitud mínima haciendo uso únicamente de la versión naive de programación dinámica sin ningún tipo de procesamiento posterior?:
+a) No, el camino solo puede obtenerse a través del almacén de una versión iterativa o con memoización, en un proceso posterior.
+b) Sí, cada vez que se resuelve un subproblema hay que tomar el camino que corresponde a la mejor alternativa de las tres posibles y añadirle las coordenadas del subproblema que se está resolviendo.
+c) Sí, el mejor camino puede construirse de forma incremental, paso a paso, añadiendo la siguiente casilla a visitar que corresponde con la mejor alternativa de las tres posibles.
+Solución: b
+Justificación:
+
+Pregunta 1095: Para resolver la versión general del problema del laberinto mediante vuelta atrás, utilizamos el estimador que aparece en el listado. ¿Serviría como cota optimista para cualquier nodo del árbol de búsqueda? using Maze = vector<vector<bool>>; using Point = tuple<size_t, size_t>; size_t estimator(const Maze &maze, const Point &p) { return max(maze.size() - get<0>(p), maze[0].size() - get<1>(p)) - 1; }:
+a) No, puesto que no sería una cota optimista válida para todos los nodos.
+b) Sí, el estimador por si solo ya representaría una buena cota optimista.
+c) Sí, pero para mejorar la poda habría que sumarle la longitud del camino que representa cada nodo.
+Solución: c
+Justificación:
+
+Pregunta 1096: Las siguientes afirmaciones se refieren a un nodo cualquiera del árbol de búsqueda de ramificación y poda en un problema de minimización. De ellas, o bien dos son ciertas y una es falsa, o bien una es cierta y dos son falsas. Marca la que es diferente a las otras dos.:
+a) El nodo no es prometedor si su cota pesimista es menor que su cota optimista.
+b) El nodo no es prometedor si su cota pesimista es mayor que su cota optimista.
+c) El nodo no es prometedor si su cota optimista es mayor que la mejor cota pesimista encontrada hasta el momento.
+Solución: c
+Justificación:
+
+Pregunta 1097: Se pretende resolver la versión general del problema del laberinto. ¿Resultaría útil disponer de un almacén de resultados parciales obtenido mediante la técnica de programación dinámica iterativa aplicándola a la versión restringida del mismo problema?:
+a) Las otras dos opciones son ambas ciertas.
+b) Probablemente sí, rellenando un almacén hacia delante desde la casilla de entrada al laberinto.
+c) Probablemente sí, rellenando un almacén hacia atrás comenzando en la casilla de salida del laberinto.
+Solución: a
+Justificación:
+
+Pregunta 1098: ¿Cuál de las siguientes formulaciones expresa mejor la complejidad temporal, en función del parámetro n, de la siguiente función? (asumimos que n es potencia exacta de 2) int f(int n) { int k = 0; for (int i = 2; i <= n; i *= 2) for (int j = n; j > 0; j -= 2) k++; return k; }:
+a) sum_{p=2}^{n/2} 2^{p-1}
+b) sum_{p=1}^{log n} 2^{p-1}
+c) sum_{p=1}^{log n} n/2
+Solución: c
+Justificación:
+
+Pregunta 1099: Se pretende resolver la versión general del problema del laberinto mediante un algoritmo de búsqueda y enumeración. Para reducir los nodos visitados, utilizamos una matriz de enteros donde se almacena la longitud del mejor camino encontrado hasta el momento que llega a cada casilla del laberinto. ¿de qué poda se trata?:
+a) De una poda basada en la cota optimista.
+b) De una poda basada en la cota pesimista.
+c) Ninguna de las otras dos opciones es cierta.
+Solución: c
+Justificación:
+
+Pregunta 1100: Se pretende resolver la versión general del problema del laberinto mediante un algoritmo de búsqueda y enumeración. Para agilizar la búsqueda, hemos pensado utilizar una matriz en la que cada casilla (i, j) se inicializa con la solución de la versión restringida del problema asumiendo que el origen del laberinto es (i, j). ¿Qué utilidad puede tener esta matriz?:
+a) Ninguna, en todo caso habría que inicializar cada casilla (i, j) con la solución de la versión restringida del problema asumiendo que el origen del laberinto es (0, 0) y el destino (i, j).
+b) A priori poca, ya que cada vez que un nodo visita una casilla (i, j) habría que actualizar la matriz, lo que perjudicaría la eficiencia del algoritmo resultante.
+c) Puede resultar eficaz para ajustar la mejor cota pesimista encontrada hasta el momento y además, no es imprescindible actualizar la matriz durante todo el proceso de búsqueda.
+Solución: c
+Justificación:
+
+Pregunta 1101: Con la técnica de programación dinámica aplicada a la versión restringida del problema del laberinto. . .:
+a) . . . no solo puede obtenerse el camino de salida más corto, también puede obtenerse, sin incrementar la complejidad temporal, el camino más corto desde el origen hasta cualquier casilla accesible del laberinto.
+b) . . . puede obtenerse el camino más corto desde cualquier casilla accesible hasta la salida si es que existe.
+c) Las otras dos opciones son ambas ciertas.
+Solución: c
+Justificación:
+
+Pregunta 1102: Dada la versión restringida del problema del laberinto, ¿se puede modificar la solución de programación dinámica con complejidad espacial reducida para obtener también un camino de salida de longitud mínima?:
+a) No.
+b) Sí, pero a costa de aumentar la complejidad espacial del almacén.
+c) Sí, añadiendo un vector de movimientos.
+Solución: b
+Justificación:
+
+Pregunta 1103: El problema de la moneda consiste en formar una suma M con el número mínimo de monedas tomadas (con repetición) de un conjunto donde hay una cantidad suficientemente grande de monedas de cada posible valor facial. Asumiremos que los contenedores de monedas están previamente ordenados por valor facial. ¿Cuál de estas afirmaciones sobre el algoritmo voraz obvio es falsa?:
+a) Dependiendo de cuáles sean los valores faciales y la suma, puede ser que el algoritmo voraz no encuentre ninguna solución.
+b) Dependiendo de cuáles sean los valores faciales y la suma, puede ser que el algoritmo voraz no encuentre la solución que menos monedas usa.
+c) Tiene una complejidad temporal Θ(M).
+Solución: a
+Justificación:
+
+Pregunta 1104: ¿Cuál de las siguientes afirmaciones es cierta sobre la complejidad temporal, en el caso peor, de los algoritmos de vuelta atrás y ramificación y poda aplicados a la versión general del problema de la mochila?:
+a) Ambos algoritmos tienen la misma complejidad temporal.
+b) El algoritmo de vuelta atrás tiene una complejidad temporal peor que el de ramificación y poda.
+c) El algoritmo de ramificación y poda tiene una complejidad temporal peor que el de vuelta atrás.
+Solución: a
+Justificación:
+
+Pregunta 1105: Una empresa de transportes dispone de M vehículos para repartir N paquetes, todos al mismo destino. Cada paquete i tiene un peso Pi y se tiene que entregar antes de que transcurra un tiempo TPi . Por otro lado, cada vehículo j puede transportar una carga máxima Cj , tarda un tiempo TVj para llegar al destino y consume una cantidad Lj de litros de combustible, independientemente de la carga que transporta. Imaginad un algoritmo de vuelta atrás que obtenga la manera en que se tienen que transportar los objetos (en qué vehículo j tiene que ir cada objeto i) para que el consumo sea el mínimo. ¿Cuál sería una buena cota pesimista?:
+a) La solución voraz del problema de cargar cada paquete en el camión de menor consumo donde cada paquete llega a tiempo, sin tener en cuenta si el camión se sobrecarga o no.
+b) La solución voraz del problema de cargar cada paquete en el camión de menor consumo donde cada paquete llega a tiempo, sin sobrecargar ningún camión.
+c) Ninguna de las otras dos opciones es correcta.
+Solución: b
+Justificación:
+
+Pregunta 1106: Las siguientes afirmaciones se refieren a un nodo cualquiera del árbol de búsqueda de ramificación y poda en un problema de maximización. De ellas, o bien dos son ciertas y una es falsa, o bien una es cierta y dos son falsas. Marca la que es diferente a las otras dos.:
+a) Si su cota pesimista es menor que el mejor valor encontrado hasta el momento, entonces el nodo no podrá mejorar dicho valor.
+b) Si su cota optimista es menor que el mejor valor encontrado hasta el momento, entonces el nodo no podrá mejorar dicho valor.
+c) Su cota optimista es un valor que podría llegar a alcanzarse.
+Solución: b
+Justificación:
+
+Pregunta 1107: Debemos calcular A^n, donde A es una matriz de m x m elementos. ¿Existe una solución que evite realizar n - 1 multiplicaciones de coste m^3 ?:
+a) No, la única manera de calcular An es iterativamente, A^n = A·A^{n-1} y se deben realizar n - 1 multiplicaciones.
+b) Sí, existe una solución más eficiente del estilo "divide y vencerás", que usa un espacio Θ(m^3 log n).
+c) Sí, existe una solución más eficiente del estilo "divide y vencerás", que usa un espacio Θ(m^3 n).
+Solución: b
+Justificación:
+
+Pregunta 1108: Sean dos funciones de coste f: N -> R+ y g: N -> R+ tales que f ∈ O(g). De las siguientes situaciones, o bien dos pueden suceder y la otra no, o bien dos no pueden suceder y la otra sí. Indica la que es diferente de las otras dos:
+a) lim_{n->∞} f(n)/g(n) = ∞
+b) lim_{n->∞} f(n)/g(n) = k, con k ∈ R+ y k ≠ 0
+c) lim_{n->∞} f(n)/g(n) = 0
+Solución: a
+Justificación:
+
+Pregunta 1109: Una de las siguientes afirmaciones es cierta. Di cuál.:
+a) Θ(2^n) != Θ(3^n)
+b) O(2^n) ⊂ O(n^2)
+c) Ω(2^n) ⊂ Ω(n!)
+Solución: a
+Justificación:
